@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Good Soil | STEM Kit Procurement Catalogue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: #131b2e;
+      --bg-card-hover: #1a253e;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(16, 185, 129, 0.3);
+      --primary: #10b981;
+      --primary-glow: rgba(16, 185, 129, 0.25);
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-amber: #f59e0b;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+    }
+
+    .header-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 0 20px var(--primary-glow);
+    }
+
+    .brand-text h1 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #ffffff, #a7f3d0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 480px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 16px var(--primary-glow);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .header-stats {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .stat-badge {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Main Container */
+    .app-layout {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+    }
+
+    /* Sidebar Filters */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .filter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+
+    .filter-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-height: 240px;
+      overflow-y: auto;
+      padding-right: 0.25rem;
+    }
+
+    .filter-options::-webkit-scrollbar {
+      width: 4px;
+    }
+    .filter-options::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      cursor: pointer;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+
+    .checkbox-label:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .checkbox-label input {
+      accent-color: var(--primary);
+      margin-right: 0.6rem;
+      cursor: pointer;
+    }
+
+    .count-pill {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 0.15rem 0.45rem;
+      border-radius: 10px;
+    }
+
+    /* Content Header */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .cat-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cat-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cat-btn:hover, .cat-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #000;
+      font-weight: 600;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .sort-box {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .sort-select {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      padding: 0.45rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Product Grid */
+    .catalogue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .kit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .kit-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-accent);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-thumb {
+      height: 190px;
+      width: 100%;
+      background: #0d1322;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .kit-card:hover .card-thumb img {
+      transform: scale(1.06);
+    }
+
+    .thumb-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .thumb-placeholder span {
+      font-size: 2.2rem;
+    }
+
+    .vendor-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .fit-badge {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: rgba(16, 185, 129, 0.9);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+    }
+
+    .card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #f9fafb;
+      margin-bottom: 0.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      height: 2.8em;
+    }
+
+    .card-price {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #34d399;
+      margin-bottom: 0.75rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-color);
+      padding-top: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .age-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .age-label strong {
+      color: #fff;
+    }
+
+    .btn-view {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-view:hover {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+    }
+
+    /* Modal Drawer */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+      transform: scale(0.95);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .modal-content {
+      padding: 2rem;
+    }
+
+    .modal-header-img {
+      width: 100%;
+      height: 280px;
+      background: #0d1322;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item strong {
+      color: #fff;
+      display: block;
+      font-size: 1rem;
+    }
+
+    .modal-desc {
+      font-size: 0.95rem;
+      color: #d1d5db;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-primary-link {
+      flex: 1;
+      background: var(--primary);
+      color: #000;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .btn-primary-link:hover {
+      box-shadow: 0 0 20px var(--primary-glow);
+      transform: translateY(-2px);
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+    }
+
+    .empty-state h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .app-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">🌱</div>
+        <div class="brand-text">
+          <h1>Good Soil Procurement</h1>
+          <p>Master STEM Kit Catalogue</p>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by kit name, vendor, robotics, AI, grade...">
+      </div>
+
+      <div class="header-stats">
+        <div class="stat-badge">
+          <span id="totalKitsBadge">805</span> Kits Loaded
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+    <!-- Sidebar Filters -->
+    <aside class="sidebar">
+      <!-- Vendor Filter -->
+      <div class="filter-card">
+        <div class="filter-title">
+          <span>Vendors</span>
+          <button id="clearVendorsBtn" style="background:none;border:none;color:var(--primary);font-size:0.75rem;cursor:pointer;">Clear</button>
+        </div>
+        <div class="filter-options" id="vendorFilters"></div>
+      </div>
+
+      <!-- Age Group Filter -->
+      <div class="filter-card">
+        <div class="filter-title">
+          <span>Age Group</span>
+        </div>
+        <div class="filter-options" id="ageFilters"></div>
+      </div>
+    </aside>
+
+    <!-- Main Content Grid -->
+    <main class="main-content">
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="cat-pills" id="categoryPills">
+          <button class="cat-btn active" data-cat="all">All Kits</button>
+          <button class="cat-btn" data-cat="Robotics">🤖 Robotics</button>
+          <button class="cat-btn" data-cat="Coding">💻 Coding</button>
+          <button class="cat-btn" data-cat="Electronics">⚡ Electronics</button>
+          <button class="cat-btn" data-cat="IoT">🌐 IoT</button>
+          <button class="cat-btn" data-cat="AI">🧠 AI</button>
+          <button class="cat-btn" data-cat="Science">🔬 Science</button>
+          <button class="cat-btn" data-cat="Mechanical">⚙️ Mechanical</button>
+          <button class="cat-btn" data-cat="DIY">🛠️ DIY</button>
+        </div>
+
+        <div class="sort-box">
+          <label>Sort By:</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Default Priority</option>
+            <option value="vendor">Vendor Name</option>
+            <option value="name">Kit Name (A-Z)</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="catalogue-grid" id="catalogueGrid"></div>
+    </main>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="catalogue_data.js"></script>
+  <script>
+    const KIT_CATALOGUE = (typeof CATALOGUE_DATA !== 'undefined') ? CATALOGUE_DATA : [];
+    let activeCategory = 'all';
+
+    function initCatalogue() {
+      renderVendorFilters();
+      renderAgeFilters();
+      renderCatalogue();
+
+      // Search Event
+      document.getElementById('searchInput').addEventListener('input', renderCatalogue);
+      document.getElementById('sortSelect').addEventListener('change', renderCatalogue);
+
+      // Category Pills Event
+      document.getElementById('categoryPills').addEventListener('click', (e) => {
+        const catBtn = e.target.closest('.cat-btn');
+        if (catBtn) {
+          document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+          catBtn.classList.add('active');
+          activeCategory = catBtn.dataset.cat;
+          renderCatalogue();
+        }
+      });
+
+      // Modal Events
+      document.getElementById('modalClose').addEventListener('click', closeModal);
+      document.getElementById('detailModal').addEventListener('click', (e) => {
+        if (e.target.id === 'detailModal') closeModal();
+      });
+    }
+
+    function renderVendorFilters() {
+      const counts = {};
+      KIT_CATALOGUE.forEach(k => {
+        const v = k.vendor || 'Unknown Vendor';
+        counts[v] = (counts[v] || 0) + 1;
+      });
+
+      const container = document.getElementById('vendorFilters');
+      container.innerHTML = Object.keys(counts).sort().map(v => `
+        <label class="checkbox-label">
+          <span><input type="checkbox" class="vendor-chk" value="${v}"> ${v}</span>
+          <span class="count-pill">${counts[v]}</span>
+        </label>
+      `).join('');
+
+      container.querySelectorAll('.vendor-chk').forEach(c => c.addEventListener('change', renderCatalogue));
+      document.getElementById('clearVendorsBtn').addEventListener('click', () => {
+        container.querySelectorAll('.vendor-chk').forEach(c => c.checked = false);
+        renderCatalogue();
+      });
+    }
+
+    function renderAgeFilters() {
+      const ages = ['5+', '6+', '8+', '10+', '11-13', '12+', '14+', 'Gr1-3', 'Gr4-6', 'Gr7-9', 'All Ages'];
+      const container = document.getElementById('ageFilters');
+      container.innerHTML = ages.map(a => `
+        <label class="checkbox-label">
+          <span><input type="checkbox" class="age-chk" value="${a}"> ${a}</span>
+        </label>
+      `).join('');
+
+      container.querySelectorAll('.age-chk').forEach(c => c.addEventListener('change', renderCatalogue));
+    }
+
+    function parsePrice(pStr) {
+      if (!pStr) return 0;
+      const clean = pStr.replace(/[^0-9.]/g, '');
+      return parseFloat(clean) || 0;
+    }
+
+    function filterAndSortKits() {
+      const rawQuery = document.getElementById('searchInput').value || '';
+      const query = rawQuery.trim().toLowerCase();
+      const selectedVendors = Array.from(document.querySelectorAll('.vendor-chk:checked')).map(c => c.value);
+      const selectedAges = Array.from(document.querySelectorAll('.age-chk:checked')).map(c => c.value);
+      const sortVal = document.getElementById('sortSelect').value;
+
+      let filtered = KIT_CATALOGUE.filter(k => {
+        const title = k.title || k.name || '';
+        const vendor = k.vendor || '';
+        const category = k.category || '';
+        const desc = k.desc || k.description || '';
+
+        // Search query
+        if (query) {
+          const text = (title + " " + vendor + " " + category + " " + desc).toLowerCase();
+          if (!text.includes(query)) return false;
+        }
+
+        // Category filter
+        if (activeCategory !== 'all') {
+          if (!category.toLowerCase().includes(activeCategory.toLowerCase())) return false;
+        }
+
+        // Vendor filter
+        if (selectedVendors.length > 0) {
+          if (!selectedVendors.includes(vendor)) return false;
+        }
+
+        // Age filter
+        if (selectedAges.length > 0) {
+          if (!selectedAges.includes(k.age)) return false;
+        }
+
+        return true;
+      });
+
+      // Sorting
+      if (sortVal === 'vendor') {
+        filtered.sort((a, b) => (a.vendor || '').localeCompare(b.vendor || ''));
+      } else if (sortVal === 'name') {
+        filtered.sort((a, b) => (a.title || a.name || '').localeCompare(b.title || b.name || ''));
+      } else if (sortVal === 'price-low') {
+        filtered.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+      } else if (sortVal === 'price-high') {
+        filtered.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+      }
+
+      return filtered;
+    }
+
+    function renderCatalogue() {
+      const items = filterAndSortKits();
+      const grid = document.getElementById('catalogueGrid');
+      document.getElementById('totalKitsBadge').textContent = items.length;
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem; background: var(--bg-card); border-radius: 16px; border: 1px dashed var(--border-color);">
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">No matching STEM kits found</h3>
+            <p style="color: var(--text-muted);">Try adjusting your search query, clearing vendor checkboxes, or choosing another category.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = items.map(k => {
+        const title = k.title || k.name || 'STEM Kit';
+        const img = k.img || k.image || '';
+        const vendor = k.vendor || 'Vendor';
+        const price = k.price || 'Contact Vendor';
+        const age = k.age || 'All Ages';
+        const category = k.category || 'General';
+        const priority = k.priority || 'P2';
+
+        return `
+          <div class="kit-card">
+            <div class="vendor-badge">${vendor}</div>
+            <div class="fit-badge">${priority} Fit</div>
+            <div class="card-thumb">
+              ${img ? `<img src="${img}" alt="${title}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'thumb-placeholder\\'><span>📦</span>${category}</div>';">` : `<div class="thumb-placeholder"><span>📦</span>${category}</div>`}
+            </div>
+            <div class="card-body">
+              <div>
+                <div class="card-title" title="${title}">${title}</div>
+                <div class="card-price">${price}</div>
+                <div class="card-tags">
+                  ${category.split(',').map(c => `<span class="tag">${c.trim()}</span>`).join('')}
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="age-label">Age: <strong>${age}</strong></div>
+                <button class="btn-view" onclick="openModal('${k.id}')">View Details</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openModal(kitId) {
+      const kit = KIT_CATALOGUE.find(k => k.id === kitId);
+      if (!kit) return;
+
+      const title = kit.title || kit.name || 'STEM Kit';
+      const img = kit.img || kit.image || '';
+      const desc = kit.desc || kit.description || 'No detailed description available.';
+      const link = kit.link || kit.url || '#';
+
+      const content = document.getElementById('modalContent');
+      content.innerHTML = `
+        ${img ? `<img src="${img}" class="modal-header-img" alt="${title}">` : ''}
+        <h2 class="modal-title">${title}</h2>
+        <div class="modal-meta">
+          <div class="meta-item">Vendor: <strong>${kit.vendor}</strong></div>
+          <div class="meta-item">Price: <strong>${kit.price || 'Contact Vendor'}</strong></div>
+          <div class="meta-item">Target Age: <strong>${kit.age || 'All Ages'}</strong></div>
+          <div class="meta-item">Priority: <strong>${kit.priority || 'P2'}</strong></div>
+          <div class="meta-item">Category: <strong>${kit.category || 'General STEM'}</strong></div>
+        </div>
+        <div class="modal-desc">
+          <strong>Kit Description & Focus Areas:</strong><br>
+          ${desc}
+        </div>
+        <div class="modal-actions">
+          ${link && link !== '#' ? `<a href="${link}" target="_blank" class="btn-primary-link">🔗 View Live Product on ${kit.vendor} Store</a>` : ''}
+        </div>
+      `;
+
+      document.getElementById('detailModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('detailModal').classList.remove('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', initCatalogue);
+  </script>
+</body>
+</html>

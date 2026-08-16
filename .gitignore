@@ -1,0 +1,12 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VSCode settings (optional, keeping folder clean)
+.vscode/
+
+# Node / Temp files
+node_modules/
+*.log
+*.tmp
