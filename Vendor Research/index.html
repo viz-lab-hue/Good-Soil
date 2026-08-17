@@ -619,7 +619,7 @@
 
       <div class="header-stats">
         <div class="stat-badge">
-          <span id="totalKitsBadge">805</span> Kits Loaded
+          <span id="totalKitsBadge">812</span> Kits Loaded
         </div>
       </div>
     </div>
@@ -629,6 +629,15 @@
   <div class="app-layout">
     <!-- Sidebar Filters -->
     <aside class="sidebar">
+      <!-- Price Range Filter -->
+      <div class="filter-card">
+        <div class="filter-title">
+          <span>Price Range</span>
+          <button id="clearPriceBtn" style="background:none;border:none;color:var(--primary);font-size:0.75rem;cursor:pointer;">Clear</button>
+        </div>
+        <div class="filter-options" id="priceFilters"></div>
+      </div>
+
       <!-- Vendor Filter -->
       <div class="filter-card">
         <div class="filter-title">
@@ -642,6 +651,7 @@
       <div class="filter-card">
         <div class="filter-title">
           <span>Age Group</span>
+          <button id="clearAgeBtn" style="background:none;border:none;color:var(--primary);font-size:0.75rem;cursor:pointer;">Clear</button>
         </div>
         <div class="filter-options" id="ageFilters"></div>
       </div>
@@ -693,7 +703,39 @@
     const KIT_CATALOGUE = (typeof CATALOGUE_DATA !== 'undefined') ? CATALOGUE_DATA : [];
     let activeCategory = 'all';
 
+    function parsePrice(pStr) {
+      if (!pStr || typeof pStr !== 'string') return 0;
+      const clean = pStr.replace(/,/g, '');
+      const match = clean.match(/\d+(?:\.\d+)?/);
+      return match ? parseFloat(match[0]) : 0;
+    }
+
+    function getPriceRangesConfig() {
+      const ranges = [
+        { id: '0-250', min: 0, max: 250, label: '₹0 - ₹250' },
+        { id: '250-500', min: 250, max: 500, label: '₹250 - ₹500' },
+        { id: '500-750', min: 500, max: 750, label: '₹500 - ₹750' },
+        { id: '750-1000', min: 750, max: 1000, label: '₹750 - ₹1,000' }
+      ];
+      for (let m = 1000; m < 10000; m += 500) {
+        ranges.push({
+          id: `${m}-${m + 500}`,
+          min: m,
+          max: m + 500,
+          label: `₹${m.toLocaleString('en-IN')} - ₹${(m + 500).toLocaleString('en-IN')}`
+        });
+      }
+      ranges.push({
+        id: '10000-plus',
+        min: 10000,
+        max: Infinity,
+        label: '₹10,000+'
+      });
+      return ranges;
+    }
+
     function initCatalogue() {
+      renderPriceFilters();
       renderVendorFilters();
       renderAgeFilters();
       renderCatalogue();
@@ -718,6 +760,41 @@
       document.getElementById('detailModal').addEventListener('click', (e) => {
         if (e.target.id === 'detailModal') closeModal();
       });
+    }
+
+    function renderPriceFilters() {
+      const allRanges = getPriceRangesConfig();
+      const container = document.getElementById('priceFilters');
+      if (!container) return;
+
+      const rangesWithCounts = allRanges.map(r => {
+        const count = KIT_CATALOGUE.filter(k => {
+          const p = parsePrice(k.price);
+          if (p <= 0) return false;
+          if (r.max === Infinity) return p >= r.min;
+          return p >= r.min && p <= r.max;
+        }).length;
+        return { ...r, count };
+      });
+
+      // Show non-empty ranges to keep filter list clean & actionable
+      const activeRanges = rangesWithCounts.filter(r => r.count > 0);
+
+      container.innerHTML = activeRanges.map(r => `
+        <label class="checkbox-label">
+          <span><input type="checkbox" class="price-chk" value="${r.id}" data-min="${r.min}" data-max="${r.max}"> ${r.label}</span>
+          <span class="count-pill">${r.count}</span>
+        </label>
+      `).join('');
+
+      container.querySelectorAll('.price-chk').forEach(c => c.addEventListener('change', renderCatalogue));
+      const clearBtn = document.getElementById('clearPriceBtn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          container.querySelectorAll('.price-chk').forEach(c => c.checked = false);
+          renderCatalogue();
+        });
+      }
     }
 
     function renderVendorFilters() {
@@ -752,12 +829,13 @@
       `).join('');
 
       container.querySelectorAll('.age-chk').forEach(c => c.addEventListener('change', renderCatalogue));
-    }
-
-    function parsePrice(pStr) {
-      if (!pStr) return 0;
-      const clean = pStr.replace(/[^0-9.]/g, '');
-      return parseFloat(clean) || 0;
+      const clearBtn = document.getElementById('clearAgeBtn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          container.querySelectorAll('.age-chk').forEach(c => c.checked = false);
+          renderCatalogue();
+        });
+      }
     }
 
     function filterAndSortKits() {
@@ -765,6 +843,7 @@
       const query = rawQuery.trim().toLowerCase();
       const selectedVendors = Array.from(document.querySelectorAll('.vendor-chk:checked')).map(c => c.value);
       const selectedAges = Array.from(document.querySelectorAll('.age-chk:checked')).map(c => c.value);
+      const selectedPriceNodes = Array.from(document.querySelectorAll('.price-chk:checked'));
       const sortVal = document.getElementById('sortSelect').value;
 
       let filtered = KIT_CATALOGUE.filter(k => {
@@ -794,6 +873,21 @@
           if (!selectedAges.includes(k.age)) return false;
         }
 
+        // Price filter
+        if (selectedPriceNodes.length > 0) {
+          const p = parsePrice(k.price);
+          if (p <= 0) return false;
+          const matchPrice = selectedPriceNodes.some(node => {
+            const min = parseFloat(node.dataset.min);
+            const max = parseFloat(node.dataset.max);
+            if (isNaN(max) || max === Infinity || node.dataset.max === 'Infinity') {
+              return p >= min;
+            }
+            return p >= min && p <= max;
+          });
+          if (!matchPrice) return false;
+        }
+
         return true;
       });
 
@@ -803,9 +897,9 @@
       } else if (sortVal === 'name') {
         filtered.sort((a, b) => (a.title || a.name || '').localeCompare(b.title || b.name || ''));
       } else if (sortVal === 'price-low') {
-        filtered.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+        filtered.sort((a, b) => (parsePrice(a.price) || 0) - (parsePrice(b.price) || 0));
       } else if (sortVal === 'price-high') {
-        filtered.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+        filtered.sort((a, b) => (parsePrice(b.price) || 0) - (parsePrice(a.price) || 0));
       }
 
       return filtered;
