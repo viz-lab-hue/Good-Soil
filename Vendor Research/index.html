@@ -619,7 +619,7 @@
 
       <div class="header-stats">
         <div class="stat-badge">
-          <span id="totalKitsBadge">812</span> Kits Loaded
+          <span id="totalKitsBadge">840</span> Kits Loaded
         </div>
       </div>
     </div>
@@ -698,7 +698,7 @@
     </div>
   </div>
 
-  <script src="catalogue_data.js?v=824"></script>
+  <script src="catalogue_data.js?v=840"></script>
   <script>
     const KIT_CATALOGUE = (typeof CATALOGUE_DATA !== 'undefined') ? CATALOGUE_DATA : [];
     let activeCategory = 'all';
@@ -868,7 +868,8 @@
 
         // Search query
         if (query) {
-          const text = (title + " " + vendor + " " + category + " " + desc).toLowerCase();
+          const kid = k.id || '';
+          const text = (kid + " " + title + " " + vendor + " " + category + " " + desc).toLowerCase();
           if (!text.includes(query)) return false;
         }
 
