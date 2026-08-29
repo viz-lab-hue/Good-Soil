@@ -760,6 +760,20 @@
       document.getElementById('detailModal').addEventListener('click', (e) => {
         if (e.target.id === 'detailModal') closeModal();
       });
+
+      // Handle URL Parameters (e.g. ?q=Catapult or ?id=WEB-BUT-013 or ?sku=WEB-PRA-052)
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryParam = urlParams.get('q') || urlParams.get('search') || urlParams.get('sku');
+      const idParam = urlParams.get('id');
+
+      if (queryParam) {
+        document.getElementById('searchInput').value = queryParam;
+        renderCatalogue();
+      }
+
+      if (idParam) {
+        setTimeout(() => openModal(idParam), 150);
+      }
     }
 
     function renderPriceFilters() {
