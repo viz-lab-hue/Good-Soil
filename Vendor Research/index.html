@@ -319,8 +319,19 @@
       background: var(--primary);
       border-color: var(--primary);
       color: #000;
-      font-weight: 600;
+      font-weight: 700;
       box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .cat-btn.tier-btn {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: rgba(16, 185, 129, 0.1);
+      color: #34d399;
+    }
+
+    .cat-btn.tier-btn.active {
+      background: var(--primary);
+      color: #000;
     }
 
     .cat-btn.drone-highlight {
@@ -333,6 +344,18 @@
       border-color: #3b82f6;
       color: #fff;
       box-shadow: 0 0 14px rgba(59, 130, 246, 0.4);
+    }
+
+    .cat-btn.early-pill {
+      border-color: rgba(245, 158, 11, 0.35);
+      background: rgba(245, 158, 11, 0.08);
+      color: #fcd34d;
+    }
+    .cat-btn.early-pill:hover, .cat-btn.early-pill.active {
+      background: var(--accent-amber);
+      border-color: var(--accent-amber);
+      color: #000;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
     }
 
     .sort-box {
@@ -717,9 +740,7 @@
       color: #fff;
     }
 
-    /* ========================================================= */
-    /* CURRICULUM CART / LIST VIEW STYLES                       */
-    /* ========================================================= */
+    /* Curriculum Cart Styles */
     .cart-container {
       max-width: 1440px;
       margin: 0 auto;
@@ -1136,6 +1157,15 @@
     <div class="app-layout">
       <!-- Sidebar Filters -->
       <aside class="sidebar">
+        <!-- Age Group Filter -->
+        <div class="filter-card">
+          <div class="filter-title">
+            <span>Target Age Group</span>
+            <button id="clearAgeBtn" style="background:none;border:none;color:var(--primary);font-size:0.75rem;cursor:pointer;">Clear</button>
+          </div>
+          <div class="filter-options" id="ageFilters"></div>
+        </div>
+
         <!-- Price Range Filter -->
         <div class="filter-card">
           <div class="filter-title">
@@ -1153,15 +1183,6 @@
           </div>
           <div class="filter-options" id="vendorFilters"></div>
         </div>
-
-        <!-- Age Group Filter -->
-        <div class="filter-card">
-          <div class="filter-title">
-            <span>Age Group</span>
-            <button id="clearAgeBtn" style="background:none;border:none;color:var(--primary);font-size:0.75rem;cursor:pointer;">Clear</button>
-          </div>
-          <div class="filter-options" id="ageFilters"></div>
-        </div>
       </aside>
 
       <!-- Main Content Grid -->
@@ -1169,16 +1190,16 @@
         <!-- Toolbar -->
         <div class="toolbar">
           <div class="cat-pills" id="categoryPills">
-            <button class="cat-btn active" data-cat="all">All Kits</button>
+            <button class="cat-btn active" data-cat="all">🌟 All STEM (7+ yrs)</button>
+            <button class="cat-btn tier-btn" data-cat="junior">🚀 Junior (Ages 7–10)</button>
+            <button class="cat-btn tier-btn" data-cat="senior">⚡ Senior (Ages 10–14+)</button>
             <button class="cat-btn drone-highlight" data-cat="drone">🚁 Drones & Aero</button>
             <button class="cat-btn" data-cat="Robotics">🤖 Robotics</button>
             <button class="cat-btn" data-cat="Coding">💻 Coding</button>
             <button class="cat-btn" data-cat="Electronics">⚡ Electronics</button>
-            <button class="cat-btn" data-cat="IoT">🌐 IoT</button>
-            <button class="cat-btn" data-cat="AI">🧠 AI</button>
             <button class="cat-btn" data-cat="Science">🔬 Science</button>
             <button class="cat-btn" data-cat="Mechanical">⚙️ Mechanical</button>
-            <button class="cat-btn" data-cat="DIY">🛠️ DIY</button>
+            <button class="cat-btn early-pill" data-cat="early">🐣 Early / Optional (3–6)</button>
           </div>
 
           <div class="sort-box">
@@ -1207,7 +1228,7 @@
         <div class="cart-top-banner">
           <div class="cart-title-block">
             <h2>📋 Selected Curriculum Kits & Procurement Cart</h2>
-            <p>Review kit selections, adjust batch quantities, click direct links to vendor stores, or export BOM.</p>
+            <p>Review kit selections for Ages 7+, adjust batch quantities, click direct links to vendor stores, or export BOM.</p>
           </div>
           <div class="cart-banner-actions">
             <button class="btn-action-pill primary" onclick="exportCartCSV()">
@@ -1217,7 +1238,7 @@
               <span>📋 Copy Summary</span>
             </button>
             <button class="btn-action-pill" onclick="preloadStandardCurriculum()">
-              <span>⭐ Load Good Soil 40-Kit Plan</span>
+              <span>⭐ Load Good Soil 40-Kit Plan (7-14 yrs)</span>
             </button>
             <button class="btn-action-pill danger" onclick="clearCart()">
               <span>🗑️ Clear List</span>
@@ -1294,6 +1315,26 @@
       if (!k) return false;
       const text = ((k.title || k.name || '') + " " + (k.category || '') + " " + (k.desc || k.description || '') + " " + (Array.isArray(k.tags) ? k.tags.join(' ') : '')).toLowerCase();
       return DRONE_KEYWORDS.some(w => text.includes(w));
+    }
+
+    function isEarlyKit(k) {
+      if (!k) return false;
+      const age = (k.age || '').toLowerCase();
+      const cat = (k.category || '').toLowerCase();
+      const prio = (k.priority || '').toLowerCase();
+      return age.includes('3-6') || age.includes('3-5') || cat.includes('early learning') || prio.includes('3-6');
+    }
+
+    function isJuniorKit(k) {
+      if (!k || isEarlyKit(k)) return false;
+      const age = (k.age || '').toLowerCase();
+      return age.includes('7-10') || age.includes('8-10') || age.includes('8+') || age.includes('6-9') || age.includes('6+') || age.includes('gr1-3') || age.includes('gr4-6') || age.includes('all ages');
+    }
+
+    function isSeniorKit(k) {
+      if (!k || isEarlyKit(k)) return false;
+      const age = (k.age || '').toLowerCase();
+      return age.includes('10+') || age.includes('10-14') || age.includes('11-13') || age.includes('12+') || age.includes('14+') || age.includes('16+');
     }
 
     // LocalStorage Cart State: { [kitId]: quantity }
@@ -1417,20 +1458,20 @@
     }
 
     function preloadStandardCurriculum() {
-      // 40 Primary BOM Kits for Good Soil (Junior & Senior batches)
+      // 40 Primary BOM Kits for Good Soil (Junior Ages 7-10 & Senior Ages 10-14)
       const standardSkus = [
-        // Junior Batch
-        'WEB-BUT-013', 'CUSTOM-AERO-01', 'WEB-PRA-047', 'WEB-KDA-001', 'CUSTOM-AERO-02', 
-        'ASSESS-JR-01', 'WEB-KDA-142', 'CUSTOM-STEAM-01', 'WEB-KDA-017', 'WEB-KDA-002',
-        'WEB-KDA-003', 'ASSESS-JR-02', 'WEB-PLU-014', 'WEB-KDA-141', 'CUSTOM-STEAM-02',
-        'WEB-KDA-048', 'WEB-KDA-057', 'ASSESS-JR-03', 'WEB-KDA-072', 'WEB-KDA-023',
-        'WEB-KDA-043', 'WEB-KDA-034', 'WEB-KDA-036', 'ASSESS-JR-04', 'GRAD-STUDIO-01',
-        // Senior Batch
-        'WEB-PRA-020', 'WEB-PLU-074', 'WEB-PRA-048', 'WEB-KDA-004', 'WEB-PLU-015',
-        'ASSESS-SR-01', 'WEB-PRA-046', 'WEB-KDA-108', 'WEB-PLU-024', 'WEB-KDA-018',
-        'WEB-PRA-037', 'ASSESS-SR-02', 'WEB-PLU-052', 'WEB-KDA-047', 'WEB-KDA-049',
-        'WEB-PRA-038', 'WEB-PRA-035', 'ASSESS-SR-03', 'WEB-KDA-070', 'WEB-KDA-069',
-        'WEB-PRA-052', 'WEB-KDA-016', 'WEB-KDA-050', 'ASSESS-SR-04', 'GRAD-STUDIO-02'
+        // Junior Batch (Ages 7-10)
+        'WEB-PLU-015', 'CUSTOM-AERO-01', 'WEB-BUT-051', 'WEB-PRA-052', 'WEB-BUT-028', 
+        'STUDIO-ASSESS-01', 'WEB-KDA-031', 'CUSTOM-AERO-02', 'WEB-KDA-042', 'WEB-KDA-032',
+        'STUDIO-ELEC-01', 'STUDIO-ASSESS-02', 'WEB-PLU-014', 'WEB-BUT-030', 'WEB-PRA-068',
+        'WEB-KDA-139', 'WEB-PRA-054', 'STUDIO-ASSESS-03', 'WEB-KDA-039', 'WEB-KDA-133',
+        'WEB-KDA-043', 'WEB-KDA-140', 'WEB-BRH-003', 'STUDIO-ASSESS-04', 'STUDIO-EXPO-01',
+        // Senior Batch (Ages 10-14+)
+        'WEB-KIN-001', 'CUSTOM-AERO-03', 'WEB-BUT-052', 'WEB-MIN-003', 'WEB-PLU-024',
+        'STUDIO-ASSESS-01S', 'WEB-MIN-017', 'CUSTOM-AERO-04', 'WEB-PLU-064', 'WEB-MIN-015',
+        'STUDIO-ART-01S', 'STUDIO-ASSESS-02S', 'WEB-PLU-074', 'WEB-MIN-007', 'WEB-PLU-009',
+        'WEB-PLU-019', 'WEB-KIN-014', 'STUDIO-ASSESS-03S', 'WEB-PLU-075', 'WEB-MIN-022',
+        'WEB-MIN-006', 'WEB-KIN-015', 'WEB-BRH-003', 'STUDIO-ASSESS-04S', 'STUDIO-EXPO-02'
       ];
 
       standardSkus.forEach(sku => {
@@ -1441,7 +1482,7 @@
       saveCart();
       renderCart();
       renderCatalogue();
-      showToast('Loaded Good Soil 40-Kit Standard Curriculum Plan (3 units each)!', '⭐');
+      showToast('Loaded Good Soil 40-Kit STEM Plan for Ages 7-14 (3 units each)!', '⭐');
     }
 
     function parsePrice(pStr) {
@@ -1476,9 +1517,9 @@
     }
 
     function initCatalogue() {
+      renderAgeFilters();
       renderPriceFilters();
       renderVendorFilters();
-      renderAgeFilters();
       updateCartBadge();
       renderCatalogue();
 
@@ -1520,6 +1561,37 @@
 
       if (idParam) {
         setTimeout(() => openModal(idParam), 150);
+      }
+    }
+
+    function renderAgeFilters() {
+      const ageConfigs = [
+        { id: 'junior', label: '🚀 Ages 7–10 (Junior STEM)', filterFn: isJuniorKit },
+        { id: 'senior', label: '⚡ Ages 10–14+ (Senior STEM)', filterFn: isSeniorKit },
+        { id: 'adv', label: '🔬 Ages 14+ (Advanced IoT/Robotics)', filterFn: k => (k.age || '').includes('14+') || (k.age || '').includes('16+') },
+        { id: 'early', label: '🐣 Ages 3–6 (Early / Optional)', filterFn: isEarlyKit }
+      ];
+
+      const container = document.getElementById('ageFilters');
+      if (!container) return;
+
+      container.innerHTML = ageConfigs.map(a => {
+        const count = KIT_CATALOGUE.filter(a.filterFn).length;
+        return `
+          <label class="checkbox-label">
+            <span><input type="checkbox" class="age-chk" value="${a.id}"> ${a.label}</span>
+            <span class="count-pill">${count}</span>
+          </label>
+        `;
+      }).join('');
+
+      container.querySelectorAll('.age-chk').forEach(c => c.addEventListener('change', renderCatalogue));
+      const clearBtn = document.getElementById('clearAgeBtn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          container.querySelectorAll('.age-chk').forEach(c => c.checked = false);
+          renderCatalogue();
+        });
       }
     }
 
@@ -1579,25 +1651,6 @@
       });
     }
 
-    function renderAgeFilters() {
-      const ages = ['5+', '6+', '8+', '10+', '11-13', '12+', '14+', 'Gr1-3', 'Gr4-6', 'Gr7-9', 'All Ages'];
-      const container = document.getElementById('ageFilters');
-      container.innerHTML = ages.map(a => `
-        <label class="checkbox-label">
-          <span><input type="checkbox" class="age-chk" value="${a}"> ${a}</span>
-        </label>
-      `).join('');
-
-      container.querySelectorAll('.age-chk').forEach(c => c.addEventListener('change', renderCatalogue));
-      const clearBtn = document.getElementById('clearAgeBtn');
-      if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-          container.querySelectorAll('.age-chk').forEach(c => c.checked = false);
-          renderCatalogue();
-        });
-      }
-    }
-
     function filterAndSortKits() {
       const rawQuery = document.getElementById('searchInput').value || '';
       const query = rawQuery.trim().toLowerCase();
@@ -1612,18 +1665,29 @@
         const category = k.category || '';
         const desc = k.desc || k.description || '';
 
-        // Search query
+        // Search query (bypasses category filter if specific query typed)
         if (query) {
           const kid = k.id || '';
           const text = (kid + " " + title + " " + vendor + " " + category + " " + desc).toLowerCase();
           if (!text.includes(query)) return false;
         }
 
-        // Dedicated Drones & Aero category pill
-        if (activeCategory === 'drone') {
-          if (!isDroneKit(k)) return false;
-        } else if (activeCategory !== 'all') {
-          if (!category.toLowerCase().includes(activeCategory.toLowerCase())) return false;
+        // Category pills filter
+        if (!query) {
+          if (activeCategory === 'all') {
+            // Default active: Exclude early preschool/tracing unless searched or selected
+            if (isEarlyKit(k)) return false;
+          } else if (activeCategory === 'junior') {
+            if (!isJuniorKit(k)) return false;
+          } else if (activeCategory === 'senior') {
+            if (!isSeniorKit(k)) return false;
+          } else if (activeCategory === 'drone') {
+            if (!isDroneKit(k)) return false;
+          } else if (activeCategory === 'early') {
+            if (!isEarlyKit(k)) return false;
+          } else {
+            if (!category.toLowerCase().includes(activeCategory.toLowerCase())) return false;
+          }
         }
 
         // Vendor filter
@@ -1631,9 +1695,16 @@
           if (!selectedVendors.includes(vendor)) return false;
         }
 
-        // Age filter
+        // Age filter checkboxes
         if (selectedAges.length > 0) {
-          if (!selectedAges.includes(k.age)) return false;
+          const matchesAge = selectedAges.some(ageId => {
+            if (ageId === 'junior') return isJuniorKit(k);
+            if (ageId === 'senior') return isSeniorKit(k);
+            if (ageId === 'adv') return (k.age || '').includes('14+') || (k.age || '').includes('16+');
+            if (ageId === 'early') return isEarlyKit(k);
+            return false;
+          });
+          if (!matchesAge) return false;
         }
 
         // Price filter
@@ -1684,7 +1755,7 @@
         grid.innerHTML = `
           <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 4rem 2rem; background: var(--bg-card); border-radius: 16px; border: 1px dashed var(--border-color);">
             <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">No matching STEM kits found</h3>
-            <p style="color: var(--text-muted);">Try adjusting your search query, clearing vendor checkboxes, or choosing another category.</p>
+            <p style="color: var(--text-muted);">Try adjusting your search query, clearing vendor checkboxes, or choosing another age tier.</p>
           </div>
         `;
         return;
@@ -1695,18 +1766,19 @@
         const img = k.img || k.image || '';
         const vendor = k.vendor || 'Vendor';
         const price = k.price || 'Contact Vendor';
-        const age = k.age || 'All Ages';
+        const age = k.age || '7+ yrs';
         const category = k.category || 'General';
         const priority = k.priority || 'P2';
         const isAdded = !!CART_ITEMS[k.id];
         const isDrone = isDroneKit(k);
+        const isEarly = isEarlyKit(k);
 
         return `
           <div class="kit-card ${isAdded ? 'in-cart' : ''}">
             <div class="vendor-badge">${vendor}</div>
-            <div class="fit-badge" style="${isDrone ? 'background: #3b82f6; color: #fff;' : ''}">${isDrone ? '🚁 Drone/Aero' : priority + ' Fit'}</div>
+            <div class="fit-badge" style="${isDrone ? 'background: #3b82f6; color: #fff;' : isEarly ? 'background: #f59e0b; color: #000;' : ''}">${isDrone ? '🚁 Drone/Aero' : isEarly ? '🐣 Optional (3-6)' : priority + ' Fit'}</div>
             <div class="card-thumb">
-              ${img ? `<img src="${img}" alt="${title}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'thumb-placeholder\\'><span>📦</span>${category}</div>';">` : `<div class="thumb-placeholder"><span>${isDrone ? '🚁' : '📦'}</span>${category}</div>`}
+              ${img ? `<img src="${img}" alt="${title}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'thumb-placeholder\\'><span>📦</span>${category}</div>';">` : `<div class="thumb-placeholder"><span>${isDrone ? '🚁' : isEarly ? '🐣' : '📦'}</span>${category}</div>`}
             </div>
             <div class="card-body">
               <div>
@@ -1747,7 +1819,7 @@
           vendor: 'Good Soil Studio',
           price: '₹200',
           category: 'Curriculum',
-          age: 'All Ages',
+          age: '7-14 yrs',
           link: '#'
         };
         const qty = CART_ITEMS[id] || 1;
@@ -1774,14 +1846,14 @@
             <span style="font-size: 3.5rem; display: block; margin-bottom: 1rem;">📋</span>
             <h3 style="font-size: 1.35rem; color: #fff; margin-bottom: 0.5rem;">Your Curriculum List is Empty</h3>
             <p style="margin-bottom: 1.5rem; max-width: 460px; margin-left: auto; margin-right: auto;">
-              Explore the 840 STEM kits across Robotics, Drones, AI, and Electronics and click <strong>"+ Add"</strong> to build your customized curriculum procurement plan.
+              Explore the 750+ hands-on STEM kits across Robotics, Drones, AI, Circuits, and Mechanics (Ages 7+) and click <strong>"+ Add"</strong> to build your customized procurement plan.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
               <button class="btn-action-pill primary" onclick="switchTab('catalogue')">
-                <span>🔍 Browse 840 Kits</span>
+                <span>🔍 Browse 750+ STEM Kits</span>
               </button>
               <button class="btn-action-pill" onclick="preloadStandardCurriculum()">
-                <span>⭐ Preload Good Soil 40-Kit Plan</span>
+                <span>⭐ Preload Good Soil 40-Kit Plan (Ages 7-14)</span>
               </button>
             </div>
           </div>
@@ -1827,7 +1899,7 @@
                   </td>
                   <td>
                     <div style="font-size:0.85rem; color:#e5e7eb;">${(k.category || 'STEM').split(',')[0]}</div>
-                    <div style="font-size:0.75rem; color:var(--text-muted);">Age: ${k.age || 'All'}</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted);">Age: ${k.age || '7+'}</div>
                   </td>
                   <td>
                     <div class="cart-price-col">${k.price || '₹0'}</div>
@@ -1875,7 +1947,7 @@
           <div class="meta-item">Vendor: <strong>${kit.vendor}</strong></div>
           <div class="meta-item">SKU ID: <strong>${kit.id}</strong></div>
           <div class="meta-item">Unit Price: <strong>${kit.price || 'Contact Vendor'}</strong></div>
-          <div class="meta-item">Target Age: <strong>${kit.age || 'All Ages'}</strong></div>
+          <div class="meta-item">Target Age: <strong>${kit.age || '7+ yrs'}</strong></div>
           <div class="meta-item">Priority: <strong>${kit.priority || 'P2'} Fit</strong></div>
           <div class="meta-item">Category: <strong>${kit.category || 'General STEM'}</strong></div>
         </div>
@@ -1913,7 +1985,7 @@
           title: 'Custom Kit',
           vendor: 'Good Soil Studio',
           category: 'Curriculum',
-          age: 'All',
+          age: '7-14 yrs',
           price: '₹200',
           link: ''
         };
@@ -1946,7 +2018,7 @@
         return;
       }
 
-      let text = `GOOD SOIL — CURRICULUM PROCUREMENT PLAN\n`;
+      let text = `GOOD SOIL — STEM CURRICULUM PROCUREMENT PLAN (Ages 7–14)\n`;
       text += `Generated: ${new Date().toLocaleDateString()}\n`;
       text += `Total Models: ${cartKeys.length}\n\n`;
 

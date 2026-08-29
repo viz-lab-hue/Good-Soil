@@ -84,21 +84,23 @@ To ensure students do not just blindly follow assembly steps, **every domain kic
 
 ---
 
-## 3. Junior Batch (Ages 5–9) — Complete 25-Class Outline
+## 3. Junior Batch (Ages 7–10 / Grades 2–5) — Complete 25-Class Outline
+
+> **Pedagogical Focus:** For young engineers ages 7 to 10. Every single class involves hands-on mechanical builds, motorized circuits, aerodynamics, chemical reactions, optics, and bionic robotics. (Preschool tracing/letter books are excluded and kept only as optional kindergarten kits).
 
 | Class | Phase | Theme & Domain | Kit Type | Kit / Activity Name | Key Concept & Learning Outcome |
 | :---: | :---: | :--- | :---: | :--- | :--- |
-| **01** | P1 | 🔬 **Intro & Observation** | 🎁 Giveaway #1 | **Parts of Plants & Bio-Magnifier Kit** | Plant biology, microscope lenses, curiosity sparking. |
+| **01** | P1 | ⚡ **Electricity & Aero** | 🎁 Giveaway #1 | **Electric Propeller & Aerodynamic Wind Car** | Motor circuit polarity, thrust generation, aerodynamic propulsion. |
 | **02** | P1 | ✈️ **Aeromodelling I** | 🤝 Group Kit #1 | **High-Lift Paper Gliders & Airfoil Launcher** | Wing shapes, launch angles, thrust vs. drag basics. |
 | **03** | P1 | 🧪 **Science Deep-Dive I** | 🤝 Group Kit #2 | **Kitchen Chemistry & Color Fireworks Lab** | Acid-base reactions, density layers, fizzing chemistry. |
 | **04** | P1 | ⚙️ **Mechanics I** | 🎁 Giveaway #2 | **Wooden Catapult & Trajectory Shooter** | Levers, fulcrums, stored potential energy to kinetic motion. |
-| **05** | P1 | 🎨 **STEAM & Art I** | 🎁 Giveaway #3 | **4-in-1 KaleidoWorld & Symmetry Prism** | Optical reflection, geometric symmetry, color blending. |
+| **05** | P1 | 🎨 **STEAM & Art I** | 🎁 Giveaway #3 | **Motorized Spin-Art & Centrifugal Machine** | Centrifugal force, rotational dynamics, symmetry & kinetic art. |
 | **06** | P1 | 🏆 **ASSESSMENT 1** | 🎯 Creative Test | **"The Young Inventor's Island Escape"** | **Gamified Challenge:** Build an escape raft using floatation concepts & catapult messages over obstacle walls. (Badge: *Junior Explorer*) |
 | **07** | P2 | ⚙️ **Mechanics II** | 🎁 Giveaway #4 | **Wooden Paddle Steamer Propeller Boat** | Water resistance, paddle propulsion, rotational energy. |
 | **08** | P2 | ✈️ **Aeromodelling II** | 🤝 Group Kit #3 | **Balsa/Foam Chuck Glider & Flight Tuning** | Center of gravity (CG), dihedral angles, stable gliding. |
 | **09** | P2 | ⚡ **Electricity I** | 🎁 Giveaway #5 | **Wooden Glow Table Lamp & Switch Circuit** | Open vs. closed circuits, LED polarity, conductors. |
 | **10** | P2 | ⚙️ **Mechanics III** | 🤝 Group Kit #4 | **Wooden Mechanical Carousel & Gear Train** | Gear ratios, speed vs. torque, clockwise/counter-clockwise. |
-| **11** | P2 | 🎨 **STEAM & Art II** | 🎁 Giveaway #6 | **Illuminated Greeting Card & Paper Circuit** | Copper tape circuits, conductive art, creative lighting. |
+| **11** | P2 | ⚡ **Electronics & Art** | 🎁 Giveaway #6 | **Morse Code Telegraph & Buzzer Sounder** | Electromagnets, circuit continuity, binary signaling & Morse code. |
 | **12** | P2 | 🏆 **ASSESSMENT 2** | 🎯 Creative Test | **"The STEAM Carnival Challenge"** | **Gamified Challenge:** Teams build a mini amusement park ride with gear motors & light signals. Peer voting & tickets. (Badge: *Master Crafter*) |
 | **13** | P3 | ✈️ **Aeromodelling III** | 🎁 Giveaway #7 | **Air-Powered Pneumatic Rocket Launcher** | Air compression, pneumatic force, launch range optimization. |
 | **14** | P3 | ⚡ **Electricity II** | 🤝 Group Kit #5 | **10-in-1 Ultimate Electricity Lab** | Series vs. parallel circuits, buzzers, magnetic switches. |

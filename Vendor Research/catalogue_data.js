@@ -2836,15 +2836,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "155 Alphabets & Words Magnet Set | Soft foam Letters",
     "price": "Rs.799",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -2914,15 +2915,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "4-in-1 Animals Jigsaw Puzzle Set for Kids 3–7 Years | 38 Pcs Preschool Educational Toy with Coloring Worksheets",
     "price": "Rs.199",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -2940,15 +2942,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "4-in-1 Sea Creatures Jigsaw Puzzle Set for Kids 3–7 Years | 38 Pcs Preschool Learning Toy with coloring sheets",
     "price": "Rs.199",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -3018,15 +3021,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "90+ pcs Magnetic Alphabets Numbers Shapes Puzzle | 3-5 years",
     "price": "Rs.599",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -3148,15 +3152,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "Butterfly EduFields ABCD Alphabets Learning Toys for Kids 3 to 5 Years, Self-Correcting Puzzle, Capital Letters & Associated Objects- Soft, Safe & Durable Foam",
     "price": "Rs.399",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -3278,15 +3283,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "Butterfly Edufields Jigsaw Puzzle Combo – 8-in-1 Dinosaurs, Princess & Unicorn puzzle Set for Kids (Ages 3–7)",
     "price": "Rs.499",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -3304,15 +3310,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "Butterfly Edufields Jigsaw Puzzle Combo – 8-in-1 Vehicles & Dinosaurs Set for Kids (Ages 3–7)",
     "price": "Rs.499",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -3330,15 +3337,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "Butterfly Edufields Jigsaw Puzzle Combo – 8-in-1 Vehicles, Princess & Unicorn puzzle Set for Kids (Ages 3–7)",
     "price": "Rs.499",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -3798,15 +3806,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "Dinosaurs Jigsaw Puzzles for Kids Ages 3-6 | Preschool Educational Puzzles Boards Toys Gifts for Boys Girls & Coloring Sheets",
     "price": "Rs.299",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -3824,15 +3833,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "Early Learning ABC & Numbers Puzzle Bundle | Wooden & Magnetic Fun for Ages 3-5",
     "price": "Rs.849",
-    "age": "All Ages",
-    "category": "Mechanical, Science, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science, DIY",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Yes",
@@ -3980,15 +3990,16 @@ const CATALOGUE_DATA = [
     "vendor": "Butterfly Edufields",
     "title": "Jigsaw Puzzles for Boys & Girls – 4-Pack Vehicles (Ages 3–7)",
     "price": "Rs.299",
-    "age": "All Ages",
-    "category": "Mechanical, Science",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Mechanical, Science",
     "tags": [
       "STEM",
       "Science",
-      "Engineering"
+      "Engineering",
+      "Early Learning"
     ],
     "vendor_type": "Ecosystem",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "9/10",
     "curriculum": "Maybe",
@@ -5372,14 +5383,15 @@ const CATALOGUE_DATA = [
     "vendor": "Pludo (Robocraze)",
     "title": "Pludo STEM Kit  Air Magic - Bernoulli's Law Kit (3-8 Yrs) for grade preschool-2 (12)",
     "price": "Rs.296",
-    "age": "5+",
-    "category": "Robotics, AI, Electronics, Science, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Robotics, AI, Electronics, Science, DIY",
     "tags": [
       "Robotics",
-      "Electronics"
+      "Electronics",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "8.5/10",
     "curriculum": "Yes",
@@ -5747,14 +5759,15 @@ const CATALOGUE_DATA = [
     "vendor": "Pludo (Robocraze)",
     "title": "Pludo STEM Kit Little Builders -Cable Bridge Project (3-8 Yrs) for grade preschool-2 (475)",
     "price": "Rs.251",
-    "age": "5+",
-    "category": "Robotics, Electronics, Mechanical, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Robotics, Electronics, Mechanical, DIY",
     "tags": [
       "Robotics",
-      "Electronics"
+      "Electronics",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "8.5/10",
     "curriculum": "Yes",
@@ -5847,14 +5860,15 @@ const CATALOGUE_DATA = [
     "vendor": "Pludo (Robocraze)",
     "title": "Pludo STEM Kit Motor Circuit Car - Balance Kit (Age 3-8 Yrs) for grade preschool-2 (475)",
     "price": "Rs.359",
-    "age": "5+",
-    "category": "Robotics, Coding, Electronics, Mechanical, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Robotics, Coding, Electronics, Mechanical, Science, Art & Craft, DIY",
     "tags": [
       "Robotics",
-      "Electronics"
+      "Electronics",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "8.5/10",
     "curriculum": "Yes",
@@ -6122,14 +6136,15 @@ const CATALOGUE_DATA = [
     "vendor": "Pludo (Robocraze)",
     "title": "Pludo STEM Kit Tiny Musicians - Sound Vibration Explorer Kit (3-8 Yrs) for grade preschool-2 (661)",
     "price": "Rs.278",
-    "age": "5+",
-    "category": "Robotics, Electronics, Science, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Robotics, Electronics, Science, DIY",
     "tags": [
       "Robotics",
-      "Electronics"
+      "Electronics",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P1",
+    "priority": "Optional (3-6)",
     "effort": "Medium",
     "rating": "8.5/10",
     "curriculum": "Yes",
@@ -8717,13 +8732,14 @@ const CATALOGUE_DATA = [
     "vendor": "Itsy Bitsy",
     "title": "Alphabet Beads Pink 15gm 4mm PBHC IB",
     "price": "Rs.149",
-    "age": "All Ages",
-    "category": "AI, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Science, Art & Craft, DIY",
     "tags": [
-      "Science DIY"
+      "Science DIY",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "7.5/10",
     "curriculum": "Yes",
@@ -8741,13 +8757,14 @@ const CATALOGUE_DATA = [
     "vendor": "Itsy Bitsy",
     "title": "Alphabet Beads Purple 15gm 4mm PBHC IB",
     "price": "Rs.149",
-    "age": "All Ages",
-    "category": "AI, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Science, Art & Craft, DIY",
     "tags": [
-      "Science DIY"
+      "Science DIY",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "7.5/10",
     "curriculum": "Yes",
@@ -8765,13 +8782,14 @@ const CATALOGUE_DATA = [
     "vendor": "Itsy Bitsy",
     "title": "Alphabet Beads Sky blue 15gm 4mm PBHC IB",
     "price": "Rs.149",
-    "age": "All Ages",
-    "category": "AI, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Science, Art & Craft, DIY",
     "tags": [
-      "Science DIY"
+      "Science DIY",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "7.5/10",
     "curriculum": "Yes",
@@ -10397,13 +10415,14 @@ const CATALOGUE_DATA = [
     "vendor": "Itsy Bitsy",
     "title": "Fun Finger Paint Jade green 25ml Wide Mouth Container",
     "price": "Rs.25",
-    "age": "All Ages",
-    "category": "AI, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Science, Art & Craft, DIY",
     "tags": [
-      "Science DIY"
+      "Science DIY",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "7.5/10",
     "curriculum": "Maybe",
@@ -10421,13 +10440,14 @@ const CATALOGUE_DATA = [
     "vendor": "Itsy Bitsy",
     "title": "Fun Finger Paint Light teal 25ml Wide Mouth Container",
     "price": "Rs.25",
-    "age": "All Ages",
-    "category": "AI, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Science, Art & Craft, DIY",
     "tags": [
-      "Science DIY"
+      "Science DIY",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "7.5/10",
     "curriculum": "Maybe",
@@ -10445,13 +10465,14 @@ const CATALOGUE_DATA = [
     "vendor": "Itsy Bitsy",
     "title": "Fun Finger Paint Neon yellow 25ml Wide Mouth Container",
     "price": "Rs.25",
-    "age": "All Ages",
-    "category": "AI, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Science, Art & Craft, DIY",
     "tags": [
-      "Science DIY"
+      "Science DIY",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "7.5/10",
     "curriculum": "Maybe",
@@ -10469,13 +10490,14 @@ const CATALOGUE_DATA = [
     "vendor": "Itsy Bitsy",
     "title": "Fun Finger Paint Orange Candy 25ml Wide Mouth Container",
     "price": "Rs.25",
-    "age": "All Ages",
-    "category": "AI, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Science, Art & Craft, DIY",
     "tags": [
-      "Science DIY"
+      "Science DIY",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "7.5/10",
     "curriculum": "Maybe",
@@ -10493,13 +10515,14 @@ const CATALOGUE_DATA = [
     "vendor": "Itsy Bitsy",
     "title": "Fun Finger Paint Rich gold 25ml Wide Mouth Container",
     "price": "Rs.25",
-    "age": "All Ages",
-    "category": "AI, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Science, Art & Craft, DIY",
     "tags": [
-      "Science DIY"
+      "Science DIY",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "7.5/10",
     "curriculum": "Maybe",
@@ -10517,13 +10540,14 @@ const CATALOGUE_DATA = [
     "vendor": "Itsy Bitsy",
     "title": "Fun Finger Paint Silver 25ml Wide Mouth Container",
     "price": "Rs.25",
-    "age": "All Ages",
-    "category": "AI, Science, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Science, Art & Craft, DIY",
     "tags": [
-      "Science DIY"
+      "Science DIY",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "7.5/10",
     "curriculum": "Maybe",
@@ -13829,13 +13853,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale 14 Hindi Balgeet, Popular Hindi Nursery Rhymes & 14 additional Musical Sounds Book",
     "price": "Rs.1,099",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -13901,13 +13926,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale 2-Pack ABC, 123 Learning & Trip to Zoo Interactive Musical Sound Books",
     "price": "Rs.2,199",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -13973,13 +13999,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale 2-Pack Sound Books for Kids – Learn Hindi Alphabet (Varnamala) + English Panchatantra Stories – Musical, Interactive Learning Book Set",
     "price": "Rs.2,199",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -13997,13 +14024,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale 2-Pack Trip to Zoo and Hindi Varnmala(Swar, Vyanjan) Musical Interactive Sound Books",
     "price": "Rs.2,199",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -14189,13 +14217,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale 3-Pack Kids Book Set – 1 Intelligent, Musical Sensory Book for Kids(Trip to The Zoo) + 2 Non-Sound Board Books (Ripple in The Water, Music on The Farm)",
     "price": "Rs.1,498",
-    "age": "All Ages",
-    "category": "Robotics, Electronics",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Robotics, Electronics",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -14237,13 +14266,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale 3-Pack Rhymes n Chimes, Hindi and English Panchatantra Musical Interactive Sound Books",
     "price": "Rs.2,968",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -14261,13 +14291,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale 3-Pack Sound Books – Play N Learn, Trip to Zoo & Hindi Varnmala | Musical Learning for 2-4 Yr",
     "price": "Rs.2,968",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -14357,13 +14388,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Animal World Jelly Sticker Book for Kids 2–7 Years | Reusable & Washable Stickers | Big Fold-Out Playing Canvas | Easy Carry Travel Activity Book for Toddlers",
     "price": "Rs.349",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -14381,13 +14413,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Aquatic Animals Musical Rhyme Book 🌊🐠 | Touch & Play 16 Rhymes for Toddlers (1–3 Yrs)",
     "price": "Rs.1,019",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -14405,13 +14438,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Aquatic Animals Pop-Up Book | 3D Ocean Animal Pop-Outs on Every Page | Interactive Touch-and-Feel Board Book | Screen-Free Learning Gift for Toddlers Ages 1–4",
     "price": "Rs.399",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -14501,13 +14535,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Combo Pack of 4 Kids Learning Books, 2 Sound Books Nursery Geeto Ka Safar & Gungunate Bachon Ke Balgeet + 2 Non Sound Books Color Peekaboo Board Book & Trace and Learn Alphabets Book",
     "price": "Rs.1,999",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -14525,13 +14560,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Combo Pack of 5 Books for Kids – Ramayan Musical Story Book + Krishna Musical Story Sound Book + Shlokas & Mantras Musical Audio Book + Panchatantra Moral Stories Book + 100 First Words Learning Book for Toddlers",
     "price": "Rs.3,099",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -14861,13 +14897,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale DIY Reusable Water Painting Book for Kids 3-8 years | Transportation Theme | Magic Water Coloring with Water Pen | 4 Reusable Painting Sheets & 2 Sticker Sheets | Mess-Free Travel Activity Book",
     "price": "Rs.599",
-    "age": "All Ages",
-    "category": "AI, Art & Craft, DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Art & Craft, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -14885,13 +14922,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Daily Supplies Jelly Sticker Book for Kids 2–7 Years | Reusable & Washable Stickers | Everyday Objects Learning | Foldable Play Scenes | Travel Activity Book",
     "price": "Rs.349",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -14933,13 +14971,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Early Learning Pack – 3 Non-Sound Books for Toddlers: Alphabet Tracing, Color Peekaboo & 16 Brain-Boosting Activities",
     "price": "Rs.549",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -14957,13 +14996,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Early Learning Teeth Care Bath Book for Babies | Waterproof Soft Foam Pages | Safe Bath Time Learning Toy | Best Gift For Children 6 Months to 2 Years",
     "price": "Rs.249",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -15125,13 +15165,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Interactive Hindi Story Book 🐒🦁 | 28 Sound Buttons with 8 Panchatantra Tales for Toddlers",
     "price": "Rs.1,098",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -15989,13 +16030,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Magic Reusable Water Painting Book for Kids 3-8 years | Princess Theme | Water Color Fun with Water Pen | 4 Paint Pages & 2 Princess Sticker Sheets | Mess-Free Creative Play",
     "price": "Rs.599",
-    "age": "All Ages",
-    "category": "AI, Art & Craft",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Art & Craft",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16445,13 +16487,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Non-Sound Book Set for Toddlers (3 Books) – Color Peekaboo Fun, Little Genius IQ Games, 8 Stories Panchatantra Tales",
     "price": "Rs.549",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16469,13 +16512,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Nursery Rhymes Sound Book Gift Set – Pack of 4 | 112 Interactive Sound Buttons | 40+ Rhymes, Songs & Animal Sounds | Touch & Play Books for Toddlers (1-3 Years)",
     "price": "Rs.3,596",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16541,13 +16585,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Baby Bath Books – Shape cognition & Teeth Care | Waterproof Soft Floating Bath Books for Toddlers 6–24 Months | Early Learning & Hygiene Awareness | Best Gift For Children 6 Months to 2 Years",
     "price": "Rs.449",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -16565,13 +16610,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Baby Bath Books – Teeth Care & Name Cognition | Waterproof Soft Floating Books for 6–24 Months | Early Learning & Hygiene Awareness Bath Toys | Best Gift For Children 6 Months to 2 Years",
     "price": "Rs.449",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -16589,13 +16635,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Hindi Musical Sound Books for Kids | Nursery Geetho Kha Safar & Gungunate Bachon Ke Balgeet|28 Rhymes+28 Sounds",
     "price": "Rs.1,999",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16613,13 +16660,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Jelly Sticker Books for Kids – Animal World & Daily Supplies | Reusable & Washable Stickers | Big Fold-Out Playing Canvas | Travel Activity Book",
     "price": "Rs.649",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16637,13 +16685,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Jelly Sticker Books for Kids – Space Adventures & Animal World | Reusable & Washable Stickers | Big Fold-Out Playing Canvas | Travel Activity Book",
     "price": "Rs.649",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16685,13 +16734,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Musical Sound Books for Kids – Trip to Zoo & English Panchatantra Stories – Interactive Learning & Fun Sounds for Toddlers & Children",
     "price": "Rs.2,199",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16733,13 +16783,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Musical Sound Books – Trip to Zoo & Ripple in The Water | Interactive Learning Books for Toddlers & Kids",
     "price": "Rs.2,099",
-    "age": "All Ages",
-    "category": "Electronics",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Electronics",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16757,13 +16808,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Musical Sound Books – Trip to the Zoo & Sing-Along Rhymes | Interactive Learning Books for Toddlers & Kids",
     "price": "Rs.2,099",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16781,13 +16833,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Non-Sound Books for Toddlers – My First 100+ Words & Little Genius: 16 IQ-Boosting Activities – Early Learning & Brain Development for Ages 2+",
     "price": "Rs.449",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16853,13 +16906,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Reusable Water Painting Books for Kids 3-8 years – Fruit & Princess Theme | Magic Water Coloring with Water Pen | Mess-Free Travel Activity Books",
     "price": "Rs.1,078",
-    "age": "All Ages",
-    "category": "AI, Art & Craft",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Art & Craft",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16877,13 +16931,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Reusable Water Painting Books for Kids 3-8 years – Transportation & Fruit Theme | Magic Water Coloring with Water Pen | Mess-Free Travel Activity Books",
     "price": "Rs.1,078",
-    "age": "All Ages",
-    "category": "AI, Art & Craft",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Art & Craft",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16901,13 +16956,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Reusable Water Painting Books for Kids 3-8 years – Transportation & Princess Theme | Magic Water Coloring with Water Pen | Mess-Free Travel Activity Books",
     "price": "Rs.1,078",
-    "age": "All Ages",
-    "category": "AI, Art & Craft",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Art & Craft",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16925,13 +16981,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Sound Books for Kids – “Khel Khel Me Hindi Sikho (Varnamala)” & “My First Krishna” | Musical, Interactive Learning Books for Toddlers | Early Language & Cultural Education",
     "price": "Rs.2,199",
-    "age": "All Ages",
-    "category": "Robotics",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Robotics",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16949,13 +17006,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 2 Talking Books – Trip to Zoo & ABC Phonics | Fun, Musical Learning for Toddlers",
     "price": "Rs.1,999",
-    "age": "All Ages",
-    "category": "Art & Craft",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Art & Craft",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -16997,13 +17055,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 3 Board Books for Kids, Music on the Farm + Ripple in the Water + Chirping in the Sky, Colourful Picture Learning Books for Toddlers, Early Learning & Vocabulary Building, Ages 2+",
     "price": "Rs.499",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -17045,13 +17104,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 3 Educational Books – Little Genius IQ Activities, Panchatantra Stories & My First Words for Toddlers",
     "price": "Rs.549",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17069,13 +17129,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 3 Educational Non-Sound Books – 8 Stories Panchatantra Tales, Color Peekaboo & 16 Little Genius Early Learning Activities",
     "price": "Rs.549",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17093,13 +17154,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 3 Interactive Books – Trip to The Zoo Sound Book + Chirping in The Sky & Music on The Farm Non-Sound Books – Interactive & Educational Storybooks for Toddlers",
     "price": "Rs.1,498",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17165,13 +17227,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 3 Musical Sound Books – ABC, Zoo Trip & Phonics | Interactive Learning for Toddlers",
     "price": "Rs.2,899",
-    "age": "All Ages",
-    "category": "Art & Craft",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Art & Craft",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17189,13 +17252,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 3 Reusable Water Painting Books for Kids 3-8 years – Transportation, Fruit & Princess Theme | Magic Water Coloring with Water Pen | Complete Mess-Free Activity Set",
     "price": "Rs.1,527",
-    "age": "All Ages",
-    "category": "AI, Art & Craft",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Art & Craft",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17213,13 +17277,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 3 Rhymes Books – Sing-Along Rhymes, Nursery Favourites & Jungle Adventure | 84 Interactive Sound Buttons",
     "price": "Rs.2,899",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17237,13 +17302,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 3 Sticker Books for Kids | Reusable & Washable Stickers | Big Fold-Out Playing Canvas | Easy Carry Travel Activity Book for Toddlers",
     "price": "Rs.899",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17309,13 +17375,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 3: Play n Learn ABC Sound Book + 2 Non-Sound Board Books Ripple in the Water + Chirping in the Sky",
     "price": "Rs.1,498",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -17381,13 +17448,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 4 Early Learning Books for Kids 2+ Years | 2 Musical Sound Books Easy Hindi Learning & Play n Learn ABC + 2 Picture Board Books Panchatantra Tales & My First 100+ Words",
     "price": "Rs.2,099",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -17405,13 +17473,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 4 Kids Learning Books | Sound Boooks Nursery Geeto Ka Safar & Gungunate Bachon Ke Balgeet Sound Books + Non Sound Books My First 100+ Words & Trace and Learn Alphabets",
     "price": "Rs.1,999",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -17477,13 +17546,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 4 | Most Loved Rhymes + Sing-Along Coloring Sound Books + Trace & Learn + Color Peekaboo Board Books",
     "price": "Rs.1,999",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17501,13 +17571,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 4 | Play n Learn & Hindi Alphabet Sound Books + Trace & Learn + Color Peekaboo  Board Books",
     "price": "Rs.2,099",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17525,13 +17596,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 4 | Play n Learn & Most Loved Rhymes Sound Books + Trace & Learn + Color Peekaboo  Board Books",
     "price": "Rs.2,099",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -17573,13 +17645,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Pack of 4 | Play n Learn & Trip to Zoo Sound Books + Trace & Learn + Color Peekaboo  Board Books",
     "price": "Rs.2,099",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -17957,13 +18030,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Reusable Water Painting Book for Kids 3-8 years | Fruit Theme | Magic Water Coloring with Water Pen | 4 Reusable Painting Pages & 2 Fruit Sticker Sheets | Mess-Free Travel Activity Book",
     "price": "Rs.599",
-    "age": "All Ages",
-    "category": "AI, Art & Craft",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI, Art & Craft",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -18053,13 +18127,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Set of 2 Interactive Musical Books Featuring Nursery Rhymes and Rhymes n Chimes",
     "price": "Rs.2,099",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -18077,13 +18152,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Sing & Learn Duo Pack: Interactive Musical Books with Nursery Rhymes and Playtime Songs",
     "price": "Rs.2,099",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -18101,13 +18177,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Sing & Learn Duo: Pack of 2 Sing Along Nursery Rhymes & Jingle in the Jungle - Interactive Musical Book",
     "price": "Rs.2,099",
-    "age": "All Ages",
-    "category": "Robotics",
+    "age": "3-6 yrs",
+    "category": "Early Learning, Robotics",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -18125,13 +18202,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Space Jelly Sticker Book for Kids 2–7 Years | Reusable & Washable Stickers | Large Fold-Out Play Scenes | Easy Carry Travel Activity Book | Creative Learning Book",
     "price": "Rs.349",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -18197,13 +18275,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Toddlers’ 3-Book Pack – Non-Sound Learning Fun: My First 100+ Words, Trace & Learn Alphabets & Peekaboo Colors",
     "price": "Rs.549",
-    "age": "All Ages",
-    "category": "DIY",
+    "age": "3-6 yrs",
+    "category": "Early Learning, DIY",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Yes",
@@ -18509,13 +18588,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Waterproof Name Recognition Bath Book for Babies | Soft & Safe Early Learning Book | Word & Picture Learning | Best Gift For Children 6 Months to 2 Years",
     "price": "Rs.249",
-    "age": "All Ages",
-    "category": "AI",
+    "age": "3-6 yrs",
+    "category": "Early Learning, AI",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
@@ -18557,13 +18637,14 @@ const CATALOGUE_DATA = [
     "vendor": "Kiddale",
     "title": "Kiddale Wild & Aquatic Animals Pop-Up Book Set (Pack of 2) | 3D Pop-Out Animal Adventures | Interactive Touch-and-Feel Books for Kids | Educational Screen-Free Gift for Toddlers Ages 1–4",
     "price": "Rs.699",
-    "age": "All Ages",
-    "category": "STEM",
+    "age": "3-6 yrs",
+    "category": "Early Learning, STEM",
     "tags": [
-      "STEM Toys"
+      "STEM Toys",
+      "Early Learning"
     ],
     "vendor_type": "Kit Supplier",
-    "priority": "P2",
+    "priority": "Optional (3-6)",
     "effort": "Budget",
     "rating": "8/10",
     "curriculum": "Maybe",
