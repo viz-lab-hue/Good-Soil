@@ -38,9 +38,9 @@ graph TD
 
 ---
 
-## 2. Junior Batch (Ages 7–10 / Grades 2–5) — Complete Kit Procurement List
+## 2. Junior Batch (Ages 6–9 / Grades 1–4) — Complete Kit Procurement List
 
-> **Age Focus:** 7 to 10 Years Old (Elementary STEM). Focuses on motorized circuits, gear mechanics, aerodynamics, chemical reactions, optics, and bionic robotics. (Preschool / tracing / letter books are moved to the Optional Early Learning section below).
+> **Age Focus:** 6 to 9 Years Old (Elementary STEM). Focuses on hands-on motorized circuits, gear mechanics, aerodynamics, chemical reactions, optics, and bionic robotics. (Preschool / tracing / letter books are moved to the Optional Early Learning section below).
 
 **Total Classes:** 25 &nbsp;|&nbsp; **10 Take-Home Kits** &nbsp;|&nbsp; **10 Group Studio Sets** &nbsp;|&nbsp; **4 Assessment Challenges** &nbsp;|&nbsp; **1 Grand Expo**
 
@@ -50,7 +50,7 @@ graph TD
 | **02** | High-Lift Paper Gliders & Airfoil Launcher | Good Soil Aero Track | `CUSTOM-AERO-01` | 🤝 Group | ✈️ Aero I | ₹150 | 3 | ₹450 | 3 | ₹450 | [View in Catalogue](https://good-soil.onrender.com/?q=Glider) |
 | **03** | Kitchen Chemistry & Color Fireworks Lab | Butterfly Edufields | `WEB-BUT-051` | 🤝 Group | 🧪 Science I | ₹649 | 3 | ₹1,947 | 3 | ₹1,947 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-051) |
 | **04** | Wooden Catapult & Trajectory Shooter | Practiko | `WEB-PRA-052` | 🎁 Giveaway | ⚙️ Mechanics | ₹499 | 3 | ₹1,497 | 30 | ₹14,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PRA-052) |
-| **05** | Motorized Spin-Art & Centrifugal Machine | Butterfly Edufields | `WEB-BUT-028` | 🎁 Giveaway | 🎨 STEAM Art | ₹499 | 3 | ₹1,497 | 30 | ₹14,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-028) |
+| **05** | Spin Art & Craft STEAM Machine | Butterfly Edufields | `WEB-BUT-060` | 🎁 Giveaway | 🎨 STEAM Art | ₹399 | 3 | ₹1,197 | 30 | ₹11,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-060) |
 | **06** | Assessment 1: Island Escape Challenge Mat. | Good Soil Studio | `STUDIO-ASSESS-01`| 🏆 Test | 🎯 Challenge | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
 | **07** | Wooden Paddle Steamer Propeller Boat | Kiddale | `WEB-KDA-031` | 🎁 Giveaway | ⚙️ Mechanics | ₹424 | 3 | ₹1,272 | 30 | ₹12,720 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-031) |
 | **08** | Balsa/Foam Chuck Glider & Flight Tuning | Good Soil Aero Track | `CUSTOM-AERO-02` | 🤝 Group | ✈️ Aero II | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://good-soil.onrender.com/?q=Glider) |
@@ -71,11 +71,11 @@ graph TD
 | **23** | Mini Quad Drone Discovery & Pilot Station | BrainHap / Studio | `WEB-BRH-003` | 🤝 Group | ✈️🛩️ Drones | ₹2,999 | 1 | ₹2,999 | 1 | ₹2,999 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BRH-003) |
 | **24** | Assessment 4: Future City Prototype Mat.| Good Soil Studio | `STUDIO-ASSESS-04`| 🏆 Test | 🎯 Challenge | ₹250 | 3 | ₹750 | 3 | ₹750 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
 | **25** | Grand Expo: Medals, Certificates & Badges| Good Soil Studio | `STUDIO-EXPO-01` | 🎓 Expo | 🌟 Graduation | ₹300 | 30 | ₹9,000 | 30 | ₹9,000 | [View in Catalogue](https://good-soil.onrender.com/) |
-| **TOTAL** | **Junior Batch 25-Class Total** | — | — | — | — | — | — | **₹37,899** | — | **₹1,67,758** | [Open Master Catalogue](https://good-soil.onrender.com/) |
+| **TOTAL** | **Junior Batch 25-Class Total** | — | — | — | — | — | — | **₹37,599** | — | **₹1,64,758** | [Open Master Catalogue](https://good-soil.onrender.com/) |
 
 ---
 
-## 3. Senior Batch (Ages 10–16) — Complete Kit Procurement List
+## 3. Senior Batch (Ages 10–14 / Grades 5–9) — Complete Kit Procurement List
 
 **Total Classes:** 25 &nbsp;|&nbsp; **10 Take-Home Kits** &nbsp;|&nbsp; **10 Group Studio Sets** &nbsp;|&nbsp; **4 Assessment Challenges** &nbsp;|&nbsp; **1 Grand Expo**
 
@@ -131,7 +131,7 @@ graph TD
 | **Pludo (Robocraze)** | 7 | **P1** | Motorized DIY Aircraft, Clap-Racer, SolarGlide, 2-Way Car, Rocket Launcher | [robocraze.com](https://robocraze.com) |
 | **Mindtronix** | 7 | **P1** | Precision Catapult, Weighing Scale, Cable Car, Forklift, Bujji Robot, Arrow Launcher | [mindtronix.in](https://mindtronix.in) |
 | **Kiddale** | 8 | **P1** | Paddle Steamer, Table Lamp, Carousel, Sun-Earth-Moon, T-Rex Robot, Solar Rover | [kiddale.com](https://kiddale.com) |
-| **Butterfly Edufields**| 4 | **P1** | Spin-Art Centrifuge, 10-in-1 Electricity, 150+ Science Lab | [butterflyfields.com](https://butterflyfields.com) |
+| **Butterfly Edufields**| 4 | **P1** | Spin Art & Craft Kit, 10-in-1 Electricity, Kitchen Chemistry, 150+ Science Lab | [butterflyfields.com](https://butterflyfields.com) |
 | **Practiko** | 3 | **P1** | Catapult, Cipher Wheel, Pin Hole Camera & Periscope | [practiko.in](https://practiko.in) |
 | **Kintaro DIY** | 3 | **P2** | Hydraulic Gripper, Infinity Curve, Moto-Bot Bionic Walker | [kintarodiy.com](https://kintarodiy.com) |
 | **BrainHap** | 1 | **P1** | Beginner HD Camera Drone Kit | [brainhap.com](https://brainhap.com) |

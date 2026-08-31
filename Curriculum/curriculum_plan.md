@@ -1,6 +1,6 @@
 # Good Soil — 25-Class Master STEM Curriculum Plan
 
-> **Target Batches:** Junior (Ages 5–9) & Senior (Ages 10–16)  
+> **Target Batches:** Junior (Ages 6–9) & Senior (Ages 10–14)  
 > **Cadence:** 25 Weekend Classes (2 Hours each with 10-min break)  
 > **Core Architecture:** 10 Giveaway Kits + 10 Collaborative Group Kits + 4 Aeromodelling & Drone Masterclasses + 2 Pure Science/Chemistry Deep-Dives + STEAM Art Integration + Gamified Creative Assessments every 6th class (Classes 6, 12, 18, 24) + Grand Capstone Expo (Class 25).  
 > **Mantra:** *Learn → Play → Build → Compete → Take Home*
@@ -84,9 +84,9 @@ To ensure students do not just blindly follow assembly steps, **every domain kic
 
 ---
 
-## 3. Junior Batch (Ages 7–10 / Grades 2–5) — Complete 25-Class Outline
+## 3. Junior Batch (Ages 6–9 / Grades 1–4) — Complete 25-Class Outline
 
-> **Pedagogical Focus:** For young engineers ages 7 to 10. Every single class involves hands-on mechanical builds, motorized circuits, aerodynamics, chemical reactions, optics, and bionic robotics. (Preschool tracing/letter books are excluded and kept only as optional kindergarten kits).
+> **Pedagogical Focus:** For young engineers ages 6 to 9. Every single class involves hands-on mechanical builds, motorized circuits, aerodynamics, chemical reactions, optics, and bionic robotics. (Preschool tracing/letter books are excluded and kept only as optional kindergarten kits).
 
 | Class | Phase | Theme & Domain | Kit Type | Kit / Activity Name | Key Concept & Learning Outcome |
 | :---: | :---: | :--- | :---: | :--- | :--- |
@@ -94,7 +94,7 @@ To ensure students do not just blindly follow assembly steps, **every domain kic
 | **02** | P1 | ✈️ **Aeromodelling I** | 🤝 Group Kit #1 | **High-Lift Paper Gliders & Airfoil Launcher** | Wing shapes, launch angles, thrust vs. drag basics. |
 | **03** | P1 | 🧪 **Science Deep-Dive I** | 🤝 Group Kit #2 | **Kitchen Chemistry & Color Fireworks Lab** | Acid-base reactions, density layers, fizzing chemistry. |
 | **04** | P1 | ⚙️ **Mechanics I** | 🎁 Giveaway #2 | **Wooden Catapult & Trajectory Shooter** | Levers, fulcrums, stored potential energy to kinetic motion. |
-| **05** | P1 | 🎨 **STEAM & Art I** | 🎁 Giveaway #3 | **Motorized Spin-Art & Centrifugal Machine** | Centrifugal force, rotational dynamics, symmetry & kinetic art. |
+| **05** | P1 | 🎨 **STEAM & Art I** | 🎁 Giveaway #3 | **Spin Art & Craft STEAM Machine** | Centrifugal force, rotational dynamics, symmetry & kinetic art. |
 | **06** | P1 | 🏆 **ASSESSMENT 1** | 🎯 Creative Test | **"The Young Inventor's Island Escape"** | **Gamified Challenge:** Build an escape raft using floatation concepts & catapult messages over obstacle walls. (Badge: *Junior Explorer*) |
 | **07** | P2 | ⚙️ **Mechanics II** | 🎁 Giveaway #4 | **Wooden Paddle Steamer Propeller Boat** | Water resistance, paddle propulsion, rotational energy. |
 | **08** | P2 | ✈️ **Aeromodelling II** | 🤝 Group Kit #3 | **Balsa/Foam Chuck Glider & Flight Tuning** | Center of gravity (CG), dihedral angles, stable gliding. |
@@ -118,7 +118,7 @@ To ensure students do not just blindly follow assembly steps, **every domain kic
 
 ---
 
-## 4. Senior Batch (Ages 10–16) — Complete 25-Class Outline
+## 4. Senior Batch (Ages 10–14 / Grades 5–9) — Complete 25-Class Outline
 
 | Class | Phase | Theme & Domain | Kit Type | Kit / Activity Name | Key Concept & Learning Outcome |
 | :---: | :---: | :--- | :---: | :--- | :--- |
