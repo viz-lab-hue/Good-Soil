@@ -1,8 +1,9 @@
 # Good Soil — Phase 1 Kit Procurement Bill of Materials (BOM) & Budget Sheet
 
-> **Document Version:** 1.0  
-> **Target Program:** 6-Month STEM Pilot (60 Students: 30 Junior + 30 Senior)  
-> **Master Excel Workbook:** [`Budget/GoodSoil_Phase1_Kit_Procurement_BOM.xlsx`](file:///c:/Users/vizzu/Desktop/Good%20Soil/Budget/GoodSoil_Phase1_Kit_Procurement_BOM.xlsx)  
+> **Document Version:** 2.0 (Refactored & Aligned)  
+> **Target Program:** 6-Month STEM & Robotics Pilot (60 Students: 30 Junior + 30 Senior)  
+> **Master Excel Workbook:** [`Budget/GoodSoil_Phase1_Kit_Procurement_BOM_Updated.xlsx`](file:///c:/Users/vizzu/Desktop/Good%20Soil/Budget/GoodSoil_Phase1_Kit_Procurement_BOM_Updated.xlsx) *(or [`GoodSoil_Phase1_Kit_Procurement_BOM.xlsx`](file:///c:/Users/vizzu/Desktop/Good%20Soil/Budget/GoodSoil_Phase1_Kit_Procurement_BOM.xlsx))*  
+> **Curriculum Reference:** [`Curriculum/curriculum_plan.md`](file:///c:/Users/vizzu/Desktop/Good%20Soil/Curriculum/curriculum_plan.md)  
 > **Kit Database Reference:** [`Vendor Research/GoodSoil_Kit_Catalogue.xlsx`](file:///c:/Users/vizzu/Desktop/Good%20Soil/Vendor%20Research/GoodSoil_Kit_Catalogue.xlsx)
 
 ---
@@ -12,9 +13,9 @@
 ```mermaid
 graph TD
     GS["Good Soil Phase 1 Launch Capital"]
-    GS --> B1["🎯 1. STEM Coaching Academy Procurement<br/><b>BUDGET: ₹75,000 – ₹80,000</b><br/>• 40 Unique Kits × 3 Units (120 Units Total)<br/>• 20 Junior (5–9 yrs) + 20 Senior (10–16 yrs)<br/>• Packaging, Spares & Buffer included"]
+    GS --> B1["🎯 1. STEM Coaching Academy Procurement<br/><b>BUDGET: ₹75,000 – ₹80,000</b><br/>• Standardized on Practiko Multi-Grade Bundles<br/>• Reusable Shared Studio Kits (60 Units Total)<br/>• 10 Take-Home Builds / Student funded via fees"]
     GS --> B2["🎪 2. Experiential STEM Centre<br/><b>BUDGET: ₹1,20,000 (Completely Separate!)</b><br/>• 12–15 Interactive Activities & Setups<br/>• RC Simulators, Flight Drones & Maker Stations<br/>• Mobile Experience Zone for 200–300 kids/day"]
-    GS --> B3["🎁 3. Take-Home Kit Scaling (Optional Add-on)<br/><b>FUNDED 100% BY STUDENT FEES (₹3.9L Revenue)</b><br/>• 600 Take-Home Kits (10 Kits × 60 Students)<br/>• Procured monthly from fee cashflow (Zero Extra Seed Capital)"]
+    GS --> B3["🎁 3. Take-Home Kit Scaling<br/><b>FUNDED 100% BY STUDENT FEES (₹3.9L Revenue)</b><br/>• 600 Take-Home Kits (10 Kits × 60 Students)<br/>• Procured monthly from fee cashflow (Zero Extra Seed Capital)"]
 
     style GS fill:#1a1a2e,color:#fff,stroke:#e94560
     style B1 fill:#4CAF50,color:#fff
@@ -24,115 +25,101 @@ graph TD
 
 ### Clean Budget Breakdown Matrix
 
-| Budget Parameter | Coaching Academy In-Class Sets *(Seed Outlay)* | Experiential STEM Centre *(Separate Budget)* | Student Take-Home Scaling *(Self-Funded)* |
+| Budget Parameter | Coaching Academy In-Class Sets *(Model A — Seed Outlay)* | Experiential STEM Centre *(Separate Seed Budget)* | Student Take-Home Scaling *(Model C — Self-Funded)* |
 | :--- | :--- | :--- | :--- |
 | **Allocated Budget** | **₹75,000 – ₹80,000** | **₹1,20,000** | **₹0 Upfront** *(Funded via Tuition)* |
 | **Target Audience** | 60 Enrolled Students (30 Jr + 30 Sr) | 200–300 Walk-in Students / Day | 60 Enrolled Students (10 Take-Homes each) |
-| **Unit Scope** | **120 Kit Units** (40 Designs × 3 Units) | **12–15 Mobile Interactive Stations** | **600 Take-Home Units** |
-| **Junior Component** | **₹31,380** *(20 kits × 3 @ avg ₹400)* | Included in ₹1.2L Allocation | **₹1,32,240** *(30 kids × 10 kits)* |
-| **Senior Component** | **₹41,415 – ₹49,302** *(20 kits × 3 @ avg ₹700)*| Included in ₹1.2L Allocation | **₹2,03,880** *(30 kids × 10 kits)* |
-| **Consumables & Buffer** | **₹8,000** *(Tools, spares, packaging)* | Included in ₹1.2L Allocation | **₹15,000** *(Boxes, passports, stickers)* |
-| **Total Cost** | **₹75,000 – ₹80,000** | **₹1,20,000** | **~₹3,36,000 Retail / ~₹2,75,000 Bulk** |
+| **Unit Scope** | **60 Shared Studio Sets** (reused across Sat/Sun) | **12–15 Mobile Interactive Stations** | **600 Take-Home Units** |
+| **Junior Component** | **₹40,502** *(Retail benchmark for 3 units)* | Included in ₹1.2L Allocation | **₹1,37,174** *(30 kids × 10 kits with bulk discount)* |
+| **Senior Component** | **₹52,718** *(Retail benchmark for 3 units)* | Included in ₹1.2L Allocation | **₹1,70,416** *(30 kids × 10 kits with bulk discount)* |
+| **Consumables & Buffer**| **₹8,000** *(Tools, spares, packaging)* | Included in ₹1.2L Allocation | **₹10,000** *(Boxes, passports, stickers)* |
+| **Total Cost** | **~₹75,000 – ₹80,000** *(With 15–20% Practiko bundle discount)*| **₹1,20,000** | **~₹3,17,590 Bulk / ₹3,73,870 Retail** |
 | **Funding Source** | **Good Soil Upfront Seed Capital** | **Good Soil Experiential Seed Fund** | **Student Fees (30×₹5K + 30×₹8K = ₹3.9L)** |
-| **Operational Rhythm** | Reused across Saturday & Sunday batches | Portable for schools, fairs & exhibitions | Given away after each hands-on build class |
+| **Net Operational Cash** | Break-even seed allocation | Capital investment | **+₹72,410 Gross Cash Surplus** |
 
 ---
 
 ## 2. Junior Batch (Ages 6–9 / Grades 1–4) — Complete Kit Procurement List
 
-> **Age Focus:** 6 to 9 Years Old (Elementary STEM). Focuses on hands-on motorized circuits, gear mechanics, aerodynamics, chemical reactions, optics, and bionic robotics. (Preschool / tracing / letter books are moved to the Optional Early Learning section below).
+> **Age Focus:** 6 to 9 Years Old (Elementary STEM & Robotics). Aligned with Modules 1–15 of the Robotics Curriculum, Practiko Multi-Grade bundles, and Indian aeromodelling balsa tracks.
 
 **Total Classes:** 25 &nbsp;|&nbsp; **10 Take-Home Kits** &nbsp;|&nbsp; **10 Group Studio Sets** &nbsp;|&nbsp; **4 Assessment Challenges** &nbsp;|&nbsp; **1 Grand Expo**
 
-| Class | Kit / Activity Name | Vendor | SKU / Code | Format | Domain | Unit Price | Studio Qty (Model A) | Studio Cost | Take-Home Qty (Model B/C) | Take-Home Cost | Good Soil Catalogue Link |
-| :---: | :--- | :--- | :--- | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **01** | Electric Propeller & Aerodynamic Wind Car | Pludo (Robocraze) | `WEB-PLU-015` | 🎁 Giveaway | ⚡ Electricity | ₹467 | 3 | ₹1,401 | 30 | ₹14,010 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-015) |
-| **02** | High-Lift Paper Gliders & Airfoil Launcher | Good Soil Aero Track | `CUSTOM-AERO-01` | 🤝 Group | ✈️ Aero I | ₹150 | 3 | ₹450 | 3 | ₹450 | [View in Catalogue](https://good-soil.onrender.com/?q=Glider) |
-| **03** | Kitchen Chemistry & Color Fireworks Lab | Butterfly Edufields | `WEB-BUT-051` | 🤝 Group | 🧪 Science I | ₹649 | 3 | ₹1,947 | 3 | ₹1,947 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-051) |
-| **04** | Wooden Catapult & Trajectory Shooter | Practiko | `WEB-PRA-052` | 🎁 Giveaway | ⚙️ Mechanics | ₹499 | 3 | ₹1,497 | 30 | ₹14,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PRA-052) |
-| **05** | Spin Art & Craft STEAM Machine | Butterfly Edufields | `WEB-BUT-060` | 🎁 Giveaway | 🎨 STEAM Art | ₹399 | 3 | ₹1,197 | 30 | ₹11,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-060) |
-| **06** | Assessment 1: Island Escape Challenge Mat. | Good Soil Studio | `STUDIO-ASSESS-01`| 🏆 Test | 🎯 Challenge | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
-| **07** | Wooden Paddle Steamer Propeller Boat | Kiddale | `WEB-KDA-031` | 🎁 Giveaway | ⚙️ Mechanics | ₹424 | 3 | ₹1,272 | 30 | ₹12,720 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-031) |
-| **08** | Balsa/Foam Chuck Glider & Flight Tuning | Good Soil Aero Track | `CUSTOM-AERO-02` | 🤝 Group | ✈️ Aero II | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://good-soil.onrender.com/?q=Glider) |
-| **09** | Wooden Glow Table Lamp Circuit | Kiddale | `WEB-KDA-042` | 🎁 Giveaway | ⚡ Electricity | ₹424 | 3 | ₹1,272 | 30 | ₹12,720 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-042) |
-| **10** | Wooden Mechanical Carousel & Gear Train | Kiddale | `WEB-KDA-032` | 🤝 Group | ⚙️ Mechanics | ₹424 | 3 | ₹1,272 | 3 | ₹1,272 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-032) |
-| **11** | Morse Code Telegraph & Buzzer Station | Studio / DIY | `STUDIO-ELEC-01` | 🎁 Giveaway | ⚡ Electronics | ₹150 | 3 | ₹450 | 30 | ₹4,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Telegraph) |
-| **12** | Assessment 2: STEAM Carnival Ride Mat. | Good Soil Studio | `STUDIO-ASSESS-02`| 🏆 Test | 🎯 Challenge | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
-| **13** | Pneumatic Air-Powered Rocket Launcher | Pludo (Robocraze) | `WEB-PLU-014` | 🎁 Giveaway | ✈️ Aero III | ₹370 | 3 | ₹1,110 | 30 | ₹11,100 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-014) |
-| **14** | 10-in-1 Ultimate Electricity Lab | Butterfly Edufields | `WEB-BUT-030` | 🤝 Group | ⚡ Electronics | ₹589 | 3 | ₹1,767 | 3 | ₹1,767 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-030) |
-| **15** | Mechanical Secret Cipher Wheel | Practiko | `WEB-PRA-068` | 🎁 Giveaway | 💻 Coding | ₹499 | 3 | ₹1,497 | 30 | ₹14,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PRA-068) |
-| **16** | 3-Ball Motorized Sun, Earth & Moon Model | Kiddale | `WEB-KDA-139` | 🤝 Group | 🌌 Space | ₹449 | 3 | ₹1,347 | 3 | ₹1,347 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-139) |
-| **17** | Pin Hole Camera & Optical Periscope | Practiko | `WEB-PRA-054` | 🎁 Giveaway | 🔬 Science II | ₹499 | 3 | ₹1,497 | 30 | ₹14,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PRA-054) |
-| **18** | Assessment 3: Sky & Signals Derby Mat. | Good Soil Studio | `STUDIO-ASSESS-03`| 🏆 Test | 🎯 Challenge | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
-| **19** | Wooden Walking T-Rex Bionic Robot | Kiddale | `WEB-KDA-039` | 🤝 Group | 🤖 Robotics I | ₹594 | 3 | ₹1,782 | 3 | ₹1,782 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-039) |
-| **20** | Electric Coin-Eating Smart Bank Robot | Kiddale | `WEB-KDA-133` | 🤝 Group | 🤖 Robotics II| ₹599 | 3 | ₹1,797 | 3 | ₹1,797 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-133) |
-| **21** | Wooden Solar Power Rover Car | Kiddale | `WEB-KDA-043` | 🎁 Giveaway | ⚡ Clean Energy| ₹594 | 3 | ₹1,782 | 30 | ₹17,820 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-043) |
-| **22** | Two-Wheeled Obstacle Rover Team Build | Kiddale | `WEB-KDA-140` | 🤝 Group | 🤖 Robotics III| ₹499 | 3 | ₹1,497 | 3 | ₹1,497 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-140) |
-| **23** | Mini Quad Drone Discovery & Pilot Station | BrainHap / Studio | `WEB-BRH-003` | 🤝 Group | ✈️🛩️ Drones | ₹2,999 | 1 | ₹2,999 | 1 | ₹2,999 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BRH-003) |
-| **24** | Assessment 4: Future City Prototype Mat.| Good Soil Studio | `STUDIO-ASSESS-04`| 🏆 Test | 🎯 Challenge | ₹250 | 3 | ₹750 | 3 | ₹750 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
-| **25** | Grand Expo: Medals, Certificates & Badges| Good Soil Studio | `STUDIO-EXPO-01` | 🎓 Expo | 🌟 Graduation | ₹300 | 30 | ₹9,000 | 30 | ₹9,000 | [View in Catalogue](https://good-soil.onrender.com/) |
-| **TOTAL** | **Junior Batch 25-Class Total** | — | — | — | — | — | — | **₹37,599** | — | **₹1,64,758** | [Open Master Catalogue](https://good-soil.onrender.com/) |
+| Class | Framework Module | Kit / Activity Name | Vendor | SKU / Code | Format | Domain | Unit Price | Studio Qty (Model A) | Studio Cost | Take-Home Qty (Model B/C) | Take-Home Cost | Good Soil Catalogue Link |
+|:---:|:---|:---|:---|:---|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---|
+| **01** | Module 1: Meet the Robots | Human vs. Robot Explorer Station | Practiko Mechatronics / Demo | `PRA-MECH-01` | 🤝 Group | 🤖 Robotics I | ₹500 | 3 | ₹1,500 | 3 | ₹1,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Mechatronics) |
+| **02** | Module 2: Instructions to Robots | Floor Grid Robot Maze & Code Cards | Unplugged / Practiko Logic | `STUDIO-CODE-01`| 🤝 Group | 💻 Algorithms | ₹350 | 3 | ₹1,050 | 3 | ₹1,050 | [View in Catalogue](https://good-soil.onrender.com/?q=Maze) |
+| **03** | Module 3: Components of a Robot | 5 Organs of a Robot Dissection Lab | Practiko Electrical Circuit Lab | `PRA-ELEC-01` | 🤝 Group | ⚡ Anatomy | ₹450 | 3 | ₹1,350 | 3 | ₹1,350 | [View in Catalogue](https://good-soil.onrender.com/?q=Circuit) |
+| **04** | Module 4: BreadBoard Intro | Junior Snap / Pinboard LED Circuit | Good Soil Modular Starter | `STUDIO-SNAP-01`| 🎁 Giveaway | ⚡ Circuits | ₹350 | 3 | ₹1,050 | 30 | ₹10,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Pinboard) |
+| **05** | Module 5: Electricity & Power | Electric Propeller & Aerodynamic Wind Car | Pludo (Robocraze) | `WEB-PLU-015` | 🎁 Giveaway | ⚡ Electricity | ₹467 | 3 | ₹1,401 | 30 | ₹14,010 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-015) |
+| **06** | 🏆 Assessment 1 (Milestone) | Assessment 1: Island Escape & Circuit Maze | Good Soil Studio | `STUDIO-ASSESS-01`| 🏆 Test | 🎯 Challenge | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
+| **07** | Module 6: Sensors — Part I | Automatic Night-Glow Sensor Lamp | Practiko / Kiddale | `WEB-KDA-042` | 🎁 Giveaway | ⚡ Sensors I | ₹424 | 3 | ₹1,272 | 30 | ₹12,720 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-042) |
+| **08** | Module 7: Sensors & Buzzers | Morse Code Telegraph & Buzzer Station | Good Soil Studio | `STUDIO-ELEC-01` | 🎁 Giveaway | ⚡ Sensors II | ₹250 | 3 | ₹750 | 30 | ₹7,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Telegraph) |
+| **09** | Module 8: Sensor & Switches | 2-Way Reversible Motor & Railway Gate | Practiko Mechatronics | `PRA-MECH-02` | 🤝 Group | ⚙️ Switches | ₹450 | 3 | ₹1,350 | 3 | ₹1,350 | [View in Catalogue](https://good-soil.onrender.com/?q=Switch) |
+| **10** | Module 9: Motors & Movement | Mechanical Gearbox & Carousel Machine | Practiko Kinematics / Kiddale | `WEB-KDA-032` | 🤝 Group | ⚙️ Mechanics | ₹424 | 3 | ₹1,272 | 3 | ₹1,272 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-032) |
+| **11** | Module 10: Build a Moving Robot | Junior 2-Wheel Rover Build (Milestone!) | Good Soil Dual-Motor Rover | `WEB-KDA-140` | 🎁 Giveaway | 🤖 Robotics II | ₹499 | 3 | ₹1,497 | 30 | ₹14,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-140) |
+| **12** | 🏆 Assessment 2 (Milestone) | Assessment 2: Great Rover Derby Track | Good Soil Studio | `STUDIO-ASSESS-02`| 🏆 Test | 🎯 Challenge | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
+| **13** | Module 11: Intro to MCU | Micro:bit / Block Brain First Blink | Practiko / Micro:bit Station | `PRA-MCU-01` | 🤝 Group | 💻 MCU I | ₹650 | 3 | ₹1,950 | 3 | ₹1,950 | [View in Catalogue](https://good-soil.onrender.com/?q=Microbit) |
+| **14** | Module 12: MCU I/O & Sound | Interactive Sound & Emotion Display | Practiko Mechatronics | `PRA-MECH-03` | 🤝 Group | 💻 MCU II | ₹650 | 3 | ₹1,950 | 3 | ₹1,950 | [View in Catalogue](https://good-soil.onrender.com/?q=OLED) |
+| **15** | Module 13: MCU Projects | Smart Security Room Guard / Gate Alarm | Good Soil Ultrasonic Kit | `STUDIO-SEC-01` | 🎁 Giveaway | 🤖 Automation | ₹450 | 3 | ₹1,350 | 30 | ₹13,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Ultrasonic) |
+| **16** | Module 14: Loops & Repetition | Looping Light Patrol & Dancing Bot | Practiko Mechatronics | `PRA-MECH-04` | 🤝 Group | 💻 Logic | ₹500 | 3 | ₹1,500 | 3 | ₹1,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Loop) |
+| **17** | ✈️ Aeromodelling Track I | High-Lift Balsa & Foam Chuck Gliders | Crossvind / Indian Aero Fun | `CUSTOM-AERO-01`| 🤝 Group | ✈️ Aero I | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://crossvindsolutions.com) |
+| **18** | 🏆 Assessment 3 (Milestone) | Assessment 3: Sky Patrol & Beacon Derby | Good Soil Studio | `STUDIO-ASSESS-03`| 🏆 Test | 🎯 Challenge | ₹200 | 3 | ₹600 | 3 | ₹600 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
+| **19** | Module 15: Robot Mechanics I | Walking Bionic T-Rex / Crab Linkage | Kiddale / Practiko | `WEB-KDA-039` | 🎁 Giveaway | 🤖 Mechanics I | ₹594 | 3 | ₹1,782 | 30 | ₹17,820 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-039) |
+| **20** | Robot Mechanics II | Wooden Catapult & Trajectory Launcher | Practiko Mechanics | `WEB-PRA-052` | 🎁 Giveaway | ⚙️ Mechanics II | ₹499 | 3 | ₹1,497 | 30 | ₹14,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PRA-052) |
+| **21** | ✈️ Aeromodelling Track II | Rubber-Band High-Endurance Plane | Good Soil Aero Track | `CUSTOM-AERO-02`| 🎁 Giveaway | ✈️ Aero II | ₹350 | 3 | ₹1,050 | 30 | ₹10,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Rubber) |
+| **22** | ✈️ Aeromodelling Track III | Mini-Drone Flight Discovery Station | BrainHap / Studio | `WEB-BRH-003` | 🤝 Group | ✈️ Drones | ₹2,999 | 1 | ₹2,999 | 1 | ₹2,999 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BRH-003) |
+| **23** | Clean Energy & Capstone | Solar-Powered Eco Rover Car | Kiddale | `WEB-KDA-043` | 🎁 Giveaway | ⚡ Clean Energy | ₹594 | 3 | ₹1,782 | 30 | ₹17,820 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KDA-043) |
+| **24** | 🏆 Assessment 4 (Milestone) | Assessment 4: Young Inventors Pitch Arena | Good Soil Studio | `STUDIO-ASSESS-04`| 🏆 Test | 🎯 Challenge | ₹250 | 3 | ₹750 | 3 | ₹750 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
+| **25** | 🎓 Grand Capstone Expo | Grand Expo: Medals, Badges & Certs | Good Soil Studio | `STUDIO-EXPO-01` | 🎓 Expo | 🌟 Graduation | ₹300 | 30 | ₹9,000 | 30 | ₹9,000 | [View in Catalogue](https://good-soil.onrender.com/) |
+| **TOTAL** | **Junior Batch 25-Class Total** | — | — | — | — | — | — | — | **₹40,502** | — | **₹1,61,381** | [Open Master Catalogue](https://good-soil.onrender.com/) |
 
 ---
 
 ## 3. Senior Batch (Ages 10–14 / Grades 5–9) — Complete Kit Procurement List
 
+> **Age Focus:** 10 to 14 Years Old (Middle School STEM & Robotics). Focuses on breadboard prototyping, Ohm’s Law, discrete analog/digital electronics, Arduino embedded microcontrollers, kinematics, and quadcopter avionics.
+
 **Total Classes:** 25 &nbsp;|&nbsp; **10 Take-Home Kits** &nbsp;|&nbsp; **10 Group Studio Sets** &nbsp;|&nbsp; **4 Assessment Challenges** &nbsp;|&nbsp; **1 Grand Expo**
 
-| Class | Kit / Activity Name | Vendor | SKU / Code | Format | Domain | Unit Price | Studio Qty (Model A) | Studio Cost | Take-Home Qty (Model B/C) | Take-Home Cost | Good Soil Catalogue Link |
-| :---: | :--- | :--- | :--- | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **01** | Hydraulic Mech Gripper Robot Arm | Kintaro DIY | `WEB-KIN-001` | 🎁 Giveaway | ⚙️ Mechanics | ₹749 | 3 | ₹2,247 | 30 | ₹22,470 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KIN-001) |
-| **02** | Rubber-Band High-Endurance Monoplane | Good Soil Aero Track | `CUSTOM-AERO-03` | 🤝 Group | ✈️ Aero I | ₹400 | 3 | ₹1,200 | 3 | ₹1,200 | [View in Catalogue](https://good-soil.onrender.com/?q=Glider) |
-| **03** | 150+ Chemistry & Physics Experiment Lab | Butterfly Edufields | `WEB-BUT-052` | 🤝 Group | 🧪 Science I | ₹669 | 3 | ₹2,007 | 3 | ₹2,007 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-052) |
-| **04** | Precision Force Vector Catapult | Mindtronix | `WEB-MIN-003` | 🎁 Giveaway | ⚙️ Mechanics | ₹712 | 3 | ₹2,136 | 30 | ₹21,360 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-MIN-003) |
-| **05** | SolarGlide Kinetic Solar Aircraft Mobile | Pludo (Robocraze) | `WEB-PLU-024` | 🎁 Giveaway | 🎨 STEAM Art | ₹719 | 3 | ₹2,157 | 30 | ₹21,570 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-024) |
-| **06** | Assessment 1: Medieval Siege Challenge | Good Soil Studio | `STUDIO-ASSESS-01S`| 🏆 Test | 🎯 Challenge | ₹250 | 3 | ₹750 | 3 | ₹750 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
-| **07** | DIY Electronic Weighing Scale (Strain Gauge) | Mindtronix | `WEB-MIN-017` | 🎁 Giveaway | ⚡ Electronics | ₹623 | 3 | ₹1,869 | 30 | ₹18,690 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-MIN-017) |
-| **08** | Large Wingspan Foam Glider & CG Trim | Good Soil Aero Track | `CUSTOM-AERO-04` | 🤝 Group | ✈️ Aero II | ₹500 | 3 | ₹1,500 | 3 | ₹1,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Glider) |
-| **09** | 2-Way Reversible Motor Electric Car | Pludo (Robocraze) | `WEB-PLU-064` | 🎁 Giveaway | ⚡ Electronics | ₹710 | 3 | ₹2,130 | 30 | ₹21,300 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-064) |
-| **10** | Heavy-Duty Cable Car Overhead Lift | Mindtronix | `WEB-MIN-015` | 🤝 Group | ⚙️ Mechanics | ₹759 | 3 | ₹2,277 | 3 | ₹2,277 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-MIN-015) |
-| **11** | Neon Glow Optical Infinity Mirror | Studio / DIY | `STUDIO-ART-01S` | 🎁 Giveaway | 🎨 STEAM Art | ₹350 | 3 | ₹1,050 | 30 | ₹10,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Infinity) |
-| **12** | Assessment 2: Rescue Rover Canyon Race | Good Soil Studio | `STUDIO-ASSESS-02S`| 🏆 Test | 🎯 Challenge | ₹250 | 3 | ₹750 | 3 | ₹750 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
-| **13** | Motorized Electric DIY Aircraft | Pludo (Robocraze) | `WEB-PLU-074` | 🎁 Giveaway | ✈️ Aero III | ₹629 | 3 | ₹1,887 | 30 | ₹18,870 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-074) |
-| **14** | Motorized Forklift & Heavy Cargo Lifter | Mindtronix | `WEB-MIN-007` | 🤝 Group | ⚙️ Mechanics | ₹702 | 3 | ₹2,106 | 3 | ₹2,106 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-MIN-007) |
-| **15** | Clap-Racer Sound-Activated Car | Pludo (Robocraze) | `WEB-PLU-009` | 🎁 Giveaway | 💻 Sensors | ₹719 | 3 | ₹2,157 | 30 | ₹21,570 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-009) |
-| **16** | Orbital Satellite & Telemetry Antenna | Pludo (Robocraze) | `WEB-PLU-019` | 🤝 Group | 🌌 Space | ₹629 | 3 | ₹1,887 | 3 | ₹1,887 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-019) |
-| **17** | Infinity Curve & Harmonic Pendulum | Kintaro DIY | `WEB-KIN-014` | 🎁 Giveaway | 🔬 Science II | ₹799 | 3 | ₹2,397 | 30 | ₹23,970 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KIN-014) |
-| **18** | Assessment 3: Flight Derby & Sensor Maze| Good Soil Studio | `STUDIO-ASSESS-03S`| 🏆 Test | 🎯 Challenge | ₹250 | 3 | ₹750 | 3 | ₹750 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
-| **19** | Multi-Axis Motorized Robot Claw Machine | Pludo (Robocraze) | `WEB-PLU-075` | 🤝 Group | 🤖 Robotics I | ₹629 | 3 | ₹1,887 | 3 | ₹1,887 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-075) |
-| **20** | Bujji Autonomous Obstacle Robot | Mindtronix | `WEB-MIN-022` | 🤝 Group | 🤖 Robotics II| ₹799 | 3 | ₹2,397 | 3 | ₹2,397 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-MIN-022) |
-| **21** | Programmable Motorized Arrow Launcher | Mindtronix | `WEB-MIN-006` | 🎁 Giveaway | 💻 Logic | ₹786 | 3 | ₹2,358 | 30 | ₹23,580 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-MIN-006) |
-| **22** | Moto-Bot Bionic Multi-Leg Walker | Kintaro DIY | `WEB-KIN-015` | 🤝 Group | 🤖 Robotics III| ₹799 | 3 | ₹2,397 | 3 | ₹2,397 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KIN-015) |
-| **23** | BrainHap HD Camera Drone Piloting | BrainHap | `WEB-BRH-003` | 🤝 Group | ✈️🛩️ Drones | ₹2,999 | 1 | ₹2,999 | 1 | ₹2,999 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BRH-003) |
-| **24** | Assessment 4: Shark Tank Prototype Def. | Good Soil Studio | `STUDIO-ASSESS-04S`| 🏆 Test | 🎯 Challenge | ₹300 | 3 | ₹900 | 3 | ₹900 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
-| **25** | Senior Tech Symposium: Trophies & Certs | Good Soil Studio | `STUDIO-EXPO-02` | 🎓 Expo | 🌟 Graduation | ₹350 | 30 | ₹10,500 | 30 | ₹10,500 | [View in Catalogue](https://good-soil.onrender.com/) |
-| **TOTAL** | **Senior Batch 25-Class Total** | — | — | — | — | — | — | **₹49,948** | — | **₹2,42,888** | [Open Master Catalogue](https://good-soil.onrender.com/) |
+| Class | Framework Module | Kit / Activity Name | Vendor | SKU / Code | Format | Domain | Unit Price | Studio Qty (Model A) | Studio Cost | Take-Home Qty (Model B/C) | Take-Home Cost | Good Soil Catalogue Link |
+|:---:|:---|:---|:---|:---|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---|
+| **01** | Module 1: Meet the Robots | Autonomous Systems & DoF Dissection | Practiko Mechatronics | `PRA-MECH-S01`| 🤝 Group | 🤖 Robotics I | ₹600 | 3 | ₹1,800 | 3 | ₹1,800 | [View in Catalogue](https://good-soil.onrender.com/?q=Robotics) |
+| **02** | Module 2: Instructions to Robots | Pseudocode, State Machines & Flowcharts | Practiko AI Kit | `PRA-AI-01` | 🤝 Group | 💻 Logic | ₹450 | 3 | ₹1,350 | 3 | ₹1,350 | [View in Catalogue](https://good-soil.onrender.com/?q=AI) |
+| **03** | Module 3: Components of a Robot | Hardware BOM & Signal Routing Lab | Practiko Electrical Science | `PRA-ELEC-S01`| 🤝 Group | ⚡ Schematics | ₹500 | 3 | ₹1,500 | 3 | ₹1,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Electrical) |
+| **04** | Module 4: BreadBoard Intro | Half-Size Solderless Breadboard Lab | Good Soil Prototyping Pack | `STUDIO-BREAD-01`| 🎁 Giveaway | ⚡ Breadboard | ₹399 | 3 | ₹1,197 | 30 | ₹11,970 | [View in Catalogue](https://good-soil.onrender.com/?q=Breadboard) |
+| **05** | Module 5: Electricity & Power | Multi-Voltage Power Supply & Test Station | Practiko Electrical Science | `PRA-ELEC-S02`| 🎁 Giveaway | ⚡ Power Lab | ₹549 | 3 | ₹1,647 | 30 | ₹16,470 | [View in Catalogue](https://good-soil.onrender.com/?q=Power) |
+| **06** | 🏆 Assessment 1 (Milestone) | Assessment 1: Circuit Diagnostics Hackathon| Good Soil Studio | `STUDIO-ASSESS-01S`| 🏆 Test | 🎯 Challenge | ₹250 | 3 | ₹750 | 3 | ₹750 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
+| **07** | Module 6: Sensors — Part I | Precision LDR Light Sensor & Divider Bench | Good Soil Sensor Lab | `STUDIO-SENS-01`| 🎁 Giveaway | ⚡ Sensors I | ₹450 | 3 | ₹1,350 | 30 | ₹13,500 | [View in Catalogue](https://good-soil.onrender.com/?q=LDR) |
+| **08** | Module 7: Sensors & Buzzers | Transistor-Driven Piezo Alarm Circuit | Good Soil Electronics Lab | `STUDIO-SE-02` | 🎁 Giveaway | ⚡ Sensors II | ₹450 | 3 | ₹1,350 | 30 | ₹13,500 | [View in Catalogue](https://good-soil.onrender.com/?q=Transistor) |
+| **09** | Module 8: Sensor & Switches | Relay Logic & Reversible DPDT Motor Drive | Practiko Mechatronics | `PRA-MECH-S02`| 🤝 Group | ⚙️ Switches | ₹600 | 3 | ₹1,800 | 3 | ₹1,800 | [View in Catalogue](https://good-soil.onrender.com/?q=Relay) |
+| **10** | Module 9: Motors & Movement | Dual-Motor Gear Ratio & Speed/Torque Bench| Practiko Kinematics | `PRA-KIN-S01` | 🤝 Group | ⚙️ Gear Ratios | ₹650 | 3 | ₹1,950 | 3 | ₹1,950 | [View in Catalogue](https://good-soil.onrender.com/?q=Kinematics) |
+| **11** | Module 10: Build a Moving Robot | 4WD Heavy-Duty Obstacle Rover Chassis | Good Soil 4WD Platform | `STUDIO-ROV-01` | 🎁 Giveaway | 🤖 Robotics II | ₹749 | 3 | ₹2,247 | 30 | ₹22,470 | [View in Catalogue](https://good-soil.onrender.com/?q=Rover) |
+| **12** | 🏆 Assessment 2 (Milestone) | Assessment 2: Autonomous Rescue Rover Challenge| Good Soil Studio | `STUDIO-ASSESS-02S`| 🏆 Test | 🎯 Challenge | ₹250 | 3 | ₹750 | 3 | ₹750 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
+| **13** | Module 11: Intro to MCU | Arduino / Microcontroller Embedded Core | Practiko Mechatronics | `PRA-MCU-S01` | 🤝 Group | 💻 MCU I | ₹850 | 3 | ₹2,550 | 3 | ₹2,550 | [View in Catalogue](https://good-soil.onrender.com/?q=Arduino) |
+| **14** | Module 12: MCU I/O & PWM | Analog Read & PWM Motor Speed Control | Practiko Mechatronics | `PRA-MCU-S02` | 🤝 Group | 💻 MCU II | ₹850 | 3 | ₹2,550 | 3 | ₹2,550 | [View in Catalogue](https://good-soil.onrender.com/?q=PWM) |
+| **15** | Module 13: MCU Projects | Ultrasonic Radar Distance & Collision Guard| Good Soil Ultrasonic Kit | `STUDIO-RAD-01` | 🎁 Giveaway | 🤖 Sonar | ₹699 | 3 | ₹2,097 | 30 | ₹20,970 | [View in Catalogue](https://good-soil.onrender.com/?q=Sonar) |
+| **16** | Module 14: Loops & Repetition | State Machines & Edge-Avoiding Autonomy | Practiko Mechatronics | `PRA-MECH-S03`| 🤝 Group | 💻 Autonomy | ₹850 | 3 | ₹2,550 | 3 | ₹2,550 | [View in Catalogue](https://good-soil.onrender.com/?q=State) |
+| **17** | ✈️ Aeromodelling Track I | Aeronautical Airfoils & Large Balsa Glider | Crossvind Crossbird (40 cm) | `CUSTOM-AERO-03`| 🤝 Group | ✈️ Aero I | ₹450 | 3 | ₹1,350 | 3 | ₹1,350 | [View in Catalogue](https://crossvindsolutions.com) |
+| **18** | 🏆 Assessment 3 (Milestone) | Assessment 3: Avionics & Radar Arena Trial | Good Soil Studio | `STUDIO-ASSESS-03S`| 🏆 Test | 🎯 Challenge | ₹250 | 3 | ₹750 | 3 | ₹750 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
+| **19** | Module 15: Robot Mechanics I | Kinematics: Linkages, JCB & Slider-Cranks | Practiko Kinematics Master Kit | `PRA-KIN-S02` | 🤝 Group | ⚙️ Kinematics | ₹750 | 3 | ₹2,250 | 3 | ₹2,250 | [View in Catalogue](https://good-soil.onrender.com/?q=JCB) |
+| **20** | Robot Mechanics II | Hydraulic Mech Gripper Robot Arm | Practiko Hydraulics / Kintaro | `WEB-KIN-001` | 🎁 Giveaway | 💧 Hydraulics | ₹749 | 3 | ₹2,247 | 30 | ₹22,470 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-KIN-001) |
+| **21** | ✈️ Aeromodelling Track II | Motorized Electric DIY Aircraft | Pludo (Robocraze) | `WEB-PLU-074` | 🎁 Giveaway | ✈️ Aero II | ₹629 | 3 | ₹1,887 | 30 | ₹18,870 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-074) |
+| **22** | ✈️ Aeromodelling Track III | BrainHap Quadcopter Flight & Telemetry | BrainHap Drone Kit | `WEB-BRH-003` | 🤝 Group | ✈️ Drones | ₹2,999 | 1 | ₹2,999 | 1 | ₹2,999 | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BRH-003) |
+| **23** | Advanced IoT & Capstone | Smart Connected IoT Rover / Weather Node | Practiko IoT Platform | `PRA-IOT-01` | 🎁 Giveaway | 🌐 IoT & Cloud | ₹799 | 3 | ₹2,397 | 30 | ₹23,970 | [View in Catalogue](https://good-soil.onrender.com/?q=IoT) |
+| **24** | 🏆 Assessment 4 (Milestone) | Assessment 4: Shark Tank & Capstone Defense| Good Soil Studio | `STUDIO-ASSESS-04S`| 🏆 Test | 🎯 Challenge | ₹300 | 3 | ₹900 | 3 | ₹900 | [View in Catalogue](https://good-soil.onrender.com/?q=Assessment) |
+| **25** | 🎓 Grand Capstone Expo | Senior Tech Symposium: Trophies & Certs | Good Soil Studio | `STUDIO-EXPO-02` | 🎓 Expo | 🌟 Graduation | ₹350 | 30 | ₹10,500 | 30 | ₹10,500 | [View in Catalogue](https://good-soil.onrender.com/) |
+| **TOTAL** | **Senior Batch 25-Class Total** | — | — | — | — | — | — | — | **₹52,718** | — | **₹2,00,489** | [Open Master Catalogue](https://good-soil.onrender.com/) |
 
 ---
 
-## 4. Optional / Additional Kits for Early Learners (Ages 3–6 / Preschool)
+## 4. Key Vendor RFQ & Wholesale Allocation Matrix
 
-> **Note:** These kits (alphabet magnets, tracing copybooks, early puzzles, soft foam letter sets) are kept separate from the core 7+ STEM curriculum, but are available in the catalogue if Good Soil runs kindergarten/early childhood workshops.
-
-| Kit Name | Vendor | SKU | Age | Domain | Unit Price | Notes | Good Soil Catalogue Link |
-| :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
-| **155 Alphabets & Words Magnet Set** | Butterfly Edufields | `WEB-BUT-063` | 3–6 | Literacy | ₹549 | Soft foam letters & words | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-063) |
-| **90+ pcs Magnetic Numbers & Shapes** | Butterfly Edufields | `WEB-BUT-061` | 3–5 | Early Math | ₹499 | Shapes & counting puzzle | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-061) |
-| **Air Magic Bernoulli's Law Early Kit** | Pludo (Robocraze) | `WEB-PLU-032` | 4–6 | Early Physics | ₹475 | Soft airflow floating ball | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-032) |
-| **Little Builders Cable Bridge Project** | Pludo (Robocraze) | `WEB-PLU-030` | 4–6 | Early Mechanics| ₹475 | Big chunky wooden parts | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-PLU-030) |
-| **4-in-1 Animals & Dinosaurs Jigsaw** | Butterfly Edufields | `WEB-BUT-010` | 3–6 | Visual Cognition| ₹399 | Large preschool puzzle | [View in Catalogue](https://good-soil.onrender.com/?id=WEB-BUT-010) |
-
----
-
-## 5. Summary of Primary Vendors to Contact for Bulk RFQs
-
-| Vendor | Total Kits in Pilot | Priority | Key Kit Lines | Contact / Store URL |
-| :--- | :---: | :---: | :--- | :--- |
-| **Pludo (Robocraze)** | 7 | **P1** | Motorized DIY Aircraft, Clap-Racer, SolarGlide, 2-Way Car, Rocket Launcher | [robocraze.com](https://robocraze.com) |
-| **Mindtronix** | 7 | **P1** | Precision Catapult, Weighing Scale, Cable Car, Forklift, Bujji Robot, Arrow Launcher | [mindtronix.in](https://mindtronix.in) |
-| **Kiddale** | 8 | **P1** | Paddle Steamer, Table Lamp, Carousel, Sun-Earth-Moon, T-Rex Robot, Solar Rover | [kiddale.com](https://kiddale.com) |
-| **Butterfly Edufields**| 4 | **P1** | Spin Art & Craft Kit, 10-in-1 Electricity, Kitchen Chemistry, 150+ Science Lab | [butterflyfields.com](https://butterflyfields.com) |
-| **Practiko** | 3 | **P1** | Catapult, Cipher Wheel, Pin Hole Camera & Periscope | [practiko.in](https://practiko.in) |
-| **Kintaro DIY** | 3 | **P2** | Hydraulic Gripper, Infinity Curve, Moto-Bot Bionic Walker | [kintarodiy.com](https://kintarodiy.com) |
-| **BrainHap** | 1 | **P1** | Beginner HD Camera Drone Kit | [brainhap.com](https://brainhap.com) |
-| **Mechatron Robotics**| (Discovery/Demo)| **P1** | Teacher Demo Boxes (`WEB-MEC-001` & `WEB-MEC-002`) | [mechatronrobotics.com](https://mechatronrobotics.com) |
+| Vendor / Partner | Primary Bundles & SKUs | Est. Studio Volume | Est. Take-Home Volume | Est. Total Value (₹) | Target Discount | Primary Contact / URL |
+| :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| **Practiko Learning** | Mechatronics Master Kit, Kinematics Kit, Electrical Science, Hydraulics, IoT Node | 3 Master Bundles | 90 Take-Home Units | ₹95,000 | 15% – 20% B2B | `sales@practiko.in` \| [practiko.in](https://practiko.in) |
+| **Crossvind Solutions** | All-Balsa Chuck Gliders (Little Pakshi 16cm, Tiny Tiya, Crossbird 40cm) | 6 Studio Gliders | 60 Take-Home Gliders | ₹18,500 | 20% Volume | `+91 98114 75262` \| [crossvindsolutions.com](https://crossvindsolutions.com) |
+| **Pludo / Robocraze** | Wind Cars (`WEB-PLU-015`), Motorized Electric Aircraft (`WEB-PLU-074`) | 6 Studio Units | 60 Take-Home Units | ₹35,000 | 15% Institutional | `support@robocraze.com` \| [robocraze.com](https://robocraze.com) |
+| **Kiddale Toys** | Bionic Walking T-Rex (`WEB-KDA-039`), Solar Rover (`WEB-KDA-043`), Night Lamp (`WEB-KDA-042`) | 9 Studio Units | 90 Take-Home Units | ₹42,000 | 18% Wholesale | `sales@kiddale.com` \| [kiddale.com](https://kiddale.com) |
+| **BrainHap Technologies**| Beginner HD Camera Drone Kit (`WEB-BRH-003`), Indoor Ducted Station | 2 Master Stations | 2 Demo Units | ₹6,000 | Direct Wholesale | `support@brainhap.com` \| [brainhap.com](https://brainhap.com) |
+| **Good Soil In-House Lab**| Half-Breadboards, Jumper Sets, Assessment Mats, Medals, Passports & Diplomas | Shared Studio | 60 Full Student Sets | ₹45,000 | Direct Assembly | In-House Studio Assembly |

@@ -1458,20 +1458,20 @@
     }
 
     function preloadStandardCurriculum() {
-      // 40 Primary BOM Kits for Good Soil (Junior Ages 7-10 & Senior Ages 10-14)
+      // 40 Primary BOM Kits for Good Soil (Junior Ages 6-9 & Senior Ages 10-14)
       const standardSkus = [
-        // Junior Batch (Ages 7-10)
-        'WEB-PLU-015', 'CUSTOM-AERO-01', 'WEB-BUT-051', 'WEB-PRA-052', 'WEB-BUT-060', 
-        'STUDIO-ASSESS-01', 'WEB-KDA-031', 'CUSTOM-AERO-02', 'WEB-KDA-042', 'WEB-KDA-032',
-        'STUDIO-ELEC-01', 'STUDIO-ASSESS-02', 'WEB-PLU-014', 'WEB-BUT-030', 'WEB-PRA-068',
-        'WEB-KDA-139', 'WEB-PRA-054', 'STUDIO-ASSESS-03', 'WEB-KDA-039', 'WEB-KDA-133',
-        'WEB-KDA-043', 'WEB-KDA-140', 'WEB-BRH-003', 'STUDIO-ASSESS-04', 'STUDIO-EXPO-01',
-        // Senior Batch (Ages 10-14+)
-        'WEB-KIN-001', 'CUSTOM-AERO-03', 'WEB-BUT-052', 'WEB-MIN-003', 'WEB-PLU-024',
-        'STUDIO-ASSESS-01S', 'WEB-MIN-017', 'CUSTOM-AERO-04', 'WEB-PLU-064', 'WEB-MIN-015',
-        'STUDIO-ART-01S', 'STUDIO-ASSESS-02S', 'WEB-PLU-074', 'WEB-MIN-007', 'WEB-PLU-009',
-        'WEB-PLU-019', 'WEB-KIN-014', 'STUDIO-ASSESS-03S', 'WEB-PLU-075', 'WEB-MIN-022',
-        'WEB-MIN-006', 'WEB-KIN-015', 'WEB-BRH-003', 'STUDIO-ASSESS-04S', 'STUDIO-EXPO-02'
+        // Junior Batch (Ages 6-9 / Grades 1-4)
+        'PRA-MECH-01', 'STUDIO-CODE-01', 'PRA-ELEC-01', 'STUDIO-SNAP-01', 'WEB-PLU-015', 
+        'STUDIO-ASSESS-01', 'WEB-KDA-042', 'STUDIO-ELEC-01', 'PRA-MECH-02', 'WEB-KDA-032',
+        'WEB-KDA-140', 'STUDIO-ASSESS-02', 'PRA-MCU-01', 'PRA-MECH-03', 'STUDIO-SEC-01',
+        'PRA-MECH-04', 'CUSTOM-AERO-01', 'STUDIO-ASSESS-03', 'WEB-KDA-039', 'WEB-PRA-052',
+        'CUSTOM-AERO-02', 'WEB-BRH-003', 'WEB-KDA-043', 'STUDIO-ASSESS-04', 'STUDIO-EXPO-01',
+        // Senior Batch (Ages 10-14 / Grades 5-9)
+        'PRA-MECH-S01', 'PRA-AI-01', 'PRA-ELEC-S01', 'STUDIO-BREAD-01', 'PRA-ELEC-S02',
+        'STUDIO-ASSESS-01S', 'STUDIO-SENS-01', 'STUDIO-SE-02', 'PRA-MECH-S02', 'PRA-KIN-S01',
+        'STUDIO-ROV-01', 'STUDIO-ASSESS-02S', 'PRA-MCU-S01', 'PRA-MCU-S02', 'STUDIO-RAD-01',
+        'PRA-MECH-S03', 'CUSTOM-AERO-03', 'STUDIO-ASSESS-03S', 'PRA-KIN-S02', 'WEB-KIN-001',
+        'WEB-PLU-074', 'WEB-BRH-003', 'PRA-IOT-01', 'STUDIO-ASSESS-04S', 'STUDIO-EXPO-02'
       ];
 
       standardSkus.forEach(sku => {
@@ -1482,7 +1482,7 @@
       saveCart();
       renderCart();
       renderCatalogue();
-      showToast('Loaded Good Soil 40-Kit STEM Plan for Ages 7-14 (3 units each)!', '⭐');
+      showToast('Loaded Good Soil Refactored 40-Kit STEM Plan (3 units each)!', '⭐');
     }
 
     function parsePrice(pStr) {

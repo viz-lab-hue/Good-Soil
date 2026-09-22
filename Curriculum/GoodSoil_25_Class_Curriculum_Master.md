@@ -1,8 +1,9 @@
-# Good Soil — 25-Class Master STEM Curriculum Outline
+# Good Soil — 25-Class Master STEM & Robotics Curriculum Outline
 
-> **Target Batches:** Junior (Ages 7–10) & Senior (Ages 10–16)  
-> **Structure:** 25 Weekend Classes (2 Hours each with 10-min break)  
-> **Core Architecture:** 10 Giveaway (Take-Home) Kits + 10 Collaborative Group Kits + 4 Aeromodelling & Drone Masterclasses + 2 Pure Science/Chemistry Deep-Dives + Creative STEAM Art Integration + Gamified Creative Assessments every 6th class.  
+> **Target Batches:** Junior (Ages 6–9 / Grades 1–4) & Senior (Ages 10–14 / Grades 5–9)  
+> **Structure:** 25 Weekend Classes (2 Hours each with 10-min break — 50 Hours Total)  
+> **Pedagogical Backbone:** Aligned with the *Good Soil Robotics Curriculum Framework* (Modules 1–15) + *Practiko Multi-Grade Engineering Bundles* + *Indian Aeromodelling & Drone Track*.  
+> **Core Architecture:** 10 Giveaway (Take-Home) Kits + 10 Collaborative Group Kits + 4 Gamified Milestone Assessments + 1 Grand Capstone Expo.  
 > **Mantra:** *Learn → Play → Build → Compete → Take Home*
 
 ---
@@ -16,13 +17,11 @@ graph TD
     TOT --> GRP["🤝 10 Group Activity Kits<br/>(Collaborative Studio Sets)"]
     TOT --> ASS["🏆 4 Creative Assessments + Expo<br/>(Every 6th Class: Wk 6, 12, 18, 24, 25)"]
 
-    TOT --> DOM["Domains Covered"]
-    DOM --> AERO["✈️ Aeromodelling & Drones (4 Classes)"]
-    DOM --> SCI["🔬 Pure Science & Chemistry (2 Classes)"]
-    DOM --> ART["🎨 STEAM & Kinetic Art (2 Classes)"]
-    DOM --> ROB["🤖 Robotics & Mechanisms (6 Classes)"]
-    DOM --> ELEC["⚡ Electronics & Circuits (6 Classes)"]
-    DOM --> COD["💻 Coding & Logic (5 Classes)"]
+    TOT --> DOM["Core Integrated Domains"]
+    DOM --> ROB["🤖 Robotics & Mechanisms (Modules 1–10, 15)"]
+    DOM --> ELEC["⚡ Electronics & Prototyping (Breadboard, Power, Sensors)"]
+    DOM --> MCU["💻 Microcontrollers & Logic (Modules 11–14)"]
+    DOM --> AERO["✈️ Aeromodelling & Drones (Airfoils, Balsa, RC & Drone)"]
 
     style TOT fill:#1a1a2e,color:#fff,stroke:#e94560
     style GIV fill:#4CAF50,color:#fff
@@ -35,9 +34,9 @@ graph TD
 
 | Class Category | Number of Classes | Description & Pedagogical Purpose |
 | :--- | :---: | :--- |
-| **🎁 Giveaway (Take-Home) Kits** | **10** | Individual hands-on builds that students keep, test at home, and share with parents. |
-| **🤝 Group Activity Kits** | **10** | Advanced, collaborative studio kits (teams of 4–5) promoting peer problem solving, larger assemblies, and teamwork. |
-| **🏆 Creative Milestone Assessments** | **4** | Every 6th class (Classes 6, 12, 18, 24) converted into gamified challenges, escape quests, or derby competitions. |
+| **🎁 Giveaway (Take-Home) Kits** | **10** | Individual hands-on builds that students assemble, calibrate, keep, and demonstrate at home. |
+| **🤝 Group Activity Kits** | **10** | Reusable studio platforms (Practiko Mechatronics, Kinematics, Hydraulics) fostering collaborative problem solving in teams of 4–5. |
+| **🏆 Creative Milestone Assessments** | **4** | Every 6th class (Classes 6, 12, 18, 24) converted into gamified challenges, obstacle runs, or tech defense derbies. |
 | **🎓 Grand Capstone Expo** | **1** | Class 25 — Grand Exhibition, live flight & robot arena, parent demos, and graduation awards. |
 | **Total** | **25** | **Complete 6-Month STEM Odyssey** |
 
@@ -47,9 +46,10 @@ graph TD
 
 ```mermaid
 graph LR
-    P1["Phase 1: Spark & Foundations<br/>(Classes 1–6)"] --> P2["Phase 2: Forces & Circuits<br/>(Classes 7–12)"]
-    P2 --> P3["Phase 3: Aviation & Automation<br/>(Classes 13–18)"]
-    P3 --> P4["Phase 4: Robotics & Capstone<br/>(Classes 19–25)"]
+    P1["Phase 1: Spark & Circuits<br/>(Classes 1–6)<br/>Modules 1–5 + Assessment 1"] 
+    --> P2["Phase 2: Sensing & Mobile Bots<br/>(Classes 7–12)<br/>Modules 6–10 + Assessment 2"]
+    --> P3["Phase 3: Microcontrollers & Flight<br/>(Classes 13–18)<br/>Modules 11–14, Aero I + Assessment 3"]
+    --> P4["Phase 4: Kinematics, Drones & Expo<br/>(Classes 19–25)<br/>Module 15, Aero II/III + Expo"]
 
     style P1 fill:#4CAF50,color:#fff
     style P2 fill:#2196F3,color:#fff
@@ -57,147 +57,71 @@ graph LR
     style P4 fill:#E91E63,color:#fff
 ```
 
-### The 2-Tier "Starter & Foundation Discovery" System
-To ensure students do not just blindly follow assembly steps, **every domain kickoff session integrates an active 10–30 minute "Foundation & Component Discovery" segment** before opening the main project kit:
-
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  SESSION TIME ALLOCATION (120 Minutes Total)                                 │
-├──────────────────────────┬───────────────────────┬───────────────────────────┤
-│  1. Foundation & Starter │  2. Guided Project    │  3. Testing, Challenge &  │
-│     Discovery (15–30 min)│     Build (45–50 min) │     Journal (30–40 min)   │
-│  ──────────────────────  │  ───────────────────  │  ───────────────────────  │
-│  • Touch & test loose    │  • Individual/Group   │  • Measure, race, record  │
-│    components (motors,   │    assembly of the    │  • STEAM extension &      │
-│    LEDs, gears, airfoils)│    selected kit       │    troubleshooting        │
-│  • Instructor live demo  │  • Step-by-step logic │  • STEM Passport log entry│
-└──────────────────────────┴───────────────────────┴───────────────────────────┘
-```
-
-#### Junior Batch Foundation Discovery (10–20 min):
-* **Tactile & Visual:** "Meet the Component" show-and-tell with giant visual cards and large touchable sample parts (e.g., spinning motor shaft, blinking LED with coin cell, interlocking spur gears).
-* **Interactive Test Bench:** Simple snap-circuit or alligator-lead tester where kids verify if parts work before building.
-
-#### Senior Batch Foundation Discovery (20–30 min):
-* **Engineering & Schematics:** Circuit breadboarding, multimeter continuity/voltage checks, analyzing sensor datasheets (e.g. sound sensor threshold, strain gauge resistance curves), and understanding free-body diagrams / center-of-gravity vectors.
-* **Component Diagnostics:** Troubleshooting simulations (e.g., "Why won't this motor reverse? Let's trace the DPDT switch polarity").
+### The 2-Tier "Starter & Foundation Discovery" System (120 Minutes)
+1. **Foundation & Discovery (20–25 min):** Hands-on exploration of loose components (motors, gears, LDRs, airfoils) and instructor live demo before touching kits.
+2. **Guided Project Build (50–55 min):** Step-by-step assembly, circuit wiring on breadboards, and mechanical tuning.
+3. **Testing, Challenge & Journal (40–45 min):** Timed runs, parameter measurements, failure troubleshooting, and STEM Passport log entries.
 
 ---
 
-## 3. Junior Batch (Ages 7–10) — Complete 25-Class Outline
+## 3. Junior Batch (Ages 6–9 / Grades 1–4) — Complete 25-Class Outline
 
-| Class | Phase | Theme & Domain | Kit Type | Kit / Activity Name | Key Concept & Learning Outcome |
+| Class | Phase | Framework Module | Kit Type | Kit / Activity Name | Key Concept & Learning Outcome |
 | :---: | :---: | :--- | :---: | :--- | :--- |
-| **01** | P1 | 🔬 **Intro & Observation** | 🎁 Giveaway #1 | **Parts of Plants & Bio-Magnifier Kit** | Plant biology, microscope lenses, curiosity sparking. |
-| **02** | P1 | ✈️ **Aeromodelling I** | 🤝 Group Kit #1 | **High-Lift Paper Gliders & Airfoil Launcher** | Wing shapes, launch angles, thrust vs. drag basics. |
-| **03** | P1 | 🧪 **Science Deep-Dive I** | 🤝 Group Kit #2 | **Kitchen Chemistry & Color Fireworks Lab** | Acid-base reactions, density layers, fizzing chemistry. |
-| **04** | P1 | ⚙️ **Mechanics I** | 🎁 Giveaway #2 | **Wooden Catapult & Trajectory Shooter** | Levers, fulcrums, stored potential energy to kinetic motion. |
-| **05** | P1 | 🎨 **STEAM & Art I** | 🎁 Giveaway #3 | **Spin Art & Craft STEAM Machine** | Centrifugal force, rotational dynamics, symmetry & kinetic art. |
-| **06** | P1 | 🏆 **ASSESSMENT 1** | 🎯 Creative Test | **"The Young Inventor's Island Escape"** | **Gamified Challenge:** Build an escape raft using floatation concepts & catapult messages over obstacle walls. (Badge: *Junior Explorer*) |
-| **07** | P2 | ⚙️ **Mechanics II** | 🎁 Giveaway #4 | **Wooden Paddle Steamer Propeller Boat** | Water resistance, paddle propulsion, rotational energy. |
-| **08** | P2 | ✈️ **Aeromodelling II** | 🤝 Group Kit #3 | **Balsa/Foam Chuck Glider & Flight Tuning** | Center of gravity (CG), dihedral angles, stable gliding. |
-| **09** | P2 | ⚡ **Electricity I** | 🎁 Giveaway #5 | **Wooden Glow Table Lamp & Switch Circuit** | Open vs. closed circuits, LED polarity, conductors. |
-| **10** | P2 | ⚙️ **Mechanics III** | 🤝 Group Kit #4 | **Wooden Mechanical Carousel & Gear Train** | Gear ratios, speed vs. torque, clockwise/counter-clockwise. |
-| **11** | P2 | 🎨 **STEAM & Art II** | 🎁 Giveaway #6 | **Illuminated Greeting Card & Paper Circuit** | Copper tape circuits, conductive art, creative lighting. |
-| **12** | P2 | 🏆 **ASSESSMENT 2** | 🎯 Creative Test | **"The STEAM Carnival Challenge"** | **Gamified Challenge:** Teams build a mini amusement park ride with gear motors & light signals. Peer voting & tickets. (Badge: *Master Crafter*) |
-| **13** | P3 | ✈️ **Aeromodelling III** | 🎁 Giveaway #7 | **Air-Powered Pneumatic Rocket Launcher** | Air compression, pneumatic force, launch range optimization. |
-| **14** | P3 | ⚡ **Electricity II** | 🤝 Group Kit #5 | **10-in-1 Ultimate Electricity Lab** | Series vs. parallel circuits, buzzers, magnetic switches. |
-| **15** | P3 | 💻 **Coding & Logic I** | 🎁 Giveaway #8 | **Mechanical Secret Cipher Wheel & Maze** | Cryptography, pattern recognition, algorithmic thinking. |
-| **16** | P3 | 🌌 **Space Science** | 🤝 Group Kit #6 | **3-Ball Motorized Sun, Earth & Moon Model** | Planetary rotation, lunar phases, day/night cycles. |
-| **17** | P3 | 🔬 **Science Deep-Dive II**| 🎁 Giveaway #9 | **Pin Hole Camera & Reflection Periscope** | Light ray propagation, inverted images, periscope mirrors. |
-| **18** | P3 | 🏆 **ASSESSMENT 3** | 🎯 Creative Test | **"The Sky & Signals Derby"** | **Gamified Challenge:** Precision rocket landing contest + decoding Morse light signals sent across the classroom. (Badge: *Flight Cadet*) |
-| **19** | P4 | 🤖 **Robotics I** | 🤝 Group Kit #7 | **Wooden Walking T-Rex Bionic Robot** | Crank mechanisms, 4-bar linkage walking gait. |
-| **20** | P4 | 🤖 **Robotics II** | 🤝 Group Kit #8 | **Electric Coin-Eating Smart Bank Robot** | Switch automation, mechanical jaws, smart triggering. |
-| **21** | P4 | ⚡ **Clean Energy** | 🎁 Giveaway #10 | **Wooden Solar Power Rover Car** | Photovoltaic cells, solar energy to motor rotation. |
-| **22** | P4 | 🤖 **Robotics III** | 🤝 Group Kit #9 | **Two-Wheeled Obstacle Rover Team Build** | Chassis balance, high-speed dual motor drive. |
-| **23** | P4 | ✈️ **Aeromodelling IV** | 🤝 Group Kit #10 | **Drone Flight Discovery & Mini Quad Pilot** | Drone anatomy, 4-rotor aerodynamics, safe pilot station. |
-| **24** | P4 | 🏆 **ASSESSMENT 4** | 🎯 Creative Test | **"The Future City Innovation Pitch"** | **Gamified Challenge:** Teams combine 2+ mechanisms into a "Smart City" gadget and pitch to mentors. (Badge: *Young Innovator*) |
-| **25** | P4 | 🎓 **GRAND EXPO** | 🌟 Showcase Day | **Good Soil Junior Innovators Expo & Graduation** | Parent demos, live robot racing, flight exhibitions, graduation medals & STEM passports. |
+| **01** | P1 | **Module 1: Meet the Robots** | 🤝 Group Kit #1 | **Human vs. Robot Explorer Station** | Robot vs. tool vs. animal; inputs (eyes/ears) vs. outputs (hands/legs). |
+| **02** | P1 | **Module 2: Instructions to Robots** | 🤝 Group Kit #2 | **Floor Grid Robot Maze & Code Cards** | Step-by-step algorithms, precise commands, unplugged path finding. |
+| **03** | P1 | **Module 3: Components of a Simple Robot**| 🤝 Group Kit #3 | **5 Organs of a Robot Dissection Lab** | Power (Battery), Input (Sensors), Brain, Output (Motors), Body (Chassis). |
+| **04** | P1 | **Module 4: BreadBoard — An Introduction**| 🎁 Giveaway #1 | **Junior Snap / Pinboard LED Circuit** | Solderless connections, power rails, completed loops, LED lighting. |
+| **05** | P1 | **Module 5: Electricity: Powering a Robot**| 🎁 Giveaway #2 | **Electric Propeller & Aerodynamic Wind Car**| Battery polarity, DC motor spin direction, circuit loops, aerodynamic thrust. |
+| **06** | P1 | **🏆 ASSESSMENT 1** | 🎯 Creative Test | **"Mission: Island Escape & Circuit Maze"** | **Gamified Challenge:** Fix a beacon circuit, navigate an unplugged rescue grid, and launch an SOS propeller car. (Badge: *Junior Explorer*) |
+| **07** | P2 | **Module 6: Sensors — Part I** | 🎁 Giveaway #3 | **Automatic Night-Glow Sensor Lamp** | Light-dependent resistors (LDR), automatic switching in darkness. |
+| **08** | P2 | **Module 7: Sensors & Buzzers — Part II** | 🎁 Giveaway #4 | **Morse Code Telegraph & Buzzer Station** | Sound vibrations, piezo buzzers, Morse code binary communication. |
+| **09** | P2 | **Module 8: Sensor & Switches** | 🤝 Group Kit #4 | **2-Way Reversible Motor & Railway Gate** | Pushbuttons, toggle switches, polarity reversal, forward/reverse motion. |
+| **10** | P2 | **Module 9: Motors: Making Robots Move** | 🤝 Group Kit #5 | **Mechanical Gearbox & Carousel Machine** | Spur gears, driver vs. driven gears, speed vs. torque transmission. |
+| **11** | P2 | **Module 10: Build a Moving Robot** | 🎁 Giveaway #5 | **Junior 2-Wheel Rover Build (Milestone!)** | Full robot integration: chassis, battery, dual DC motors, switch, alignment. |
+| **12** | P2 | **🏆 ASSESSMENT 2** | 🎯 Creative Test | **"The Great Rover Derby & Agility Track"**| **Gamified Challenge:** Timed slalom race, gear-ratio torque climbing ramp, and precision stopping. (Badge: *Master Crafter*) |
+| **13** | P3 | **Module 11: Intro to Microcontroller** | 🤝 Group Kit #6 | **Micro:bit / Block Brain First Blink** | Robot brains, input/output pins, visual block coding, LED matrix display. |
+| **14** | P3 | **Module 12: Microcontroller — Part II** | 🤝 Group Kit #7 | **Interactive Sound & Emotion Display** | Button event triggers, animated facial expressions, sound synthesis. |
+| **15** | P3 | **Module 13: Microcontroller Projects** | 🎁 Giveaway #6 | **Smart Security Room Guard / Gate Alarm** | Ultrasonic distance sensing, intruder detection threshold, alarm triggering. |
+| **16** | P3 | **Module 14: Loops & Repetition** | 🤝 Group Kit #8 | **Looping Light Patrol & Dancing Bot** | While/repeat loops, continuous automation routines, state transitions. |
+| **17** | P3 | **✈️ Aeromodelling Track I** | 🤝 Group Kit #9 | **High-Lift Balsa & Foam Chuck Gliders** | Aerodynamics: Lift, weight, thrust, drag; dihedral angle stability. |
+| **18** | P3 | **🏆 ASSESSMENT 3** | 🎯 Creative Test | **"The Sky Patrol & Sensor Beacon Derby"** | **Gamified Challenge:** Longest glide flight contest + landing on a sensor target pad. (Badge: *Flight Cadet*) |
+| **19** | P4 | **Module 15: Robot Mechanics — Part I** | 🎁 Giveaway #7 | **Walking Bionic T-Rex / Crab Linkage** | 4-bar linkages, crank mechanisms, converting rotation into walking gait. |
+| **20** | P4 | **Robot Mechanics — Part II** | 🎁 Giveaway #8 | **Wooden Catapult & Trajectory Launcher** | Levers, fulcrums, mechanical advantage, projectile trajectory physics. |
+| **21** | P4 | **✈️ Aeromodelling Track II** | 🎁 Giveaway #9 | **Rubber-Band Powered High-Endurance Plane**| Propeller pitch, rubber motor energy storage, glide ratio extension. |
+| **22** | P4 | **✈️ Aeromodelling Track III** | 🤝 Group Kit #10 | **Mini-Drone Flight Discovery Station** | 4-rotor quadcopter physics, roll/pitch/yaw joystick basics, indoor hover. |
+| **23** | P4 | **Clean Energy & Capstone Assembly** | 🎁 Giveaway #10 | **Solar-Powered Eco Rover Car** | Photovoltaic cells, solar-to-electric conversion, student capstone prep. |
+| **24** | P4 | **🏆 ASSESSMENT 4** | 🎯 Creative Test | **"Young Inventors Showcase & Pitch Arena"**| **Gamified Challenge:** Pitching customized builds to mentors, explaining circuit diagrams, live test runs. (Badge: *Young Innovator*) |
+| **25** | P4 | **🎓 GRAND EXPO** | 🌟 Showcase Day | **Good Soil Junior STEM Expo & Graduation** | Parent demos, live flight show, robot arena challenges, medals & passports. |
 
 ---
 
-## 4. Senior Batch (Ages 10–16) — Complete 25-Class Outline
+## 4. Senior Batch (Ages 10–14 / Grades 5–9) — Complete 25-Class Outline
 
-| Class | Phase | Theme & Domain | Kit Type | Kit / Activity Name | Key Concept & Learning Outcome |
+| Class | Phase | Framework Module | Kit Type | Kit / Activity Name | Key Concept & Learning Outcome |
 | :---: | :---: | :--- | :---: | :--- | :--- |
-| **01** | P1 | ⚙️ **Mechanics I** | 🎁 Giveaway #1 | **Hydraulic Mech Gripper Robot Arm** | Pascal’s law, fluid pressure transmission, mechanical advantage. |
-| **02** | P1 | ✈️ **Aeromodelling I** | 🤝 Group Kit #1 | **Rubber-Band High-Endurance Monoplane** | Airfoil aerodynamics, dihedral stability, propeller pitch. |
-| **03** | P1 | 🧪 **Science Deep-Dive I** | 🤝 Group Kit #2 | **150+ Chemistry & Physics Experiment Lab** | Exothermic/endothermic reactions, pH titration, crystal growth. |
-| **04** | P1 | ⚙️ **Mechanics II** | 🎁 Giveaway #2 | **Precision Force Vector Catapult & Target** | Projectile physics, parabolic trajectory, angle math. |
-| **05** | P1 | 🎨 **STEAM & Art I** | 🎁 Giveaway #3 | **SolarGlide Kinetic Solar Aircraft Mobile** | Photovoltaic power, balance point physics, kinetic sculpture. |
-| **06** | P1 | 🏆 **ASSESSMENT 1** | 🎯 Creative Test | **"The Medieval Siege & Chemistry Hackathon"** | **Gamified Challenge:** Target hit accuracy competition using catapult math + chemical indicator color puzzle. (Badge: *Apprentice Engineer*) |
-| **07** | P2 | ⚡ **Electronics I** | 🎁 Giveaway #4 | **DIY Electronic Weighing Scale (Strain Sensor)** | Resistance variation, sensor calibration, digital display logic. |
-| **08** | P2 | ✈️ **Aeromodelling II** | 🤝 Group Kit #3 | **Large-Wingspan Foam Glider & CG Balancing** | Aerodynamic stalling, glide ratio calculation, trim adjustments. |
-| **09** | P2 | ⚡ **Electronics II** | 🎁 Giveaway #5 | **2-Way Reversible Motor Electric Car** | DPDT switch polarity reversal, motor torque, wheel traction. |
-| **10** | P2 | ⚙️ **Mechanics III** | 🤝 Group Kit #4 | **Heavy-Duty Cable Car Overhead Lift System** | Pulleys, mechanical tension, gear reduction, cable suspension. |
-| **11** | P2 | 🎨 **STEAM & Art II** | 🎁 Giveaway #6 | **Neon Glow Optical Infinity Mirror** | Semi-transparent mirrors, infinite reflection geometry, LED matrix. |
-| **12** | P2 | 🏆 **ASSESSMENT 2** | 🎯 Creative Test | **"The Autonomous Rescue Rover Challenge"** | **Gamified Challenge:** Build a cable-driven or mobile rover capable of crossing an obstacle canyon and retrieving cargo. (Badge: *Systems Builder*) |
-| **13** | P3 | ✈️ **Aeromodelling III** | 🎁 Giveaway #7 | **Motorized Electric DIY Aircraft (Pludo)** | Propeller thrust-to-weight ratio, battery drain curves, powered flight. |
-| **14** | P3 | ⚙️ **Mechanics IV** | 🤝 Group Kit #5 | **Motorized Forklift & Heavy Cargo Lifter** | Worm gears, non-reversing gearboxes, rack & pinion lifts. |
-| **15** | P3 | 💻 **Coding & Sensors I**| 🎁 Giveaway #8 | **Clap-Racer Sound-Activated Car** | Sound sensor triggers, transistor switching, latching circuits. |
-| **16** | P3 | 🌌 **Space Tech** | 🤝 Group Kit #6 | **Orbital Satellite & Telemetry Antenna Model** | Satellite communications, telemetry orbits, solar array alignment. |
-| **17** | P3 | 🔬 **Science Deep-Dive II**| 🎁 Giveaway #9 | **Infinity Curve & Harmonic Motion Pendulum** | Harmonic resonance, damping forces, conservation of momentum. |
-| **18** | P3 | 🏆 **ASSESSMENT 3** | 🎯 Creative Test | **"The Aeromodelling Flight Derby & Sensor Arena"** | **Gamified Challenge:** Longest flight duration contest + acoustic sound-trigger time trial obstacle race. (Badge: *Avionics Specialist*) |
-| **19** | P4 | 🤖 **Robotics I** | 🤝 Group Kit #7 | **Multi-Axis Motorized Robotic Claw Machine** | 3-axis motion, stepper/servo actuation, end-effector gripping. |
-| **20** | P4 | 🤖 **Robotics II** | 🤝 Group Kit #8 | **Bujji Autonomous Obstacle-Avoiding Robot** | Ultrasonic distance sensing, microcontroller decision trees. |
-| **21** | P4 | 💻 **Coding & Logic II**| 🎁 Giveaway #10 | **Programmable Motorized Arrow Launcher** | Micro-switch timing, rapid firing mechanisms, safe launch triggers. |
-| **22** | P4 | 🤖 **Robotics III** | 🤝 Group Kit #9 | **Moto-Bot Bionic Multi-Leg Walker** | Klann/Jansen linkage systems, biomimetic multi-leg locomotion. |
-| **23** | P4 | ✈️ **Aeromodelling IV** | 🤝 Group Kit #10 | **BrainHap HD Camera Drone Piloting & Telemetry**| Quadcopter roll/pitch/yaw aerodynamics, aerial photography, altitude hold. |
-| **24** | P4 | 🏆 **ASSESSMENT 4** | 🎯 Creative Test | **"The Good Soil Shark Tank & Capstone Defense"** | **Gamified Challenge:** Teams defend their customized robotic/drone prototype, explain circuit diagrams, and showcase live demos to judges. (Badge: *Master Innovator*) |
-| **25** | P4 | 🎓 **GRAND EXPO** | 🌟 Showcase Day | **Good Soil Senior Tech Symposium & Graduation** | Public live flight exhibitions, robotics battle arena, project display tables, certification & trophy ceremony. |
-
----
-
-## 5. The Creative Assessment Framework (Every 6th Class)
-
-Traditional exams do not work for hands-on STEM. Instead, every 6th class is run as an **immersive, gamified mission** with clear milestone badges:
-
-```mermaid
-graph TD
-    A1["Class 6: Mission 1<br/>Escape Room / Target Derby"] --> B1["Badge 1 Unlocked"]
-    A2["Class 12: Mission 2<br/>STEAM Carnival / Rescue Race"] --> B2["Badge 2 Unlocked"]
-    A3["Class 18: Mission 3<br/>Flight Derby & Sensor Maze"] --> B3["Badge 3 Unlocked"]
-    A4["Class 24: Mission 4<br/>Shark Tank Prototype Defense"] --> B4["Badge 4: Master Innovator"]
-    B4 --> EXPO["Class 25: Grand STEM Expo & Graduation"]
-
-    style A1 fill:#4CAF50,color:#fff
-    style A2 fill:#2196F3,color:#fff
-    style A3 fill:#9C27B0,color:#fff
-    style A4 fill:#E91E63,color:#fff
-    style EXPO fill:#FFD700,color:#000
-```
-
-### Assessment Rubric (Scored Out of 100 Points per Mission)
-
-1. **Engineering Execution (30 Pts):** Does the mechanism/circuit work smoothly without jamming or short-circuiting?
-2. **Scientific Explanation (25 Pts):** Can the student explain *why* it works (e.g., "The gear ratio reduces speed to increase torque")?
-3. **Troubleshooting & Iteration (20 Pts):** When something failed during testing, how did they fix it?
-4. **Creativity & STEAM Customization (15 Pts):** Aesthetic finish, custom modifications, or innovative add-ons.
-5. **Team Collaboration & Communication (10 Pts):** Peer support, role sharing, and presentation clarity.
-
----
-
-## 6. Procurement & Logistics Matrix
-
-### Kit Inventory Strategy
-
-* **Giveaway Kits (10 Kits per Student):**
-  * 30 Junior students × 10 kits = **300 units**
-  * 30 Senior students × 10 kits = **300 units**
-  * *Total Take-Home Units:* **600 units**
-* **Group Activity Kits (10 Kits per Age Group):**
-  * 10 unique group kits × 3 units (1 unit per 5 students in a 15-student batch) = **30 units for Junior**
-  * 10 unique group kits × 3 units = **30 units for Senior**
-  * *Total Collaborative Studio Units:* **60 units** (reused across Saturday & Sunday batches!)
-* **Total Physical Inventory:** 660 total kit packages across 6 months.
-
----
-
-## 7. Next Actions & Execution Timeline
-
-| Milestone | Action Item | Target Date |
-| :--- | :--- | :--- |
-| **M1: Vendor Procurement** | Place bulk order for the 20 Junior and 20 Senior kit designs with Butterfly Edufields, Practiko, Pludo, Mindtronix, and Kiddale. | **End of August** |
-| **M2: STEM Passport Design** | Design and print the 28-page student STEM Passport (containing the 25 lesson logs & badge stickers). | **Early September** |
-| **M3: Session Lesson Guides** | Finalize 2-page instructor lesson sheets for each of the 25 classes with troubleshooting steps. | **Mid September** |
-| **M4: Batch Launch** | Begin Phase 1 Pilot classes across Saturday and Sunday slots. | **Mid October** |
+| **01** | P1 | **Module 1: Meet the Robots** | 🤝 Group Kit #1 | **Autonomous Systems & DoF Dissection** | Degrees of Freedom (DoF), robotic kinematic chains, Cartesian vs. articulated bots. |
+| **02** | P1 | **Module 2: Instructions to Robots** | 🤝 Group Kit #2 | **Pseudocode, State Machines & Flowcharts** | Algorithmic logic, decision branches (IF-THEN-ELSE), state transition diagrams. |
+| **03** | P1 | **Module 3: Components of a Simple Robot**| 🤝 Group Kit #3 | **Hardware BOM & Signal Routing Lab** | Circuit schematics, digital vs. analog signaling, power bus routing. |
+| **04** | P1 | **Module 4: BreadBoard — An Introduction**| 🎁 Giveaway #1 | **Half-Size Solderless Breadboard Lab** | Power rails, 5V/GND bus discipline, tie-points, jumper wiring techniques. |
+| **05** | P1 | **Module 5: Electricity: Powering a Robot**| 🎁 Giveaway #2 | **Multi-Voltage Power Supply & Test Station** | Ohm’s Law ($V = I \times R$), series vs. parallel cells, multimeter voltage drop & current draw. |
+| **06** | P1 | **🏆 ASSESSMENT 1** | 🎯 Creative Test | **"The Circuit Diagnostics & Bug Hackathon"**| **Gamified Challenge:** Troubleshoot intentionally injected breadboard wiring bugs & calculate loads. (Badge: *Apprentice Engineer*) |
+| **07** | P2 | **Module 6: Sensors — Part I** | 🎁 Giveaway #3 | **Precision LDR Light Sensor & Divider Bench**| Voltage divider equation, analog light sensing, pull-up/pull-down resistor calibration. |
+| **08** | P2 | **Module 7: Sensors & Buzzers — Part II** | 🎁 Giveaway #4 | **Transistor-Driven Piezo Alarm Circuit** | Transistors as digital switches (NPN 2N2222), driving higher loads, audio signaling. |
+| **09** | P2 | **Module 8: Sensor & Switches** | 🤝 Group Kit #4 | **Relay Logic & Reversible DPDT Motor Drive**| DPDT switch H-bridge emulation, electromechanical relays, machine limit stops. |
+| **10** | P2 | **Module 9: Motors: Making Robots Move** | 🤝 Group Kit #5 | **Dual-Motor Gear Ratio & Speed/Torque Bench**| Spur & worm gears, gear ratio math ($N_1/N_2$), stall torque vs. RPM curves, motor drivers. |
+| **11** | P2 | **Module 10: Build a Moving Robot** | 🎁 Giveaway #5 | **4WD Heavy-Duty Obstacle Rover Chassis** | Full mechanical build: dual gearmotors, battery rack, rocker switch, chassis alignment. |
+| **12** | P2 | **🏆 ASSESSMENT 2** | 🎯 Creative Test | **"The Autonomous Rescue Rover Challenge"** | **Gamified Challenge:** Negotiate incline obstacle ramps, payload stability, docking maneuvers. (Badge: *Systems Builder*) |
+| **13** | P3 | **Module 11: Intro to Microcontroller** | 🤝 Group Kit #6 | **Arduino / Microcontroller Embedded Core** | Microcontroller architecture, GPIO pins, firmware upload, writing C++/Block code. |
+| **14** | P3 | **Module 12: Microcontroller — Part II** | 🤝 Group Kit #7 | **Analog Read & PWM Motor Speed Control** | Pulse Width Modulation (PWM), 8-bit duty cycles, modulating motor speed via sensor input. |
+| **15** | P3 | **Module 13: Microcontroller Projects** | 🎁 Giveaway #6 | **Ultrasonic Radar Distance & Collision Guard**| Speed-of-sound echo timing, obstacle detection algorithms, collision avoidance signaling. |
+| **16** | P3 | **Module 14: Loops & Repetition** | 🤝 Group Kit #8 | **State Machines & Edge-Avoiding Autonomy** | Non-blocking timed loops (`millis()`), finite state machines, algorithmic evasive patrol. |
+| **17** | P3 | **✈️ Aeromodelling Track I** | 🤝 Group Kit #9 | **Aeronautical Airfoils & Large Balsa Glider** | Airfoil geometry (camber, chord), lift/drag polar curves, aerodynamic stall, glide tuning. |
+| **18** | P3 | **🏆 ASSESSMENT 3** | 🎯 Creative Test | **"Avionics & Sensor Radar Arena Trial"** | **Gamified Challenge:** Calibrate an ultrasonic detection grid + 15-meter stable glider flight. (Badge: *Avionics Specialist*) |
+| **19** | P4 | **Module 15: Robot Mechanics — Part I** | 🤝 Group Kit #10| **Kinematics: Linkages, JCB & Slider-Cranks** | Grashof’s criteria, 4-bar linkages, slider-crank mechanisms, JCB excavator arm assembly. |
+| **20** | P4 | **Robot Mechanics — Part II** | 🎁 Giveaway #7 | **Hydraulic Mech Gripper Robot Arm** | Pascal’s Law ($P = F/A$), hydraulic fluid pressure, master/slave syringe circuits, gripper claw. |
+| **21** | P4 | **✈️ Aeromodelling Track II** | 🎁 Giveaway #8 | **Motorized Electric DIY Aircraft** | Thrust-to-weight ratio ($T/W > 1$), coreless motor efficiency, LiPo discharge curves. |
+| **22** | P4 | **✈️ Aeromodelling Track III** | 🎁 Giveaway #9 | **BrainHap Quadcopter Flight & Telemetry** | Counter-rotating rotors, gyro stabilization, yaw/pitch/roll PID control concepts. |
+| **23** | P4 | **Advanced IoT & Capstone Integration** | 🎁 Giveaway #10 | **Smart Connected IoT Rover / Weather Node** | Integrating sensors, telemetry, and motor control into the student capstone platform. |
+| **24** | P4 | **🏆 ASSESSMENT 4** | 🎯 Creative Test | **"Good Soil Shark Tank & Capstone Defense"**| **Gamified Challenge:** Defending circuit diagrams, explaining iterations, live autonomous demo. (Badge: *Master Innovator*) |
+| **25** | P4 | **🎓 GRAND EXPO** | 🌟 Showcase Day | **Good Soil Senior Tech Symposium & Graduation** | Public live flight exhibitions, robotics battle arena, project displays, medals & diplomas. |
