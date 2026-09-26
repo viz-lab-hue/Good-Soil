@@ -1254,7 +1254,6 @@
           <div class="multiplier-btns">
             <button class="btn-mult active" onclick="applyMultiplier(1, this)">1x (Individual / Review)</button>
             <button class="btn-mult" onclick="applyMultiplier(3, this)">3x (Shared Lab Sets - ₹75K Model)</button>
-            <button class="btn-mult" onclick="applyMultiplier(30, this)">30x (Take-Home Batch Model)</button>
           </div>
         </div>
 
@@ -1861,7 +1860,42 @@
         return;
       }
 
+      const BUNDLE_PARENTS = {
+        'PRA-MECH-01': 'Practiko Mechatronics Kit (₹19,999)',
+        'PRA-MECH-02': 'Practiko Mechatronics Kit (₹19,999)',
+        'PRA-MCU-01': 'Practiko Mechatronics Kit (₹19,999)',
+        'PRA-MECH-03': 'Practiko Mechatronics Kit (₹19,999)',
+        'PRA-MECH-04': 'Practiko Mechatronics Kit (₹19,999)',
+        'PRA-MECH-S02': 'Practiko Mechatronics Kit (₹19,999)',
+        'PRA-MCU-S01': 'Practiko Mechatronics Kit (₹19,999)',
+        'PRA-MCU-S02': 'Practiko Mechatronics Kit (₹19,999)',
+        'PRA-CIRC-01': 'Practiko Circuit Simulations (₹2,999)',
+        'PRA-ELEC-01': 'Practiko Circuit Simulations (₹2,999)',
+        'PRA-ELEC-S01': 'Practiko Electrical Science Kit (₹5,499)',
+        'PRA-ELEC-S02': 'Practiko Electrical Science Kit (₹5,499)',
+        'PRA-KIN-S01': 'Practiko Kinematics Kit (₹3,999)',
+        'PRA-KIN-S02': 'Practiko Kinematics Kit (₹3,999)',
+        'PRA-AI-01': 'Practiko Mechatronics + AI Kit (₹24,999)',
+        'PRA-IOT-01': 'Practiko Mechatronics + IoT Kit (₹24,999)',
+        'PRA-MECH-S03': 'Practiko Mechatronics + IoT Kit (₹24,999)',
+        'PRA-MECH-S01': 'Practiko Mechatronics + AI + IoT Kit (₹29,999)'
+      };
+
+      const hasBundledItems = cartKits.some(item => BUNDLE_PARENTS[item.kit.id]);
+
       container.innerHTML = `
+        ${hasBundledItems ? `
+          <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; display: flex; align-items: flex-start; gap: 0.85rem;">
+            <span style="font-size: 1.35rem; line-height: 1;">📦</span>
+            <div style="font-size: 0.85rem; line-height: 1.5; color: #e5e7eb;">
+              <div style="font-weight: 700; color: #fbbf24; margin-bottom: 0.25rem;">Curriculum Bundle Transparency Notice</div>
+              Items marked with <span style="display:inline-block; font-size:0.75rem; background:rgba(245,158,11,0.2); border:1px solid rgba(245,158,11,0.5); color:#fcd34d; border-radius:4px; padding:1px 6px; font-weight:600;">📦 Inside Bundle</span> are <strong>modular classroom lab stations</strong> included inside Practiko Master Bundles (e.g. <em>Mechatronics Kit ₹19,999</em>, <em>Kinematics ₹3,999</em>, <em>Electrical Science ₹5,499</em>). They are not separate retail boxes; the studio procures the master bundles which contain all the components for these sessions.
+              <div style="margin-top: 0.35rem; color: #10b981; font-weight: 500;">
+                ✅ All other kits from Kiddale, Pludo (Robocraze), Kintaro DIY, BrainHap, and Crossvind are 100% individual standalone boxed products.
+              </div>
+            </div>
+          </div>
+        ` : ''}
         <table class="cart-table">
           <thead>
             <tr>
@@ -1881,6 +1915,9 @@
               const vendor = k.vendor || 'Vendor';
               const link = k.link || k.url || '#';
               const hasLink = link && link !== '#';
+              const bundleParent = BUNDLE_PARENTS[k.id];
+              const isStandalone = !bundleParent && !k.id.startsWith('STUDIO-');
+              const isStudio = k.id.startsWith('STUDIO-');
 
               return `
                 <tr>
@@ -1894,6 +1931,25 @@
                           <span>•</span>
                           <span style="color:var(--text-dim);">${k.id}</span>
                         </div>
+                        ${bundleParent ? `
+                          <div style="margin-top: 5px;">
+                            <span style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; background:rgba(245, 158, 11, 0.15); border:1px solid rgba(245, 158, 11, 0.4); color:#fbbf24; border-radius:6px; padding:2px 8px; font-weight:600;">
+                              📦 Inside Bundle: ${bundleParent}
+                            </span>
+                          </div>
+                        ` : (isStandalone ? `
+                          <div style="margin-top: 4px;">
+                            <span style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; color:#34d399; font-weight:500;">
+                              ✓ Standalone Boxed Kit
+                            </span>
+                          </div>
+                        ` : `
+                          <div style="margin-top: 4px;">
+                            <span style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; color:#9ca3af; font-weight:500;">
+                              🛠️ Good Soil Studio Module
+                            </span>
+                          </div>
+                        `)}
                       </div>
                     </div>
                   </td>
