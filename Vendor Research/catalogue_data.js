@@ -156,7 +156,7 @@ const CATALOGUE_DATA = [
     "priority": "P1",
     "desc": "Practiko Electrical Science power test station. Demonstrates Ohm’s Law, series vs parallel battery configurations, voltage drops and current draw curves.",
     "img": "https://images.unsplash.com/photo-1625225233840-695456021cde?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product-category/engineering-robotics/"
+    "link": "https://practiko.in/product/electrical-science/"
   },
   {
     "id": "STUDIO-BREAD-01",
@@ -180,7 +180,7 @@ const CATALOGUE_DATA = [
     "priority": "P1",
     "desc": "Interpreting circuit schematics, reading component datasheets, signal routing vs power bus distribution from Practiko Electrical Science.",
     "img": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product-category/engineering-robotics/"
+    "link": "https://practiko.in/product/electrical-science/"
   },
   {
     "id": "PRA-AI-01",
@@ -7018,7 +7018,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Ignite your child's imagination and creativity with our DIY BUJJI . .!!! Inspired from Kalki 2898AD , this hands-on STEM toy allows young minds to build their own miniature version of this futuristic vehicle. Product Measurements: 8.2 X 4.7 X 3.6 inc",
     "link": "https://www.mindtronix.in/products/bujji-diy-do-it-yourself",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Bujji7.jpg?v=1770376406",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/BoxMockup_Bujji.jpg?v=1787651584",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7068,7 +7068,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Introducing the DIY Arrows Launcher Kit - an exhilarating project that brings the ancient art of archery to life with a modern twist! Inspired by the majestic launchers seen in epic tales like the Bahubali movie, this kit allows you to build your ver",
     "link": "https://www.mindtronix.in/products/diy-arrows-launcher",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Arrows.jpg?v=1770698654",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/ArrowsLauncher_jpg.jpg?v=1787652086",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7093,7 +7093,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Introducing the DIY Cable Car Kit - an exciting hands-on project that brings the magic of mountain transportation to your fingertips! With this kit, you can build your very own miniature cable car, inspired by the iconic gondolas and ropeways found i",
     "link": "https://www.mindtronix.in/products/diy-cable-car",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Cable.jpg?v=1770615686",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/CableCar_jpg.jpg?v=1787651358",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7118,7 +7118,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Introducing the DIY Cannon Kit - a thrilling project that lets you build your own miniature cannon and experience the excitement of historical artillery in the comfort of your own home! Inspired by the majestic cannons of centuries past, this kit all",
     "link": "https://www.mindtronix.in/products/diy-cannon",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Cannon.jpg?v=1770615122",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/BoxMockup_5beb37c0-6802-4ae9-a55c-28e69d646148.jpg?v=1787652360",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7218,7 +7218,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Introducing the DIY Hydraulic Microscope Kit - a fascinating exploration tool that unlocks the hidden world of microscopic wonders! With this kit, you can build your very own microscope and embark on a journey of discovery, revealing the intricate de",
     "link": "https://www.mindtronix.in/products/diy-hydraulic-microscope",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Hydraulic_microscope_box.jpg?v=1770697162",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/HydraulicMicroscope_1.jpg?v=1787652202",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7243,7 +7243,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Discover the Magnet Car DIY STEM Kit – a hands-on journey into magnetism and mechanics for curious kids! With safe, durable materials, children build their own magnet-powered car, learning as they play. Perfect for STEM education at home or in the cl",
     "link": "https://www.mindtronix.in/products/diy-magnet-car",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Magnetcar.jpg?v=1770698906",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Boxmockup_645e8922-32b5-4af9-808a-9d756682e56e.jpg?v=1789542271",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7268,7 +7268,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "With our comprehensive kit, your child can build their very own fully functional mechanical gripper from scratch. Designed for both educational and entertainment purposes, our DIY Mechanical Gripper kit is ideal for homeschooling, classrooms, or simp",
     "link": "https://www.mindtronix.in/products/diy-mechanical-gripper",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Box_Front.jpg?v=1780482682",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/BoxMockup_3.jpg?v=1787652604",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7318,7 +7318,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Build, play, and learn with our hands-on STEM kit, exploring hydraulics and mechanical engineering principles. Ideal for fostering problem-solving skills and teamwork, this safe and durable kit offers an engaging, real-world application of hydraulic ",
     "link": "https://www.mindtronix.in/products/diy-scissor-lift",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Lift.jpg?v=1770617640",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/BoxMockup.jpg?v=1786624142",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7368,7 +7368,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Explore meteorology hands-on with our DIY Weather Station Kit. Construct a weather cock, anemometer, and rain gauge for interactive learning. Encourage budding scientists with quality materials and versatile educational experiences.",
     "link": "https://www.mindtronix.in/products/diy-weather-station",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Weath.jpg?v=1770699524",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Boxmockup_4.jpg?v=1787651663",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7418,7 +7418,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Introducing the 10 in 1 Home Automation Alpha Kit – the ultimate tool for young innovators to explore the exciting world of technology and unleash their creativity! This comprehensive kit comes packed with various sensors and components, empowering k",
     "link": "https://www.mindtronix.in/products/home-automation-alpha",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/H_ALPHA_box.jpg?v=1770620209",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/HomeAutomationAlpha_jpg.jpg?v=1787651808",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7468,7 +7468,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Kids don’t just play… they engineer . This is not just a toy, it's Brain training for kids..!!! From assembling their own maze platform to controlling movement using real hydraulic systems, this kit transforms curiosity into capability. Guide the bal",
     "link": "https://www.mindtronix.in/products/hydraulic-maze",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/Box_Mockup_2.jpg?v=1775034867",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/HydraulicmazeMB_amazon_jpg.jpg?v=1787651171",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7493,7 +7493,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "The Smartest way to learn Indian Geography..!!!! The Mindtronix India Maze is not just a toy - it’s a hands-on journey across the map of India. Kids navigate a maze designed around India’s geography, learning states, locations, and spatial thinking w",
     "link": "https://www.mindtronix.in/products/india-maze",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/BOXfront.jpg?v=1776063659",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/IndiaMaze_jpg.jpg?v=1786619692",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -7518,7 +7518,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Teach kids how explorers found direction without technology.",
     "link": "https://www.mindtronix.in/products/navigator",
-    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/NavigatorBoxMockupfront.jpg?v=1775036639",
+    "img": "https://cdn.shopify.com/s/files/1/0752/2238/4805/files/BoxMockup_9f58245d-bd7e-4561-b521-23c4bea686d6.jpg?v=1789542427",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -8005,7 +8005,7 @@ const CATALOGUE_DATA = [
     "b2c": "Maybe",
     "custom": "Yes",
     "desc": "",
-    "link": "https://kidult.sooperbrains.com/products/sooper-brains™-diy-monster-truck-kit-type-c-rechargeable-1",
+    "link": "https://kidult.sooperbrains.com/products/sooper-brains%E2%84%A2-diy-monster-truck-kit-type-c-rechargeable-1",
     "img": "https://cdn.shopify.com/s/files/1/0793/0960/3015/files/1_2f3c1c35-f09b-4df7-a09f-035b1ddeab06.jpg?v=1784878069",
     "status": "Candidate",
     "source": "Scraped Shopify API"
@@ -8029,7 +8029,7 @@ const CATALOGUE_DATA = [
     "b2c": "Maybe",
     "custom": "Yes",
     "desc": "",
-    "link": "https://kidult.sooperbrains.com/products/sooper-brains™-rodeo-diy-rc-jeep-type-c-rechargeable",
+    "link": "https://kidult.sooperbrains.com/products/sooper-brains%E2%84%A2-rodeo-diy-rc-jeep-type-c-rechargeable",
     "img": "https://cdn.shopify.com/s/files/1/0793/0960/3015/files/1_ff83f6ca-7e5f-46e3-9ac8-60c42aaeff14.jpg?v=1784877888",
     "status": "Candidate",
     "source": "Scraped Shopify API"
@@ -13223,7 +13223,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "Premium Silicone Resin Mould – Create stunning resin art projects with this high-quality silicone mould designed to produce smooth, detailed, and professional-looking results for every creation. Flexible &amp; Easy to Demould – Made from durable, fle",
     "link": "https://itsybitsy.in/products/silicone-mould-assorted-triangle-6-cavity-10-8-x-7-7cm-x-d6mm-1pc",
-    "img": "https://cdn.shopify.com/s/files/1/0075/9270/6115/files/IBRE68811-1.jpg?v=1785754746",
+    "img": "https://cdn.shopify.com/s/files/1/0075/9270/6115/files/IBRE68811-5.jpg?v=1788249684",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -16673,7 +16673,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "3 Motorized Builds, Endless Motion The Motion &amp; Mechanics Trio is built for kids who love things that move. Across three wooden STEM kits, your child assembles real mechanical builds — wheels, gears, and reflective optics — that come alive at the",
     "link": "https://kiddale123.com/products/kiddale-motion-mechanics-trio-3-diy-wooden-engineering-kits-combo",
-    "img": "https://cdn.shopify.com/s/files/1/0725/5592/1708/files/grok-image-98706adf-917c-43fc-8836-fa31acb034a0.webp?v=1784869757",
+    "img": "https://cdn.shopify.com/s/files/1/0725/5592/1708/files/KDCOMBO-TRIO-MOTION.webp?v=1787735774",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
@@ -18385,7 +18385,7 @@ const CATALOGUE_DATA = [
     "custom": "Yes",
     "desc": "3 Hands-On STEM Kits, One Unbeatable Combo Give your child a full weekend of building, tinkering, and discovering with the STEM Starter Trio — three of our most-loved wooden STEM kits bundled together at a special combo price. This trio covers physic",
     "link": "https://kiddale123.com/products/kiddale-stem-starter-trio-3-diy-wooden-science-kits-combo",
-    "img": "https://cdn.shopify.com/s/files/1/0725/5592/1708/files/grok-image-dff6095e-0eca-488b-b96b-b2236e50a90c.webp?v=1784869636",
+    "img": "https://cdn.shopify.com/s/files/1/0725/5592/1708/files/KDCOMBO-TRIO-STARTER.webp?v=1787735663",
     "status": "Candidate",
     "source": "Scraped Shopify API"
   },
