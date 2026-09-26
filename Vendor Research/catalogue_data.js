@@ -7,12 +7,13 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Robotics, Circuits, Electronics",
     "priority": "P1",
-    "desc": "Practiko Electrical Circuit Kit: 15-concept hands-on lab covering circuit simulations, conductors & insulators, electric circuit components, energy change, and the 5 organs of a robot (Power, Sensors, Brain, Actuators, Chassis).",
-    "img": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&auto=format&fit=crop&q=80",
+    "desc": "Practiko Electrical Circuit Kit: 15-concept hands-on lab covering circuit simulations, conductors & insulators, electric circuit components, energy change, and the 5 organs of a robot (Power, Sensors, Brain, Actuators, Chassis). [Good Soil Lab Module (derived from Practiko Circuit Simulations / Electrical Circuit Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Electric-Circuit-all-components.jpg",
     "link": "https://practiko.in/product/circuit-simulations/",
     "curriculum_class": "Junior Class 03",
     "module": "Module 3: Components of a Simple Robot",
-    "kit_type": "Group Studio Kit"
+    "kit_type": "Group Studio Kit",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-IOT-01",
@@ -22,9 +23,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "IoT, Cloud, Telemetry",
     "priority": "P1",
-    "desc": "Wi-Fi enabled IoT sensor platform. Stream temperature, light, and telemetry data to Thingspeak cloud dashboards in real time.",
-    "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-iot-automation/"
+    "desc": "Wi-Fi enabled IoT sensor platform. Stream temperature, light, and telemetry data to Thingspeak cloud dashboards in real time. [Good Soil Lab Module (derived from Practiko Mechatronics + IoT Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/06/Wifi-Rover.jpg",
+    "link": "https://practiko.in/product/mechatronics-iot-automation/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-KIN-S02",
@@ -34,9 +36,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Mechanics, Kinematics, Linkages",
     "priority": "P1",
-    "desc": "Practiko Kinematics master kit covering Grashof’s criteria, 4-bar crank mechanisms, slider-cranks, and multi-joint JCB excavator arms.",
-    "img": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/kinematics/"
+    "desc": "Practiko Kinematics master kit covering Grashof’s criteria, 4-bar crank mechanisms, slider-cranks, and multi-joint JCB excavator arms. [Good Soil Lab Module (derived from Practiko Kinematics Master Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/JCB-mechanism.jpg",
+    "link": "https://practiko.in/product/kinematics/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-MECH-S03",
@@ -46,9 +49,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Coding, Autonomy, State Machines",
     "priority": "P1",
-    "desc": "Finite State Machine (FSM) implementation, non-blocking timed loops (millis()), edge-detection sensors, and table-drop evasive algorithms.",
-    "img": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-iot-automation/"
+    "desc": "Finite State Machine (FSM) implementation, non-blocking timed loops (millis()), edge-detection sensors, and table-drop evasive algorithms. [Good Soil Lab Module (derived from Practiko Mechatronics + IoT Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/06/Perseverance-Rover.jpg",
+    "link": "https://practiko.in/product/mechatronics-iot-automation/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "STUDIO-RAD-01",
@@ -70,9 +74,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Robotics, PWM, Microcontrollers",
     "priority": "P1",
-    "desc": "Pulse Width Modulation (PWM) speed regulation, duty cycle modulation (0–255), and sensor-controlled motor speed throttling.",
-    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-kit/"
+    "desc": "Pulse Width Modulation (PWM) speed regulation, duty cycle modulation (0–255), and sensor-controlled motor speed throttling. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-Concepts-Covered.jpg",
+    "link": "https://practiko.in/product/mechatronics-kit/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-MCU-S01",
@@ -82,9 +87,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Coding, Arduino, Embedded",
     "priority": "P1",
-    "desc": "Arduino compatible development board with ATmega core, USB interface, digital GPIO, analog pins, and C++/block IDE environment.",
-    "img": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-kit/"
+    "desc": "Arduino compatible development board with ATmega core, USB interface, digital GPIO, analog pins, and C++/block IDE environment. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/mechatronics-all-components.jpg",
+    "link": "https://practiko.in/product/mechatronics-kit/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "STUDIO-ROV-01",
@@ -106,9 +112,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Mechanics, Kinematics, Gears",
     "priority": "P1",
-    "desc": "Practiko Kinematics gear train analysis bench. Measure mechanical advantage, gear ratios (N1/N2), torque multiplication, and RPM under load.",
-    "img": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/kinematics/"
+    "desc": "Practiko Kinematics gear train analysis bench. Measure mechanical advantage, gear ratios (N1/N2), torque multiplication, and RPM under load. [Good Soil Lab Module (derived from Practiko Kinematics Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Slider-Crank-mechanism.jpg",
+    "link": "https://practiko.in/product/kinematics/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-MECH-S02",
@@ -118,9 +125,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Robotics, Switches, Relays",
     "priority": "P1",
-    "desc": "Electromechanical relay switching, H-bridge DC motor reversal circuits, limit switch safety stops from Practiko Mechatronics.",
-    "img": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-kit/"
+    "desc": "Electromechanical relay switching, H-bridge DC motor reversal circuits, limit switch safety stops from Practiko Mechatronics. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-1.jpg",
+    "link": "https://practiko.in/product/mechatronics-kit/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "STUDIO-SE-02",
@@ -154,9 +162,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Electronics, Power, Measurement",
     "priority": "P1",
-    "desc": "Practiko Electrical Science power test station. Demonstrates Ohm’s Law, series vs parallel battery configurations, voltage drops and current draw curves.",
-    "img": "https://images.unsplash.com/photo-1625225233840-695456021cde?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/electrical-science/"
+    "desc": "Practiko Electrical Science power test station. Demonstrates Ohm’s Law, series vs parallel battery configurations, voltage drops and current draw curves. [Good Soil Lab Module (derived from Practiko Electrical Science Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/06/Series-Parallel-Circuits.jpg",
+    "link": "https://practiko.in/product/electrical-science/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "STUDIO-BREAD-01",
@@ -178,9 +187,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Electronics, Schematics, Engineering",
     "priority": "P1",
-    "desc": "Interpreting circuit schematics, reading component datasheets, signal routing vs power bus distribution from Practiko Electrical Science.",
-    "img": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/electrical-science/"
+    "desc": "Interpreting circuit schematics, reading component datasheets, signal routing vs power bus distribution from Practiko Electrical Science. [Good Soil Lab Module (derived from Practiko Electrical Science Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Electrical-Science-1.jpg",
+    "link": "https://practiko.in/product/electrical-science/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-AI-01",
@@ -190,9 +200,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Coding, AI, Logic",
     "priority": "P1",
-    "desc": "Practiko AI Kit module covering algorithmic design, finite state transitions, decision branching, and robot pathfinding logic.",
-    "img": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-artificial-intelligence/"
+    "desc": "Practiko AI Kit module covering algorithmic design, finite state transitions, decision branching, and robot pathfinding logic. [Good Soil Lab Module (derived from Practiko Mechatronics + AI Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-AI-IoT-AI-Concepts-Covered.jpg",
+    "link": "https://practiko.in/product/mechatronics-artificial-intelligence/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-MECH-S01",
@@ -202,9 +213,10 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Robotics, Kinematics, Engineering",
     "priority": "P1",
-    "desc": "Deep dissection of Degrees of Freedom (DoF), kinematic chains, robotic joints, Cartesian vs articulated architectures from Practiko Mechatronics.",
-    "img": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-iot-automation-artificial-intelligence/"
+    "desc": "Deep dissection of Degrees of Freedom (DoF), kinematic chains, robotic joints, Cartesian vs articulated architectures from Practiko Mechatronics. [Good Soil Lab Module (derived from Practiko Mechatronics + IoT + AI Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-AI-IoT-Main.jpg",
+    "link": "https://practiko.in/product/mechatronics-iot-automation-artificial-intelligence/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-MECH-04",
@@ -214,9 +226,10 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Coding, Logic, Robotics",
     "priority": "P1",
-    "desc": "Programming while/repeat loops and automated patrol routines for continuous mobile robot behaviors without user intervention.",
-    "img": "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-kit/"
+    "desc": "Programming while/repeat loops and automated patrol routines for continuous mobile robot behaviors without user intervention. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-2.jpg",
+    "link": "https://practiko.in/product/mechatronics-kit/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "STUDIO-SEC-01",
@@ -238,9 +251,10 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Robotics, Mechatronics, Sensors",
     "priority": "P1",
-    "desc": "Practiko OLED and sound synthesis station. Button events trigger expressive animations and frequency tone responses.",
-    "img": "https://images.unsplash.com/photo-1612831455543-a537ce1d5f03?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-kit/"
+    "desc": "Practiko OLED and sound synthesis station. Button events trigger expressive animations and frequency tone responses. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/06/SMART-PARKING.jpg",
+    "link": "https://practiko.in/product/mechatronics-kit/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-MCU-01",
@@ -250,9 +264,10 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Coding, Microcontrollers, Robotics",
     "priority": "P1",
-    "desc": "Visual block programmable microcontroller station. Students learn inputs/outputs, matrix icon animation, and upload their first Blink routine.",
-    "img": "https://images.unsplash.com/photo-1553406830-ef2513450d76?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-kit/"
+    "desc": "Visual block programmable microcontroller station. Students learn inputs/outputs, matrix icon animation, and upload their first Blink routine. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-Kit-1.jpg",
+    "link": "https://practiko.in/product/mechatronics-kit/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "PRA-MECH-02",
@@ -262,9 +277,10 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Robotics, Switches, Automation",
     "priority": "P1",
-    "desc": "Practiko Mechatronics railway barrier and motor reversal module with limit switches, DPDT polarity toggling, and automated gate triggers.",
-    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-kit/"
+    "desc": "Practiko Mechatronics railway barrier and motor reversal module with limit switches, DPDT polarity toggling, and automated gate triggers. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/06/AUTOMATIC-GATE.jpg",
+    "link": "https://practiko.in/product/mechatronics-kit/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "STUDIO-SNAP-01",
@@ -286,9 +302,10 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Electronics, Hardware Anatomy",
     "priority": "P1",
-    "desc": "Tactile component anatomy dissection board showing Power, Input, Controller, Output, and Chassis subsystems with plug-in indicator LEDs.",
-    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "desc": "Tactile component anatomy dissection board showing Power, Input, Controller, Output, and Chassis subsystems with plug-in indicator LEDs. [Good Soil Lab Module (derived from Practiko Circuit Simulations Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/07/Electric-Circuit-Concepts-Covered.jpg",
+    "link": "https://practiko.in/product/circuit-simulations/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "STUDIO-CODE-01",
@@ -310,9 +327,10 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Robotics, Mechatronics, Anatomy",
     "priority": "P1",
-    "desc": "Hands-on exploration of robotic organs vs human senses. Features bionic demonstrator units, sensory inputs vs motorized outputs from the Practiko Mechatronics Master suite.",
-    "img": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&auto=format&fit=crop&q=80",
-    "link": "https://practiko.in/product/mechatronics-kit/"
+    "desc": "Hands-on exploration of robotic organs vs human senses. Features bionic demonstrator units, sensory inputs vs motorized outputs from the Practiko Mechatronics Master suite. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
+    "img": "https://practiko.in/wp-content/uploads/2026/06/HUMAN-FOLLOWING-ROBOT.jpg",
+    "link": "https://practiko.in/product/mechatronics-kit/",
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
   },
   {
     "id": "WEB-AVI-017",
