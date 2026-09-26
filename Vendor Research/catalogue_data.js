@@ -63,8 +63,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, Sonar, Sensors",
     "priority": "P1",
     "desc": "HC-SR04 sonar module, 180° micro servo radar mount, active buzzer, and collision avoidance code for autonomous obstacle avoidance.",
-    "img": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=studio"
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/1_HC_SR04_Ultrasonic_Sensor_356da2f6-48fc-47f6-a1c8-562ea36f9eee.png?v=1752210992",
+    "link": "https://robocraze.com/products/hc-sr-04-ultrasonic-sensor"
   },
   {
     "id": "PRA-MCU-S02",
