@@ -1,5 +1,20 @@
 const CATALOGUE_DATA = [
   {
+    "id": "PRA-CIRC-01",
+    "vendor": "Practiko Learning",
+    "title": "5 Organs of a Robot Dissection Lab",
+    "price": "₹450",
+    "age": "6-9",
+    "category": "Robotics, Circuits, Electronics",
+    "priority": "P1",
+    "desc": "Practiko Electrical Circuit Kit: 15-concept hands-on lab covering circuit simulations, conductors & insulators, electric circuit components, energy change, and the 5 organs of a robot (Power, Sensors, Brain, Actuators, Chassis).",
+    "img": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/circuit-simulations/",
+    "curriculum_class": "Junior Class 03",
+    "module": "Module 3: Components of a Simple Robot",
+    "kit_type": "Group Studio Kit"
+  },
+  {
     "id": "PRA-IOT-01",
     "vendor": "Practiko Learning",
     "title": "Smart Connected IoT Rover / Weather Node",
@@ -8,8 +23,8 @@ const CATALOGUE_DATA = [
     "category": "IoT, Cloud, Telemetry",
     "priority": "P1",
     "desc": "Wi-Fi enabled IoT sensor platform. Stream temperature, light, and telemetry data to Thingspeak cloud dashboards in real time.",
-    "img": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-iot-automation/"
   },
   {
     "id": "PRA-KIN-S02",
@@ -20,8 +35,8 @@ const CATALOGUE_DATA = [
     "category": "Mechanics, Kinematics, Linkages",
     "priority": "P1",
     "desc": "Practiko Kinematics master kit covering Grashof’s criteria, 4-bar crank mechanisms, slider-cranks, and multi-joint JCB excavator arms.",
-    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/kinematics/"
   },
   {
     "id": "PRA-MECH-S03",
@@ -32,8 +47,8 @@ const CATALOGUE_DATA = [
     "category": "Coding, Autonomy, State Machines",
     "priority": "P1",
     "desc": "Finite State Machine (FSM) implementation, non-blocking timed loops (millis()), edge-detection sensors, and table-drop evasive algorithms.",
-    "img": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-iot-automation/"
   },
   {
     "id": "STUDIO-RAD-01",
@@ -44,8 +59,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, Sonar, Sensors",
     "priority": "P1",
     "desc": "HC-SR04 sonar module, 180° micro servo radar mount, active buzzer, and collision avoidance code for autonomous obstacle avoidance.",
-    "img": "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?q=Radar"
+    "img": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=studio"
   },
   {
     "id": "PRA-MCU-S02",
@@ -56,8 +71,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, PWM, Microcontrollers",
     "priority": "P1",
     "desc": "Pulse Width Modulation (PWM) speed regulation, duty cycle modulation (0–255), and sensor-controlled motor speed throttling.",
-    "img": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-kit/"
   },
   {
     "id": "PRA-MCU-S01",
@@ -68,8 +83,8 @@ const CATALOGUE_DATA = [
     "category": "Coding, Arduino, Embedded",
     "priority": "P1",
     "desc": "Arduino compatible development board with ATmega core, USB interface, digital GPIO, analog pins, and C++/block IDE environment.",
-    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-kit/"
   },
   {
     "id": "STUDIO-ROV-01",
@@ -80,8 +95,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, Mobile Platforms, Rover",
     "priority": "P1",
     "desc": "Laser-cut high-traction 4WD robot chassis, dual high-torque DC gearmotors, rubber tires, 4xAA battery rack, and heavy-duty rocker switch.",
-    "img": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?q=4WD"
+    "img": "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=studio"
   },
   {
     "id": "PRA-KIN-S01",
@@ -92,8 +107,8 @@ const CATALOGUE_DATA = [
     "category": "Mechanics, Kinematics, Gears",
     "priority": "P1",
     "desc": "Practiko Kinematics gear train analysis bench. Measure mechanical advantage, gear ratios (N1/N2), torque multiplication, and RPM under load.",
-    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/kinematics/"
   },
   {
     "id": "PRA-MECH-S02",
@@ -104,8 +119,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, Switches, Relays",
     "priority": "P1",
     "desc": "Electromechanical relay switching, H-bridge DC motor reversal circuits, limit switch safety stops from Practiko Mechatronics.",
-    "img": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-kit/"
   },
   {
     "id": "STUDIO-SE-02",
@@ -116,8 +131,8 @@ const CATALOGUE_DATA = [
     "category": "Electronics, Transistors, Audio",
     "priority": "P1",
     "desc": "Using NPN bipolar junction transistors (2N2222) as solid-state digital switches to trigger loud audio alarms and high-current LED arrays.",
-    "img": "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?q=Transistor"
+    "img": "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=studio"
   },
   {
     "id": "STUDIO-SENS-01",
@@ -128,8 +143,8 @@ const CATALOGUE_DATA = [
     "category": "Sensors, Electronics, Analog",
     "priority": "P1",
     "desc": "Analog light-sensing workstation. Students build voltage divider circuits with photoresistors, calibrate thresholds, and measure lux response.",
-    "img": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?q=LDR"
+    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=studio"
   },
   {
     "id": "PRA-ELEC-S02",
@@ -140,8 +155,8 @@ const CATALOGUE_DATA = [
     "category": "Electronics, Power, Measurement",
     "priority": "P1",
     "desc": "Practiko Electrical Science power test station. Demonstrates Ohm’s Law, series vs parallel battery configurations, voltage drops and current draw curves.",
-    "img": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1625225233840-695456021cde?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product-category/engineering-robotics/"
   },
   {
     "id": "STUDIO-BREAD-01",
@@ -152,8 +167,8 @@ const CATALOGUE_DATA = [
     "category": "Electronics, Prototyping, Breadboard",
     "priority": "P1",
     "desc": "High-grade 400-tie-point solderless breadboard, 65 male-to-male flexible jumper wires, resistor assortment (220Ω, 1kΩ, 10kΩ), and 5mm LEDs.",
-    "img": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?q=Breadboard"
+    "img": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=studio"
   },
   {
     "id": "PRA-ELEC-S01",
@@ -164,8 +179,8 @@ const CATALOGUE_DATA = [
     "category": "Electronics, Schematics, Engineering",
     "priority": "P1",
     "desc": "Interpreting circuit schematics, reading component datasheets, signal routing vs power bus distribution from Practiko Electrical Science.",
-    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product-category/engineering-robotics/"
   },
   {
     "id": "PRA-AI-01",
@@ -176,8 +191,8 @@ const CATALOGUE_DATA = [
     "category": "Coding, AI, Logic",
     "priority": "P1",
     "desc": "Practiko AI Kit module covering algorithmic design, finite state transitions, decision branching, and robot pathfinding logic.",
-    "img": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-artificial-intelligence/"
   },
   {
     "id": "PRA-MECH-S01",
@@ -188,8 +203,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, Kinematics, Engineering",
     "priority": "P1",
     "desc": "Deep dissection of Degrees of Freedom (DoF), kinematic chains, robotic joints, Cartesian vs articulated architectures from Practiko Mechatronics.",
-    "img": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-iot-automation-artificial-intelligence/"
   },
   {
     "id": "PRA-MECH-04",
@@ -200,8 +215,8 @@ const CATALOGUE_DATA = [
     "category": "Coding, Logic, Robotics",
     "priority": "P1",
     "desc": "Programming while/repeat loops and automated patrol routines for continuous mobile robot behaviors without user intervention.",
-    "img": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-kit/"
   },
   {
     "id": "STUDIO-SEC-01",
@@ -212,8 +227,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, Automation, Sensors",
     "priority": "P1",
     "desc": "Ultrasonic distance sensing module linked to a high-decibel piezo buzzer and flashing red warning LED to guard doors and passageways.",
-    "img": "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?q=Security"
+    "img": "https://images.unsplash.com/photo-1504270997636-07ddfbd48945?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=studio"
   },
   {
     "id": "PRA-MECH-03",
@@ -224,8 +239,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, Mechatronics, Sensors",
     "priority": "P1",
     "desc": "Practiko OLED and sound synthesis station. Button events trigger expressive animations and frequency tone responses.",
-    "img": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1612831455543-a537ce1d5f03?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-kit/"
   },
   {
     "id": "PRA-MCU-01",
@@ -236,8 +251,8 @@ const CATALOGUE_DATA = [
     "category": "Coding, Microcontrollers, Robotics",
     "priority": "P1",
     "desc": "Visual block programmable microcontroller station. Students learn inputs/outputs, matrix icon animation, and upload their first Blink routine.",
-    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1553406830-ef2513450d76?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-kit/"
   },
   {
     "id": "PRA-MECH-02",
@@ -248,8 +263,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, Switches, Automation",
     "priority": "P1",
     "desc": "Practiko Mechatronics railway barrier and motor reversal module with limit switches, DPDT polarity toggling, and automated gate triggers.",
-    "img": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-kit/"
   },
   {
     "id": "STUDIO-SNAP-01",
@@ -260,8 +275,8 @@ const CATALOGUE_DATA = [
     "category": "Electronics, Breadboard, Circuits",
     "priority": "P1",
     "desc": "Solderless prototyping pinboard with color-coded jumper leads, high-intensity LEDs, push-switches, and coin-cell power clips.",
-    "img": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?q=Pinboard"
+    "img": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=studio"
   },
   {
     "id": "PRA-ELEC-01",
@@ -284,8 +299,8 @@ const CATALOGUE_DATA = [
     "category": "Coding, Logic, Algorithms",
     "priority": "P1",
     "desc": "Unplugged algorithmic navigation mat with directional challenge cards, loops, condition blocks, and obstacle tiles.",
-    "img": "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?q=Maze"
+    "img": "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=studio"
   },
   {
     "id": "PRA-MECH-01",
@@ -296,8 +311,8 @@ const CATALOGUE_DATA = [
     "category": "Robotics, Mechatronics, Anatomy",
     "priority": "P1",
     "desc": "Hands-on exploration of robotic organs vs human senses. Features bionic demonstrator units, sensory inputs vs motorized outputs from the Practiko Mechatronics Master suite.",
-    "img": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop&q=60",
-    "link": "https://practiko.in"
+    "img": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&auto=format&fit=crop&q=80",
+    "link": "https://practiko.in/product/mechatronics-kit/"
   },
   {
     "id": "WEB-AVI-017",
@@ -20826,8 +20841,8 @@ const CATALOGUE_DATA = [
     "category": "Aeromodelling, Flight, Physics",
     "priority": "P1",
     "desc": "Precision aeromodelling kit featuring origami airfoil templates, cambered wing profiles, and a high-velocity rubber launcher to explore thrust, drag, and lift principles.",
-    "img": "https://images.unsplash.com/photo-1517976487545-c8e1a8264c76?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=CUSTOM-AERO-01"
+    "img": "https://images.unsplash.com/photo-1527168027773-0cc890c4f42e?w=600&auto=format&fit=crop&q=80",
+    "link": "https://crossvindsolutions.com/shop/"
   },
   {
     "id": "CUSTOM-AERO-02",
@@ -20838,8 +20853,8 @@ const CATALOGUE_DATA = [
     "category": "Aeromodelling, Gliders, Aeronautics",
     "priority": "P1",
     "desc": "Laser-cut balsa wood and EPP foam chuck glider with adjustable elevators, rudders, and nose ballast clay for center of gravity (CG) balancing and longest glide trials.",
-    "img": "https://images.unsplash.com/photo-1519074069444-1ba4ea16e530?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=CUSTOM-AERO-02"
+    "img": "https://images.unsplash.com/photo-1464817739973-0128fe77aaa1?w=600&auto=format&fit=crop&q=80",
+    "link": "https://crossvindsolutions.com/shop/"
   },
   {
     "id": "CUSTOM-AERO-03",
@@ -20850,8 +20865,8 @@ const CATALOGUE_DATA = [
     "category": "Aeromodelling, Balsa Aircraft, Propulsion",
     "priority": "P1",
     "desc": "Advanced aeromodelling endurance kit with high-torque rubber motor, lightweight spruce fuselage, propeller assembly, and tissue-covered cambered wings for 45+ second indoor thermal flights.",
-    "img": "https://images.unsplash.com/photo-1517976487545-c8e1a8264c76?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=CUSTOM-AERO-03"
+    "img": "https://images.unsplash.com/photo-1608501078713-8e445a709b39?w=600&auto=format&fit=crop&q=80",
+    "link": "https://crossvindsolutions.com/shop/"
   },
   {
     "id": "CUSTOM-AERO-04",
@@ -20862,8 +20877,8 @@ const CATALOGUE_DATA = [
     "category": "Aeromodelling, Gliders, Aerodynamics",
     "priority": "P1",
     "desc": "Wide 600mm wingspan poly-foam sailplane equipped with trim tabs, dihedral stabilizer tips, and aerodynamic stall mitigation geometry.",
-    "img": "https://images.unsplash.com/photo-1519074069444-1ba4ea16e530?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=CUSTOM-AERO-04"
+    "img": "https://images.unsplash.com/photo-1524143986875-3b098d78b363?w=600&auto=format&fit=crop&q=80",
+    "link": "https://crossvindsolutions.com/shop/"
   },
   {
     "id": "STUDIO-ELEC-01",
@@ -20874,8 +20889,8 @@ const CATALOGUE_DATA = [
     "category": "Electronics, STEAM Art, Circuits",
     "priority": "P1",
     "desc": "STEAM craft kit combining conductive adhesive copper foil tape, surface-mount ultra-bright LEDs, coin cell battery holders, and interactive fold switches for glowing card art.",
-    "img": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ELEC-01"
+    "img": "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=studio"
   },
   {
     "id": "STUDIO-ART-01S",
@@ -20898,8 +20913,8 @@ const CATALOGUE_DATA = [
     "category": "Assessment, Mechanics, Physics",
     "priority": "P1",
     "desc": "Gamified Class 6 evaluation set: Water arena tank, floatation materials, obstacle barriers, and target scoring targets for catapult trajectory accuracy.",
-    "img": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ASSESS-01"
+    "img": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=assessment"
   },
   {
     "id": "STUDIO-ASSESS-02",
@@ -20910,8 +20925,8 @@ const CATALOGUE_DATA = [
     "category": "Assessment, Mechanics, Circuits",
     "priority": "P1",
     "desc": "Gamified Class 12 evaluation set: Amusement park fairground arena with speed gate timers, light signaling checkpoints, and mechanical gear train stress testers.",
-    "img": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ASSESS-02"
+    "img": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=assessment"
   },
   {
     "id": "STUDIO-ASSESS-03",
@@ -20922,8 +20937,8 @@ const CATALOGUE_DATA = [
     "category": "Assessment, Aeromodelling, Coding",
     "priority": "P1",
     "desc": "Gamified Class 18 evaluation set: Landing bullseye targets, launch range measurement markers, and optical Morse code decoders.",
-    "img": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ASSESS-03"
+    "img": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=assessment"
   },
   {
     "id": "STUDIO-ASSESS-04",
@@ -20934,8 +20949,8 @@ const CATALOGUE_DATA = [
     "category": "Assessment, Robotics, Innovation",
     "priority": "P1",
     "desc": "Gamified Class 24 evaluation set: Smart city grid board, obstacle maze tracks, and multi-mechanism integration scoring stations.",
-    "img": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ASSESS-04"
+    "img": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=assessment"
   },
   {
     "id": "STUDIO-ASSESS-01S",
@@ -20946,8 +20961,8 @@ const CATALOGUE_DATA = [
     "category": "Assessment, Mechanics, Chemistry",
     "priority": "P1",
     "desc": "Senior Class 6 evaluation set: Parabolic trajectory range mat with distance calculation grids and multi-pH chemical reaction puzzle chambers.",
-    "img": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ASSESS-01S"
+    "img": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=assessment"
   },
   {
     "id": "STUDIO-ASSESS-02S",
@@ -20958,8 +20973,8 @@ const CATALOGUE_DATA = [
     "category": "Assessment, Robotics, Electronics",
     "priority": "P1",
     "desc": "Senior Class 12 evaluation set: Elevated canyon cable track, incline obstacle hurdles, and motorized cargo retrieval checkpoints.",
-    "img": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ASSESS-02S"
+    "img": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=assessment"
   },
   {
     "id": "STUDIO-ASSESS-03S",
@@ -20970,8 +20985,8 @@ const CATALOGUE_DATA = [
     "category": "Assessment, Avionics, Sensors",
     "priority": "P1",
     "desc": "Senior Class 18 evaluation set: Timed flight duration arena with thermal air columns and acoustic noise-triggered obstacle race track.",
-    "img": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ASSESS-03S"
+    "img": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=assessment"
   },
   {
     "id": "STUDIO-ASSESS-04S",
@@ -20982,8 +20997,8 @@ const CATALOGUE_DATA = [
     "category": "Assessment, Robotics, Defense",
     "priority": "P1",
     "desc": "Senior Class 24 evaluation set: Prototype presentation staging, circuit diagnostic test bench, and judge scoring rubric pads.",
-    "img": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ASSESS-04S"
+    "img": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=assessment"
   },
   {
     "id": "STUDIO-EXPO-01",
@@ -20994,8 +21009,8 @@ const CATALOGUE_DATA = [
     "category": "Graduation, Awards, Showcase",
     "priority": "P1",
     "desc": "Class 25 Graduation package: Custom printed 28-page STEM Passport, engraved completion medal, milestone badge stickers, and parent graduation certificate.",
-    "img": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-EXPO-01"
+    "img": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=expo"
   },
   {
     "id": "STUDIO-EXPO-02",
@@ -21006,7 +21021,7 @@ const CATALOGUE_DATA = [
     "category": "Graduation, Awards, Showcase",
     "priority": "P1",
     "desc": "Class 25 Graduation package: Advanced STEM Diploma, personalized innovator trophy, excellence ribbon medal, and printed portfolio folio.",
-    "img": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-EXPO-02"
+    "img": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=80",
+    "link": "https://good-soil.onrender.com/?q=expo"
   }
 ];
