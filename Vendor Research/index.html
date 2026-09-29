@@ -127,6 +127,31 @@
       transform: translateY(-50%);
       color: var(--text-muted);
       font-size: 0.95rem;
+      pointer-events: none;
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: var(--text-muted);
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .clear-search-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
     }
 
     .header-actions {
@@ -1121,7 +1146,7 @@
   <!-- Sticky Header -->
   <header>
     <div class="header-container">
-      <div class="brand" onclick="switchTab('catalogue')">
+      <div class="brand" onclick="resetToHome()" title="Reset filters and view all kits">
         <div class="brand-icon">🌱</div>
         <div class="brand-text">
           <h1>Good Soil Procurement</h1>
@@ -1131,7 +1156,8 @@
 
       <div class="search-box" id="searchBoxWrapper">
         <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" class="search-input" placeholder="Search by kit name, vendor, robotics, drone, AI, SKU...">
+        <input type="text" id="searchInput" class="search-input" autocomplete="off" placeholder="Search by kit name, vendor, robotics, drone, AI, SKU...">
+        <button id="clearSearchBtn" class="clear-search-btn" title="Clear search" style="display:none;">✕</button>
       </div>
 
       <div class="header-actions">
@@ -1547,15 +1573,60 @@
       return ranges;
     }
 
+    function updateClearBtn() {
+      const searchInput = document.getElementById('searchInput');
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (searchInput && clearBtn) {
+        clearBtn.style.display = searchInput.value ? 'flex' : 'none';
+      }
+    }
+
+    function resetToHome() {
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) searchInput.value = '';
+      updateClearBtn();
+      if (window.history && window.history.replaceState) {
+        const cleanUrl = window.location.pathname + (window.location.hash || '');
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+      activeCategory = 'all';
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      const allBtn = document.querySelector('.cat-btn[data-cat="all"]');
+      if (allBtn) allBtn.classList.add('active');
+      document.querySelectorAll('.vendor-chk, .age-chk, .price-chk').forEach(c => c.checked = false);
+      const sortSel = document.getElementById('sortSelect');
+      if (sortSel) sortSel.value = 'default';
+      switchTab('catalogue');
+      renderCatalogue();
+    }
+
     function initCatalogue() {
+      const searchInput = document.getElementById('searchInput');
+      const clearBtn = document.getElementById('clearSearchBtn');
+
       renderAgeFilters();
       renderPriceFilters();
       renderVendorFilters();
       updateCartBadge();
-      renderCatalogue();
 
       // Search Event
-      document.getElementById('searchInput').addEventListener('input', renderCatalogue);
+      searchInput.addEventListener('input', () => {
+        updateClearBtn();
+        renderCatalogue();
+      });
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          updateClearBtn();
+          if (window.history && window.history.replaceState) {
+            const cleanUrl = window.location.pathname + (window.location.hash || '');
+            window.history.replaceState({}, document.title, cleanUrl);
+          }
+          renderCatalogue();
+        });
+      }
+
       document.getElementById('sortSelect').addEventListener('change', renderCatalogue);
 
       // Category Pills Event
@@ -1586,9 +1657,19 @@
       }
 
       if (queryParam) {
-        document.getElementById('searchInput').value = queryParam;
-        renderCatalogue();
+        searchInput.value = queryParam;
+        updateClearBtn();
+        // Clear query parameters from URL without reloading so refresh starts clean
+        if (window.history && window.history.replaceState) {
+          const cleanUrl = window.location.pathname + (window.location.hash || '');
+          window.history.replaceState({}, document.title, cleanUrl);
+        }
+      } else {
+        searchInput.value = '';
+        updateClearBtn();
       }
+
+      renderCatalogue();
 
       if (idParam) {
         setTimeout(() => openModal(idParam), 150);
