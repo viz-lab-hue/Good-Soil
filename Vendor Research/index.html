@@ -1772,6 +1772,8 @@
         const isDrone = isDroneKit(k);
         const isEarly = isEarlyKit(k);
 
+        const isStudioKit = vendor === 'Good Soil' || price === '—' || !price;
+
         return `
           <div class="kit-card ${isAdded ? 'in-cart' : ''}">
             <div class="vendor-badge">${vendor}</div>
@@ -1782,7 +1784,7 @@
             <div class="card-body">
               <div>
                 <div class="card-title" title="${title}">${title}</div>
-                <div class="card-price">${price}</div>
+                <div class="card-price">${isStudioKit ? '<span style="font-size: 0.85rem; color: #a78bfa; font-weight: 600; background: rgba(167, 139, 250, 0.12); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(167, 139, 250, 0.25);">Good Soil Kit</span>' : price}</div>
                 <div class="card-tags">
                   ${category.split(',').map(c => `<span class="tag">${c.trim()}</span>`).join('')}
                 </div>
@@ -1814,12 +1816,12 @@
       const cartKits = cartKeys.map(id => {
         const kit = KIT_CATALOGUE.find(k => k.id === id) || {
           id: id,
-          title: 'Custom Curriculum Module / Arena',
-          vendor: 'Good Soil Studio',
-          price: '₹200',
+          title: 'Good Soil Kit',
+          vendor: 'Good Soil',
+          price: '—',
           category: 'Curriculum',
           age: '7-14 yrs',
-          link: '#'
+          link: ''
         };
         const qty = CART_ITEMS[id] || 1;
         const unitPrice = parsePrice(kit.price);
@@ -1916,8 +1918,8 @@
               const link = k.link || k.url || '#';
               const hasLink = link && link !== '#';
               const bundleParent = BUNDLE_PARENTS[k.id];
-              const isStandalone = !bundleParent && !k.id.startsWith('STUDIO-');
-              const isStudio = k.id.startsWith('STUDIO-');
+              const isStudio = k.id.startsWith('STUDIO-') || k.id.startsWith('CUSTOM-AERO') || k.vendor === 'Good Soil';
+              const isStandalone = !bundleParent && !isStudio;
 
               return `
                 <tr>
@@ -1945,8 +1947,8 @@
                           </div>
                         ` : `
                           <div style="margin-top: 4px;">
-                            <span style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; color:#9ca3af; font-weight:500;">
-                              🛠️ Good Soil Studio Module
+                            <span style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; color:#a78bfa; font-weight:600;">
+                              🛠️ Good Soil Kit (In-House)
                             </span>
                           </div>
                         `)}
@@ -1958,7 +1960,7 @@
                     <div style="font-size:0.75rem; color:var(--text-muted);">Age: ${k.age || '7+'}</div>
                   </td>
                   <td>
-                    <div class="cart-price-col">${k.price || '₹0'}</div>
+                    <div class="cart-price-col">${k.price && k.price !== '—' ? k.price : '<span style="color:#a78bfa; font-size:0.8rem; font-weight:600;">Good Soil Kit</span>'}</div>
                   </td>
                   <td style="text-align: center;">
                     <div class="qty-control">
@@ -1968,7 +1970,7 @@
                     </div>
                   </td>
                   <td>
-                    <div class="cart-price-col" style="color:#60a5fa;">₹${item.subtotal.toLocaleString('en-IN')}</div>
+                    <div class="cart-price-col" style="color:#60a5fa;">${item.subtotal > 0 ? '₹' + item.subtotal.toLocaleString('en-IN') : '<span style="color:var(--text-muted); font-size:0.8rem;">In-House</span>'}</div>
                   </td>
                   <td>
                     <div class="cart-actions-cell">
@@ -2002,7 +2004,7 @@
         <div class="modal-meta">
           <div class="meta-item">Vendor: <strong>${kit.vendor}</strong></div>
           <div class="meta-item">SKU ID: <strong>${kit.id}</strong></div>
-          <div class="meta-item">Unit Price: <strong>${kit.price || 'Contact Vendor'}</strong></div>
+          <div class="meta-item">Unit Price: <strong>${kit.price && kit.price !== '—' ? kit.price : 'Good Soil Kit (In-House Studio Kit)'}</strong></div>
           <div class="meta-item">Target Age: <strong>${kit.age || '7+ yrs'}</strong></div>
           <div class="meta-item">Priority: <strong>${kit.priority || 'P2'} Fit</strong></div>
           <div class="meta-item">Category: <strong>${kit.category || 'General STEM'}</strong></div>
@@ -2012,10 +2014,10 @@
           ${desc}
         </div>
         <div class="modal-actions">
-          ${(!link || link === '#' || link.includes('good-soil.onrender.com') || link.includes('localhost')) ? `
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: #9ca3af; font-size: 0.82rem; padding: 0.75rem 1rem; border-radius: 10px; display: flex; align-items: center; gap: 8px; flex: 1;">
+          ${(!link || link === '#' || link.includes('good-soil.onrender.com') || link.includes('localhost') || kit.vendor === 'Good Soil') ? `
+            <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.3); color: #c4b5fd; font-size: 0.82rem; padding: 0.75rem 1rem; border-radius: 10px; display: flex; align-items: center; gap: 8px; flex: 1;">
               <span style="font-size: 1.1rem;">🛠️</span>
-              <span><strong>Good Soil In-House Module:</strong> Individual hardware components &amp; materials assembled for curriculum labs (no external retail store package).</span>
+              <span><strong>Good Soil Kit:</strong> Internal studio kit assembled from individual components &amp; materials for curriculum labs (no retail link / direct store).</span>
             </div>
           ` : `
             <a href="${link}" target="_blank" rel="noopener" class="btn-primary-link">🔗 View Live Product on ${kit.vendor} Store</a>
@@ -2045,11 +2047,11 @@
       cartKeys.forEach(id => {
         const k = KIT_CATALOGUE.find(item => item.id === id) || {
           id: id,
-          title: 'Custom Kit',
-          vendor: 'Good Soil Studio',
+          title: 'Good Soil Kit',
+          vendor: 'Good Soil',
           category: 'Curriculum',
           age: '7-14 yrs',
-          price: '₹200',
+          price: '—',
           link: ''
         };
         const qty = CART_ITEMS[id] || 1;
