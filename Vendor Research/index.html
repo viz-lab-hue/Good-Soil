@@ -1972,7 +1972,7 @@
                   </td>
                   <td>
                     <div class="cart-actions-cell">
-                      ${hasLink ? `<a href="${link}" target="_blank" rel="noopener" class="btn-store-redirect" title="Open official product page">🔗 Visit Store</a>` : `<button class="btn-action-pill" style="font-size:0.75rem; padding:0.35rem 0.65rem;" onclick="openModal('${k.id}')">Info</button>`}
+                      ${hasLink && !link.includes('good-soil.onrender.com') && !link.includes('localhost') ? `<a href="${link}" target="_blank" rel="noopener" class="btn-store-redirect" title="Open official product page">🔗 Visit Store</a>` : `<button class="btn-action-pill" style="font-size:0.75rem; padding:0.35rem 0.65rem;" onclick="openModal('${k.id}')">Info</button>`}
                       <button class="btn-remove-item" onclick="toggleCartItem('${k.id}')" title="Remove from list">🗑️</button>
                     </div>
                   </td>
@@ -2012,7 +2012,14 @@
           ${desc}
         </div>
         <div class="modal-actions">
-          ${hasLink ? `<a href="${link}" target="_blank" rel="noopener" class="btn-primary-link">🔗 View Live Product on ${kit.vendor} Store</a>` : ''}
+          ${(!link || link === '#' || link.includes('good-soil.onrender.com') || link.includes('localhost')) ? `
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: #9ca3af; font-size: 0.82rem; padding: 0.75rem 1rem; border-radius: 10px; display: flex; align-items: center; gap: 8px; flex: 1;">
+              <span style="font-size: 1.1rem;">🛠️</span>
+              <span><strong>Good Soil In-House Module:</strong> Individual hardware components &amp; materials assembled for curriculum labs (no external retail store package).</span>
+            </div>
+          ` : `
+            <a href="${link}" target="_blank" rel="noopener" class="btn-primary-link">🔗 View Live Product on ${kit.vendor} Store</a>
+          `}
           <button class="btn-modal-cart" onclick="toggleCartItem('${kit.id}'); closeModal();">
             ${isAdded ? '🗑️ Remove from Curriculum Plan' : '📋 + Add to Curriculum Plan'}
           </button>

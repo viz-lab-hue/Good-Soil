@@ -62,9 +62,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Robotics, Sonar, Sensors",
     "priority": "P1",
-    "desc": "HC-SR04 sonar module, 180° micro servo radar mount, active buzzer, and collision avoidance code for autonomous obstacle avoidance.",
+    "desc": "HC-SR04 sonar module, 180° micro servo radar mount, active buzzer, and collision avoidance code for autonomous obstacle avoidance. [These are individual hardware components (HC-SR04 sonar module, 180° micro servo, active buzzer) assembled in-house for Good Soil curriculum sessions (no single retail store package).]",
     "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/1_HC_SR04_Ultrasonic_Sensor_356da2f6-48fc-47f6-a1c8-562ea36f9eee.png?v=1752210992",
-    "link": "https://robocraze.com/products/hc-sr-04-ultrasonic-sensor"
+    "link": ""
   },
   {
     "id": "PRA-MCU-S02",
@@ -100,9 +100,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Robotics, Mobile Platforms, Rover",
     "priority": "P1",
-    "desc": "Laser-cut high-traction 4WD robot chassis, dual high-torque DC gearmotors, rubber tires, 4xAA battery rack, and heavy-duty rocker switch.",
-    "img": "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=studio"
+    "desc": "Laser-cut high-traction 4WD robot chassis, dual high-torque DC gearmotors, rubber tires, 4xAA battery rack, and heavy-duty rocker switch. [These are individual hardware components (laser-cut 4WD chassis, TT gearmotors, wheels, battery holder) assembled in-house for Good Soil curriculum sessions (no single retail store package).]",
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/amz_listing_opt_20.png?v=1786685909",
+    "link": ""
   },
   {
     "id": "PRA-KIN-S01",
@@ -138,9 +138,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Electronics, Transistors, Audio",
     "priority": "P1",
-    "desc": "Using NPN bipolar junction transistors (2N2222) as solid-state digital switches to trigger loud audio alarms and high-current LED arrays.",
-    "img": "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=studio"
+    "desc": "Using NPN bipolar junction transistors (2N2222) as solid-state digital switches to trigger loud audio alarms and high-current LED arrays. [These are individual hardware components (2N2222 NPN transistors, active piezo buzzers, indicator LEDs) assembled in-house for Good Soil curriculum sessions (no single retail store package).]",
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/products/download_89.jpg?v=1743775547",
+    "link": ""
   },
   {
     "id": "STUDIO-SENS-01",
@@ -150,9 +150,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Sensors, Electronics, Analog",
     "priority": "P1",
-    "desc": "Analog light-sensing workstation. Students build voltage divider circuits with photoresistors, calibrate thresholds, and measure lux response.",
-    "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=studio"
+    "desc": "Analog light-sensing workstation. Students build voltage divider circuits with photoresistors, calibrate thresholds, and measure lux response. [These are individual hardware components (LDR photoresistors, precision trimpots, fixed resistors) assembled in-house for Good Soil curriculum sessions (no single retail store package).]",
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/products/1_4bed097f-8a35-4f51-8edc-49e6c05b281f.jpg?v=1743775208",
+    "link": ""
   },
   {
     "id": "PRA-ELEC-S02",
@@ -175,9 +175,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Electronics, Prototyping, Breadboard",
     "priority": "P1",
-    "desc": "High-grade 400-tie-point solderless breadboard, 65 male-to-male flexible jumper wires, resistor assortment (220Ω, 1kΩ, 10kΩ), and 5mm LEDs.",
-    "img": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=studio"
+    "desc": "High-grade 400-tie-point solderless breadboard, 65 male-to-male flexible jumper wires, resistor assortment (220Ω, 1kΩ, 10kΩ), and 5mm LEDs. [These are individual hardware components (400-tie-point solderless breadboard, 65 jumper wires, resistor and LED assortment) assembled in-house for Good Soil curriculum sessions (no single retail store package).]",
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/products/wfx_4_7efb13c8-115e-4da1-b53b-fefb04c38e6a.jpg?v=1743775641",
+    "link": ""
   },
   {
     "id": "PRA-ELEC-S01",
@@ -239,9 +239,9 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Robotics, Automation, Sensors",
     "priority": "P1",
-    "desc": "Ultrasonic distance sensing module linked to a high-decibel piezo buzzer and flashing red warning LED to guard doors and passageways.",
-    "img": "https://images.unsplash.com/photo-1504270997636-07ddfbd48945?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=studio"
+    "desc": "Ultrasonic distance sensing module linked to a high-decibel piezo buzzer and flashing red warning LED to guard doors and passageways. [These are individual hardware components (ultrasonic sonar sensor, piezo alarm, signal LEDs) assembled in-house for Good Soil curriculum sessions (no single retail store package).]",
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/1_HC_SR04_Ultrasonic_Sensor_356da2f6-48fc-47f6-a1c8-562ea36f9eee.png?v=1752210992",
+    "link": ""
   },
   {
     "id": "PRA-MECH-03",
@@ -290,9 +290,9 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Electronics, Breadboard, Circuits",
     "priority": "P1",
-    "desc": "Solderless prototyping pinboard with color-coded jumper leads, high-intensity LEDs, push-switches, and coin-cell power clips.",
-    "img": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=studio"
+    "desc": "Solderless prototyping pinboard with color-coded jumper leads, high-intensity LEDs, push-switches, and coin-cell power clips. [These are individual hardware components (prototyping pinboard, color jumper leads, LEDs, push switches) assembled in-house for Good Soil curriculum sessions (no single retail store package).]",
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/Pludo_LED_Logic_Circuit_-_Build_Your_Own_Light_Circuits_Ages_9-10_Grades_4-5.png?v=1784184105",
+    "link": ""
   },
   {
     "id": "PRA-ELEC-01",
@@ -315,9 +315,9 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Coding, Logic, Algorithms",
     "priority": "P1",
-    "desc": "Unplugged algorithmic navigation mat with directional challenge cards, loops, condition blocks, and obstacle tiles.",
+    "desc": "Unplugged algorithmic navigation mat with directional challenge cards, loops, condition blocks, and obstacle tiles. [Custom classroom educational materials (unplugged floor grid mat, algorithm challenge cards) produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=studio"
+    "link": ""
   },
   {
     "id": "PRA-MECH-01",
@@ -20906,9 +20906,9 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Electronics, STEAM Art, Circuits",
     "priority": "P1",
-    "desc": "STEAM craft kit combining conductive adhesive copper foil tape, surface-mount ultra-bright LEDs, coin cell battery holders, and interactive fold switches for glowing card art.",
-    "img": "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=studio"
+    "desc": "STEAM craft kit combining conductive adhesive copper foil tape, surface-mount ultra-bright LEDs, coin cell battery holders, and interactive fold switches for glowing card art. [These are individual craft & hardware materials (conductive copper tape, surface-mount LEDs, CR2032 coin cells) assembled in-house for Good Soil curriculum sessions (no single retail store package).]",
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/products/copper.jpg?v=1743775140",
+    "link": ""
   },
   {
     "id": "STUDIO-ART-01S",
@@ -20918,9 +20918,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "STEAM Art, Optics, Lighting",
     "priority": "P1",
-    "desc": "Optical physics and kinetic art kit containing dual-way semi-reflective mirrors, addressable neon LED strip, laser-cut frame, and refraction optics to create an illusion of infinite depth.",
+    "desc": "Optical physics and kinetic art kit containing dual-way semi-reflective mirrors, addressable neon LED strip, laser-cut frame, and refraction optics to create an illusion of infinite depth. [Custom classroom STEAM maker materials assembled in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=60",
-    "link": "https://good-soil.onrender.com/?id=STUDIO-ART-01S"
+    "link": ""
   },
   {
     "id": "STUDIO-ASSESS-01",
@@ -20930,9 +20930,9 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Assessment, Mechanics, Physics",
     "priority": "P1",
-    "desc": "Gamified Class 6 evaluation set: Water arena tank, floatation materials, obstacle barriers, and target scoring targets for catapult trajectory accuracy.",
+    "desc": "Gamified Class 6 evaluation set: Water arena tank, floatation materials, obstacle barriers, and target scoring targets for catapult trajectory accuracy. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=assessment"
+    "link": ""
   },
   {
     "id": "STUDIO-ASSESS-02",
@@ -20942,9 +20942,9 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Assessment, Mechanics, Circuits",
     "priority": "P1",
-    "desc": "Gamified Class 12 evaluation set: Amusement park fairground arena with speed gate timers, light signaling checkpoints, and mechanical gear train stress testers.",
+    "desc": "Gamified Class 12 evaluation set: Amusement park fairground arena with speed gate timers, light signaling checkpoints, and mechanical gear train stress testers. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=assessment"
+    "link": ""
   },
   {
     "id": "STUDIO-ASSESS-03",
@@ -20954,9 +20954,9 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Assessment, Aeromodelling, Coding",
     "priority": "P1",
-    "desc": "Gamified Class 18 evaluation set: Landing bullseye targets, launch range measurement markers, and optical Morse code decoders.",
+    "desc": "Gamified Class 18 evaluation set: Landing bullseye targets, launch range measurement markers, and optical Morse code decoders. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=assessment"
+    "link": ""
   },
   {
     "id": "STUDIO-ASSESS-04",
@@ -20966,9 +20966,9 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Assessment, Robotics, Innovation",
     "priority": "P1",
-    "desc": "Gamified Class 24 evaluation set: Smart city grid board, obstacle maze tracks, and multi-mechanism integration scoring stations.",
+    "desc": "Gamified Class 24 evaluation set: Smart city grid board, obstacle maze tracks, and multi-mechanism integration scoring stations. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=assessment"
+    "link": ""
   },
   {
     "id": "STUDIO-ASSESS-01S",
@@ -20978,9 +20978,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Assessment, Mechanics, Chemistry",
     "priority": "P1",
-    "desc": "Senior Class 6 evaluation set: Parabolic trajectory range mat with distance calculation grids and multi-pH chemical reaction puzzle chambers.",
+    "desc": "Senior Class 6 evaluation set: Parabolic trajectory range mat with distance calculation grids and multi-pH chemical reaction puzzle chambers. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=assessment"
+    "link": ""
   },
   {
     "id": "STUDIO-ASSESS-02S",
@@ -20990,9 +20990,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Assessment, Robotics, Electronics",
     "priority": "P1",
-    "desc": "Senior Class 12 evaluation set: Elevated canyon cable track, incline obstacle hurdles, and motorized cargo retrieval checkpoints.",
+    "desc": "Senior Class 12 evaluation set: Elevated canyon cable track, incline obstacle hurdles, and motorized cargo retrieval checkpoints. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=assessment"
+    "link": ""
   },
   {
     "id": "STUDIO-ASSESS-03S",
@@ -21002,9 +21002,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Assessment, Avionics, Sensors",
     "priority": "P1",
-    "desc": "Senior Class 18 evaluation set: Timed flight duration arena with thermal air columns and acoustic noise-triggered obstacle race track.",
+    "desc": "Senior Class 18 evaluation set: Timed flight duration arena with thermal air columns and acoustic noise-triggered obstacle race track. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=assessment"
+    "link": ""
   },
   {
     "id": "STUDIO-ASSESS-04S",
@@ -21014,9 +21014,9 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Assessment, Robotics, Defense",
     "priority": "P1",
-    "desc": "Senior Class 24 evaluation set: Prototype presentation staging, circuit diagnostic test bench, and judge scoring rubric pads.",
+    "desc": "Senior Class 24 evaluation set: Prototype presentation staging, circuit diagnostic test bench, and judge scoring rubric pads. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=assessment"
+    "link": ""
   },
   {
     "id": "STUDIO-EXPO-01",
@@ -21026,9 +21026,9 @@ const CATALOGUE_DATA = [
     "age": "6-9",
     "category": "Graduation, Awards, Showcase",
     "priority": "P1",
-    "desc": "Class 25 Graduation package: Custom printed 28-page STEM Passport, engraved completion medal, milestone badge stickers, and parent graduation certificate.",
+    "desc": "Class 25 Graduation package: Custom printed 28-page STEM Passport, engraved completion medal, milestone badge stickers, and parent graduation certificate. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=expo"
+    "link": ""
   },
   {
     "id": "STUDIO-EXPO-02",
@@ -21038,8 +21038,8 @@ const CATALOGUE_DATA = [
     "age": "10-14",
     "category": "Graduation, Awards, Showcase",
     "priority": "P1",
-    "desc": "Class 25 Graduation package: Advanced STEM Diploma, personalized innovator trophy, excellence ribbon medal, and printed portfolio folio.",
+    "desc": "Class 25 Graduation package: Advanced STEM Diploma, personalized innovator trophy, excellence ribbon medal, and printed portfolio folio. [Custom classroom challenge arena & graduation materials produced in-house by Good Soil Studio (no external retail store).]",
     "img": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=80",
-    "link": "https://good-soil.onrender.com/?q=expo"
+    "link": ""
   }
 ];
