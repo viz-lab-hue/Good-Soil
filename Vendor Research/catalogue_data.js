@@ -1,6 +1,7 @@
 const CATALOGUE_DATA = [
   {
     "id": "PRA-CIRC-01",
+    "bundle": "Practiko Circuit Simulations (₹2,999)",
     "vendor": "Practiko Learning",
     "title": "5 Organs of a Robot Dissection Lab",
     "price": "₹450",
@@ -17,6 +18,7 @@ const CATALOGUE_DATA = [
   },
   {
     "id": "PRA-IOT-01",
+    "bundle": "Practiko Mechatronics + IoT Kit (₹24,999)",
     "vendor": "Practiko Learning",
     "title": "Smart Connected IoT Rover / Weather Node",
     "price": "₹799",
@@ -39,7 +41,8 @@ const CATALOGUE_DATA = [
     "desc": "Practiko Kinematics master kit covering Grashof’s criteria, 4-bar crank mechanisms, slider-cranks, and multi-joint JCB excavator arms. [Good Soil Lab Module (derived from Practiko Kinematics Master Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/07/JCB-mechanism.jpg",
     "link": "https://practiko.in/product/kinematics/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Kinematics Kit (₹3,999)"
   },
   {
     "id": "PRA-MECH-S03",
@@ -52,7 +55,8 @@ const CATALOGUE_DATA = [
     "desc": "Finite State Machine (FSM) implementation, non-blocking timed loops (millis()), edge-detection sensors, and table-drop evasive algorithms. [Good Soil Lab Module (derived from Practiko Mechatronics + IoT Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/06/Perseverance-Rover.jpg",
     "link": "https://practiko.in/product/mechatronics-iot-automation/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Mechatronics + IoT Kit (₹24,999)"
   },
   {
     "id": "STUDIO-RAD-01",
@@ -77,7 +81,8 @@ const CATALOGUE_DATA = [
     "desc": "Pulse Width Modulation (PWM) speed regulation, duty cycle modulation (0–255), and sensor-controlled motor speed throttling. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-Concepts-Covered.jpg",
     "link": "https://practiko.in/product/mechatronics-kit/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
     "id": "PRA-MCU-S01",
@@ -90,7 +95,8 @@ const CATALOGUE_DATA = [
     "desc": "Arduino compatible development board with ATmega core, USB interface, digital GPIO, analog pins, and C++/block IDE environment. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/07/mechatronics-all-components.jpg",
     "link": "https://practiko.in/product/mechatronics-kit/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
     "id": "STUDIO-ROV-01",
@@ -106,6 +112,7 @@ const CATALOGUE_DATA = [
   },
   {
     "id": "PRA-KIN-S01",
+    "bundle": "Practiko Kinematics Kit (₹3,999)",
     "vendor": "Practiko Learning",
     "title": "Dual-Motor Gear Ratio & Speed/Torque Bench",
     "price": "₹650",
@@ -128,7 +135,8 @@ const CATALOGUE_DATA = [
     "desc": "Electromechanical relay switching, H-bridge DC motor reversal circuits, limit switch safety stops from Practiko Mechatronics. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-1.jpg",
     "link": "https://practiko.in/product/mechatronics-kit/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
     "id": "STUDIO-SE-02",
@@ -165,7 +173,8 @@ const CATALOGUE_DATA = [
     "desc": "Practiko Electrical Science power test station. Demonstrates Ohm’s Law, series vs parallel battery configurations, voltage drops and current draw curves. [Good Soil Lab Module (derived from Practiko Electrical Science Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/06/Series-Parallel-Circuits.jpg",
     "link": "https://practiko.in/product/electrical-science/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Electrical Science Kit (₹5,499)"
   },
   {
     "id": "STUDIO-BREAD-01",
@@ -181,6 +190,7 @@ const CATALOGUE_DATA = [
   },
   {
     "id": "PRA-ELEC-S01",
+    "bundle": "Practiko Electrical Science Kit (₹5,499)",
     "vendor": "Practiko Learning",
     "title": "Hardware BOM & Signal Routing Lab",
     "price": "₹500",
@@ -194,6 +204,7 @@ const CATALOGUE_DATA = [
   },
   {
     "id": "PRA-AI-01",
+    "bundle": "Practiko Mechatronics + AI Kit (₹24,999)",
     "vendor": "Practiko Learning",
     "title": "Pseudocode, State Machines & Flowcharts Lab",
     "price": "₹450",
@@ -207,6 +218,7 @@ const CATALOGUE_DATA = [
   },
   {
     "id": "PRA-MECH-S01",
+    "bundle": "Practiko Mechatronics + AI + IoT Kit (₹29,999)",
     "vendor": "Practiko Learning",
     "title": "Autonomous Systems & DoF Dissection",
     "price": "₹600",
@@ -229,7 +241,8 @@ const CATALOGUE_DATA = [
     "desc": "Programming while/repeat loops and automated patrol routines for continuous mobile robot behaviors without user intervention. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-2.jpg",
     "link": "https://practiko.in/product/mechatronics-kit/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
     "id": "STUDIO-SEC-01",
@@ -254,7 +267,8 @@ const CATALOGUE_DATA = [
     "desc": "Practiko OLED and sound synthesis station. Button events trigger expressive animations and frequency tone responses. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/06/SMART-PARKING.jpg",
     "link": "https://practiko.in/product/mechatronics-kit/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
     "id": "PRA-MCU-01",
@@ -267,7 +281,8 @@ const CATALOGUE_DATA = [
     "desc": "Visual block programmable microcontroller station. Students learn inputs/outputs, matrix icon animation, and upload their first Blink routine. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/07/Mechatronics-Kit-1.jpg",
     "link": "https://practiko.in/product/mechatronics-kit/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
     "id": "PRA-MECH-02",
@@ -280,7 +295,8 @@ const CATALOGUE_DATA = [
     "desc": "Practiko Mechatronics railway barrier and motor reversal module with limit switches, DPDT polarity toggling, and automated gate triggers. [Good Soil Lab Module (derived from Practiko Mechatronics Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/06/AUTOMATIC-GATE.jpg",
     "link": "https://practiko.in/product/mechatronics-kit/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
     "id": "STUDIO-SNAP-01",
@@ -305,7 +321,8 @@ const CATALOGUE_DATA = [
     "desc": "Tactile component anatomy dissection board showing Power, Input, Controller, Output, and Chassis subsystems with plug-in indicator LEDs. [Good Soil Lab Module (derived from Practiko Circuit Simulations Kit)]",
     "img": "https://practiko.in/wp-content/uploads/2026/07/Electric-Circuit-Concepts-Covered.jpg",
     "link": "https://practiko.in/product/circuit-simulations/",
-    "source": "Good Soil Curriculum Lab (Practiko Master Kit)"
+    "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
+    "bundle": "Practiko Circuit Simulations (₹2,999)"
   },
   {
     "id": "STUDIO-CODE-01",
@@ -321,6 +338,7 @@ const CATALOGUE_DATA = [
   },
   {
     "id": "PRA-MECH-01",
+    "bundle": "Practiko Mechatronics Kit (₹19,999)",
     "vendor": "Practiko Learning",
     "title": "Human vs. Robot Explorer Station",
     "price": "₹500",

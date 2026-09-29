@@ -1194,6 +1194,7 @@
             <button class="cat-btn tier-btn" data-cat="junior">🚀 Junior (Ages 7–10)</button>
             <button class="cat-btn tier-btn" data-cat="senior">⚡ Senior (Ages 10–14+)</button>
             <button class="cat-btn drone-highlight" data-cat="drone">🚁 Drones & Aero</button>
+            <button class="cat-btn" data-cat="bundle" style="border-color: rgba(245, 158, 11, 0.4); color: #fbbf24;">📦 Bundled Labs</button>
             <button class="cat-btn" data-cat="Robotics">🤖 Robotics</button>
             <button class="cat-btn" data-cat="Coding">💻 Coding</button>
             <button class="cat-btn" data-cat="Electronics">⚡ Electronics</button>
@@ -1306,6 +1307,37 @@
     const KIT_CATALOGUE = (typeof CATALOGUE_DATA !== 'undefined') ? CATALOGUE_DATA : [];
     let activeCategory = 'all';
     let activeTab = 'catalogue';
+
+    const BUNDLE_PARENTS = {
+      'PRA-MECH-01': 'Practiko Mechatronics Kit (₹19,999)',
+      'PRA-MECH-02': 'Practiko Mechatronics Kit (₹19,999)',
+      'PRA-MCU-01': 'Practiko Mechatronics Kit (₹19,999)',
+      'PRA-MECH-03': 'Practiko Mechatronics Kit (₹19,999)',
+      'PRA-MECH-04': 'Practiko Mechatronics Kit (₹19,999)',
+      'PRA-MECH-S02': 'Practiko Mechatronics Kit (₹19,999)',
+      'PRA-MCU-S01': 'Practiko Mechatronics Kit (₹19,999)',
+      'PRA-MCU-S02': 'Practiko Mechatronics Kit (₹19,999)',
+      'PRA-CIRC-01': 'Practiko Circuit Simulations (₹2,999)',
+      'PRA-ELEC-01': 'Practiko Circuit Simulations (₹2,999)',
+      'PRA-ELEC-S01': 'Practiko Electrical Science Kit (₹5,499)',
+      'PRA-ELEC-S02': 'Practiko Electrical Science Kit (₹5,499)',
+      'PRA-KIN-S01': 'Practiko Kinematics Kit (₹3,999)',
+      'PRA-KIN-S02': 'Practiko Kinematics Kit (₹3,999)',
+      'PRA-AI-01': 'Practiko Mechatronics + AI Kit (₹24,999)',
+      'PRA-IOT-01': 'Practiko Mechatronics + IoT Kit (₹24,999)',
+      'PRA-MECH-S03': 'Practiko Mechatronics + IoT Kit (₹24,999)',
+      'PRA-MECH-S01': 'Practiko Mechatronics + AI + IoT Kit (₹29,999)'
+    };
+
+    function getBundleInfo(k) {
+      if (!k) return null;
+      if (k.bundle) return k.bundle;
+      if (BUNDLE_PARENTS[k.id]) return BUNDLE_PARENTS[k.id];
+      const desc = k.desc || k.description || '';
+      const match = desc.match(/derived from ([^\]\)]+)/i);
+      if (match) return match[1].trim();
+      return null;
+    }
 
     // Drone & Aero keywords for dedicated filtering and sorting
     const DRONE_KEYWORDS = ['drone', 'quadcopter', 'aircraft', 'aerodynamic', 'glider', 'rocket', 'flight', 'propeller', 'aviation', 'uav', 'aeromodelling'];
@@ -1665,9 +1697,10 @@
         const desc = k.desc || k.description || '';
 
         // Search query (bypasses category filter if specific query typed)
+        const bundleInfo = getBundleInfo(k) || '';
         if (query) {
           const kid = k.id || '';
-          const text = (kid + " " + title + " " + vendor + " " + category + " " + desc).toLowerCase();
+          const text = (kid + " " + title + " " + vendor + " " + category + " " + desc + " " + bundleInfo + (bundleInfo ? " bundle master bundled" : "")).toLowerCase();
           if (!text.includes(query)) return false;
         }
 
@@ -1682,6 +1715,8 @@
             if (!isSeniorKit(k)) return false;
           } else if (activeCategory === 'drone') {
             if (!isDroneKit(k)) return false;
+          } else if (activeCategory === 'bundle') {
+            if (!bundleInfo) return false;
           } else if (activeCategory === 'early') {
             if (!isEarlyKit(k)) return false;
           } else {
@@ -1774,6 +1809,8 @@
 
         const isAssess = (k.id && k.id.includes('ASSESS')) || (price && price.includes('Reuses'));
         const isStudioKit = vendor === 'Good Soil' || price === '—' || !price;
+        const bundleInfo = getBundleInfo(k);
+        const bundleCleanName = bundleInfo ? bundleInfo.replace(/\s*\(₹[\d,]+\)/, '') : '';
 
         let priceHtml = price;
         if (isAssess) {
@@ -1792,8 +1829,18 @@
             <div class="card-body">
               <div>
                 <div class="card-title" title="${title}">${title}</div>
-                <div class="card-price">${priceHtml}</div>
+                <div class="card-price">
+                  ${priceHtml}
+                  ${bundleInfo ? `
+                    <div style="margin-top: 5px;">
+                      <span class="badge-bundle" style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; background:rgba(245, 158, 11, 0.16); border:1px solid rgba(245, 158, 11, 0.45); color:#fbbf24; border-radius:6px; padding:2px 8px; font-weight:600; letter-spacing:0.01em;" title="Included inside master bundle: ${bundleInfo}">
+                        📦 Included in Bundle: ${bundleCleanName}
+                      </span>
+                    </div>
+                  ` : ''}
+                </div>
                 <div class="card-tags">
+                  ${bundleInfo ? `<span class="tag" style="background:rgba(245, 158, 11, 0.2); color:#fcd34d; border:1px solid rgba(245, 158, 11, 0.4); font-weight:600;">📦 Bundled Module</span>` : ''}
                   ${category.split(',').map(c => `<span class="tag">${c.trim()}</span>`).join('')}
                 </div>
               </div>
@@ -1870,28 +1917,7 @@
         return;
       }
 
-      const BUNDLE_PARENTS = {
-        'PRA-MECH-01': 'Practiko Mechatronics Kit (₹19,999)',
-        'PRA-MECH-02': 'Practiko Mechatronics Kit (₹19,999)',
-        'PRA-MCU-01': 'Practiko Mechatronics Kit (₹19,999)',
-        'PRA-MECH-03': 'Practiko Mechatronics Kit (₹19,999)',
-        'PRA-MECH-04': 'Practiko Mechatronics Kit (₹19,999)',
-        'PRA-MECH-S02': 'Practiko Mechatronics Kit (₹19,999)',
-        'PRA-MCU-S01': 'Practiko Mechatronics Kit (₹19,999)',
-        'PRA-MCU-S02': 'Practiko Mechatronics Kit (₹19,999)',
-        'PRA-CIRC-01': 'Practiko Circuit Simulations (₹2,999)',
-        'PRA-ELEC-01': 'Practiko Circuit Simulations (₹2,999)',
-        'PRA-ELEC-S01': 'Practiko Electrical Science Kit (₹5,499)',
-        'PRA-ELEC-S02': 'Practiko Electrical Science Kit (₹5,499)',
-        'PRA-KIN-S01': 'Practiko Kinematics Kit (₹3,999)',
-        'PRA-KIN-S02': 'Practiko Kinematics Kit (₹3,999)',
-        'PRA-AI-01': 'Practiko Mechatronics + AI Kit (₹24,999)',
-        'PRA-IOT-01': 'Practiko Mechatronics + IoT Kit (₹24,999)',
-        'PRA-MECH-S03': 'Practiko Mechatronics + IoT Kit (₹24,999)',
-        'PRA-MECH-S01': 'Practiko Mechatronics + AI + IoT Kit (₹29,999)'
-      };
-
-      const hasBundledItems = cartKits.some(item => BUNDLE_PARENTS[item.kit.id]);
+      const hasBundledItems = cartKits.some(item => getBundleInfo(item.kit));
 
       container.innerHTML = `
         ${hasBundledItems ? `
@@ -1925,7 +1951,7 @@
               const vendor = k.vendor || 'Vendor';
               const link = k.link || k.url || '#';
               const hasLink = link && link !== '#';
-              const bundleParent = BUNDLE_PARENTS[k.id];
+              const bundleParent = getBundleInfo(k);
               const isAssess = (k.id && k.id.includes('ASSESS')) || (k.price && k.price.includes('Reuses'));
               const isStudio = k.id.startsWith('STUDIO-') || k.id.startsWith('CUSTOM-AERO') || k.vendor === 'Good Soil';
               const isStandalone = !bundleParent && !isStudio && !isAssess;
@@ -2013,6 +2039,7 @@
       const isAdded = !!CART_ITEMS[kit.id];
 
       const isAssess = (kit.id && kit.id.includes('ASSESS')) || (kit.price && kit.price.includes('Reuses'));
+      const bundleInfo = getBundleInfo(kit);
 
       const content = document.getElementById('modalContent');
       content.innerHTML = `
@@ -2022,6 +2049,13 @@
           <div class="meta-item">Vendor: <strong>${kit.vendor}</strong></div>
           <div class="meta-item">SKU ID: <strong>${kit.id}</strong></div>
           <div class="meta-item">Unit Price: <strong>${isAssess ? 'Reuses Previous Kits (₹0 — No New Kit Required)' : (kit.price && kit.price !== '—' ? kit.price : 'Good Soil Kit (In-House Studio Kit)')}</strong></div>
+          ${bundleInfo ? `
+            <div class="meta-item" style="grid-column: 1 / -1;">
+              <span style="display:inline-flex; align-items:center; gap:6px; background:rgba(245, 158, 11, 0.16); border:1px solid rgba(245, 158, 11, 0.45); color:#fbbf24; padding:5px 12px; border-radius:8px; font-weight:700; font-size:0.86rem;">
+                📦 Included in Master Bundle: <strong>${bundleInfo}</strong>
+              </span>
+            </div>
+          ` : ''}
           <div class="meta-item">Target Age: <strong>${kit.age || '7+ yrs'}</strong></div>
           <div class="meta-item">Priority: <strong>${kit.priority || 'P2'} Fit</strong></div>
           <div class="meta-item">Category: <strong>${kit.category || 'General STEM'}</strong></div>
@@ -2036,6 +2070,12 @@
               <span style="font-size: 1.1rem;">🎯</span>
               <span><strong>Milestone Challenge:</strong> Students bring and reuse the robotic mechanisms, circuits, and prototypes constructed in preceding classes. Zero additional hardware cost.</span>
             </div>
+          ` : bundleInfo ? `
+            <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); color: #fde68a; font-size: 0.82rem; padding: 0.75rem 1rem; border-radius: 10px; display: flex; align-items: center; gap: 8px; flex: 1;">
+              <span style="font-size: 1.1rem;">📦</span>
+              <span><strong>Institutional Bundle Module:</strong> This module is included inside the <strong>${bundleInfo}</strong>. Schools procure the institutional master bundle rather than a standalone retail box.</span>
+            </div>
+            ${hasLink && !link.includes('good-soil.onrender.com') && !link.includes('localhost') ? `<a href="${link}" target="_blank" rel="noopener" class="btn-primary-link" style="background:#d97706; border-color:#f59e0b;">🔗 View Master Bundle on ${kit.vendor} Store</a>` : ''}
           ` : ((!link || link === '#' || link.includes('good-soil.onrender.com') || link.includes('localhost') || kit.vendor === 'Good Soil') ? `
             <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.3); color: #c4b5fd; font-size: 0.82rem; padding: 0.75rem 1rem; border-radius: 10px; display: flex; align-items: center; gap: 8px; flex: 1;">
               <span style="font-size: 1.1rem;">🛠️</span>
