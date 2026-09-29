@@ -1772,7 +1772,15 @@
         const isDrone = isDroneKit(k);
         const isEarly = isEarlyKit(k);
 
+        const isAssess = (k.id && k.id.includes('ASSESS')) || (price && price.includes('Reuses'));
         const isStudioKit = vendor === 'Good Soil' || price === '—' || !price;
+
+        let priceHtml = price;
+        if (isAssess) {
+          priceHtml = '<span style="font-size: 0.8rem; color: #10b981; font-weight: 600; background: rgba(16, 185, 129, 0.12); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(16, 185, 129, 0.3);">Reuses Previous Kits (₹0)</span>';
+        } else if (isStudioKit) {
+          priceHtml = '<span style="font-size: 0.85rem; color: #a78bfa; font-weight: 600; background: rgba(167, 139, 250, 0.12); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(167, 139, 250, 0.25);">Good Soil Kit</span>';
+        }
 
         return `
           <div class="kit-card ${isAdded ? 'in-cart' : ''}">
@@ -1784,7 +1792,7 @@
             <div class="card-body">
               <div>
                 <div class="card-title" title="${title}">${title}</div>
-                <div class="card-price">${isStudioKit ? '<span style="font-size: 0.85rem; color: #a78bfa; font-weight: 600; background: rgba(167, 139, 250, 0.12); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(167, 139, 250, 0.25);">Good Soil Kit</span>' : price}</div>
+                <div class="card-price">${priceHtml}</div>
                 <div class="card-tags">
                   ${category.split(',').map(c => `<span class="tag">${c.trim()}</span>`).join('')}
                 </div>
@@ -1918,8 +1926,9 @@
               const link = k.link || k.url || '#';
               const hasLink = link && link !== '#';
               const bundleParent = BUNDLE_PARENTS[k.id];
+              const isAssess = (k.id && k.id.includes('ASSESS')) || (k.price && k.price.includes('Reuses'));
               const isStudio = k.id.startsWith('STUDIO-') || k.id.startsWith('CUSTOM-AERO') || k.vendor === 'Good Soil';
-              const isStandalone = !bundleParent && !isStudio;
+              const isStandalone = !bundleParent && !isStudio && !isAssess;
 
               return `
                 <tr>
@@ -1939,6 +1948,12 @@
                               📦 Inside Bundle: ${bundleParent}
                             </span>
                           </div>
+                        ` : (isAssess ? `
+                          <div style="margin-top: 4px;">
+                            <span style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; color:#10b981; font-weight:600;">
+                              🎯 Milestone Assessment (Reuses Previous Builds)
+                            </span>
+                          </div>
                         ` : (isStandalone ? `
                           <div style="margin-top: 4px;">
                             <span style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; color:#34d399; font-weight:500;">
@@ -1951,7 +1966,7 @@
                               🛠️ Good Soil Kit (In-House)
                             </span>
                           </div>
-                        `)}
+                        `))}
                       </div>
                     </div>
                   </td>
@@ -1960,7 +1975,7 @@
                     <div style="font-size:0.75rem; color:var(--text-muted);">Age: ${k.age || '7+'}</div>
                   </td>
                   <td>
-                    <div class="cart-price-col">${k.price && k.price !== '—' ? k.price : '<span style="color:#a78bfa; font-size:0.8rem; font-weight:600;">Good Soil Kit</span>'}</div>
+                    <div class="cart-price-col">${isAssess ? '<span style="color:#10b981; font-size:0.8rem; font-weight:600;">Reuses Kits (₹0)</span>' : (k.price && k.price !== '—' ? k.price : '<span style="color:#a78bfa; font-size:0.8rem; font-weight:600;">Good Soil Kit</span>')}</div>
                   </td>
                   <td style="text-align: center;">
                     <div class="qty-control">
@@ -1970,7 +1985,7 @@
                     </div>
                   </td>
                   <td>
-                    <div class="cart-price-col" style="color:#60a5fa;">${item.subtotal > 0 ? '₹' + item.subtotal.toLocaleString('en-IN') : '<span style="color:var(--text-muted); font-size:0.8rem;">In-House</span>'}</div>
+                    <div class="cart-price-col" style="color:#60a5fa;">${isAssess ? '<span style="color:#10b981; font-size:0.8rem;">₹0</span>' : (item.subtotal > 0 ? '₹' + item.subtotal.toLocaleString('en-IN') : '<span style="color:var(--text-muted); font-size:0.8rem;">In-House</span>')}</div>
                   </td>
                   <td>
                     <div class="cart-actions-cell">
@@ -1997,6 +2012,8 @@
       const hasLink = link && link !== '#';
       const isAdded = !!CART_ITEMS[kit.id];
 
+      const isAssess = (kit.id && kit.id.includes('ASSESS')) || (kit.price && kit.price.includes('Reuses'));
+
       const content = document.getElementById('modalContent');
       content.innerHTML = `
         ${img ? `<img src="${img}" class="modal-header-img" alt="${title}">` : ''}
@@ -2004,7 +2021,7 @@
         <div class="modal-meta">
           <div class="meta-item">Vendor: <strong>${kit.vendor}</strong></div>
           <div class="meta-item">SKU ID: <strong>${kit.id}</strong></div>
-          <div class="meta-item">Unit Price: <strong>${kit.price && kit.price !== '—' ? kit.price : 'Good Soil Kit (In-House Studio Kit)'}</strong></div>
+          <div class="meta-item">Unit Price: <strong>${isAssess ? 'Reuses Previous Kits (₹0 — No New Kit Required)' : (kit.price && kit.price !== '—' ? kit.price : 'Good Soil Kit (In-House Studio Kit)')}</strong></div>
           <div class="meta-item">Target Age: <strong>${kit.age || '7+ yrs'}</strong></div>
           <div class="meta-item">Priority: <strong>${kit.priority || 'P2'} Fit</strong></div>
           <div class="meta-item">Category: <strong>${kit.category || 'General STEM'}</strong></div>
@@ -2014,14 +2031,19 @@
           ${desc}
         </div>
         <div class="modal-actions">
-          ${(!link || link === '#' || link.includes('good-soil.onrender.com') || link.includes('localhost') || kit.vendor === 'Good Soil') ? `
+          ${isAssess ? `
+            <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); color: #6ee7b7; font-size: 0.82rem; padding: 0.75rem 1rem; border-radius: 10px; display: flex; align-items: center; gap: 8px; flex: 1;">
+              <span style="font-size: 1.1rem;">🎯</span>
+              <span><strong>Milestone Challenge:</strong> Students bring and reuse the robotic mechanisms, circuits, and prototypes constructed in preceding classes. Zero additional hardware cost.</span>
+            </div>
+          ` : ((!link || link === '#' || link.includes('good-soil.onrender.com') || link.includes('localhost') || kit.vendor === 'Good Soil') ? `
             <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.3); color: #c4b5fd; font-size: 0.82rem; padding: 0.75rem 1rem; border-radius: 10px; display: flex; align-items: center; gap: 8px; flex: 1;">
               <span style="font-size: 1.1rem;">🛠️</span>
               <span><strong>Good Soil Kit:</strong> Internal studio kit assembled from individual components &amp; materials for curriculum labs (no retail link / direct store).</span>
             </div>
           ` : `
             <a href="${link}" target="_blank" rel="noopener" class="btn-primary-link">🔗 View Live Product on ${kit.vendor} Store</a>
-          `}
+          `)}
           <button class="btn-modal-cart" onclick="toggleCartItem('${kit.id}'); closeModal();">
             ${isAdded ? '🗑️ Remove from Curriculum Plan' : '📋 + Add to Curriculum Plan'}
           </button>
