@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Good Soil — 25-Class Master STEM & Robotics Curriculum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 14mm 12mm 14mm 12mm;
+      @bottom-right {
+        content: counter(page);
+        font-size: 8pt;
+        color: #718096;
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a202c;
+      background: #fff;
+      font-size: 8.5pt;
+      line-height: 1.4;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .cover-header {
+      border-bottom: 2.5px solid #10b981;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20pt;
+      font-weight: 800;
+      color: #064e3b;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-subtitle {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #047857;
+      margin-top: 2px;
+    }
+
+    .meta-box {
+      text-align: right;
+      font-size: 8pt;
+      color: #4a5568;
+      line-height: 1.45;
+    }
+
+    .meta-box strong {
+      color: #1a202c;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .summary-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      border-left: 3.5px solid #10b981;
+    }
+
+    .summary-card.blue { border-left-color: #3b82f6; }
+    .summary-card.purple { border-left-color: #8b5cf6; }
+    .summary-card.amber { border-left-color: #f59e0b; }
+
+    .summary-card .label {
+      font-size: 7.2pt;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #64748b;
+      letter-spacing: 0.5px;
+    }
+
+    .summary-card .val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 2px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 16px 0 8px 0;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .badge-scope {
+      font-size: 7.5pt;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    .policy-banner {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #10b981;
+      border-radius: 6px;
+      padding: 7px 10px;
+      font-size: 8pt;
+      color: #166534;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .curriculum-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 7.6pt;
+    }
+
+    .curriculum-table th {
+      background: #0f172a;
+      color: #ffffff;
+      font-weight: 600;
+      text-align: left;
+      padding: 5px 6px;
+      font-size: 7.4pt;
+      letter-spacing: 0.2px;
+    }
+
+    .curriculum-table td {
+      padding: 5px 6px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      line-height: 1.35;
+    }
+
+    .curriculum-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .curriculum-table tr.assessment-row td {
+      background: #ecfdf5 !important;
+      border-top: 1px solid #a7f3d0;
+      border-bottom: 1.5px solid #10b981;
+    }
+
+    .curriculum-table tr.expo-row td {
+      background: #fefce8 !important;
+      border-top: 1px solid #fef08a;
+      border-bottom: 2px solid #eab308;
+    }
+
+    .cls-num {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 8.5pt;
+      text-align: center;
+      width: 26px;
+    }
+
+    .phase-badge {
+      display: inline-block;
+      font-size: 6.8pt;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    .phase-p1 { background: #dcfce7; color: #166534; }
+    .phase-p2 { background: #dbeafe; color: #1e40af; }
+    .phase-p3 { background: #f3e8ff; color: #6b21a8; }
+    .phase-p4 { background: #ffe4e6; color: #9f1239; }
+
+    .kit-pill {
+      display: inline-block;
+      font-size: 6.8pt;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .pill-giveaway { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    .pill-group { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+    .pill-assess { background: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; font-weight: 800; }
+    .pill-expo { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; font-weight: 800; }
+
+    .sku-code {
+      font-family: monospace;
+      font-size: 7pt;
+      color: #64748b;
+      background: #f1f5f9;
+      padding: 1px 3px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-top: 2px;
+    }
+
+    .kit-title {
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .reuse-tag {
+      display: inline-block;
+      font-size: 6.8pt;
+      color: #059669;
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-top: 2px;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    .footer-note {
+      font-size: 7.2pt;
+      color: #64748b;
+      text-align: center;
+      margin-top: 14px;
+      padding-top: 8px;
+      border-top: 1px dashed #cbd5e1;
+    }
+
+    .rubric-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 7.5pt;
+    }
+
+    .rubric-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+
+    .rubric-card strong {
+      color: #0f172a;
+      display: block;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="cover-header">
+    <div>
+      <div class="brand-title">🌱 GOOD SOIL STEM LABS</div>
+      <div class="brand-subtitle">Master 25-Class STEM, Robotics & Aeromodelling Curriculum</div>
+      <div style="font-size: 8pt; color: #64748b; margin-top: 3px;">
+        Curriculum Framework: <em>Learn ➔ Play ➔ Build ➔ Compete ➔ Take Home</em>
+      </div>
+    </div>
+    <div class="meta-box">
+      <div><strong>Document Version:</strong> 3.1 (Official Mentor Edition)</div>
+      <div><strong>Batches:</strong> Junior (Ages 6–9) & Senior (Ages 10–14)</div>
+      <div><strong>Program Scope:</strong> 25 Weekend Sessions (50 Class Hours)</div>
+      <div><strong>Milestone Policy:</strong> 100% Kit Reuse (Zero Hardware Cost)</div>
+    </div>
+  </div>
+
+  <!-- SUMMARY CARDS -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="label">Total Classes</div>
+      <div class="val">25 Weekend Classes</div>
+      <div style="font-size: 6.8pt; color:#64748b;">50 Hands-On Lab Hours</div>
+    </div>
+    <div class="summary-card blue">
+      <div class="label">Take-Home Kits</div>
+      <div class="val">10 Individual Builds</div>
+      <div style="font-size: 6.8pt; color:#64748b;">1 per student to keep</div>
+    </div>
+    <div class="summary-card purple">
+      <div class="label">Studio Group Labs</div>
+      <div class="val">10 Reusable Stations</div>
+      <div style="font-size: 6.8pt; color:#64748b;">Practiko Master Bundles</div>
+    </div>
+    <div class="summary-card amber">
+      <div class="label">Milestone Milestones</div>
+      <div class="val">4 Challenges + Expo</div>
+      <div style="font-size: 6.8pt; color:#64748b;">₹0 Hardware Cost (Build Reuse)</div>
+    </div>
+  </div>
+
+  <div class="policy-banner">
+    <strong>🎯 Milestone Evaluation & Zero Hardware Cost Policy:</strong> Classes 6, 12, 18, and 24 are gamified milestone trials. Students bring and reuse the robotic mechanisms, gliders, circuits, and sensors built in the preceding 5 classes. Zero new kit purchase is required for assessment classes, maximizing hands-on testing and iterative engineering.
+  </div>
+
+  <!-- JUNIOR BATCH TABLE -->
+  <div class="section-title">
+    <span>Junior Batch — Complete 25-Class Syllabus (Ages 6–9 / Grades 1–4)</span>
+    <span class="badge-scope">Foundational STEM • Mechanics • Aeromodelling • Block Code</span>
+  </div>
+
+  <table class="curriculum-table">
+    <thead>
+      <tr>
+        <th style="width: 28px; text-align: center;">Cls</th>
+        <th style="width: 28px; text-align: center;">Ph</th>
+        <th style="width: 130px;">Curriculum Module</th>
+        <th style="width: 82px;">Format</th>
+        <th style="width: 185px;">Assigned Kit / Activity Name</th>
+        <th style="width: 95px;">Vendor / SKU</th>
+        <th>Core Learning Outcome & Deliverable</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cls-num">01</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 1: Meet the Robots</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #1</span></td>
+        <td><div class="kit-title">Human vs. Robot Explorer Station</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MECH-01</span></td>
+        <td>Tools vs. machines vs. autonomous robots; sensory organs vs. robot sensors.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">02</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 2: Instructions to Robots</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #2</span></td>
+        <td><div class="kit-title">Floor Grid Robot Maze & Code Cards</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-CODE-01</span></td>
+        <td>Unplugged step sequencing, directional commands, path debugging, algorithmic logic.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">03</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 3: Robot Components</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #3</span></td>
+        <td><div class="kit-title">5 Organs of a Robot Dissection Lab</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-CIRC-01</span></td>
+        <td>Power (Battery), Input (Sensors), Brain (Controller), Output (Motors), Chassis.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">04</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 4: BreadBoard Intro</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #1</span></td>
+        <td><div class="kit-title">Junior Snap / Pinboard LED Circuit</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-SNAP-01</span></td>
+        <td>Solderless connections, power rails, closed loops, LED lighting without soldering.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">05</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 5: Powering a Robot</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #2</span></td>
+        <td><div class="kit-title">Electric Propeller & Aerodynamic Wind Car</div></td>
+        <td>Pludo (Robocraze)<br/><span class="sku-code">WEB-PLU-015</span></td>
+        <td>DC motor rotation polarity, battery circuits, aerodynamic thrust and propulsion.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">06</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>🏆 Milestone Assessment 1</strong></td>
+        <td><span class="kit-pill pill-assess">🎯 Milestone Test</span></td>
+        <td>
+          <div class="kit-title">Island Escape Challenge (Reuses Class 1–5 Builds)</div>
+          <span class="reuse-tag">✓ 100% Kit Reuse (₹0 Cost)</span>
+        </td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ASSESS-01</span></td>
+        <td><strong>Milestone Evaluation:</strong> Students bring catapult and propeller car builds from Classes 1–5 to launch SOS signals and negotiate obstacle mazes. (Badge: <em>Junior Explorer</em>)</td>
+      </tr>
+      <tr>
+        <td class="cls-num">07</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 6: Sensors — Part I</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #3</span></td>
+        <td><div class="kit-title">Wooden Glow Table Lamp & Switch Circuit</div></td>
+        <td>Kiddale<br/><span class="sku-code">WEB-KDA-042</span></td>
+        <td>Light-dependent resistors (LDR), automatic dark-sensing switch circuits.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">08</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 7: Sensors & Buzzers</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #4</span></td>
+        <td><div class="kit-title">Morse Code Telegraph & Buzzer Station</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ELEC-01</span></td>
+        <td>Piezo buzzers, sound oscillation, binary sound signals, Morse code signaling.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">09</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 8: Sensor & Switches</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #4</span></td>
+        <td><div class="kit-title">2-Way Reversible Motor & Railway Gate</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MECH-02</span></td>
+        <td>Push buttons, toggle switches, polarity reversal, forward/reverse motor motion control.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">10</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 9: Motors & Movement</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #5</span></td>
+        <td><div class="kit-title">Mechanical Gearbox & Carousel Machine</div></td>
+        <td>Kiddale<br/><span class="sku-code">WEB-KDA-032</span></td>
+        <td>Spur gears, driver vs. driven gears, speed vs. torque, gear ratio power transmission.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">11</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 10: Build a Moving Bot</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #5</span></td>
+        <td><div class="kit-title">Junior 2-Wheel Obstacle Rover Build</div></td>
+        <td>Kiddale<br/><span class="sku-code">WEB-KDA-140</span></td>
+        <td>Chassis construction, dual DC motors, battery wiring, directional alignment.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">12</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>🏆 Milestone Assessment 2</strong></td>
+        <td><span class="kit-pill pill-assess">🎯 Milestone Test</span></td>
+        <td>
+          <div class="kit-title">STEAM Carnival Derby (Reuses Class 7–11 Builds)</div>
+          <span class="reuse-tag">✓ 100% Kit Reuse (₹0 Cost)</span>
+        </td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ASSESS-02</span></td>
+        <td><strong>Milestone Evaluation:</strong> Teams combine paddle steamer boats, gear carousels, and paper circuit signaling into an automated derby arena. (Badge: <em>Master Crafter</em>)</td>
+      </tr>
+      <tr>
+        <td class="cls-num">13</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>Module 11: Microcontrollers I</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #6</span></td>
+        <td><div class="kit-title">Micro:bit / Block Brain First Blink</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MCU-01</span></td>
+        <td>Embedded microcontroller cores, digital GPIO, block-based icon animation & blink code.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">14</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>Module 12: Microcontrollers II</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #7</span></td>
+        <td><div class="kit-title">Interactive Sound & Emotion Display</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MECH-03</span></td>
+        <td>Button triggers, animated face expressions, sound synthesis on OLED displays.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">15</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>Module 13: Microcontroller Project</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #6</span></td>
+        <td><div class="kit-title">Smart Security Room Guard / Gate Alarm</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-SEC-01</span></td>
+        <td>Ultrasonic sonar distance calibration, automated threshold buzzer alarm triggering.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">16</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>Module 14: Loops & Repetition</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #8</span></td>
+        <td><div class="kit-title">Looping Light Patrol & Dancing Bot</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MECH-04</span></td>
+        <td>While/repeat automation loops, continuous routines without human intervention.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">17</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>✈️ Aeromodelling Track I</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #9</span></td>
+        <td><div class="kit-title">High-Lift Paper Gliders & Airfoil Launcher</div></td>
+        <td>Good Soil<br/><span class="sku-code">CUSTOM-AERO-01</span></td>
+        <td>Four forces of flight: Lift, Weight, Thrust, Drag; airfoil camber and wing dihedral.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">18</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>🏆 Milestone Assessment 3</strong></td>
+        <td><span class="kit-pill pill-assess">🎯 Milestone Test</span></td>
+        <td>
+          <div class="kit-title">Sky Patrol & Beacon Derby (Reuses Class 13–17 Builds)</div>
+          <span class="reuse-tag">✓ 100% Kit Reuse (₹0 Cost)</span>
+        </td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ASSESS-03</span></td>
+        <td><strong>Milestone Evaluation:</strong> Target landing accuracy and Morse code communication trial using gliders and buzzer alarm circuits built earlier. (Badge: <em>Flight Cadet</em>)</td>
+      </tr>
+      <tr>
+        <td class="cls-num">19</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>Module 15: Robot Mechanics I</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #7</span></td>
+        <td><div class="kit-title">Walking Bionic T-Rex / Crab Linkage</div></td>
+        <td>Kiddale<br/><span class="sku-code">WEB-KDA-039</span></td>
+        <td>4-bar linkages, crank mechanisms, converting motorized rotation into walking locomotion.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">20</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>Robot Mechanics II</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #8</span></td>
+        <td><div class="kit-title">Wooden Catapult & Trajectory Launcher</div></td>
+        <td>Practiko<br/><span class="sku-code">WEB-PRA-052</span></td>
+        <td>Levers, fulcrums, mechanical advantage, elastic potential energy to kinetic motion.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">21</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>✈️ Aeromodelling Track II</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #9</span></td>
+        <td><div class="kit-title">Balsa/Foam Chuck Glider & Flight Tuning</div></td>
+        <td>Good Soil<br/><span class="sku-code">CUSTOM-AERO-02</span></td>
+        <td>Adjustable elevator trim tabs, ballast clay center of gravity balancing, flight stability.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">22</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>✈️ Aeromodelling Track III</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #10</span></td>
+        <td><div class="kit-title">Mini-Drone Flight Discovery Station</div></td>
+        <td>BrainHap<br/><span class="sku-code">WEB-BRH-003</span></td>
+        <td>Quadcopter aerodynamics: counter-rotating rotors, roll/pitch/yaw joystick flight control.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">23</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>Clean Energy Robotics</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #10</span></td>
+        <td><div class="kit-title">Solar-Powered Eco Rover Car</div></td>
+        <td>Kiddale<br/><span class="sku-code">WEB-KDA-043</span></td>
+        <td>Photovoltaic solar panels, photon-to-electron energy conversion, capstone integration.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">24</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>🏆 Milestone Assessment 4</strong></td>
+        <td><span class="kit-pill pill-assess">🎯 Milestone Test</span></td>
+        <td>
+          <div class="kit-title">Future City Prototype Arena (Reuses Class 19–23 Builds)</div>
+          <span class="reuse-tag">✓ 100% Kit Reuse (₹0 Cost)</span>
+        </td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ASSESS-04</span></td>
+        <td><strong>Milestone Evaluation:</strong> Teams combine walking robots, solar rovers, smart alarms, and drone telemetry into a smart city pitch. (Badge: <em>Young Innovator</em>)</td>
+      </tr>
+      <tr class="expo-row">
+        <td class="cls-num">25</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>🎓 GRAND EXPO</strong></td>
+        <td><span class="kit-pill pill-expo">🌟 Public Showcase</span></td>
+        <td><div class="kit-title">Good Soil Junior STEM Expo & Graduation</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-EXPO-01</span></td>
+        <td>Robot arena competitions, glider distance trials, parent demos, STEM Passport graduation.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PAGE BREAK FOR SENIOR BATCH -->
+  <div class="page-break"></div>
+
+  <!-- SENIOR BATCH TABLE -->
+  <div class="cover-header" style="margin-top: 10px;">
+    <div>
+      <div class="brand-title" style="font-size: 16pt;">🌱 GOOD SOIL STEM LABS — SENIOR SYLLABUS</div>
+      <div class="brand-subtitle" style="font-size: 10pt;">Advanced Robotics, Embedded C++, Kinematics, Avionics & IoT</div>
+    </div>
+    <div class="meta-box">
+      <div><strong>Target Batch:</strong> Senior (Ages 10–14 / Grades 5–9)</div>
+      <div><strong>Structure:</strong> 25 Classes (50 Hours) • 10 Giveaways + 10 Group + 4 Assessments</div>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <span>Senior Batch — Complete 25-Class Syllabus (Ages 10–14 / Grades 5–9)</span>
+    <span class="badge-scope">Microcontrollers • C++/Logic • Kinematics • Avionics • Cloud IoT</span>
+  </div>
+
+  <table class="curriculum-table">
+    <thead>
+      <tr>
+        <th style="width: 28px; text-align: center;">Cls</th>
+        <th style="width: 28px; text-align: center;">Ph</th>
+        <th style="width: 130px;">Curriculum Module</th>
+        <th style="width: 82px;">Format</th>
+        <th style="width: 185px;">Assigned Kit / Activity Name</th>
+        <th style="width: 95px;">Vendor / SKU</th>
+        <th>Core Learning Outcome & Deliverable</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cls-num">01</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 1: Meet the Robots</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #1</span></td>
+        <td><div class="kit-title">Autonomous Systems & DoF Dissection</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MECH-S01</span></td>
+        <td>Degrees of Freedom (DoF), kinematic chains, Cartesian vs. articulated architectures.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">02</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 2: Instructions to Robots</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #2</span></td>
+        <td><div class="kit-title">Pseudocode, State Machines & Flowcharts</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-AI-01</span></td>
+        <td>Algorithmic decision branches, IF-THEN logic, finite state transition maps.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">03</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 3: Robot Components</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #3</span></td>
+        <td><div class="kit-title">Hardware BOM & Signal Routing Lab</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-ELEC-S01</span></td>
+        <td>Circuit schematics, digital vs. analog signaling, component datasheets, power buses.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">04</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 4: BreadBoard Intro</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #1</span></td>
+        <td><div class="kit-title">Half-Size Solderless Breadboard Lab</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-BREAD-01</span></td>
+        <td>Power rails, 5V/GND bus discipline, IC tie points, jumper wire routing discipline.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">05</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>Module 5: Powering a Robot</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #2</span></td>
+        <td><div class="kit-title">Multi-Voltage Power Supply & Test Station</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-ELEC-S02</span></td>
+        <td>Ohm's Law (V=IR), series vs. parallel arrays, multimeter voltage & current draw tests.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">06</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><strong>🏆 Milestone Assessment 1</strong></td>
+        <td><span class="kit-pill pill-assess">🎯 Milestone Test</span></td>
+        <td>
+          <div class="kit-title">Circuit Diagnostics Hackathon (Reuses Senior Class 1–5 Builds)</div>
+          <span class="reuse-tag">✓ 100% Kit Reuse (₹0 Cost)</span>
+        </td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ASSESS-01S</span></td>
+        <td><strong>Milestone Evaluation:</strong> Students diagnose injected breadboard faults, calculate resistance, and calibrate power loads. (Badge: <em>Apprentice Engineer</em>)</td>
+      </tr>
+      <tr>
+        <td class="cls-num">07</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 6: Sensors — Part I</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #3</span></td>
+        <td><div class="kit-title">Precision LDR Light Sensor & Divider Bench</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-SENS-01</span></td>
+        <td>Voltage divider formula, analog light curves, pull-up/pull-down threshold tuning.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">08</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 7: Sensors & Buzzers</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #4</span></td>
+        <td><div class="kit-title">Transistor-Driven Piezo Alarm Circuit</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-SE-02</span></td>
+        <td>NPN BJT transistor as a saturation switch, driving high-current buzzers, pulse tones.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">09</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 8: Sensor & Switches</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #4</span></td>
+        <td><div class="kit-title">Relay Logic & Reversible DPDT Motor Drive</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MECH-S02</span></td>
+        <td>DPDT switch H-bridge emulation, electromechanical relays, machine limit stops.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">10</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 9: Motors & Movement</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #5</span></td>
+        <td><div class="kit-title">Dual-Motor Gear Ratio & Speed/Torque Bench</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-KIN-S01</span></td>
+        <td>Spur and worm gears, gear ratio calculation (N1/N2), torque multiplication vs. RPM.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">11</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>Module 10: Build a Moving Bot</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #5</span></td>
+        <td><div class="kit-title">4WD Heavy-Duty Obstacle Rover Chassis</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ROV-01</span></td>
+        <td>Dual gearmotors, rock-crawling chassis, rocker power switch, obstacle negotiation.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">12</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><strong>🏆 Milestone Assessment 2</strong></td>
+        <td><span class="kit-pill pill-assess">🎯 Milestone Test</span></td>
+        <td>
+          <div class="kit-title">Rescue Rover Canyon Race (Reuses Senior Class 7–11 Builds)</div>
+          <span class="reuse-tag">✓ 100% Kit Reuse (₹0 Cost)</span>
+        </td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ASSESS-02S</span></td>
+        <td><strong>Milestone Evaluation:</strong> Teams negotiate incline ramps, cable crossings, and cargo retrieval using the 4WD rovers built in Classes 7–11. (Badge: <em>Systems Builder</em>)</td>
+      </tr>
+      <tr>
+        <td class="cls-num">13</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>Module 11: Microcontrollers I</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #6</span></td>
+        <td><div class="kit-title">Arduino / Microcontroller Embedded Core</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MCU-S01</span></td>
+        <td>ATmega architecture, GPIO registers, C++ firmware upload, serial monitor debugging.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">14</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>Module 12: Microcontrollers II</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #7</span></td>
+        <td><div class="kit-title">Analog Read & PWM Motor Speed Control</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MCU-S02</span></td>
+        <td>8-bit PWM duty cycle throttling, analogRead() potentiometer/sensor motor curves.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">15</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>Module 13: Microcontroller Project</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #6</span></td>
+        <td><div class="kit-title">Ultrasonic Radar Distance & Collision Guard</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-RAD-01</span></td>
+        <td>HC-SR04 sound speed timing, obstacle detection thresholding, radar sweep routines.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">16</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>Module 14: Loops & Repetition</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #8</span></td>
+        <td><div class="kit-title">State Machines & Edge-Avoiding Autonomy</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-MECH-S03</span></td>
+        <td>Non-blocking timed execution (millis()), finite state machine logic, boundary avoidance.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">17</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>✈️ Aeromodelling Track I</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #9</span></td>
+        <td><div class="kit-title">Rubber-Band Monoplane Endurance Model</div></td>
+        <td>Good Soil<br/><span class="sku-code">CUSTOM-AERO-03</span></td>
+        <td>Airfoil aerodynamics (camber, chord, AoA), high-aspect-ratio wing glide optimization.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">18</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><strong>🏆 Milestone Assessment 3</strong></td>
+        <td><span class="kit-pill pill-assess">🎯 Milestone Test</span></td>
+        <td>
+          <div class="kit-title">Flight Derby & Sensor Arena (Senior Class 13–17 Builds)</div>
+          <span class="reuse-tag">✓ 100% Kit Reuse (₹0 Cost)</span>
+        </td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ASSESS-03S</span></td>
+        <td><strong>Milestone Evaluation:</strong> Timed flight endurance trials and acoustic/ultrasonic obstacle avoidance using gliders and radar modules built in Classes 13–17. (Badge: <em>Avionics Specialist</em>)</td>
+      </tr>
+      <tr>
+        <td class="cls-num">19</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>Module 15: Robot Mechanics I</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #10</span></td>
+        <td><div class="kit-title">Kinematics: Linkages, JCB & Slider-Cranks</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-KIN-S02</span></td>
+        <td>Grashof's criteria, slider-crank linkages, JCB excavator arm 3-DoF kinematics.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">20</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>Robot Mechanics II</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #7</span></td>
+        <td><div class="kit-title">Hydraulic Mech Gripper Robot Arm</div></td>
+        <td>Kintaro DIY<br/><span class="sku-code">WEB-KIN-001</span></td>
+        <td>Pascal's Law (P=F/A), syringe hydraulic actuation, mechanical gripper claw control.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">21</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>✈️ Aeromodelling Track II</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #8</span></td>
+        <td><div class="kit-title">Motorized Electric DIY Aircraft</div></td>
+        <td>Pludo (Robocraze)<br/><span class="sku-code">WEB-PLU-074</span></td>
+        <td>Thrust-to-weight ratio (T/W>1), coreless high-RPM motor, LiPo battery powered flight.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">22</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>✈️ Aeromodelling Track III</strong></td>
+        <td><span class="kit-pill pill-group">🤝 Group Lab #10</span></td>
+        <td><div class="kit-title">BrainHap Quadcopter Flight & Telemetry</div></td>
+        <td>BrainHap<br/><span class="sku-code">WEB-BRH-003</span></td>
+        <td>Quadcopter flight controllers, gyro stabilization, PID roll/pitch/yaw joystick control.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">23</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>Advanced IoT Robotics</strong></td>
+        <td><span class="kit-pill pill-giveaway">🎁 Giveaway #10</span></td>
+        <td><div class="kit-title">Smart Connected IoT Rover / Weather Node</div></td>
+        <td>Practiko<br/><span class="sku-code">PRA-IOT-01</span></td>
+        <td>Wi-Fi telemetry, cloud data streaming, mobile robot remote control capstone.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">24</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>🏆 Milestone Assessment 4</strong></td>
+        <td><span class="kit-pill pill-assess">🎯 Milestone Test</span></td>
+        <td>
+          <div class="kit-title">Shark Tank & Capstone Defense (Senior Class 19–23 Builds)</div>
+          <span class="reuse-tag">✓ 100% Kit Reuse (₹0 Cost)</span>
+        </td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-ASSESS-04S</span></td>
+        <td><strong>Milestone Evaluation:</strong> Teams present customized rovers, explain circuit schematics, and defend design iterations before a mentor panel. (Badge: <em>Master Innovator</em>)</td>
+      </tr>
+      <tr class="expo-row">
+        <td class="cls-num">25</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><strong>🎓 GRAND EXPO</strong></td>
+        <td><span class="kit-pill pill-expo">🌟 Public Showcase</span></td>
+        <td><div class="kit-title">Good Soil Senior Tech Symposium & Graduation</div></td>
+        <td>Good Soil<br/><span class="sku-code">STUDIO-EXPO-02</span></td>
+        <td>Autonomous flight trials, robot obstacle runs, tech portfolio defense, medal ceremony.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 3: SCORING RUBRIC & METHODOLOGY -->
+  <div class="section-title" style="margin-top: 20px;">
+    <span>Milestone Assessment 100-Point Scoring Rubric & Methodology</span>
+    <span class="badge-scope">Non-Paper Evaluation • Practical Competency</span>
+  </div>
+
+  <div class="rubric-grid">
+    <div class="rubric-card">
+      <strong>1. Engineering Build (30 Pts)</strong>
+      Assembly precision, solderless breadboard discipline, smooth gear mesh, zero short-circuits.
+    </div>
+    <div class="rubric-card">
+      <strong>2. First-Principles (25 Pts)</strong>
+      Student verbally explains the underlying physics, current loops, gear ratio math, or flight forces.
+    </div>
+    <div class="rubric-card">
+      <strong>3. Troubleshooting (20 Pts)</strong>
+      Methodical fault tracing: multimeter testing, loose jumper identification, trim adjustment.
+    </div>
+    <div class="rubric-card">
+      <strong>4. STEAM Extension (15 Pts)</strong>
+      Creative mechanism enhancements, custom chassis tailoring, aerodynamic optimization.
+    </div>
+    <div class="rubric-card">
+      <strong>5. Presentation (10 Pts)</strong>
+      Clear articulation of technical decisions, teamwork, peer collaboration, and defense.
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Good Soil STEM & Robotics Academy • Confidential Curriculum Document • Version 3.1 • Powered by Practiko, Kiddale, Pludo, Kintaro & Good Soil In-House Labs
+  </div>
+
+</body>
+</html>
