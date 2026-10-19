@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classes &amp; Camps — Good Soil | Hands-on STEM Workshops</title>
+  <meta name="description" content="Pick a format. We bring the kits. Weekend classes, 2-day workshops and 5-day holiday camps for kids aged 3–14+.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #FFFFFF; font-family: 'DM Sans', sans-serif; color: #1C1B18; -webkit-font-smoothing: antialiased; }
+    a { color: #1F6B44; text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: #174F33; }
+    .ph { background-color: #E7EDE3; background-image: repeating-linear-gradient(135deg, rgba(31,107,68,.07) 0 12px, transparent 12px 24px); }
+    .ph2 { background-color: #FBE9C2; background-image: repeating-linear-gradient(135deg, rgba(138,75,42,.08) 0 12px, transparent 12px 24px); }
+    .card { transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(28,27,24,0.08); }
+    .nav-link { color: #1C1B18; text-decoration: none; padding: 10px 0; font-weight: 500; font-size: 15px; transition: color 0.15s ease; }
+    .nav-link:hover { color: #1F6B44; }
+    .nav-link.active { color: #1F6B44; font-weight: 700; }
+    .format-btn { min-height: 44px; padding: 0 22px; border-radius: 999px; border: 0; font: 700 15px 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s ease; }
+    .format-btn.active { background: #1C1B18; color: #FFFFFF; }
+    .format-btn.inactive { background: transparent; color: #1C1B18; }
+    .format-btn.inactive:hover { background: #E7EDE3; }
+    input:focus, select:focus { outline: 2px solid #F5B82E; }
+  </style>
+</head>
+<body>
+
+<div style="font-family: 'DM Sans', sans-serif; color: #1C1B18; background: #FFFFFF; min-height: 100vh">
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #ECEAE3">
+<nav style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1C1B18">
+<svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1F6B44"></circle><path d="M17 26V15" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"></path><path d="M17 17c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#F5B82E"></path><path d="M17 20c0-3.5-2.6-6-6-6 0 3.5 2.6 6 6 6Z" fill="#FFFFFF"></path></svg>
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">Good Soil</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; flex: 1 1 auto; font-weight: 500; font-size: 15px">
+<a href="classes.html" class="nav-link active">Classes &amp; Camps</a>
+<a href="shop.html" class="nav-link">Kit Shop</a>
+<a href="curriculum.html" class="nav-link">Curriculum</a>
+<a href="index.html#gallery" class="nav-link">Gallery</a>
+<a href="index.html#story" class="nav-link">Our story</a>
+</div>
+<div style="display: flex; align-items: center; gap: 12px">
+<button type="button" onclick="openCartDrawer(this)" aria-label="Open cart" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #DAD7CE; display: flex; align-items: center; justify-content: center; color: #1C1B18; background: #FFFFFF; cursor: pointer; position: relative; transition: border-color 0.2s;">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.5 10.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+<span id="nav-cart-badge" data-cart-counter style="position: absolute; top: -4px; right: -4px; background: #F5B82E; color: #1C1B18; border-radius: 999px; padding: 2px 7px; font-size: 11px; font-weight: 800;">0</span>
+</button>
+<a href="#book" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 999px; font-size: 15px">Book a class</a>
+</div>
+</nav>
+</header>
+
+<!-- HEADER -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 64px 24px 32px; display: flex; flex-direction: column; gap: 18px">
+<div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">Classes &amp; Camps</div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(42px, 5.4vw, 76px); line-height: 1; letter-spacing: -0.035em; max-width: 16ch">Pick a format. We bring the kits.</h1>
+<p style="margin: 0; font-size: 18px; color: #4A4740; line-height: 1.55; max-width: 56ch">Every session is hands-on from the first minute: a quick visual intro, then building, testing and showing off.</p>
+</section>
+
+<!-- TABS -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 16px 24px 32px">
+<div role="tablist" aria-label="Program format" style="display: inline-flex; flex-wrap: wrap; gap: 6px; background: #F2F5EF; padding: 6px; border-radius: 999px">
+<button type="button" role="tab" id="tab-weekend" class="format-btn active" onclick="switchFormat('weekend')">Weekend classes</button>
+<button type="button" role="tab" id="tab-two" class="format-btn inactive" onclick="switchFormat('two')">2-day workshops</button>
+<button type="button" role="tab" id="tab-five" class="format-btn inactive" onclick="switchFormat('five')">5-day camps</button>
+</div>
+</section>
+
+<!-- FORMAT DETAIL -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 0 24px 64px; display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<div id="format-media" style="aspect-ratio: 16 / 9; border-radius: 28px; overflow: hidden; position: relative; background: #E7EDE3; box-shadow: 0 12px 32px rgba(28,27,24,0.08)">
+  <img id="format-img" src="images/hero-workshop.jpg" alt="Weekend class in action" style="width: 100%; height: 100%; object-fit: cover;">
+  <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(28,27,24,0.8); backdrop-filter: blur(4px); color: #FFFFFF; font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 999px" id="format-media-tag">
+    Photo: weekend class in action
+  </div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px" id="format-badges">
+<span id="badge-when" style="background: #FFF4D6; color: #6B3A1F; font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 999px">Every Sat &amp; Sun</span>
+<span id="badge-length" style="background: #F2F5EF; color: #1F6B44; font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 999px">2 hrs per session</span>
+<span id="badge-kit" style="background: #F2F5EF; color: #1F6B44; font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 999px">Individual kits</span>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<h2 id="format-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.03em; line-height: 1.05">Weekend classes</h2>
+<p id="format-blurb" style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4740">A steady rhythm of building. Kids move through a track — aeromodelling first, then robotics, DIY kits, arts and tools — finishing a new project every few sessions.</p>
+<div id="format-flow" style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #ECEAE3">
+  <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ECEAE3; align-items: baseline">
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #1F6B44; min-width: 72px">Spark</span>
+    <span style="font-size: 16px">Visual slides: what are we making today?</span>
+  </div>
+  <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ECEAE3; align-items: baseline">
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #1F6B44; min-width: 72px">Build</span>
+    <span style="font-size: 16px">Kit in hand, step-by-step with a mentor</span>
+  </div>
+  <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ECEAE3; align-items: baseline">
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #1F6B44; min-width: 72px">Test</span>
+    <span style="font-size: 16px">Fly it, run it, fix it, try again</span>
+  </div>
+  <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ECEAE3; align-items: baseline">
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #1F6B44; min-width: 72px">Share</span>
+    <span style="font-size: 16px">Show-and-tell, then it goes home</span>
+  </div>
+</div>
+<div style="display: flex; align-items: baseline; gap: 10px; padding-top: 6px">
+  <span id="format-price" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px">₹2,499</span>
+  <span id="format-per" style="color: #55524A; font-size: 15px">per month</span>
+</div>
+<div style="padding-top: 8px">
+  <a href="#book" style="display: inline-block; background: #1F6B44; color: #FFFFFF; font-weight: 700; padding: 14px 28px; border-radius: 999px; font-size: 15px; text-decoration: none">Book this format →</a>
+</div>
+</div>
+</section>
+
+<!-- UPCOMING -->
+<section style="background: #F2F5EF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -0.03em">Upcoming batches</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+  <div class="card" style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A">AEROMODELLING</span>
+      <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 5px 12px; border-radius: 999px">7–10</span>
+    </div>
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Glider Lab</span>
+    <span style="font-size: 15px; color: #55524A">Saturdays, 10:00 AM · New Delhi Centre</span>
+    <span style="font-size: 14px; font-weight: 600; color: #1F6B44">● 4 seats left</span>
+    <a href="#book" onclick="selectBatch('Glider Lab', 'Weekend classes')" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
+  </div>
+
+  <div class="card" style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A">ROBOTICS</span>
+      <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 5px 12px; border-radius: 999px">10–14+</span>
+    </div>
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Robot Rookies</span>
+    <span style="font-size: 15px; color: #55524A">Sundays, 2:00 PM · South Delhi Lab</span>
+    <span style="font-size: 14px; font-weight: 600; color: #1F6B44">● 2 seats left</span>
+    <a href="#book" onclick="selectBatch('Robot Rookies', 'Weekend classes')" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
+  </div>
+
+  <div class="card" style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A">ARTS &amp; CRAFTS</span>
+      <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 5px 12px; border-radius: 999px">3–6</span>
+    </div>
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Little Makers</span>
+    <span style="font-size: 15px; color: #55524A">Saturdays, 11:30 AM · South Delhi Lab</span>
+    <span style="font-size: 14px; font-weight: 600; color: #1F6B44">● 6 seats left</span>
+    <a href="#book" onclick="selectBatch('Little Makers', 'Weekend classes')" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- KIT MODELS -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -0.03em">How the kits work</h2>
+<p style="margin: 0; font-size: 17px; color: #4A4740; line-height: 1.55">Every format mixes three kinds of kits, so kids learn to build alone and together.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<div class="card" style="border: 1.5px solid #1C1B18; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; background: #FFFFFF">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1F6B44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"></rect><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1s6 1 6 1Zm0 0c2-4 6-4 6-1s-6 1-6 1Z"></path></svg>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px">Giveaway kits</h3>
+<p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.55">Small builds they finish in class and carry home to fly, display, and tinker with.</p>
+</div>
+<div class="card" style="border: 1.5px solid #1C1B18; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; background: #FFFFFF">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1F6B44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="8" r="3"></circle><path d="M2 20c0-3 3-5 6-5s6 2 6 5M10 20c0-3 3-5 6-5s6 2 6 5"></path></svg>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px">Group lab kits</h3>
+<p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.55">Bigger shared sets for team challenges, heavy robotic builds, and collaborative design.</p>
+</div>
+<div class="card" style="border: 1.5px solid #1C1B18; border-radius: 24px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; background: #FFFFFF">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1F6B44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.5"></circle><path d="M5 21c0-4 3-7 7-7s7 3 7 7"></path></svg>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px">Individual kits</h3>
+<p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.55">A personal kit per child for weekend tracks and camps, taken home complete upon finish.</p>
+</div>
+</div>
+</section>
+
+<!-- BOOKING -->
+<section id="book" style="max-width: 1280px; margin: 0 auto; padding: 0 24px 96px">
+<div style="background: #1C1B18; color: #FFFFFF; border-radius: 36px; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-weight: 800; font-size: 13px; letter-spacing: 0.1em; color: #F5B82E">ENROLL NOW</span>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 3.6vw, 48px); letter-spacing: -0.03em; line-height: 1.04">Save a seat</h2>
+<p style="margin: 0; color: #CFCBC0; font-size: 16px; line-height: 1.55">Tell us about your child and we'll confirm the batch on WhatsApp within a few hours.</p>
+<div style="margin-top: 16px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: #A6A296">
+  <div>✓ Small batch sizes (max 8–10 kids)</div>
+  <div>✓ All materials and safety gear included</div>
+  <div>✓ Take-home builds every project</div>
+</div>
+</div>
+<form id="seat-form" onsubmit="handleBooking(event)" style="flex: 1 1 480px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+  <label for="pn" style="font-size: 14px; font-weight: 700">Parent's name</label>
+  <input id="pn" required type="text" placeholder="Your name" style="min-height: 48px; border-radius: 14px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+  <label for="ph" style="font-size: 14px; font-weight: 700">WhatsApp number</label>
+  <input id="ph" required type="tel" placeholder="+91 98765 43210" style="min-height: 48px; border-radius: 14px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+  <label for="ca" style="font-size: 14px; font-weight: 700">Child's age</label>
+  <select id="ca" style="min-height: 48px; border-radius: 14px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif">
+    <option value="early">Early (3–6)</option>
+    <option value="junior" selected>Junior (7–10)</option>
+    <option value="senior">Senior (10–14+)</option>
+  </select>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+  <label for="fm" style="font-size: 14px; font-weight: 700">Format</label>
+  <select id="fm" style="min-height: 48px; border-radius: 14px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif">
+    <option value="weekend" selected>Weekend classes</option>
+    <option value="two">2-day workshop</option>
+    <option value="five">5-day camp</option>
+  </select>
+</div>
+<button type="submit" style="grid-column: 1 / -1; min-height: 52px; border-radius: 999px; border: 0; background: #F5B82E; color: #1C1B18; font: 800 16px 'DM Sans', sans-serif; cursor: pointer; transition: transform 0.15s ease">Request my seat</button>
+<div id="booking-success" style="display: none; grid-column: 1 / -1; background: #1F6B44; color: #FFFFFF; padding: 16px 20px; border-radius: 14px; font-weight: 700; text-align: center">
+  🎉 Thank you! We received your request and will reach out on WhatsApp shortly with batch confirmation.
+</div>
+</form>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #1C1B18; color: #E8E5DC">
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
+<div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #FFFFFF; letter-spacing: -0.03em">Good Soil</span>
+<p style="margin: 0; color: #B8B4A9; font-size: 15px; line-height: 1.6; max-width: 36ch">Hands-on STEM, arts &amp; skills education. Planted by the team behind 10+ years of aeromodelling workshops.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 15px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Learn</span><a href="classes.html" style="color: #B8B4A9">Weekend classes</a><a href="classes.html" style="color: #B8B4A9">Holiday camps</a><a href="curriculum.html" style="color: #B8B4A9">Curriculum</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Shop</span><a href="shop.html" style="color: #B8B4A9">All kits</a><a href="shop.html" style="color: #B8B4A9">Class kits</a><a href="shop.html" style="color: #B8B4A9">Gift a kit</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 98111 00000</span><span style="color: #B8B4A9">hello@goodsoil.in</span><span style="color: #B8B4A9">New Delhi, India</span></div>
+</div>
+</div>
+<div style="border-top: 1px solid #3A3832; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8E8A7F">
+<span>&copy; 2026 Good Soil. All rights reserved.</span><span>Instagram &bull; YouTube &bull; WhatsApp</span>
+</div>
+</div>
+</footer>
+
+</div>
+
+<script>
+const formatData = {
+  weekend: {
+    title: 'Weekend classes',
+    when: 'Every Sat & Sun',
+    length: '2 hrs per session',
+    kit: 'Individual kits',
+    price: '₹2,499',
+    per: 'per month',
+    img: 'images/hero-workshop.jpg',
+    mediaTag: 'Photo: weekend class in action',
+    blurb: 'A steady rhythm of building. Kids move through a track — aeromodelling first, then robotics, DIY kits, arts and tools — finishing a new project every few sessions.',
+    flow: [
+      { step: 'Spark', text: 'Visual slides: what are we making today?' },
+      { step: 'Build', text: 'Kit in hand, step-by-step with a mentor' },
+      { step: 'Test', text: 'Fly it, run it, fix it, try again' },
+      { step: 'Share', text: 'Show-and-tell, then it goes home' }
+    ]
+  },
+  two: {
+    title: '2-day workshops',
+    when: 'Long weekends & holidays',
+    length: '2 days · 3 hrs/day',
+    kit: 'Giveaway kit',
+    price: '₹1,499',
+    per: 'per child',
+    img: 'images/child-glider.jpg',
+    mediaTag: 'Photo: 2-day glider workshop build',
+    blurb: 'One big build from first part to final flight. The perfect first taste of Good Soil during festivals, event days or short breaks.',
+    flow: [
+      { step: 'Day 1', text: 'Spark and build the core project' },
+      { step: 'Day 1', text: 'Mid-way test and aerodynamics tweak' },
+      { step: 'Day 2', text: 'Finish, decorate, calibrate and perfect it' },
+      { step: 'Day 2', text: 'Final challenge and take-home flight' }
+    ]
+  },
+  five: {
+    title: '5-day camps',
+    when: 'Summer · Winter · Spring break',
+    length: '5 days · 4 hrs/day',
+    price: '₹4,499',
+    kit: 'Group + individual kits',
+    per: 'per child',
+    img: 'images/robotics-build.jpg',
+    mediaTag: 'Photo: 5-day holiday camp robotics showcase',
+    blurb: 'A full week across tracks — fly, build a robot, craft and use real tools — ending in a showcase for families.',
+    flow: [
+      { step: 'Day 1', text: 'Aeromodelling: fly your first glider' },
+      { step: 'Day 2–3', text: 'Robotics and DIY STEM team builds' },
+      { step: 'Day 4', text: 'Arts, crafts and tools studio' },
+      { step: 'Day 5', text: 'Showcase day for parents and guests' }
+    ]
+  }
+};
+
+function switchFormat(id) {
+  document.querySelectorAll('.format-btn').forEach(b => {
+    b.className = 'format-btn inactive';
+  });
+  const activeBtn = document.getElementById('tab-' + id);
+  if (activeBtn) activeBtn.className = 'format-btn active';
+
+  const d = formatData[id];
+  if (!d) return;
+
+  document.getElementById('format-title').textContent = d.title;
+  document.getElementById('format-blurb').textContent = d.blurb;
+  document.getElementById('format-price').textContent = d.price;
+  document.getElementById('format-per').textContent = d.per;
+  document.getElementById('badge-when').textContent = d.when;
+  document.getElementById('badge-length').textContent = d.length;
+  document.getElementById('badge-kit').textContent = d.kit;
+  document.getElementById('format-img').src = d.img;
+  document.getElementById('format-media-tag').textContent = d.mediaTag;
+
+  const flowEl = document.getElementById('format-flow');
+  flowEl.innerHTML = d.flow.map(f => `
+    <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ECEAE3; align-items: baseline">
+      <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #1F6B44; min-width: 72px">${f.step}</span>
+      <span style="font-size: 16px">${f.text}</span>
+    </div>
+  `).join('');
+}
+
+function selectBatch(batchName, formatName) {
+  const sel = document.getElementById('fm');
+  if (formatName.includes('Weekend')) sel.value = 'weekend';
+  else if (formatName.includes('2-day')) sel.value = 'two';
+  else sel.value = 'five';
+
+  const bookSec = document.getElementById('book');
+  if (bookSec) {
+    bookSec.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const pn = document.getElementById('pn');
+      if (pn) pn.focus();
+    }, 500);
+  }
+}
+
+function handleBooking(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+  setTimeout(() => {
+    btn.style.display = 'none';
+    document.getElementById('booking-success').style.display = 'block';
+    showToast('🎉 Reservation request submitted! We will confirm on WhatsApp.');
+  }, 600);
+}
+</script>
+
+<script src="goodsoil.js"></script>
+</body>
+</html>

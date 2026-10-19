@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit Shop — Good Soil | 840+ Curated STEM &amp; Craft Kits</title>
+  <meta name="description" content="The same kits we teach with — delivered home. Curated from trusted Indian makers, tagged by age and track, with free Good Soil build guides.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #FFFFFF; font-family: 'DM Sans', sans-serif; color: #1C1B18; -webkit-font-smoothing: antialiased; }
+    a { color: #1F6B44; text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: #174F33; }
+    .card { transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(28,27,24,0.08); }
+    .nav-link { color: #1C1B18; text-decoration: none; padding: 10px 0; font-weight: 500; font-size: 15px; transition: color 0.15s ease; }
+    .nav-link:hover { color: #1F6B44; }
+    .nav-link.active { color: #1F6B44; font-weight: 700; }
+    .cat-btn { min-height: 44px; padding: 0 18px; border-radius: 999px; font: 700 14px 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s ease; white-space: nowrap; }
+    .cat-btn.active { background: #1C1B18; color: #FFFFFF; border: 0; }
+    .cat-btn.inactive { background: #FFFFFF; color: #1C1B18; border: 1px solid #DAD7CE; }
+    .cat-btn.inactive:hover { background: #F2F5EF; border-color: #1C1B18; }
+    .age-row-btn { min-height: 44px; padding: 0 16px; border-radius: 12px; font: 500 15px 'DM Sans', sans-serif; text-align: left; cursor: pointer; transition: all 0.2s ease; width: 100%; }
+    .age-row-btn.active { background: #1F6B44; color: #FFFFFF; font-weight: 700; border: 0; }
+    .age-row-btn.inactive { background: #FFFFFF; color: #1C1B18; border: 1px solid #ECEAE3; }
+    .age-row-btn.inactive:hover { background: #F2F5EF; }
+    .badge-taught { position: absolute; top: 10px; left: 10px; background: #1F6B44; color: #FFFFFF; font-size: 11px; font-weight: 800; padding: 5px 10px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 2; }
+  </style>
+</head>
+<body>
+
+<div style="font-family: 'DM Sans', sans-serif; color: #1C1B18; background: #FFFFFF; min-height: 100vh">
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #ECEAE3">
+<nav style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1C1B18">
+<svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1F6B44"></circle><path d="M17 26V15" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"></path><path d="M17 17c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#F5B82E"></path><path d="M17 20c0-3.5-2.6-6-6-6 0 3.5 2.6 6 6 6Z" fill="#FFFFFF"></path></svg>
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">Good Soil</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; flex: 1 1 auto; font-weight: 500; font-size: 15px">
+<a href="classes.html" class="nav-link">Classes &amp; Camps</a>
+<a href="shop.html" class="nav-link active">Kit Shop</a>
+<a href="curriculum.html" class="nav-link">Curriculum</a>
+<a href="index.html#gallery" class="nav-link">Gallery</a>
+<a href="index.html#story" class="nav-link">Our story</a>
+</div>
+<button type="button" onclick="openCartDrawer(this)" aria-label="Open cart" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 700 15px 'DM Sans', sans-serif; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: transform 0.15s ease;">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.5 10.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+Cart <span id="cart-counter" data-cart-counter style="background: #F5B82E; color: #1C1B18; border-radius: 999px; padding: 2px 9px; font-size: 13px; font-weight: 800;">0</span>
+</button>
+</nav>
+</header>
+
+<!-- SHOP HERO -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 48px 24px 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 14px; flex: 1 1 520px">
+<div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1F6B44">The Kit Shop &middot; 840+ verified kits</div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 5vw, 68px); line-height: 1; letter-spacing: -0.035em">The same kits we teach with &mdash; delivered home.</h1>
+<p style="margin: 0; font-size: 17px; color: #4A4740; line-height: 1.55; max-width: 60ch">Curated from trusted Indian makers. Every kit is tagged by age and track, with free illustrated Good Soil build guides.</p>
+</div>
+<div style="flex: 1 1 320px; max-width: 420px; display: flex; flex-direction: column; gap: 8px">
+<label for="search-box" style="font-size: 14px; font-weight: 700">Search 840+ kits</label>
+<div style="position: relative">
+  <input id="search-box" type="search" oninput="handleSearch(this.value)" placeholder="Drone, robotic arm, solar car, micro:bit..." style="width: 100%; min-height: 52px; border-radius: 999px; border: 1.5px solid #1C1B18; padding: 0 44px 0 20px; font: 16px 'DM Sans', sans-serif;">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1B18" stroke-width="2" style="position: absolute; right: 18px; top: 16px; pointer-events: none"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+</div>
+</div>
+</section>
+
+<!-- BUNDLES -->
+<section style="max-width: 1280px; margin: 0 auto; padding: 16px 24px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<div class="card" style="background: #1F6B44; color: #FFFFFF; border-radius: 28px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: #F5B82E">BEST STARTING POINT</span>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; letter-spacing: -0.02em; color: #FFFFFF">Good Soil 40-Kit Plan</h2>
+<p style="margin: 0; color: #DCEBE2; font-size: 15px; line-height: 1.55">Our full ages 7–14 progressive curriculum in one master box set, with every module's illustrated build guide.</p>
+<button type="button" onclick="GoodSoilCart.addItem({id:'BUNDLE-40', name:'Good Soil 40-Kit Plan', price:7999, img:'images/kits/diy_engineering_drone_kit.png', cat:'Full Curriculum', age:'7–14+'})" style="align-self: flex-start; margin-top: auto; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 0; background: #F5B82E; color: #1C1B18; font: 800 15px 'DM Sans', sans-serif; cursor: pointer; transition: transform 0.15s">Add plan &middot; &#8377;7,999</button>
+</div>
+
+<div class="card" style="background: #FFF4D6; border-radius: 28px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: #8A4B2A">GIFT IT</span>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; letter-spacing: -0.02em; color: #1C1B18">Birthday build boxes</h2>
+<p style="margin: 0; color: #4A3A20; font-size: 15px; line-height: 1.55">A wrapped maker kit plus a gift voucher for one Good Soil weekend workshop class.</p>
+<button type="button" onclick="GoodSoilCart.addItem({id:'BUNDLE-GIFT', name:'Birthday Build Box + Class Pass', price:1999, img:'images/kits/drone_kit_kids.png', cat:'Gift Bundle', age:'All ages'})" style="align-self: flex-start; margin-top: auto; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 800 15px 'DM Sans', sans-serif; cursor: pointer">Gift a box &middot; &#8377;1,999</button>
+</div>
+
+<div class="card" style="background: #F2F5EF; border-radius: 28px; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: #1F6B44">FOR SCHOOLS &amp; CENTRES</span>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; letter-spacing: -0.02em; color: #1C1B18">Shared lab sets</h2>
+<p style="margin: 0; color: #4A4740; font-size: 15px; line-height: 1.55">Order in batches of 10&times; or 30&times; and download the complete bill of materials and teacher training guides.</p>
+<a href="classes.html#book" style="align-self: flex-start; margin-top: auto; min-height: 48px; display: inline-flex; align-items: center; padding: 0 24px; border-radius: 999px; border: 1.5px solid #1C1B18; color: #1C1B18; font-weight: 800; font-size: 15px; text-decoration: none">Request a quote &rarr;</a>
+</div>
+</section>
+
+<!-- FILTERS + PRODUCT GRID -->
+<section id="grid" style="max-width: 1280px; margin: 0 auto; padding: 16px 24px 96px; display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start">
+
+<!-- ASIDE FILTERS -->
+<aside style="flex: 1 1 240px; max-width: 280px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+  <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.06em">AGE GROUP</span>
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <button type="button" id="age-all" class="age-row-btn active" onclick="setAge('All ages')">All ages</button>
+    <button type="button" id="age-early" class="age-row-btn inactive" onclick="setAge('Early · 3–6')">Early · 3–6</button>
+    <button type="button" id="age-junior" class="age-row-btn inactive" onclick="setAge('Junior · 7–10')">Junior · 7–10</button>
+    <button type="button" id="age-senior" class="age-row-btn inactive" onclick="setAge('Senior · 10–14+')">Senior · 10–14+</button>
+  </div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+  <label for="price-filter" style="font-weight: 800; font-size: 14px; letter-spacing: 0.06em">PRICE RANGE</label>
+  <select id="price-filter" onchange="renderProducts()" style="min-height: 44px; border-radius: 12px; border: 1px solid #DAD7CE; padding: 0 12px; font: 15px 'DM Sans', sans-serif">
+    <option value="all">Any price</option>
+    <option value="under500">Under &#8377;500</option>
+    <option value="500-1500">&#8377;500 &ndash; &#8377;1,500</option>
+    <option value="above1500">Above &#8377;1,500</option>
+  </select>
+</div>
+
+<div style="background: #F2F5EF; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px">
+  <span style="font-weight: 800; font-size: 15px">Not sure what to pick?</span>
+  <span style="font-size: 14px; color: #4A4740; line-height: 1.5">Look for the <b style="color: #1F6B44">Taught at Good Soil</b> badge &mdash; those kits include our step-by-step verified build guides.</span>
+</div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+
+<!-- CATEGORY CHIPS -->
+<div style="display: flex; flex-wrap: wrap; gap: 8px" id="category-chips">
+  <!-- Rendered by JS -->
+</div>
+
+<!-- COUNT & SORT -->
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid #ECEAE3; padding-bottom: 14px">
+  <span style="font-size: 15px; color: #55524A">Showing <b style="color: #1C1B18" id="kit-count">12</b> kits with verified photos</span>
+  <div style="display: flex; align-items: center; gap: 8px">
+    <label for="sort-select" style="font-size: 14px; font-weight: 700">Sort</label>
+    <select id="sort-select" onchange="renderProducts()" style="min-height: 40px; border-radius: 10px; border: 1px solid #DAD7CE; padding: 0 12px; font: 14px 'DM Sans', sans-serif">
+      <option value="rec">Recommended</option>
+      <option value="low">Price: low to high</option>
+      <option value="high">Price: high to low</option>
+      <option value="az">Kit name (A–Z)</option>
+    </select>
+  </div>
+</div>
+
+<!-- PRODUCT GRID -->
+<div id="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px">
+  <!-- Populated by JS with actual catalogue images -->
+</div>
+
+<div style="display: flex; justify-content: center; margin-top: 24px;">
+  <button type="button" onclick="showToast('✅ Full curated catalogue active. Showing 12 priority kits!')" style="min-height: 52px; padding: 0 32px; border-radius: 999px; border: 1.5px solid #1C1B18; background: #FFFFFF; font: 700 15px 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s">Showing 12 Core Workshop Kits</button>
+</div>
+</div>
+</section>
+
+<!-- TRUST STRIP -->
+<section style="background: #1C1B18; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 56px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Tested in class</span>
+  <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Every kit is student-tested in actual classroom and camp sessions before cataloguing.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Made in India</span>
+  <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Sourced directly from 10+ trusted homegrown Indian makers and lab innovators.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Free build guides</span>
+  <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">High-clarity visual build cards &mdash; no confusing textbook jargon.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Fast delivery</span>
+  <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Dispatched within 24–48 hours across India with easy replacement support.</span>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #1C1B18; color: #E8E5DC">
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
+<div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #FFFFFF; letter-spacing: -0.03em">Good Soil</span>
+<p style="margin: 0; color: #B8B4A9; font-size: 15px; line-height: 1.6; max-width: 36ch">Hands-on STEM, arts &amp; skills education. Planted by the team behind 10+ years of aeromodelling workshops.</p>
+<form style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px">
+  <label for="nl-shop" style="width: 100%; font-size: 14px; font-weight: 700; color: #FFFFFF">Get new kit arrivals first</label>
+  <input id="nl-shop" type="email" placeholder="Parent's email" required style="flex: 1 1 200px; min-height: 48px; border-radius: 999px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 18px; font: 15px 'DM Sans', sans-serif">
+  <button type="submit" style="min-height: 48px; padding: 0 22px; border-radius: 999px; border: 0; background: #F5B82E; color: #1C1B18; font: 700 15px 'DM Sans', sans-serif; cursor: pointer">Subscribe</button>
+</form>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 15px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Learn</span><a href="classes.html" style="color: #B8B4A9">Weekend classes</a><a href="classes.html" style="color: #B8B4A9">Holiday camps</a><a href="curriculum.html" style="color: #B8B4A9">Curriculum</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Shop</span><a href="shop.html" style="color: #B8B4A9">All kits</a><a href="shop.html" style="color: #B8B4A9">Class kits</a><a href="shop.html" style="color: #B8B4A9">Gift a kit</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 98111 00000</span><span style="color: #B8B4A9">hello@goodsoil.in</span><span style="color: #B8B4A9">New Delhi, India</span></div>
+</div>
+</div>
+<div style="border-top: 1px solid #3A3832; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8E8A7F">
+<span>&copy; 2026 Good Soil. All rights reserved.</span><span>Instagram &bull; YouTube &bull; WhatsApp</span>
+</div>
+</div>
+</footer>
+
+</div>
+
+<!-- Universal Accessible Cart & Logic -->
+<script src="goodsoil.js"></script>
+
+<script>
+// Verified kit images from Vendor Research assets & catalogue
+const allProducts = [
+  {
+    id: 'WEB-GLI-01',
+    name: 'DIY Engineering Chuck Glider & Launcher',
+    cat: 'Drones & Aero',
+    age: '7–10',
+    vendor: 'Crossvind Solutions',
+    price: 499,
+    taught: true,
+    img: 'images/kits/diy_engineering_drone_kit.png',
+    desc: 'High-lift balsa & foam aerofoil glider with catapult launch trigger and trimming weights.'
+  },
+  {
+    id: 'WEB-DRN-01',
+    name: 'Mini Drone Build Kit (Aero)',
+    cat: 'Drones & Aero',
+    age: '10–14+',
+    vendor: 'BrainHap Aero',
+    price: 2499,
+    taught: true,
+    img: 'images/kits/drone_kit_kids.png',
+    desc: 'Quad-copter chassis, coreless motors, props, gyro flight controller & 2.4GHz transmitter.'
+  },
+  {
+    id: 'WEB-DRN-02',
+    name: 'Pro Aerial Engineering Drone Kit',
+    cat: 'Drones & Aero',
+    age: '10–14+',
+    vendor: 'BrainHap Aero',
+    price: 4999,
+    taught: false,
+    img: 'images/kits/drone_kit_pro.png',
+    desc: 'Carbon-fiber frame, brushless motors, telemetry, and advanced payload calibration.'
+  },
+  {
+    id: 'WEB-ROB-01',
+    name: 'Advanced Robotics Explorer Kit',
+    cat: 'Robotics',
+    age: '10–14+',
+    vendor: 'Robocraze India',
+    price: 1899,
+    taught: true,
+    img: 'images/kits/advanced_robotics_kit.png',
+    desc: 'Dual gearmotor chassis, ultrasonic sonar sensor, and programmable microcontroller.'
+  },
+  {
+    id: 'WEB-ARM-01',
+    name: '6-DOF Heavy Robotic Arm Kit',
+    cat: 'Robotics',
+    age: '10–14+',
+    vendor: 'BrainHap Labs',
+    price: 2899,
+    taught: true,
+    img: 'images/kits/6_dof_robotic_arm_kit.png',
+    desc: 'Full metal servo joints, rotating claw gripper, and multi-axis manual control joystick.'
+  },
+  {
+    id: 'WEB-MCU-01',
+    name: 'Micro:bit Robotics & Controller Board',
+    cat: 'Coding',
+    age: '7–10',
+    vendor: 'MicroBit India',
+    price: 1599,
+    taught: true,
+    img: 'images/kits/microbit_robotics_kit.png',
+    desc: 'Block-coding starter board with 5x5 LED matrix, accelerometer, Bluetooth, and breakout shield.'
+  },
+  {
+    id: 'WEB-IOT-01',
+    name: 'Smart Home Automation & IoT Kit',
+    cat: 'Electronics',
+    age: '10–14+',
+    vendor: 'BrainHap IoT',
+    price: 1799,
+    taught: true,
+    img: 'images/kits/smart_home_automation_kit.png',
+    desc: 'PIR motion sensor, relay modules, Wi-Fi telemetry, smart lamps, and cloud mobile dashboard.'
+  },
+  {
+    id: 'WEB-FAR-01',
+    name: 'Smart Farming & Soil Moisture Station',
+    cat: 'Science',
+    age: '7–10',
+    vendor: 'Practiko Learning',
+    price: 1399,
+    taught: true,
+    img: 'images/kits/smart_farming_kit.png',
+    desc: 'Capacitive soil probe, mini submersible pump, solar cell, and automatic irrigation trigger.'
+  },
+  {
+    id: 'WEB-CIR-01',
+    name: '5 Organs of a Robot Dissection Lab',
+    cat: 'Electronics',
+    age: '7–10',
+    vendor: 'Practiko Learning',
+    price: 899,
+    taught: true,
+    img: 'images/stem-kits.jpg',
+    desc: '15-concept hands-on lab covering circuit simulations, conductors, and the 5 robotic subsystems.'
+  },
+  {
+    id: 'WEB-MEC-01',
+    name: 'Kinematics: JCB Linkages & Cranks',
+    cat: 'Mechanical',
+    age: '10–14+',
+    vendor: 'Practiko Learning',
+    price: 1199,
+    taught: false,
+    img: 'images/tools-workshop.jpg',
+    desc: 'Grashof criteria 4-bar mechanisms, slider-cranks, and multi-joint hydraulic excavator linkages.'
+  },
+  {
+    id: 'WEB-ART-01',
+    name: 'Clay & Colour Studio Box',
+    cat: 'Arts & Crafts',
+    age: '3–6',
+    vendor: 'LittleHands Maker Studio',
+    price: 849,
+    taught: true,
+    img: 'images/arts-crafts.jpg',
+    desc: 'Non-toxic modeling clay, pottery tools, pigment sets, wooden armatures and texture rollers.'
+  },
+  {
+    id: 'WEB-TIN-01',
+    name: 'First Tinkering Tool Roll',
+    cat: 'Mechanical',
+    age: '3–6',
+    vendor: 'Good Soil In-House',
+    price: 999,
+    taught: false,
+    img: 'images/tools-workshop.jpg',
+    desc: 'Child-safe brass calipers, lightweight hand-drill, sanding block, safety goggles and canvas roll.'
+  }
+];
+
+const categories = ['All', 'Drones & Aero', 'Robotics', 'Coding', 'Electronics', 'Science', 'Mechanical', 'Arts & Crafts'];
+
+let selectedCat = 'All';
+let selectedAge = 'All ages';
+let searchQuery = '';
+
+function renderChips() {
+  const container = document.getElementById('category-chips');
+  container.innerHTML = categories.map(c => `
+    <button type="button" class="cat-btn ${c === selectedCat ? 'active' : 'inactive'}" onclick="setCat('${c}')">${c}</button>
+  `).join('');
+}
+
+function setCat(cat) {
+  selectedCat = cat;
+  renderChips();
+  renderProducts();
+}
+
+function setAge(age) {
+  selectedAge = age;
+  document.getElementById('age-all').className = age === 'All ages' ? 'age-row-btn active' : 'age-row-btn inactive';
+  document.getElementById('age-early').className = age.includes('3–6') ? 'age-row-btn active' : 'age-row-btn inactive';
+  document.getElementById('age-junior').className = age.includes('7–10') ? 'age-row-btn active' : 'age-row-btn inactive';
+  document.getElementById('age-senior').className = age.includes('10–14+') ? 'age-row-btn active' : 'age-row-btn inactive';
+  renderProducts();
+}
+
+function handleSearch(val) {
+  searchQuery = val.trim().toLowerCase();
+  renderProducts();
+}
+
+function renderProducts() {
+  let list = allProducts.filter(p => {
+    const matchesCat = selectedCat === 'All' || p.cat === selectedCat;
+    const matchesAge = selectedAge === 'All ages' || 
+      (selectedAge.includes('3–6') && p.age === '3–6') ||
+      (selectedAge.includes('7–10') && p.age === '7–10') ||
+      (selectedAge.includes('10–14+') && p.age === '10–14+');
+    const matchesSearch = !searchQuery || p.name.toLowerCase().includes(searchQuery) || p.cat.toLowerCase().includes(searchQuery) || p.vendor.toLowerCase().includes(searchQuery);
+    
+    // Price filter
+    const pf = document.getElementById('price-filter').value;
+    let matchesPrice = true;
+    if (pf === 'under500') matchesPrice = p.price < 500;
+    else if (pf === '500-1500') matchesPrice = p.price >= 500 && p.price <= 1500;
+    else if (pf === 'above1500') matchesPrice = p.price > 1500;
+
+    return matchesCat && matchesAge && matchesSearch && matchesPrice;
+  });
+
+  // Sort
+  const sort = document.getElementById('sort-select').value;
+  if (sort === 'low') list.sort((a,b) => a.price - b.price);
+  else if (sort === 'high') list.sort((a,b) => b.price - a.price);
+  else if (sort === 'az') list.sort((a,b) => a.name.localeCompare(b.name));
+
+  document.getElementById('kit-count').textContent = list.length;
+  const grid = document.getElementById('product-grid');
+
+  if (list.length === 0) {
+    grid.innerHTML = '<div style="grid-column: 1 / -1; padding: 48px; text-align: center; color: #55524A; font-size: 16px;">No kits matched your filter. Try picking "All" or clearing the search.</div>';
+    return;
+  }
+
+  grid.innerHTML = list.map((p) => `
+    <div class="card" style="border: 1px solid #ECEAE3; border-radius: 24px; padding: 14px; display: flex; flex-direction: column; gap: 12px; background: #FFFFFF">
+      <div style="aspect-ratio: 1; border-radius: 16px; position: relative; overflow: hidden; background: #F2F5EF; display: flex; align-items: center; justify-content: center;">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+        ${p.taught ? '<span class="badge-taught">Taught at Good Soil</span>' : ''}
+      </div>
+      <div style="padding: 0 4px; display: flex; flex-direction: column; gap: 4px">
+        <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.05em; color: #8A4B2A">${p.cat.toUpperCase()} &middot; ${p.age}</span>
+        <span style="font-weight: 700; font-size: 16px; line-height: 1.3">${p.name}</span>
+        <span style="font-size: 13px; color: #55524A">by ${p.vendor}</span>
+      </div>
+      <div style="padding: 4px 4px 2px; display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: auto">
+        <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">&#8377;${p.price.toLocaleString('en-IN')}</span>
+        <button type="button" onclick="GoodSoilCart.addItem({id:'${p.id}', name:'${p.name.replace(/'/g, "\\'")}', price:${p.price}, img:'${p.img}', cat:'${p.cat}', age:'${p.age}'})" aria-label="Add ${p.name} to cart" style="min-height: 40px; padding: 0 18px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 700 13px 'DM Sans', sans-serif; cursor: pointer; transition: transform 0.15s ease;">Add</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+renderChips();
+renderProducts();
+</script>
+
+</body>
+</html>
