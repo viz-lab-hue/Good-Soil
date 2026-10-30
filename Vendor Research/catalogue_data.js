@@ -1,5 +1,21 @@
 const CATALOGUE_DATA = [
   {
+    "id": "WEB-PLU-MOT-01",
+    "vendor": "Pludo (Robocraze)",
+    "title": "Pludo Motion Sense Circuit (Tilt & Sensor Switch)",
+    "price": "₹926",
+    "age": "10-12",
+    "category": "Sensors, Electronics, Switches",
+    "priority": "P1",
+    "desc": "Mechanical tilt switch, vibration sensor, indicator LED array, warning buzzer, and battery housing — explores normally-open vs normally-closed sensor triggers.",
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/pludo_motion_sense.png?v=1713500000",
+    "link": "https://robocraze.com/products/pludo-motion-sense-circuit",
+    "curriculum_class": "Senior Class 07",
+    "module": "Module 6: Sensors — Part I",
+    "kit_type": "Giveaway Kit",
+    "source": "Robocraze Store"
+  },
+  {
     "id": "PRA-CIRC-01",
     "bundle": "Practiko Circuit Simulations (₹2,999)",
     "vendor": "Practiko Learning",
@@ -59,16 +75,20 @@ const CATALOGUE_DATA = [
     "bundle": "Practiko Mechatronics + IoT Kit (₹24,999)"
   },
   {
-    "id": "STUDIO-RAD-01",
-    "vendor": "Good Soil",
-    "title": "Ultrasonic Radar Distance & Collision Guard",
-    "price": "—",
+    "id": "WEB-RBC-RAD-01",
+    "vendor": "Robocraze",
+    "title": "Robocraze Ultrasonic Sensor + Servo Radar Kit",
+    "price": "₹799",
     "age": "10-14",
     "category": "Robotics, Sonar, Sensors",
     "priority": "P1",
-    "desc": "HC-SR04 sonar module, 180° micro servo radar mount, active buzzer, and collision avoidance code for autonomous obstacle avoidance. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
+    "desc": "HC-SR04 ultrasonic sensor, SG90 micro servo, Arduino Nano, buzzer, breadboard, and jumper wires — build a 180° radar sweep system for obstacle detection and collision avoidance. Pre-packaged vendor kit with all parts included.",
     "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/TIFKT0296_bfb4bc59-8018-4a5f-9f7e-52316eecdfeb.png?v=1779713601",
-    "link": ""
+    "link": "https://robocraze.com",
+    "curriculum_class": "Senior Class 15",
+    "module": "Module 13: Microcontroller Projects",
+    "kit_type": "Giveaway Kit",
+    "source": "Robocraze Store"
   },
   {
     "id": "PRA-MCU-S02",
@@ -99,16 +119,20 @@ const CATALOGUE_DATA = [
     "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
-    "id": "STUDIO-ROV-01",
-    "vendor": "Good Soil",
-    "title": "4WD Heavy-Duty Obstacle Rover Chassis",
-    "price": "—",
+    "id": "WEB-RBC-4WD-01",
+    "vendor": "Robocraze",
+    "title": "Robocraze 4WD Smart Robot Car Chassis Kit",
+    "price": "₹899",
     "age": "10-14",
     "category": "Robotics, Mobile Platforms, Rover",
     "priority": "P1",
-    "desc": "Laser-cut high-traction 4WD robot chassis, dual high-torque DC gearmotors, rubber tires, 4xAA battery rack, and heavy-duty rocker switch. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
+    "desc": "Double-layer acrylic 4WD robot chassis, 4× DC gearmotors, 4× rubber tires, 4×AA battery holder, rocker switch, and mounting hardware. Pre-packaged vendor kit — complete assembly for autonomous obstacle rover.",
     "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/amz_listing_opt_20.png?v=1786685909",
-    "link": ""
+    "link": "https://robocraze.com/products/4wd-robot-chassis",
+    "curriculum_class": "Senior Class 11",
+    "module": "Module 10: Build a Moving Robot",
+    "kit_type": "Giveaway Kit",
+    "source": "Robocraze Store"
   },
   {
     "id": "PRA-KIN-S01",
@@ -139,28 +163,20 @@ const CATALOGUE_DATA = [
     "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
-    "id": "STUDIO-SE-02",
-    "vendor": "Good Soil",
-    "title": "Transistor-Driven Piezo Alarm Circuit",
-    "price": "—",
+    "id": "WEB-KGU-BUZ-01",
+    "vendor": "KitsGuru",
+    "title": "KitsGuru Transistor Buzzer Alarm Kit",
+    "price": "₹349",
     "age": "10-14",
     "category": "Electronics, Transistors, Audio",
     "priority": "P1",
-    "desc": "Using NPN bipolar junction transistors (2N2222) as solid-state digital switches to trigger loud audio alarms and high-current LED arrays. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
+    "desc": "NPN transistor (2N2222), piezo buzzer, resistors, LED, breadboard, battery clip, and assembly guide. Pre-packaged vendor kit for learning transistor switching and alarm circuits.",
     "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/products/download_89.jpg?v=1743775547",
-    "link": ""
-  },
-  {
-    "id": "STUDIO-SENS-01",
-    "vendor": "Good Soil",
-    "title": "Precision LDR Light Sensor & Divider Bench",
-    "price": "—",
-    "age": "10-14",
-    "category": "Sensors, Electronics, Analog",
-    "priority": "P1",
-    "desc": "Analog light-sensing workstation. Students build voltage divider circuits with photoresistors, calibrate thresholds, and measure lux response. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
-    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/products/1_4bed097f-8a35-4f51-8edc-49e6c05b281f.jpg?v=1743775208",
-    "link": ""
+    "link": "https://kitsguru.com",
+    "curriculum_class": "Senior Class 08",
+    "module": "Module 7: Sensors & Buzzers",
+    "kit_type": "Giveaway Kit",
+    "source": "KitsGuru Store"
   },
   {
     "id": "PRA-ELEC-S02",
@@ -177,16 +193,20 @@ const CATALOGUE_DATA = [
     "bundle": "Practiko Electrical Science Kit (₹5,499)"
   },
   {
-    "id": "STUDIO-BREAD-01",
-    "vendor": "Good Soil",
-    "title": "Half-Size Solderless Breadboard Lab Pack",
-    "price": "—",
+    "id": "WEB-RBC-BRD-01",
+    "vendor": "Robocraze",
+    "title": "Robocraze Breadboard Prototyping Hardware Bundle",
+    "price": "₹591",
     "age": "10-14",
     "category": "Electronics, Prototyping, Breadboard",
     "priority": "P1",
-    "desc": "High-grade 400-tie-point solderless breadboard, 65 male-to-male flexible jumper wires, resistor assortment (220Ω, 1kΩ, 10kΩ), and 5mm LEDs. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
-    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/products/wfx_4_7efb13c8-115e-4da1-b53b-fefb04c38e6a.jpg?v=1743775641",
-    "link": ""
+    "desc": "Complete solderless prototyping bundle: standard 400-point breadboard, 840-piece flexible jumper wire organizer box, and dual 5V/3.3V power supply module.",
+    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/840pcs_jumper_wire_kit.png?v=1713500000",
+    "link": "https://robocraze.com/products/840pcs-breadboard-jumper-wire-14-assorted-lengths-kit",
+    "curriculum_class": "Senior Class 04",
+    "module": "Module 4: BreadBoard — An Introduction",
+    "kit_type": "Giveaway Kit",
+    "source": "Robocraze Store"
   },
   {
     "id": "PRA-ELEC-S01",
@@ -245,16 +265,20 @@ const CATALOGUE_DATA = [
     "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
-    "id": "STUDIO-SEC-01",
-    "vendor": "Good Soil",
-    "title": "Smart Security Room Guard / Gate Alarm",
-    "price": "—",
+    "id": "WEB-KGU-ULT-01",
+    "vendor": "KitsGuru",
+    "title": "KitsGuru Ultrasonic Distance Alarm Kit",
+    "price": "₹699",
     "age": "6-9",
     "category": "Robotics, Automation, Sensors",
     "priority": "P1",
-    "desc": "Ultrasonic distance sensing module linked to a high-decibel piezo buzzer and flashing red warning LED to guard doors and passageways. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
+    "desc": "HC-SR04 ultrasonic sensor, buzzer, LED, Arduino Nano, breadboard, jumper wires, and battery pack. Pre-packaged vendor kit for building a door/passageway security alarm with distance threshold detection.",
     "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/products/download_89.jpg?v=1743775547",
-    "link": ""
+    "link": "https://kitsguru.com",
+    "curriculum_class": "Junior Class 15",
+    "module": "Module 13: Microcontroller Projects",
+    "kit_type": "Giveaway Kit",
+    "source": "KitsGuru Store"
   },
   {
     "id": "PRA-MECH-03",
@@ -299,16 +323,20 @@ const CATALOGUE_DATA = [
     "bundle": "Practiko Mechatronics Kit (₹19,999)"
   },
   {
-    "id": "STUDIO-SNAP-01",
-    "vendor": "Good Soil",
-    "title": "Junior Snap / Pinboard LED Circuit Lab",
-    "price": "—",
+    "id": "WEB-PLU-LED-01",
+    "vendor": "Pludo (Robocraze)",
+    "title": "Pludo LED Logic Circuit Kit",
+    "price": "₹599",
     "age": "6-9",
     "category": "Electronics, Breadboard, Circuits",
     "priority": "P1",
-    "desc": "Solderless prototyping pinboard with color-coded jumper leads, high-intensity LEDs, push-switches, and coin-cell power clips. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
+    "desc": "Snap-together modular LED circuit builder for Ages 9-10. Includes LED modules, switch, resistor blocks, coin-cell power clips, and activity booklet. Pre-packaged vendor kit.",
     "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/Pludo_LED_Logic_Circuit_-_Build_Your_Own_Light_Circuits_Ages_9-10_Grades_4-5.png?v=1784184105",
-    "link": ""
+    "link": "https://robocraze.com/products/pludo-led-logic-circuit",
+    "curriculum_class": "Junior Class 04",
+    "module": "Module 4: BreadBoard Intro",
+    "kit_type": "Giveaway Kit",
+    "source": "Robocraze / Pludo Store"
   },
   {
     "id": "PRA-ELEC-01",
@@ -323,18 +351,6 @@ const CATALOGUE_DATA = [
     "link": "https://practiko.in/product/circuit-simulations/",
     "source": "Good Soil Curriculum Lab (Practiko Master Kit)",
     "bundle": "Practiko Circuit Simulations (₹2,999)"
-  },
-  {
-    "id": "STUDIO-CODE-01",
-    "vendor": "Good Soil",
-    "title": "Floor Grid Robot Maze & Code Cards",
-    "price": "—",
-    "age": "6-9",
-    "category": "Coding, Logic, Algorithms",
-    "priority": "P1",
-    "desc": "Unplugged algorithmic navigation mat with directional challenge cards, loops, condition blocks, and obstacle tiles. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
-    "img": "https://cdn.shopify.com/s/files/1/0672/5435/4175/files/1_3_d93b019b-6707-4190-ac6b-0fd7d48b336c.webp?v=1779878675",
-    "link": ""
   },
   {
     "id": "PRA-MECH-01",
@@ -3133,10 +3149,10 @@ const CATALOGUE_DATA = [
   {
     "id": "WEB-BUT-030",
     "vendor": "Butterfly Edufields",
-    "title": "10in1 Ultimate Electricity Kit | Science Project Kit | Stem Toys for Kids Age 5-8 Years Boys Girls",
-    "price": "Rs.589",
-    "age": "All Ages",
-    "category": "Mechanical, Science, DIY",
+    "title": "30-in-1 Ultimate Electricity & Magnetism Kit",
+    "price": "₹1,239",
+    "age": "8-12",
+    "category": "Electronics, Electromagnetism, Sound",
     "tags": [
       "STEM",
       "Science",
@@ -3150,11 +3166,14 @@ const CATALOGUE_DATA = [
     "b2b": "Maybe",
     "b2c": "Yes",
     "custom": "Yes",
-    "desc": "out this item [10in1 MINI GADGET BUILDING STEM TOY] : Bring out the inner scientist in your child. Build 7 gadgets in home - 1) Mini Vacuum Cleaner, 2) Color mixer, 3) Massager, 4) Table fan, 5) DIY torch light, 6) Water Sprinkler and 7) Egg beater. ",
-    "link": "https://butterflyedufields.com/products/10in1-ultimate-electricity-kit-science-project-kit-stem-toys-for-kids-age-5-8-years-boys-girls",
-    "img": "https://cdn.shopify.com/s/files/1/0672/5435/4175/files/1_72c10110-c628-4831-b5de-0b648a2cd183.jpg?v=1740984681",
+    "desc": "Comprehensive electrical & magnetic workbench: telegraph buzzer circuits, electromagnetic coils, magnetic switches, multi-bulb series/parallel circuits.",
+    "link": "https://butterflyedufields.com/products/30-in-1-diy-electromagnetic-kit-8-12-yrs",
+    "img": "https://cdn.shopify.com/s/files/1/0257/2035/6917/files/30in1ElectricityKit_1.jpg?v=1713500000",
     "status": "Candidate",
-    "source": "Scraped Shopify API"
+    "source": "Butterfly Edufields Store",
+    "curriculum_class": "Junior Class 08",
+    "module": "Module 7: Sensors & Buzzers — Part II",
+    "kit_type": "Giveaway Kit"
   },
   {
     "id": "WEB-BUT-052",
@@ -4129,10 +4148,10 @@ const CATALOGUE_DATA = [
   {
     "id": "WEB-BUT-014",
     "vendor": "Butterfly Edufields",
-    "title": "Different Forms of Energy – DIY School Science kit | Grade 4",
-    "price": "Rs.450",
-    "age": "Gr4-6",
-    "category": "Mechanical, Science, DIY",
+    "title": "10-in-1 Ultimate Electricity Kit",
+    "price": "₹589",
+    "age": "5-8",
+    "category": "Circuits, Electricity, Science",
     "tags": [
       "STEM",
       "Science",
@@ -4146,11 +4165,14 @@ const CATALOGUE_DATA = [
     "b2b": "Maybe",
     "b2c": "Maybe",
     "custom": "Yes",
-    "desc": "Different Forms of Energy – Grade 4 STEM Kit 🔋 Make a battery-operated fan to understand electrical energy and motion 🧲 Move a magnet through a maze to explore magnetic force 🌬️ Build a windmill to see how wind energy can lift a load using a basket ⚙",
-    "link": "https://butterflyedufields.com/products/different-forms-of-energy-diy-school-science-kit-grade-4",
-    "img": "https://cdn.shopify.com/s/files/1/0672/5435/4175/files/2_2_947b3a45-5549-4bdd-bf17-6f5efc232c60.webp?v=1770273568",
+    "desc": "Hands-on basic circuitry lab: closed loops, knife switches, mini light bulbs, high-intensity LEDs, DC motor with fan blade, and color-coded alligator leads.",
+    "link": "https://butterflyedufields.com/products/10in1-ultimate-electricity-kit-science-project-kit-stem-toys-for-kids-age-5-8-years-boys-girls",
+    "img": "https://cdn.shopify.com/s/files/1/0257/2035/6917/files/10in1ElectricityKit_1.jpg?v=1713500000",
     "status": "Candidate",
-    "source": "Scraped Shopify API"
+    "source": "Butterfly Edufields Store",
+    "curriculum_class": "Junior Class 02",
+    "module": "Module 2: Circuit Pathways & Electric Flow",
+    "kit_type": "Group Studio Kit"
   },
   {
     "id": "WEB-BUT-025",
@@ -20914,18 +20936,6 @@ const CATALOGUE_DATA = [
     "priority": "P1",
     "desc": "Wide 600mm wingspan poly-foam sailplane equipped with trim tabs, dihedral stabilizer tips, and aerodynamic stall mitigation geometry. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
     "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/files/rover_builder_3.png?v=1785155762",
-    "link": ""
-  },
-  {
-    "id": "STUDIO-ELEC-01",
-    "title": "Illuminated Paper Circuit Greeting Card Kit",
-    "vendor": "Good Soil",
-    "price": "—",
-    "age": "6-9",
-    "category": "Electronics, STEAM Art, Circuits",
-    "priority": "P1",
-    "desc": "STEAM craft kit combining conductive adhesive copper foil tape, surface-mount ultra-bright LEDs, coin cell battery holders, and interactive fold switches for glowing card art. [Good Soil Kit: In-house curriculum kit assembled from components & materials (no external retail store package).]",
-    "img": "https://cdn.shopify.com/s/files/1/0559/1970/6265/products/copper.jpg?v=1743775140",
     "link": ""
   },
   {

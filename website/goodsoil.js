@@ -356,6 +356,7 @@
 
     const encoded = encodeURIComponent(text);
     window.open(`https://wa.me/919811100000?text=${encoded}`, '_blank');
+    GoodSoilCart.clearCart();
   }
   window.checkoutViaWhatsApp = checkoutViaWhatsApp;
 
@@ -470,15 +471,15 @@
         </div>
         <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
           <div style="background: #F2F5EF; padding: 14px 18px; border-radius: 14px; font-size: 14px; color: #1F6B44; font-weight: 700;">
-            ✓ Official Good Soil 4-Session Teaching Packet
+            ✓ Official Good Soil 25-Class Master Curriculum (PDF)
           </div>
           <div style="font-size: 15px; color: #4A4740; line-height: 1.6;">
-            Includes full slide decks, step-by-step assembly diagrams, teacher facilitation pointers, troubleshooting charts, and student challenge cards.
+            Complete 25-class STEM &amp; Robotics curriculum for Junior (6–9) and Senior (10–14) batches — including module syllabus, kit lists, vendor sources, and assessment framework.
           </div>
           <div style="border-top: 1px solid #ECEAE3; padding-top: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 14px;">
-            <div><strong>Format:</strong> High-Resolution Printable PDF (A4)</div>
-            <div><strong>Pages:</strong> 12 Illustrated Pages with Bill of Materials</div>
-            <div><strong>Recommended Age:</strong> Junior / Senior Cohorts</div>
+            <div><strong>Format:</strong> Printable PDF (A4)</div>
+            <div><strong>Covers:</strong> 25 Weekend Classes · 50 Hours · 4 Phases</div>
+            <div><strong>Age Groups:</strong> Junior (6–9) &amp; Senior (10–14)</div>
           </div>
           <div style="display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap;">
             <button type="button" onclick="triggerPdfDownload('${moduleTitle}')" style="flex: 1; min-height: 48px; border-radius: 999px; border: 0; background: #1F6B44; color: #FFFFFF; font-weight: 700; font-size: 15px; cursor: pointer;">Download PDF File</button>
@@ -500,15 +501,12 @@
   }
 
   function triggerPdfDownload(title) {
-    showToast('📥 Starting download for "' + title + ' Build Guide.pdf"');
+    showToast('📥 Downloading Good Soil Curriculum PDF…');
     closePdfModal();
-    // Create and trigger blob download for sample syllabus PDF
-    const sampleText = `GOOD SOIL — BUILD GUIDE & CURRICULUM MODULE\nTitle: ${title}\nWebsite: https://goodsoil.in\n\n1. Module Overview\nThis module guides young builders through hands-on construction, testing, and iteration.\n\n2. Bill of Materials\n- Core Kit Assembly\n- Safe Tools & Trimming Gauges\n- Test Flight / Bench Rig\n\n3. Facilitator Notes\nEncourage children to record flight distances and failure points before attempting modifications.\n\n(c) 2026 Good Soil.`;
-    const blob = new Blob([sampleText], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url;
-    a.download = `${title.toLowerCase().replace(/[^a-z0-9]/g, '_')}_build_guide.txt`;
+    a.href = 'assets/GoodSoil_Curriculum.pdf';
+    a.download = 'GoodSoil_25_Class_Curriculum.pdf';
+    a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -550,6 +548,11 @@
           e.preventDefault();
           const email = emailInput.value.trim();
           if (email) {
+            try {
+              const subs = JSON.parse(localStorage.getItem('goodsoil_subscribers') || '[]');
+              subs.push({ email, timestamp: new Date().toISOString() });
+              localStorage.setItem('goodsoil_subscribers', JSON.stringify(subs));
+            } catch (err) {}
             showToast('🎉 Thank you! ' + email + ' has been subscribed to camp dates.');
             emailInput.value = '';
           }

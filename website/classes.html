@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:title" content="Good Soil — Classes & Camps">
+  <meta property="og:description" content="Weekend STEM classes, 2-day workshops, and 5-day holiday camps for kids ages 3–14+.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/hero-workshop.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Classes &amp; Camps — Good Soil | Hands-on STEM Workshops</title>
   <meta name="description" content="Pick a format. We bring the kits. Weekend classes, 2-day workshops and 5-day holiday camps for kids aged 3–14+.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -223,8 +229,12 @@
   </select>
 </div>
 <button type="submit" style="grid-column: 1 / -1; min-height: 52px; border-radius: 999px; border: 0; background: #F5B82E; color: #1C1B18; font: 800 16px 'DM Sans', sans-serif; cursor: pointer; transition: transform 0.15s ease">Request my seat</button>
-<div id="booking-success" style="display: none; grid-column: 1 / -1; background: #1F6B44; color: #FFFFFF; padding: 16px 20px; border-radius: 14px; font-weight: 700; text-align: center">
-  🎉 Thank you! We received your request and will reach out on WhatsApp shortly with batch confirmation.
+<div id="booking-success" style="display: none; grid-column: 1 / -1; background: #1F6B44; color: #FFFFFF; padding: 20px 24px; border-radius: 18px; text-align: center">
+  <div style="font-size: 18px; font-weight: 800; margin-bottom: 6px;">🎉 Reservation request received!</div>
+  <p style="margin: 0 0 14px; font-size: 15px; color: #DCEBE2;">We have saved your details and will confirm your batch shortly.</p>
+  <a id="booking-whatsapp-link" href="#" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 14px; padding: 12px 22px; border-radius: 999px; box-shadow: 0 4px 14px rgba(37,211,102,0.4);">
+    <span>Send details via WhatsApp &rarr;</span>
+  </a>
 </div>
 </form>
 </div>
@@ -355,13 +365,44 @@ function selectBatch(batchName, formatName) {
 function handleBooking(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button[type="submit"]');
+  const parentName = document.getElementById('pn')?.value.trim() || '';
+  const phone = document.getElementById('ph')?.value.trim() || '';
+  const ageSelect = document.getElementById('ca');
+  const ageText = ageSelect?.options[ageSelect.selectedIndex]?.text || '';
+  const formatSelect = document.getElementById('fm');
+  const formatText = formatSelect?.options[formatSelect.selectedIndex]?.text || '';
+
+  const booking = {
+    parentName,
+    phone,
+    age: ageText,
+    format: formatText,
+    timestamp: new Date().toISOString()
+  };
+
+  try {
+    const bookings = JSON.parse(localStorage.getItem('goodsoil_bookings') || '[]');
+    bookings.push(booking);
+    localStorage.setItem('goodsoil_bookings', JSON.stringify(bookings));
+  } catch (err) {
+    console.warn('Could not store booking locally', err);
+  }
+
   btn.disabled = true;
   btn.textContent = 'Submitting...';
+
+  const waMessage = `Hello Good Soil! 🌱 I would like to reserve a seat:\n\n• Parent: ${parentName}\n• Phone: ${phone}\n• Child Cohort: ${ageText}\n• Format: ${formatText}\n\nPlease confirm availability and upcoming batch dates. Thank you!`;
+  const waUrl = `https://wa.me/919811100000?text=${encodeURIComponent(waMessage)}`;
+
+  const waLink = document.getElementById('booking-whatsapp-link');
+  if (waLink) waLink.href = waUrl;
+
   setTimeout(() => {
     btn.style.display = 'none';
     document.getElementById('booking-success').style.display = 'block';
-    showToast('🎉 Reservation request submitted! We will confirm on WhatsApp.');
-  }, 600);
+    showToast('🎉 Reservation request saved! Opening WhatsApp confirmation...');
+    window.open(waUrl, '_blank');
+  }, 500);
 }
 </script>
 
