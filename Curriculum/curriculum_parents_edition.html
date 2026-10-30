@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Good Soil — 25-Class Master STEM & Robotics Curriculum (Parent Edition)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 9mm 9mm 9mm 9mm;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1C1B18;
+      background: #FFFFFF;
+      font-size: 7.2pt;
+      line-height: 1.3;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      border-bottom: 2px solid #1F6B44;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .brand-logo-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-title {
+      font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+      font-size: 16pt;
+      font-weight: 800;
+      color: #1F6B44;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .brand-subtitle {
+      font-size: 8.2pt;
+      font-weight: 600;
+      color: #8A4B2A;
+      margin-top: 3px;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-size: 6.8pt;
+      color: #55524A;
+      line-height: 1.35;
+    }
+
+    .header-meta strong {
+      color: #1C1B18;
+    }
+
+    /* ─── OVERVIEW CARDS ─── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 9px;
+    }
+
+    .summary-card {
+      background: #FAF9F5;
+      border: 1px solid #ECEAE3;
+      border-radius: 6px;
+      padding: 5px 7px;
+      border-left: 3.5px solid #1F6B44;
+    }
+
+    .summary-card.amber { border-left-color: #F5B82E; }
+    .summary-card.terracotta { border-left-color: #8A4B2A; }
+    .summary-card.blue { border-left-color: #2563EB; }
+
+    .summary-card .label {
+      font-size: 6pt;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #8E8A7F;
+      letter-spacing: 0.4px;
+    }
+
+    .summary-card .val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 9.5pt;
+      font-weight: 800;
+      color: #1C1B18;
+      margin-top: 1px;
+    }
+
+    .summary-card .sub {
+      font-size: 5.8pt;
+      color: #55524A;
+    }
+
+    /* ─── HIGHLIGHT BANNERS ─── */
+    .highlight-banner {
+      background: #F2F5EF;
+      border: 1px solid #D5E2D2;
+      border-left: 4px solid #1F6B44;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 7pt;
+      color: #174F33;
+      margin-bottom: 9px;
+      line-height: 1.35;
+    }
+
+    .section-title {
+      font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+      font-size: 10.5pt;
+      font-weight: 800;
+      color: #1C1B18;
+      margin: 8px 0 5px 0;
+      padding-bottom: 3px;
+      border-bottom: 1.5px solid #ECEAE3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .badge-scope {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 6.2pt;
+      background: #FFF4D6;
+      color: #8A4B2A;
+      border: 1px solid #F5D38A;
+      padding: 1.5px 6px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* ─── TABLES ─── */
+    .syllabus-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+      font-size: 6.5pt;
+    }
+
+    .syllabus-table th {
+      background: #1C1B18;
+      color: #FFFFFF;
+      font-weight: 700;
+      text-align: left;
+      padding: 3.5px 4px;
+      font-size: 6.2pt;
+      letter-spacing: 0.2px;
+    }
+
+    .syllabus-table td {
+      padding: 3px 4px;
+      border-bottom: 0.5px solid #ECEAE3;
+      vertical-align: middle;
+      line-height: 1.25;
+    }
+
+    .syllabus-table tr:nth-child(even) td {
+      background: #FAF9F5;
+    }
+
+    .syllabus-table tr.assessment-row td {
+      background: #F2F5EF !important;
+      border-top: 1px solid #C1D8BD;
+      border-bottom: 1px solid #1F6B44;
+      font-weight: 600;
+    }
+
+    .syllabus-table tr.expo-row td {
+      background: #FFFBEB !important;
+      border-top: 1px solid #FDE68A;
+      border-bottom: 1.5px solid #F59E0B;
+      font-weight: 700;
+    }
+
+    .cls-num {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      color: #1C1B18;
+      font-size: 7.2pt;
+      text-align: center;
+      width: 20px;
+    }
+
+    .phase-badge {
+      display: inline-block;
+      font-size: 5.5pt;
+      font-weight: 800;
+      padding: 1px 3px;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    .phase-p1 { background: #DCFCE7; color: #166534; }
+    .phase-p2 { background: #DBEAFE; color: #1E40AF; }
+    .phase-p3 { background: #F3E8FF; color: #6B21A8; }
+    .phase-p4 { background: #FFE4E6; color: #9F1239; }
+
+    .format-badge {
+      display: inline-block;
+      font-size: 5.5pt;
+      font-weight: 800;
+      padding: 1.5px 4.5px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .format-takehome {
+      background: #ECFDF5;
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+    }
+
+    .format-group {
+      background: #EFF6FF;
+      color: #1E40AF;
+      border: 1px solid #BFDBFE;
+    }
+
+    .format-assess {
+      background: #FFFBEB;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+    }
+
+    .format-expo {
+      background: #FAF5FF;
+      color: #6B21A8;
+      border: 1px solid #E9D5FF;
+    }
+
+    .activity-name {
+      font-weight: 700;
+      color: #1C1B18;
+    }
+
+    .activity-sub {
+      font-size: 5.6pt;
+      color: #6B675E;
+      margin-top: 0.5px;
+    }
+
+    .concepts {
+      color: #4A4740;
+    }
+
+    /* ─── 4-PHASE PROGRESSION GRID ─── */
+    .progression-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+
+    .progression-card {
+      background: #FAF9F5;
+      border: 1px solid #ECEAE3;
+      border-radius: 8px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .progression-card .p-tag {
+      font-size: 5.8pt;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #1F6B44;
+    }
+
+    .progression-card h4 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 9.5pt;
+      color: #1C1B18;
+      margin: 0;
+      font-weight: 800;
+    }
+
+    .progression-card p {
+      font-size: 6.5pt;
+      color: #55524A;
+      line-height: 1.35;
+    }
+
+    /* ─── SESSION STAGES ─── */
+    .session-stages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+
+    .stage-card {
+      background: #FFFFFF;
+      border: 1px solid #ECEAE3;
+      border-radius: 8px;
+      padding: 8px;
+      border-top: 3px solid #8A4B2A;
+    }
+
+    .stage-card.mid { border-top-color: #1F6B44; }
+    .stage-card.end { border-top-color: #F5B82E; }
+
+    .stage-card strong {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 8.5pt;
+      color: #1C1B18;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .stage-card p {
+      font-size: 6.5pt;
+      color: #55524A;
+      line-height: 1.3;
+    }
+
+    /* ─── PARENT FAQ GRID ─── */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .faq-item {
+      background: #FAF9F5;
+      border: 1px solid #ECEAE3;
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+
+    .faq-item h5 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 800;
+      color: #1C1B18;
+      margin-bottom: 3px;
+    }
+
+    .faq-item p {
+      font-size: 6.8pt;
+      color: #4A4740;
+      line-height: 1.35;
+    }
+
+    /* ─── FOOTER ─── */
+    .doc-footer {
+      border-top: 1px solid #ECEAE3;
+      padding-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 6.2pt;
+      color: #8E8A7F;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <!-- PAGE 1: OVERVIEW, PHILOSOPHY & LEARNING JOURNEY -->
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <div class="header">
+    <div class="brand-logo-title">
+      <div>
+        <div class="brand-title">🌱 Good Soil</div>
+        <div class="brand-subtitle">Hands-on STEM, Arts & Skills Academy — Parent Curriculum Guide</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div><strong>25-Class Master STEM & Robotics Curriculum</strong></div>
+      <div>Junior Cohort (Ages 6–9) & Senior Cohort (Ages 10–14+)</div>
+      <div>50 Total Class Hours · 25 Weekend Sessions (2 hrs / week)</div>
+      <div>Website: <strong>goodsoil.in</strong> · New Delhi, India</div>
+    </div>
+  </div>
+
+  <!-- SUMMARY STAT CARDS -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="label">Total Classes</div>
+      <div class="val">25 Classes</div>
+      <div class="sub">50 Hands-on Class Hours</div>
+    </div>
+    <div class="summary-card amber">
+      <div class="label">Take-Home Kits</div>
+      <div class="val">10 Builds to Keep</div>
+      <div class="sub">Constructed, Tested & Kept</div>
+    </div>
+    <div class="summary-card terracotta">
+      <div class="label">Studio Group Labs</div>
+      <div class="val">10 Team Challenges</div>
+      <div class="sub">Robotics, IoT, Aero & AI Labs</div>
+    </div>
+    <div class="summary-card blue">
+      <div class="label">Milestone Challenges</div>
+      <div class="val">4 + 1 Grand Expo</div>
+      <div class="sub">Non-Paper Creative Derbies</div>
+    </div>
+  </div>
+
+  <div class="highlight-banner">
+    <strong>“Every child is a seed. We're the good soil.”</strong><br>
+    Good Soil was born from over a decade of hands-on aeromodelling workshops with Airmodelcrafts (AMC). We learned that what truly ignites young minds is not memorizing textbook diagrams — it's the thrill of building something with their own hands, troubleshooting when it doesn't work the first time, and seeing it take flight.
+  </div>
+
+  <!-- 4-PHASE PROGRESSION -->
+  <div class="section-title">
+    <span>The 4-Phase Learning Pathway</span>
+    <span class="badge-scope">Progressive Skill Building</span>
+  </div>
+
+  <div class="progression-grid">
+    <div class="progression-card">
+      <span class="p-tag">Phase 1 · Classes 01–06</span>
+      <h4>Spark & Circuits</h4>
+      <p>Understanding electric loops, battery polarity, switches, and breadboarding. Concludes with Milestone Challenge 1: Island Escape.</p>
+    </div>
+    <div class="progression-card">
+      <span class="p-tag">Phase 2 · Classes 07–12</span>
+      <h4>Sensing & Mobile Bots</h4>
+      <p>Light sensors (LDR), sound buzzers, mechanical gearboxes, and building a rolling mobile obstacle rover. Milestone 2: STEAM Carnival Derby.</p>
+    </div>
+    <div class="progression-card">
+      <span class="p-tag">Phase 3 · Classes 13–18</span>
+      <h4>Logic, Code & Flight</h4>
+      <p>Microcontroller fundamentals, block/C++ loops, sensor feedback, and introductory aeromodelling flight dynamics. Milestone 3: Sky Patrol.</p>
+    </div>
+    <div class="progression-card">
+      <span class="p-tag">Phase 4 · Classes 19–25</span>
+      <h4>Kinematics, Drones & Expo</h4>
+      <p>Bionic linkages, hydraulic robot arms, mini-drone avionics, solar energy, and the Grand Capstone Expo with parents.</p>
+    </div>
+  </div>
+
+  <!-- SESSION ARCHITECTURE -->
+  <div class="section-title">
+    <span>Inside a 120-Minute Good Soil Class</span>
+    <span class="badge-scope">Structure & Discipline</span>
+  </div>
+
+  <div class="session-stages">
+    <div class="stage-card">
+      <strong>1. Discovery & Starter (25 min)</strong>
+      <p>Short visual story and tactile exploration of loose parts. Kids formulate a hypothesis before touching any assembly steps.</p>
+    </div>
+    <div class="stage-card mid">
+      <strong>2. Guided Project Build (55 min)</strong>
+      <p>Step-by-step physical construction with real tools. Safe wiring, mechanical alignment, and mentor-guided calibration.</p>
+    </div>
+    <div class="stage-card end">
+      <strong>3. Test, Flight & Passport (40 min)</strong>
+      <p>Bench testing, timed trials, obstacle trials, and logging measurements in their personal student STEM Passport.</p>
+    </div>
+  </div>
+
+  <!-- WHY PARENTS CHOOSE GOOD SOIL -->
+  <div class="section-title">
+    <span>Our Educational Commitment to Families</span>
+    <span class="badge-scope">The Good Soil Promise</span>
+  </div>
+
+  <div class="faq-grid" style="margin-bottom: 6px;">
+    <div class="faq-item">
+      <h5>🎁 Real Take-Home Builds Every Child Keeps</h5>
+      <p>Unlike programs where models are dismantled at the end of class, Good Soil students permanently take home <strong>10 complete STEM builds</strong> — empowering them to demonstrate their creations to parents and continue tinkering at home.</p>
+    </div>
+    <div class="faq-item">
+      <h5>🚫 100% Non-Paper Milestone Evaluations</h5>
+      <p>We replace written tests with gamified build challenges (Island Escape, Rescue Rover Derby, Sky Patrol). Children prove their mastery by building, troubleshooting, and presenting live working prototypes.</p>
+    </div>
+    <div class="faq-item">
+      <h5>🛡️ Safety-First & Small Cohorts (Max 8–10)</h5>
+      <p>With an intimate 1:8 mentor-to-student ratio, low-voltage child-safe power supplies, and strict eye-protection guidelines, every child receives personal attention, encouragement, and safe tool training.</p>
+    </div>
+    <div class="faq-item">
+      <h5>🎓 STEM Passport & Showcase Expo</h5>
+      <p>Every student receives a physical Good Soil STEM Passport stamped upon completing each milestone badge. Class 25 is a celebratory Grand Expo where students pitch their Passion Projects to visiting families.</p>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span>Good Soil STEM & Robotics Academy · Parent Curriculum Guide · Page 1 of 4</span>
+    <span>For Enrollment Inquiries: hello@goodsoil.in · +91 98111 00000</span>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <!-- PAGE 2: JUNIOR COHORT SYLLABUS (AGES 6–9 / GRADES 1–4) -->
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <div class="header">
+    <div class="brand-logo-title">
+      <div>
+        <div class="brand-title">Junior Cohort Syllabus (Ages 6–9 / Grades 1–4)</div>
+        <div class="brand-subtitle">25-Class Progressive Track · Foundational Circuits, Motors, Aeromodelling & Code</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div><strong>Core Mix:</strong> 10 Take-Home Kits + 10 Group Labs + 5 Challenges</div>
+      <div><strong>Class Duration:</strong> 2 Hours / Session (Weekly Rhythm)</div>
+    </div>
+  </div>
+
+  <table class="syllabus-table">
+    <thead>
+      <tr>
+        <th style="width: 22px; text-align: center;">Cls</th>
+        <th style="width: 24px; text-align: center;">Ph</th>
+        <th style="width: 140px;">Activity & Project Build</th>
+        <th style="width: 95px;">Format</th>
+        <th>Key Concepts & Real-World Skills Mastered</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cls-num">01</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">Human vs. Robot Explorer Station</div><div class="activity-sub">Module 1: Meet the Robots</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Tools vs. autonomous machines; how sensors act as robotic sensory organs.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">02</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">10-in-1 Electricity & Switch Lab</div><div class="activity-sub">Module 2: Circuit Pathways & Electric Flow</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Closed loops, battery polarity (+/-), knife switches, incandescent bulbs & high-intensity LEDs.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">03</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">5 Organs of a Robot Dissection</div><div class="activity-sub">Module 3: Simple Robot Architecture</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Hands-on dissection of the 5 robot pillars: Power, Sensor, Controller, Motor, and Chassis.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">04</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">Signal Logic Traffic Light Circuit</div><div class="activity-sub">Module 4: Solderless Breadboard Intro</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #1</span></td>
+        <td class="concepts">Constructing a 3-colour traffic signal; switch logic, resistor networks, breadboard rails.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">05</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">Aerodynamic Propeller Wind Car</div><div class="activity-sub">Module 5: Motorized Aerodynamic Thrust</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #2</span></td>
+        <td class="concepts">DC motor torque, propeller pitch direction, conversion of electrical energy into wind thrust.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">06</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">🏆 Milestone 1: Island Escape Challenge</div><div class="activity-sub">Non-Paper Team Build Challenge</div></td>
+        <td><span class="format-badge format-assess">🎯 Challenge & Badge</span></td>
+        <td class="concepts">Teams combine wind cars and circuit signals to solve an obstacle challenge. <em>Badge: Junior Explorer</em></td>
+      </tr>
+      <tr>
+        <td class="cls-num">07</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">Wooden Glow Night Lamp Circuit</div><div class="activity-sub">Module 6: Light Sensors & Automation</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #3</span></td>
+        <td class="concepts">Light-Dependent Resistors (LDR), automatic night-time activation, sensor-triggered circuits.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">08</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">Telegraph & Electromagnetic Buzzer Lab</div><div class="activity-sub">Module 7: Sound & Magnetism</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #4</span></td>
+        <td class="concepts">Electromagnetic coils, Morse code communication, magnetic reed switches, sound signaling.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">09</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">Reversible Railway Gate Machine</div><div class="activity-sub">Module 8: Motor Reversal & Limit Switches</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Push-button polarity flipping, automated barrier gate motion, forward/reverse gearing.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">10</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">Mechanical Gearbox Carousel</div><div class="activity-sub">Module 9: Transmission & Torque</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Spur gears, driver vs driven gears, mechanical advantage, trading rotational speed for torque.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">11</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">Junior 2-Wheel Mobile Rover</div><div class="activity-sub">Module 10: Complete Robot Integration</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #5</span></td>
+        <td class="concepts">Integrating chassis, dual motors, power switch, and differential wheel steering.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">12</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">🏆 Milestone 2: STEAM Carnival Derby</div><div class="activity-sub">Non-Paper Team Build Challenge</div></td>
+        <td><span class="format-badge format-assess">🎯 Challenge & Badge</span></td>
+        <td class="concepts">Fairground arena build combining gear machines and rovers. <em>Badge: Master Crafter</em></td>
+      </tr>
+      <tr>
+        <td class="cls-num">13</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Microcontroller Block Brain First Blink</div><div class="activity-sub">Module 11: Introduction to Controllers</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Robot microcontrollers, GPIO output pins, drag-and-drop block coding, LED matrix animations.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">14</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Interactive Emotion & Tone Display</div><div class="activity-sub">Module 12: Digital Sensors & Feedback</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Button event listeners, animated OLED facial emotions, piezo frequency musical synthesis.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">15</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Smart Multi-Sensor Security Alarm</div><div class="activity-sub">Module 13: Integrated Sensor Robotics</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #6</span></td>
+        <td class="concepts">Obstacle proximity sensors, audio-visual alarm logic, home security automation.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">16</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Looping Light Patrol & Dancing Bot</div><div class="activity-sub">Module 14: Loops & Repetition</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">While/repeat programming loops, sequence timing, autonomous cyclic motor behaviors.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">17</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Rubber-Band Aerodynamic Glider</div><div class="activity-sub">Aeromodelling Track I: Flight Forces</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">The 4 Forces of Flight (Lift, Weight, Thrust, Drag); balsa airfoil assembly, test flight trim.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">18</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">🏆 Milestone 3: Sky Patrol Beacon Derby</div><div class="activity-sub">Non-Paper Team Build Challenge</div></td>
+        <td><span class="format-badge format-assess">🎯 Challenge & Badge</span></td>
+        <td class="concepts">Target landing accuracy and Morse code communication trials. <em>Badge: Flight Cadet</em></td>
+      </tr>
+      <tr>
+        <td class="cls-num">19</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Walking Bionic Creature Linkage</div><div class="activity-sub">Module 15: Kinematics & Linkages</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #7</span></td>
+        <td class="concepts">4-bar linkage mechanisms, converting rotational motor spin into rhythmic walking gait.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">20</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Catapult & Trajectory Launcher</div><div class="activity-sub">Mechanical Physics & Levers</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #8</span></td>
+        <td class="concepts">Class 1 levers, fulcrum positioning, converting elastic potential energy to kinetic trajectory.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">21</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Balsa Chuck Glider Build & Tune</div><div class="activity-sub">Aeromodelling Track II: Stability</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #9</span></td>
+        <td class="concepts">Center of Gravity (CG) balancing with nose ballast, dihedral wing angle, pitch stability.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">22</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Mini-Drone Flight Discovery Station</div><div class="activity-sub">Aeromodelling Track III: Drone Physics</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Quadcopter aerodynamics, counter-rotating propellers, roll/pitch/yaw pilot flight control.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">23</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Solar-Powered Eco Rover Car</div><div class="activity-sub">Clean Energy & Final Prep</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #10</span></td>
+        <td class="concepts">Photovoltaic cells, renewable solar energy conversion, capstone project integration.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">24</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">🏆 Milestone 4: Future City Arena</div><div class="activity-sub">Capstone Integration Trial</div></td>
+        <td><span class="format-badge format-assess">🎯 Challenge & Badge</span></td>
+        <td class="concepts">Integrating walking robots, rovers, and gliders in an eco-city pitch. <em>Badge: Young Innovator</em></td>
+      </tr>
+      <tr class="expo-row">
+        <td class="cls-num">25</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">🎓 Good Soil Junior STEM Expo & Graduation</div><div class="activity-sub">Grand Public Showcase Day for Parents</div></td>
+        <td><span class="format-badge format-expo">🌟 Expo & Ceremony</span></td>
+        <td class="concepts">Live glider flights, obstacle arena runs, portfolio defense, medal ceremony & graduation.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer">
+    <span>Good Soil STEM & Robotics Academy · Parent Curriculum Guide · Page 2 of 4</span>
+    <span>Junior Cohort (Ages 6–9) · Master Syllabus Edition</span>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <!-- PAGE 3: SENIOR COHORT SYLLABUS (AGES 10–14 / GRADES 5–9) -->
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <div class="header">
+    <div class="brand-logo-title">
+      <div>
+        <div class="brand-title">Senior Cohort Syllabus (Ages 10–14 / Grades 5–9)</div>
+        <div class="brand-subtitle">25-Class Advanced Track · Microcontrollers, Sensor Arrays, Avionics & Hydraulic Mechatronics</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div><strong>Core Mix:</strong> 10 Take-Home Kits + 10 Group Labs + 5 Challenges</div>
+      <div><strong>Class Duration:</strong> 2 Hours / Session (Weekly Rhythm)</div>
+    </div>
+  </div>
+
+  <table class="syllabus-table">
+    <thead>
+      <tr>
+        <th style="width: 22px; text-align: center;">Cls</th>
+        <th style="width: 24px; text-align: center;">Ph</th>
+        <th style="width: 140px;">Activity & Project Build</th>
+        <th style="width: 95px;">Format</th>
+        <th>Key Concepts & Real-World Skills Mastered</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cls-num">01</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">Autonomous Systems & Degrees of Freedom</div><div class="activity-sub">Module 1: Robotics Kinematics</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Degrees of Freedom (DoF), kinematic chains, Cartesian vs articulated arm geometries.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">02</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">Pseudocode, Logic & Flowcharts</div><div class="activity-sub">Module 2: Algorithmic Architecture</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">IF-THEN-ELSE decision trees, state transition diagrams for automated robotics.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">03</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">Hardware Schematics & Routing</div><div class="activity-sub">Module 3: Electronics System Architecture</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Reading schematic diagrams, analog vs digital signal buses, IC datasheet analysis.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">04</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">Advanced Prototyping Breadboard Lab</div><div class="activity-sub">Module 4: Solderless Circuit Design</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #1</span></td>
+        <td class="concepts">Mastering breadboard tie-points, dual 5V/3.3V power rails, signal wire organization.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">05</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">Multi-Voltage Power Supply Lab</div><div class="activity-sub">Module 5: Voltage Regulation & Testing</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #2</span></td>
+        <td class="concepts">Ohm's Law (V=IR), current loops, testing voltage drop with digital multimeters.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">06</td>
+        <td><span class="phase-badge phase-p1">P1</span></td>
+        <td><div class="activity-name">🏆 Milestone 1: Diagnostics Hackathon</div><div class="activity-sub">Non-Paper Team Build Challenge</div></td>
+        <td><span class="format-badge format-assess">🎯 Challenge & Badge</span></td>
+        <td class="concepts">Fault diagnosis, multimeter continuity testing, circuit isolation. <em>Badge: Apprentice Engineer</em></td>
+      </tr>
+      <tr>
+        <td class="cls-num">07</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">Tilt & Vibration Motion Sense Circuit</div><div class="activity-sub">Module 6: Mechanical Sensor Triggers</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #3</span></td>
+        <td class="concepts">Normally-Open vs Normally-Closed switch contacts, mechanical tilt sensing, latching triggers.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">08</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">Transistor Rain Alarm & Audio Stage</div><div class="activity-sub">Module 7: Solid-State Transistor Logic</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #4</span></td>
+        <td class="concepts">NPN bipolar junction transistors (BJT), using transistors as solid-state switches, audio alerts.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">09</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">Relay Logic & H-Bridge Motor Control</div><div class="activity-sub">Module 8: High-Current Switching</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Electromechanical relays, DPDT switches, bidirectional H-bridge DC motor control.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">10</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">Speed vs. Torque Gear Ratio Dynamometer</div><div class="activity-sub">Module 9: Mechanical Kinematics</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Compound gear trains, spur vs worm gearing, calculating gear ratios (N1/N2) and stall torque.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">11</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">4WD Autonomous Robot Chassis</div><div class="activity-sub">Module 10: Complete Mobile Platform</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #5</span></td>
+        <td class="concepts">Dual-axle gearbox driving 4 rubber tires, weight distribution, motor alignment.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">12</td>
+        <td><span class="phase-badge phase-p2">P2</span></td>
+        <td><div class="activity-name">🏆 Milestone 2: Rescue Rover Canyon Race</div><div class="activity-sub">Non-Paper Team Build Challenge</div></td>
+        <td><span class="format-badge format-assess">🎯 Challenge & Badge</span></td>
+        <td class="concepts">Teams drive 4WD rovers over incline ramps and rough terrain. <em>Badge: Systems Builder</em></td>
+      </tr>
+      <tr>
+        <td class="cls-num">13</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Microcontroller Architecture & GPIO Code</div><div class="activity-sub">Module 11: Embedded Systems Intro</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Microcontroller architecture, digital GPIO, uploading C++/block firmware routines.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">14</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Analog Read & PWM Motor Speed Control</div><div class="activity-sub">Module 12: Pulse Width Modulation</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Pulse-Width Modulation (PWM), duty cycle variation, analogRead() for precision throttle.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">15</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Infrared Proximity Radar & Alarm</div><div class="activity-sub">Module 13: Sensor Array Processing</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #6</span></td>
+        <td class="concepts">Multi-stage IR distance detection, visual LED proximity sweep, audible frequency alert.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">16</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Finite State Machines & Edge Avoidance</div><div class="activity-sub">Module 14: Non-Blocking Automation</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">State machines, edge detection sensors, non-blocking timing algorithms for roving bots.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">17</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">Balsa High-Aspect Rubber Monoplane</div><div class="activity-sub">Aeromodelling Track I: Wing Physics</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #7</span></td>
+        <td class="concepts">Cambered airfoils, angle of attack, aspect ratio, geared rubber motor endurance flights.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">18</td>
+        <td><span class="phase-badge phase-p3">P3</span></td>
+        <td><div class="activity-name">🏆 Milestone 3: Flight Derby & Radar Arena</div><div class="activity-sub">Non-Paper Team Build Challenge</div></td>
+        <td><span class="format-badge format-assess">🎯 Challenge & Badge</span></td>
+        <td class="concepts">Timed flight endurance trials and obstacle avoidance arena runs. <em>Badge: Avionics Specialist</em></td>
+      </tr>
+      <tr>
+        <td class="cls-num">19</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Kinematic Linkages & JCB Excavator Arm</div><div class="activity-sub">Module 15: Mechanical Engineering</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Grashof's criteria, 4-bar linkage mechanisms, slider-crank excavator arm physics.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">20</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Hydraulic Gripper Claw Robot Arm</div><div class="activity-sub">Fluid Power & Hydraulics</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #8</span></td>
+        <td class="concepts">Pascal's Law (P=F/A), incompressible fluid force transmission, multi-axis master/slave syringes.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">21</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Electric Motorized Power Aircraft</div><div class="activity-sub">Aeromodelling Track II: Powered Flight</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #9</span></td>
+        <td class="concepts">Thrust-to-Weight ratio (T/W), coreless electric motor, battery discharge, powered climb.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">22</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Quadcopter Flight & Telemetry Lab</div><div class="activity-sub">Aeromodelling Track III: Drone Avionics</div></td>
+        <td><span class="format-badge format-group">🤝 Studio Group Lab</span></td>
+        <td class="concepts">Counter-rotating rotors, gyroscope balance, 3-axis flight PID principles, live telemetry.</td>
+      </tr>
+      <tr>
+        <td class="cls-num">23</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">Smart Connected IoT Weather Station</div><div class="activity-sub">Connected Devices & Telemetry</div></td>
+        <td><span class="format-badge format-takehome">🎁 Take-Home Kit #10</span></td>
+        <td class="concepts">Environmental sensors, wireless data packet broadcasting, real-time IoT dashboard graphs.</td>
+      </tr>
+      <tr class="assessment-row">
+        <td class="cls-num">24</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">🏆 Milestone 4: Shark Tank & Capstone Defense</div><div class="activity-sub">Capstone Design Presentation</div></td>
+        <td><span class="format-badge format-assess">🎯 Challenge & Badge</span></td>
+        <td class="concepts">Teams pitch customized prototypes, explain schematics, and defend design trade-offs. <em>Badge: Master Innovator</em></td>
+      </tr>
+      <tr class="expo-row">
+        <td class="cls-num">25</td>
+        <td><span class="phase-badge phase-p4">P4</span></td>
+        <td><div class="activity-name">🎓 Senior Technology Symposium & Graduation</div><div class="activity-sub">Grand Public Showcase Day for Parents</div></td>
+        <td><span class="format-badge format-expo">🌟 Expo & Ceremony</span></td>
+        <td class="concepts">Live robot course challenge, powered flight demonstrations, graduation honors & portfolio handoff.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer">
+    <span>Good Soil STEM & Robotics Academy · Parent Curriculum Guide · Page 3 of 4</span>
+    <span>Senior Cohort (Ages 10–14+) · Master Syllabus Edition</span>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <!-- PAGE 4: TAKE-HOME KITS, SAFETY & ENROLLMENT GUIDE -->
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <div class="header">
+    <div class="brand-logo-title">
+      <div>
+        <div class="brand-title">Student Experience & Parent Guide</div>
+        <div class="brand-subtitle">Everything You Need to Know About Good Soil Classes & Community</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div><strong>Admissions & Batches:</strong> Open Year-Round</div>
+      <div><strong>Experience Center:</strong> New Delhi, India</div>
+    </div>
+  </div>
+
+  <!-- TAKE-HOME KITS SHOWCASE -->
+  <div class="section-title">
+    <span>The 10 Take-Home Kits Every Student Keeps</span>
+    <span class="badge-scope">Hands-on Pride</span>
+  </div>
+
+  <div class="summary-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 10px;">
+    <div style="background: #FAF9F5; border: 1px solid #ECEAE3; border-radius: 8px; padding: 8px;">
+      <strong style="color: #1F6B44; font-family: 'Bricolage Grotesque', sans-serif; font-size: 8.5pt;">Junior Cohort (Ages 6–9) Take-Home Projects:</strong>
+      <ol style="margin-top: 4px; padding-left: 14px; font-size: 6.4pt; color: #4A4740; line-height: 1.45;">
+        <li><strong>Traffic Light Signal Kit:</strong> 3-LED manual switch breadboard circuit.</li>
+        <li><strong>Propeller Wind Car:</strong> Motorized thrust vehicle with aerofoil blade.</li>
+        <li><strong>Night Lamp Glow Circuit:</strong> Automated LDR darkness-detecting light.</li>
+        <li><strong>Telegraph & Buzzer Station:</strong> Electromagnetic Morse sound key.</li>
+        <li><strong>2-Wheel Obstacle Rover:</strong> Complete battery-powered rolling robot.</li>
+        <li><strong>Multi-Sensor Robotics Box:</strong> Security alarm and obstacle detector.</li>
+        <li><strong>Bionic Walking Creature:</strong> 4-bar linkage rhythmic walking automaton.</li>
+        <li><strong>Catapult Trajectory Launcher:</strong> Kinetic lever and target system.</li>
+        <li><strong>Balsa Chuck Glider:</strong> Aerodynamic balsa plane with CG trim balance.</li>
+        <li><strong>Solar-Powered Eco Rover:</strong> Photovoltaic green energy vehicle.</li>
+      </ol>
+    </div>
+
+    <div style="background: #FAF9F5; border: 1px solid #ECEAE3; border-radius: 8px; padding: 8px;">
+      <strong style="color: #8A4B2A; font-family: 'Bricolage Grotesque', sans-serif; font-size: 8.5pt;">Senior Cohort (Ages 10–14+) Take-Home Projects:</strong>
+      <ol style="margin-top: 4px; padding-left: 14px; font-size: 6.4pt; color: #4A4740; line-height: 1.45;">
+        <li><strong>Prototyping Breadboard Station:</strong> Dual 5V/3.3V power module rig.</li>
+        <li><strong>Multi-Voltage Power Supply:</strong> Ohm's law load testing station.</li>
+        <li><strong>Motion Sense Circuit:</strong> Mechanical tilt & vibration alarm system.</li>
+        <li><strong>Transistor Piezo Rain Alarm:</strong> BJT solid-state electronic switch.</li>
+        <li><strong>4WD Autonomous Chassis:</strong> 4-motor high-traction mobile robot.</li>
+        <li><strong>Infrared Reversing Radar:</strong> Multi-LED distance indicator and alarm.</li>
+        <li><strong>Balsa Monoplane:</strong> High-aspect balsa skeleton with rubber gearbox.</li>
+        <li><strong>Hydraulic Gripper Robot Arm:</strong> Pascal fluid claw mechanics.</li>
+        <li><strong>Motorized Electric Aircraft:</strong> Coreless high-RPM powered climber.</li>
+        <li><strong>Smart Connected IoT Node:</strong> Telemetry dashboard and smart rover.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- PARENT FAQ & SAFETY -->
+  <div class="section-title">
+    <span>Frequently Asked Questions & Studio Policies</span>
+    <span class="badge-scope">Safety & Structure</span>
+  </div>
+
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h5>Do kids need prior coding or robotics experience?</h5>
+      <p>No prior background is required! Our curriculum begins with tactile first-principles (closed loops, polarity, levers) before introducing block-coding and microcontrollers. Every build is guided step-by-step by experienced mentors.</p>
+    </div>
+    <div class="faq-item">
+      <h5>What are the batch schedules & format options?</h5>
+      <p>We offer 3 flexible schedules:<br>
+      • <strong>Weekend Classes:</strong> 2 hours every Saturday or Sunday (regular year-round progress).<br>
+      • <strong>2-Day Workshops:</strong> Intensive 3 hrs/day over long weekends & holidays.<br>
+      • <strong>5-Day Holiday Camps:</strong> 4 hrs/day immersion during summer, winter & spring breaks.</p>
+    </div>
+    <div class="faq-item">
+      <h5>How are safety and tools handled in the workshop?</h5>
+      <p>All electrical builds use safe, low-voltage DC batteries (3V to 9V) — no mains electricity is ever handled by students. For tools (screwdrivers, wire strippers, pliers), students receive dedicated safety briefings and work under direct 1:8 supervision with eye protection.</p>
+    </div>
+    <div class="faq-item">
+      <h5>What happens if a child misses a weekend session?</h5>
+      <p>We provide dedicated 45-minute catch-up clinics before the start of the next weekend's class, ensuring no student falls behind or misses out on assembling their take-home kit.</p>
+    </div>
+  </div>
+
+  <!-- HOW TO ENROLL -->
+  <div class="section-title">
+    <span>How to Reserve a Seat</span>
+    <span class="badge-scope">Join Good Soil</span>
+  </div>
+
+  <div style="background: #F2F5EF; border: 1.5px solid #1F6B44; border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+    <div>
+      <h4 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 11pt; color: #1F6B44; margin: 0 0 2px;">Ready to sow the seed of curious making?</h4>
+      <p style="font-size: 7.2pt; color: #4A4740; margin: 0;">Visit <strong>goodsoil.in/classes</strong> to view upcoming batch dates or reserve a seat directly via WhatsApp.</p>
+    </div>
+    <div style="text-align: right; font-size: 7.2pt; line-height: 1.4; color: #1C1B18;">
+      <div><strong>Email:</strong> hello@goodsoil.in</div>
+      <div><strong>WhatsApp:</strong> +91 98111 00000</div>
+      <div><strong>Website:</strong> goodsoil.in</div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span>Good Soil STEM & Robotics Academy · Parent Curriculum Guide · Page 4 of 4</span>
+    <span>© 2026 Good Soil. All Rights Reserved.</span>
+  </div>
+
+</body>
+</html>

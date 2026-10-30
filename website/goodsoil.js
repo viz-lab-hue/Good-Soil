@@ -465,7 +465,7 @@
         <div style="padding: 20px 24px; border-bottom: 1px solid #ECEAE3; display: flex; justify-content: space-between; align-items: center; background: #FAF9F5;">
           <div style="display: flex; align-items: center; gap: 8px;">
             <span style="font-size: 20px;">📄</span>
-            <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; color: #1C1B18;">Build Guide: ${moduleTitle}</h3>
+            <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; color: #1C1B18;">Curriculum Guide: ${moduleTitle}</h3>
           </div>
           <button type="button" onclick="closePdfModal()" aria-label="Close build guide preview" style="background: none; border: 0; color: #1C1B18; font-size: 24px; cursor: pointer;">&times;</button>
         </div>
@@ -474,7 +474,7 @@
             ✓ Official Good Soil 25-Class Master Curriculum (PDF)
           </div>
           <div style="font-size: 15px; color: #4A4740; line-height: 1.6;">
-            Complete 25-class STEM &amp; Robotics curriculum for Junior (6–9) and Senior (10–14) batches — including module syllabus, kit lists, vendor sources, and assessment framework.
+            Complete 25-class STEM &amp; Robotics curriculum for Junior (6–9) and Senior (10–14) cohorts — including 10 take-home kits, 10 team studio builds, aeromodelling, and hands-on milestone challenges.
           </div>
           <div style="border-top: 1px solid #ECEAE3; padding-top: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 14px;">
             <div><strong>Format:</strong> Printable PDF (A4)</div>
