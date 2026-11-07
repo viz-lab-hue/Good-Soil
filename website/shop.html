@@ -110,7 +110,6 @@ Cart <span id="cart-counter" data-cart-counter style="background: #F5B82E; color
   <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.06em">AGE GROUP</span>
   <div style="display: flex; flex-direction: column; gap: 8px">
     <button type="button" id="age-all" class="age-row-btn active" onclick="setAge('All ages')">All ages</button>
-    <button type="button" id="age-early" class="age-row-btn inactive" onclick="setAge('Early · 3–6')">Early · 3–6</button>
     <button type="button" id="age-junior" class="age-row-btn inactive" onclick="setAge('Junior · 7–10')">Junior · 7–10</button>
     <button type="button" id="age-senior" class="age-row-btn inactive" onclick="setAge('Senior · 10–14+')">Senior · 10–14+</button>
   </div>
@@ -334,7 +333,7 @@ const allProducts = [
     id: 'WEB-ART-01',
     name: 'Clay & Colour Studio Box',
     cat: 'Arts & Crafts',
-    age: '3–6',
+    age: '7–10',
     vendor: 'LittleHands Maker Studio',
     price: 849,
     taught: true,
@@ -345,7 +344,7 @@ const allProducts = [
     id: 'WEB-TIN-01',
     name: 'First Tinkering Tool Roll',
     cat: 'Mechanical',
-    age: '3–6',
+    age: '7–10',
     vendor: 'Good Soil In-House',
     price: 999,
     taught: false,
@@ -376,7 +375,6 @@ function setCat(cat) {
 function setAge(age) {
   selectedAge = age;
   document.getElementById('age-all').className = age === 'All ages' ? 'age-row-btn active' : 'age-row-btn inactive';
-  document.getElementById('age-early').className = age.includes('3–6') ? 'age-row-btn active' : 'age-row-btn inactive';
   document.getElementById('age-junior').className = age.includes('7–10') ? 'age-row-btn active' : 'age-row-btn inactive';
   document.getElementById('age-senior').className = age.includes('10–14+') ? 'age-row-btn active' : 'age-row-btn inactive';
   renderProducts();
@@ -391,7 +389,6 @@ function renderProducts() {
   let list = allProducts.filter(p => {
     const matchesCat = selectedCat === 'All' || p.cat === selectedCat;
     const matchesAge = selectedAge === 'All ages' || 
-      (selectedAge.includes('3–6') && p.age === '3–6') ||
       (selectedAge.includes('7–10') && p.age === '7–10') ||
       (selectedAge.includes('10–14+') && p.age === '10–14+');
     const matchesSearch = !searchQuery || p.name.toLowerCase().includes(searchQuery) || p.cat.toLowerCase().includes(searchQuery) || p.vendor.toLowerCase().includes(searchQuery);

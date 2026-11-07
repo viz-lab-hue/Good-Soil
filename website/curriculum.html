@@ -76,9 +76,8 @@
 </div>
 </div>
 <div role="tablist" aria-label="Age group" style="display: inline-flex; flex-wrap: wrap; gap: 6px; background: #F2F5EF; padding: 6px; border-radius: 999px">
-  <button type="button" role="tab" id="age-early" class="age-tab inactive" onclick="filterAge('3–6')">Early · 3–6</button>
-  <button type="button" role="tab" id="age-junior" class="age-tab active" onclick="filterAge('7–10')">Junior · 7–10</button>
-  <button type="button" role="tab" id="age-senior" class="age-tab inactive" onclick="filterAge('10–14+')">Senior · 10–14+</button>
+  <button type="button" role="tab" id="age-junior" class="age-tab active" onclick="filterAge('7–10')">Junior · Ages 7–10</button>
+  <button type="button" role="tab" id="age-senior" class="age-tab inactive" onclick="filterAge('10–14+')">Senior · Ages 10–14+</button>
 </div>
 </section>
 
@@ -176,9 +175,8 @@ const modulesData = [
   {track:'ROBOTICS', age:'7–10', title:'Moving machines', desc:'Motors, wheels and switches — make a buggy that goes where you tell it.', sessions: 4},
   {track:'ROBOTICS', age:'10–14+', title:'Smart robots', desc:'Sensors and logic: line followers, obstacle dodgers and robot arms.', sessions: 6},
   {track:'DIY STEM', age:'7–10', title:'Sun, water & air', desc:'Solar cars, water rockets and wind spinners — science you can hold.', sessions: 4},
+  {track:'ELECTRONICS', age:'7–10', title:'Circuits & switches', desc:'Breadboards, LEDs, buzzers and light sensors — build automated gadgets.', sessions: 4},
   {track:'CODING & AI', age:'10–14+', title:'Code your creation', desc:'Block coding on a micro-board, plus a playful AI helper for your build.', sessions: 5},
-  {track:'ARTS & CRAFTS', age:'3–6', title:'Little makers', desc:'Colour, cut, fold and shape — first steps with simple, safe kits.', sessions: 4},
-  {track:'DIY STEM', age:'3–6', title:'Push, pull, roll', desc:'Ramps, balls and blocks — big ideas for small hands.', sessions: 4},
   {track:'TOOLS & SKILLS', age:'10–14+', title:'The tool bench', desc:'Measure, saw, sand, glue and solder with real tools and mentors.', sessions: 5}
 ];
 
@@ -186,7 +184,6 @@ let currentAge = '7–10';
 
 function filterAge(age) {
   currentAge = age;
-  document.getElementById('age-early').className = age === '3–6' ? 'age-tab active' : 'age-tab inactive';
   document.getElementById('age-junior').className = age === '7–10' ? 'age-tab active' : 'age-tab inactive';
   document.getElementById('age-senior').className = age === '10–14+' ? 'age-tab active' : 'age-tab inactive';
   renderModules();
