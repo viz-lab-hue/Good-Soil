@@ -1,198 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta property="og:title" content="Good Soil — Curriculum">
-  <meta property="og:description" content="25-class STEM & Robotics curriculum for ages 3–14+. Download the full syllabus and build guides.">
+  <meta property="og:description"
+    content="25-class STEM & Robotics curriculum for ages 7–14+. Download the full syllabus and build guides.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/hero-workshop.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <title>Curriculum — Good Soil | Progressive Hands-on STEM Tracks</title>
-  <meta name="description" content="A path from first glider to their own invention. Modular STEM & crafts curriculum with visual slides, build guides, and kit lists for ages 3–14+.">
+  <meta name="description"
+    content="A path from first glider to their own invention. Modular STEM & crafts curriculum with visual slides, build guides, and kit lists for ages 7–14+.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: #FFFFFF; font-family: 'DM Sans', sans-serif; color: #1C1B18; -webkit-font-smoothing: antialiased; }
-    a { color: #1F6B44; text-decoration: none; transition: color 0.2s ease; }
-    a:hover { color: #174F33; }
-    .card { transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(28,27,24,0.08); }
-    .nav-link { color: #1C1B18; text-decoration: none; padding: 10px 0; font-weight: 500; font-size: 15px; transition: color 0.15s ease; }
-    .nav-link:hover { color: #1F6B44; }
-    .nav-link.active { color: #1F6B44; font-weight: 700; }
-    .age-tab { min-height: 44px; padding: 0 22px; border-radius: 999px; border: 0; font: 700 15px 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s ease; }
-    .age-tab.active { background: #1C1B18; color: #FFFFFF; }
-    .age-tab.inactive { background: transparent; color: #1C1B18; }
-    .age-tab.inactive:hover { background: #E7EDE3; }
-    #toast { position: fixed; bottom: 30px; right: 30px; background: #1C1B18; color: #FFFFFF; padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); display: none; z-index: 9999; animation: slideUp 0.3s ease; }
-    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      color: #1C1B18;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #1F6B44;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #174F33;
+    }
+
+    .card {
+      transition: transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(28, 27, 24, 0.08);
+    }
+
+    .nav-link {
+      color: #1C1B18;
+      text-decoration: none;
+      padding: 10px 0;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      color: #1F6B44;
+    }
+
+    .nav-link.active {
+      color: #1F6B44;
+      font-weight: 700;
+    }
+
+    .age-tab {
+      min-height: 44px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 0;
+      font: 700 15px 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .age-tab.active {
+      background: #1C1B18;
+      color: #FFFFFF;
+    }
+
+    .age-tab.inactive {
+      background: transparent;
+      color: #1C1B18;
+    }
+
+    .age-tab.inactive:hover {
+      background: #E7EDE3;
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #1C1B18;
+      color: #FFFFFF;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      display: none;
+      z-index: 9999;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<div id="toast"></div>
+  <div id="toast"></div>
 
-<div style="font-family: 'DM Sans', sans-serif; color: #1C1B18; background: #FFFFFF; min-height: 100vh">
+  <div style="font-family: 'DM Sans', sans-serif; color: #1C1B18; background: #FFFFFF; min-height: 100vh">
 
-<!-- NAV -->
-<header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #ECEAE3">
-<nav style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
-<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1C1B18">
-<svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1F6B44"></circle><path d="M17 26V15" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"></path><path d="M17 17c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#F5B82E"></path><path d="M17 20c0-3.5-2.6-6-6-6 0 3.5 2.6 6 6 6Z" fill="#FFFFFF"></path></svg>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">Good Soil</span>
-</a>
-<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; flex: 1 1 auto; font-weight: 500; font-size: 15px">
-<a href="classes.html" class="nav-link">Classes &amp; Camps</a>
-<a href="shop.html" class="nav-link">Kit Shop</a>
-<a href="curriculum.html" class="nav-link active">Curriculum</a>
-<a href="index.html#gallery" class="nav-link">Gallery</a>
-<a href="index.html#story" class="nav-link">Our story</a>
-</div>
-<div style="display: flex; align-items: center; gap: 12px">
-<button type="button" onclick="openCartDrawer(this)" aria-label="Open cart" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #DAD7CE; display: flex; align-items: center; justify-content: center; color: #1C1B18; background: #FFFFFF; cursor: pointer; position: relative; transition: border-color 0.2s;">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.5 10.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
-<span id="nav-cart-badge" data-cart-counter style="position: absolute; top: -4px; right: -4px; background: #F5B82E; color: #1C1B18; border-radius: 999px; padding: 2px 7px; font-size: 11px; font-weight: 800;">0</span>
-</button>
-<a href="classes.html#book" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 999px; font-size: 15px">Book a class</a>
-</div>
-</nav>
-</header>
+    <!-- NAV -->
+    <header
+      style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #ECEAE3">
+      <nav
+        style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
+        <a href="index.html"
+          style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1C1B18">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+            <circle cx="17" cy="17" r="16" fill="#1F6B44"></circle>
+            <path d="M17 26V15" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"></path>
+            <path d="M17 17c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#F5B82E"></path>
+            <path d="M17 20c0-3.5-2.6-6-6-6 0 3.5 2.6 6 6 6Z" fill="#FFFFFF"></path>
+          </svg>
+          <span
+            style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em">Good
+            Soil</span>
+        </a>
+        <div style="display: flex; flex-wrap: wrap; gap: 4px 24px; flex: 1 1 auto; font-weight: 500; font-size: 15px">
+          <a href="classes.html" class="nav-link">Classes &amp; Camps</a>
+          <a href="shop.html" class="nav-link">Kit Shop</a>
+          <a href="curriculum.html" class="nav-link active">Curriculum</a>
+          <a href="index.html#gallery" class="nav-link">Gallery</a>
+          <a href="index.html#story" class="nav-link">Our story</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <button type="button" onclick="openCartDrawer(this)" aria-label="Open cart"
+            style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #DAD7CE; display: flex; align-items: center; justify-content: center; color: #1C1B18; background: #FFFFFF; cursor: pointer; position: relative; transition: border-color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 7h14l-1.5 10.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5Z"></path>
+              <path d="M9 7a3 3 0 0 1 6 0"></path>
+            </svg>
+            <span id="nav-cart-badge" data-cart-counter
+              style="position: absolute; top: -4px; right: -4px; background: #F5B82E; color: #1C1B18; border-radius: 999px; padding: 2px 7px; font-size: 11px; font-weight: 800;">0</span>
+          </button>
+          <a href="classes.html#book"
+            style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 999px; font-size: 15px">Book
+            a class</a>
+        </div>
+      </nav>
+    </header>
 
-<!-- HEADER SECTION -->
-<section style="max-width: 1280px; margin: 0 auto; padding: 56px 24px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
-<div style="flex: 1 1 560px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">Curriculum</div>
-<h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 5vw, 70px); line-height: 1; letter-spacing: -0.035em">A path from first glider to their own invention.</h1>
-<p style="margin: 0; font-size: 17px; color: #4A4740; line-height: 1.55; max-width: 58ch">Every module = visual slides + a build guide + the exact kit list. Download, buy the kits, and teach it anywhere.</p>
-<div style="display: flex; gap: 12px; padding-top: 4px;">
-  <button type="button" onclick="triggerPdfDownload('Good Soil 25-Class Master Curriculum')" style="background: #1F6B44; color: #FFFFFF; font-weight: 700; padding: 12px 22px; border-radius: 999px; border: 0; font-size: 15px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(31,107,68,0.25); transition: transform 0.15s ease;">
-    <span>📄 Download Master Curriculum (PDF) &darr;</span>
-  </button>
-</div>
-</div>
-<div role="tablist" aria-label="Age group" style="display: inline-flex; flex-wrap: wrap; gap: 6px; background: #F2F5EF; padding: 6px; border-radius: 999px">
-  <button type="button" role="tab" id="age-junior" class="age-tab active" onclick="filterAge('7–10')">Junior · Ages 7–10</button>
-  <button type="button" role="tab" id="age-senior" class="age-tab inactive" onclick="filterAge('10–14+')">Senior · Ages 10–14+</button>
-</div>
-</section>
+    <!-- HEADER SECTION -->
+    <section
+      style="max-width: 1280px; margin: 0 auto; padding: 56px 24px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
+      <div style="flex: 1 1 560px; display: flex; flex-direction: column; gap: 14px">
+        <div
+          style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">
+          Curriculum</div>
+        <h1
+          style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 5vw, 70px); line-height: 1; letter-spacing: -0.035em">
+          A path from first glider to their own invention.</h1>
+        <p style="margin: 0; font-size: 17px; color: #4A4740; line-height: 1.55; max-width: 58ch">Every module = visual
+          slides + a build guide + the exact kit list. Download, buy the kits, and teach it anywhere.</p>
+        <div style="display: flex; gap: 12px; padding-top: 4px;">
+          <button type="button" onclick="triggerPdfDownload('Good Soil 25-Class Master Curriculum')"
+            style="background: #1F6B44; color: #FFFFFF; font-weight: 700; padding: 12px 22px; border-radius: 999px; border: 0; font-size: 15px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(31,107,68,0.25); transition: transform 0.15s ease;">
+            <span>📄 Download Master Curriculum (PDF) &darr;</span>
+          </button>
+        </div>
+      </div>
+      <div role="tablist" aria-label="Age group"
+        style="display: inline-flex; flex-wrap: wrap; gap: 6px; background: #F2F5EF; padding: 6px; border-radius: 999px">
+        <button type="button" role="tab" id="age-junior" class="age-tab active" onclick="filterAge('7–10')">Junior ·
+          Ages 7–10</button>
+        <button type="button" role="tab" id="age-senior" class="age-tab inactive" onclick="filterAge('10–14+')">Senior ·
+          Ages 10–14+</button>
+      </div>
+    </section>
 
-<!-- PATH -->
-<section style="max-width: 1280px; margin: 0 auto; padding: 24px 24px 48px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
-<div style="background: #F5B82E; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">1 · Fly</div>
-<div style="background: #F2F5EF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">2 · Build</div>
-<div style="background: #F2F5EF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">3 · Wire &amp; code</div>
-<div style="background: #F2F5EF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">4 · Craft &amp; tools</div>
-<div style="background: #1F6B44; color: #FFFFFF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">5 · Invent your own</div>
-</div>
-</section>
+    <!-- PATH -->
+    <section style="max-width: 1280px; margin: 0 auto; padding: 24px 24px 48px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+        <div
+          style="background: #F5B82E; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          1 · Fly</div>
+        <div
+          style="background: #F2F5EF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          2 · Build</div>
+        <div
+          style="background: #F2F5EF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          3 · Wire &amp; code</div>
+        <div
+          style="background: #F2F5EF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          4 · Craft &amp; tools</div>
+        <div
+          style="background: #1F6B44; color: #FFFFFF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          5 · Invent your own</div>
+      </div>
+    </section>
 
-<!-- MODULES GRID -->
-<section style="max-width: 1280px; margin: 0 auto; padding: 0 24px 64px">
-<div id="modules-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px">
-  <!-- Populated by JavaScript -->
-</div>
-</section>
+    <!-- MODULES GRID -->
+    <section style="max-width: 1280px; margin: 0 auto; padding: 0 24px 64px">
+      <div id="modules-grid"
+        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px">
+        <!-- Populated by JavaScript -->
+      </div>
+    </section>
 
-<!-- PASSION PROJECT -->
-<section style="background: #1F6B44; color: #FFFFFF">
-<div style="max-width: 1280px; margin: 0 auto; padding: 88px 24px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px">
-<span style="font-weight: 800; font-size: 13px; letter-spacing: 0.1em; color: #F5B82E">CAPSTONE MODULE</span>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 56px); letter-spacing: -0.03em; line-height: 1.02">The Passion Project: build the thing only you would build.</h2>
-<p style="margin: 0; color: #DCEBE2; font-size: 17px; line-height: 1.6">Kids pick a problem they care about — a plant that waters itself, a drone that drops seeds, a toy for a little sibling — and design their own solution with everything they've learned.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
-<div class="card" style="background: #174F33; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
-  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #F5B82E">01</span>
-  <span style="font-weight: 800; font-size: 19px">Notice</span>
-  <span style="color: #CFE2D6; font-size: 14px; line-height: 1.5">Find a problem at home, school or in nature.</span>
-</div>
-<div class="card" style="background: #174F33; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
-  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #F5B82E">02</span>
-  <span style="font-weight: 800; font-size: 19px">Imagine</span>
-  <span style="color: #CFE2D6; font-size: 14px; line-height: 1.5">Sketch wild ideas, then pick the best one.</span>
-</div>
-<div class="card" style="background: #174F33; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
-  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #F5B82E">03</span>
-  <span style="font-weight: 800; font-size: 19px">Design</span>
-  <span style="color: #CFE2D6; font-size: 14px; line-height: 1.5">Choose parts from the kit wall and plan the build.</span>
-</div>
-<div class="card" style="background: #174F33; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
-  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #F5B82E">04</span>
-  <span style="font-weight: 800; font-size: 19px">Build &amp; test</span>
-  <span style="color: #CFE2D6; font-size: 14px; line-height: 1.5">Prototype, break it, fix it, make it better.</span>
-</div>
-<div class="card" style="background: #F5B82E; color: #1C1B18; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
-  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px">05</span>
-  <span style="font-weight: 800; font-size: 19px">Pitch</span>
-  <span style="font-size: 14px; line-height: 1.5">Present it at Showcase Day — to parents and industry guests.</span>
-</div>
-</div>
-</div>
-</section>
+    <!-- PASSION PROJECT -->
+    <section style="background: #1F6B44; color: #FFFFFF">
+      <div
+        style="max-width: 1280px; margin: 0 auto; padding: 88px 24px; display: flex; flex-direction: column; gap: 40px">
+        <div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px">
+          <span style="font-weight: 800; font-size: 13px; letter-spacing: 0.1em; color: #F5B82E">CAPSTONE MODULE</span>
+          <h2
+            style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 56px); letter-spacing: -0.03em; line-height: 1.02">
+            The Passion Project: build the thing only you would build.</h2>
+          <p style="margin: 0; color: #DCEBE2; font-size: 17px; line-height: 1.6">Kids pick a problem they care about —
+            a plant that waters itself, a drone that drops seeds, a toy for a little sibling — and design their own
+            solution with everything they've learned.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+          <div class="card"
+            style="background: #174F33; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+            <span
+              style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #F5B82E">01</span>
+            <span style="font-weight: 800; font-size: 19px">Notice</span>
+            <span style="color: #CFE2D6; font-size: 14px; line-height: 1.5">Find a problem at home, school or in
+              nature.</span>
+          </div>
+          <div class="card"
+            style="background: #174F33; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+            <span
+              style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #F5B82E">02</span>
+            <span style="font-weight: 800; font-size: 19px">Imagine</span>
+            <span style="color: #CFE2D6; font-size: 14px; line-height: 1.5">Sketch wild ideas, then pick the best
+              one.</span>
+          </div>
+          <div class="card"
+            style="background: #174F33; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+            <span
+              style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #F5B82E">03</span>
+            <span style="font-weight: 800; font-size: 19px">Design</span>
+            <span style="color: #CFE2D6; font-size: 14px; line-height: 1.5">Choose parts from the kit wall and plan the
+              build.</span>
+          </div>
+          <div class="card"
+            style="background: #174F33; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+            <span
+              style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #F5B82E">04</span>
+            <span style="font-weight: 800; font-size: 19px">Build &amp; test</span>
+            <span style="color: #CFE2D6; font-size: 14px; line-height: 1.5">Prototype, break it, fix it, make it
+              better.</span>
+          </div>
+          <div class="card"
+            style="background: #F5B82E; color: #1C1B18; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px">05</span>
+            <span style="font-weight: 800; font-size: 19px">Pitch</span>
+            <span style="font-size: 14px; line-height: 1.5">Present it at Showcase Day — to parents and industry
+              guests.</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- SCHOOLS SECTION -->
-<section style="max-width: 1280px; margin: 0 auto; padding: 80px 24px 100px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
-<div style="flex: 1 1 480px; display: flex; flex-direction: column; gap: 10px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3vw, 40px); letter-spacing: -0.03em">For schools &amp; learning centres</h2>
-<p style="margin: 0; font-size: 16px; color: #4A4740; line-height: 1.55">License the full curriculum with trainer onboarding, shared lab kit sets, and semester-long project schedules.</p>
-</div>
-<a href="classes.html#book" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 15px 28px; border-radius: 999px; font-size: 15px; transition: background 0.2s">Talk to us &rarr;</a>
-</section>
+    <!-- SCHOOLS SECTION -->
+    <section
+      style="max-width: 1280px; margin: 0 auto; padding: 80px 24px 100px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
+      <div style="flex: 1 1 480px; display: flex; flex-direction: column; gap: 10px">
+        <h2
+          style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3vw, 40px); letter-spacing: -0.03em">
+          For schools &amp; learning centres</h2>
+        <p style="margin: 0; font-size: 16px; color: #4A4740; line-height: 1.55">License the full curriculum with
+          trainer onboarding, shared lab kit sets, and semester-long project schedules.</p>
+      </div>
+      <a href="classes.html#book"
+        style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 15px 28px; border-radius: 999px; font-size: 15px; transition: background 0.2s">Talk
+        to us &rarr;</a>
+    </section>
 
-<!-- FOOTER -->
-<footer style="background: #1C1B18; color: #E8E5DC">
-<div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 48px">
-<div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
-<div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #FFFFFF; letter-spacing: -0.03em">Good Soil</span>
-<p style="margin: 0; color: #B8B4A9; font-size: 15px; line-height: 1.6; max-width: 36ch">Hands-on STEM, arts &amp; skills education. Planted by the team behind 10+ years of aeromodelling workshops.</p>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 15px">
-<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Learn</span><a href="classes.html" style="color: #B8B4A9">Weekend classes</a><a href="classes.html" style="color: #B8B4A9">Holiday camps</a><a href="curriculum.html" style="color: #B8B4A9">Curriculum</a></div>
-<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Shop</span><a href="shop.html" style="color: #B8B4A9">All kits</a><a href="shop.html" style="color: #B8B4A9">Class kits</a><a href="shop.html" style="color: #B8B4A9">Gift a kit</a></div>
-<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 98111 00000</span><span style="color: #B8B4A9">hello@goodsoil.in</span><span style="color: #B8B4A9">New Delhi, India</span></div>
-</div>
-</div>
-<div style="border-top: 1px solid #3A3832; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8E8A7F">
-<span>&copy; 2026 Good Soil. All rights reserved.</span><span>Instagram &bull; YouTube &bull; WhatsApp</span>
-</div>
-</div>
-</footer>
+    <!-- FOOTER -->
+    <footer style="background: #1C1B18; color: #E8E5DC">
+      <div
+        style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 48px">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
+          <div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
+            <span
+              style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #FFFFFF; letter-spacing: -0.03em">Good
+              Soil</span>
+            <p style="margin: 0; color: #B8B4A9; font-size: 15px; line-height: 1.6; max-width: 36ch">Hands-on STEM, arts
+              &amp; skills education. Planted by the team behind 10+ years of aeromodelling workshops.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 15px">
+            <div style="display: flex; flex-direction: column; gap: 10px"><span
+                style="font-weight: 700; color: #FFFFFF">Learn</span><a href="classes.html"
+                style="color: #B8B4A9">Weekend classes</a><a href="classes.html" style="color: #B8B4A9">Holiday
+                camps</a><a href="curriculum.html" style="color: #B8B4A9">Curriculum</a></div>
+            <div style="display: flex; flex-direction: column; gap: 10px"><span
+                style="font-weight: 700; color: #FFFFFF">Shop</span><a href="shop.html" style="color: #B8B4A9">All
+                kits</a><a href="shop.html" style="color: #B8B4A9">Class kits</a><a href="shop.html"
+                style="color: #B8B4A9">Gift a kit</a></div>
+            <div style="display: flex; flex-direction: column; gap: 10px"><span
+                style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 98111
+                00000</span><span style="color: #B8B4A9">hello@goodsoil.in</span><span style="color: #B8B4A9">New Delhi,
+                India</span></div>
+          </div>
+        </div>
+        <div
+          style="border-top: 1px solid #3A3832; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8E8A7F">
+          <span>&copy; 2026 Good Soil. All rights reserved.</span><span>Instagram &bull; YouTube &bull; WhatsApp</span>
+        </div>
+      </div>
+    </footer>
 
-</div>
+  </div>
 
-<script>
-const modulesData = [
-  {track:'AEROMODELLING', age:'7–10', title:'Gliders & flight', desc:'Why things fly — learned by launching, trimming and racing your own glider.', sessions: 4},
-  {track:'AEROMODELLING', age:'10–14+', title:'Drones from scratch', desc:'Frames, motors, props and balance. Build and fly a mini drone safely.', sessions: 6},
-  {track:'ROBOTICS', age:'7–10', title:'Moving machines', desc:'Motors, wheels and switches — make a buggy that goes where you tell it.', sessions: 4},
-  {track:'ROBOTICS', age:'10–14+', title:'Smart robots', desc:'Sensors and logic: line followers, obstacle dodgers and robot arms.', sessions: 6},
-  {track:'DIY STEM', age:'7–10', title:'Sun, water & air', desc:'Solar cars, water rockets and wind spinners — science you can hold.', sessions: 4},
-  {track:'ELECTRONICS', age:'7–10', title:'Circuits & switches', desc:'Breadboards, LEDs, buzzers and light sensors — build automated gadgets.', sessions: 4},
-  {track:'CODING & AI', age:'10–14+', title:'Code your creation', desc:'Block coding on a micro-board, plus a playful AI helper for your build.', sessions: 5},
-  {track:'TOOLS & SKILLS', age:'10–14+', title:'The tool bench', desc:'Measure, saw, sand, glue and solder with real tools and mentors.', sessions: 5}
-];
+  <script>
+    const modulesData = [
+      { track: 'AEROMODELLING', age: '7–10', title: 'Gliders & flight', desc: 'Why things fly — learned by launching, trimming and racing your own glider.', sessions: 4 },
+      { track: 'AEROMODELLING', age: '10–14+', title: 'Drones from scratch', desc: 'Frames, motors, props and balance. Build and fly a mini drone safely.', sessions: 6 },
+      { track: 'ROBOTICS', age: '7–10', title: 'Moving machines', desc: 'Motors, wheels and switches — make a buggy that goes where you tell it.', sessions: 4 },
+      { track: 'ROBOTICS', age: '10–14+', title: 'Smart robots', desc: 'Sensors and logic: line followers, obstacle dodgers and robot arms.', sessions: 6 },
+      { track: 'DIY STEM', age: '7–10', title: 'Sun, water & air', desc: 'Solar cars, water rockets and wind spinners — science you can hold.', sessions: 4 },
+      { track: 'ELECTRONICS', age: '7–10', title: 'Circuits & switches', desc: 'Breadboards, LEDs, buzzers and light sensors — build automated gadgets.', sessions: 4 },
+      { track: 'CODING & AI', age: '10–14+', title: 'Code your creation', desc: 'Block coding on a micro-board, plus a playful AI helper for your build.', sessions: 5 },
+      { track: 'TOOLS & SKILLS', age: '10–14+', title: 'The tool bench', desc: 'Measure, saw, sand, glue and solder with real tools and mentors.', sessions: 5 }
+    ];
 
-let currentAge = '7–10';
+    let currentAge = '7–10';
 
-function filterAge(age) {
-  currentAge = age;
-  document.getElementById('age-junior').className = age === '7–10' ? 'age-tab active' : 'age-tab inactive';
-  document.getElementById('age-senior').className = age === '10–14+' ? 'age-tab active' : 'age-tab inactive';
-  renderModules();
-}
+    function filterAge(age) {
+      currentAge = age;
+      document.getElementById('age-junior').className = age === '7–10' ? 'age-tab active' : 'age-tab inactive';
+      document.getElementById('age-senior').className = age === '10–14+' ? 'age-tab active' : 'age-tab inactive';
+      renderModules();
+    }
 
-function renderModules() {
-  const filtered = modulesData.filter(m => m.age === currentAge);
-  const grid = document.getElementById('modules-grid');
-  grid.innerHTML = filtered.map(m => `
+    function renderModules() {
+      const filtered = modulesData.filter(m => m.age === currentAge);
+      const grid = document.getElementById('modules-grid');
+      grid.innerHTML = filtered.map(m => `
     <div class="card" style="border: 1px solid #ECEAE3; border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF">
       <div style="display: flex; justify-content: space-between; align-items: center">
         <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A">${m.track}</span>
@@ -211,22 +385,23 @@ function renderModules() {
       </div>
     </div>
   `).join('');
-}
+    }
 
-function showToast(msg) {
-  const toast = document.getElementById('toast');
-  toast.textContent = msg;
-  toast.style.display = 'block';
-  setTimeout(() => { toast.style.display = 'none'; }, 2600);
-}
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2600);
+    }
 
-function downloadPdf(title) {
-  openPdfModal(title);
-}
+    function downloadPdf(title) {
+      openPdfModal(title);
+    }
 
-renderModules();
-</script>
+    renderModules();
+  </script>
 
-<script src="goodsoil.js"></script>
+  <script src="goodsoil.js"></script>
 </body>
+
 </html>
