@@ -189,11 +189,77 @@
           A path from first glider to their own invention.</h1>
         <p style="margin: 0; font-size: 17px; color: #4A4740; line-height: 1.55; max-width: 58ch">Every module = visual
           slides + a build guide + the exact kit list. Download, buy the kits, and teach it anywhere.</p>
-        <div style="display: flex; gap: 12px; padding-top: 4px;">
-          <a href="mailto:info@goodsoilmakers.com?subject=Good%20Soil%20Master%20Curriculum%20Request&body=Hi%20Good%20Soil%20Team%2C%0A%0AI%20would%20like%20to%20request%20the%2025-Class%20Master%20STEM%20%26%20Robotics%20Curriculum%20guide.%0A%0AParent%20%2F%20School%20Name%3A%0APhone%20%2F%20WhatsApp%3A%0AStudent%20Age%3A%0A%0AThank%20you!"
-            style="background: #1F6B44; color: #FFFFFF; font-weight: 700; padding: 13px 24px; border-radius: 999px; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(31,107,68,0.25); transition: transform 0.15s ease;">
-            <span>✉ Download Master Curriculum (info@goodsoilmakers.com) &rarr;</span>
-          </a>
+        <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 4px; width: 100%;">
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+            <button type="button" id="curriculum-toggle-btn" onclick="toggleCurriculumDropdown()"
+              aria-expanded="false" aria-controls="curriculum-contact-dropdown"
+              style="background: #1F6B44; color: #FFFFFF; font-weight: 700; padding: 14px 26px; border-radius: 999px; font-size: 15px; border: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 14px rgba(31,107,68,0.25); transition: all 0.2s ease;">
+              <span>📄 Download Master Curriculum</span>
+              <svg id="curriculum-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition: transform 0.25s ease;"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <span style="font-size: 14px; color: #55524A;">Official 25-Class Syllabus · Free on request</span>
+          </div>
+
+          <!-- DROP DOWN CONTACT CARD (JUST LIKE BOOK A CLASS) -->
+          <div id="curriculum-contact-dropdown" style="display: none; max-width: 680px; width: 100%; background: #1C1B18; color: #FFFFFF; border-radius: 28px; padding: clamp(24px, 4vw, 36px); box-shadow: 0 16px 40px rgba(0,0,0,0.18); box-sizing: border-box; margin-top: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 20px; border-bottom: 1px solid #33312B; padding-bottom: 16px;">
+              <div>
+                <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #F5B82E;">Direct Contact &amp; Syllabus Request</span>
+                <h3 style="margin: 4px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; color: #FFFFFF;">Get the Master Curriculum Guide</h3>
+                <p style="margin: 6px 0 0; font-size: 14px; color: #B8B4A9; line-height: 1.5;">We will send the complete 25-class syllabus, weekly milestone breakdowns, and take-home kit guides directly to your inbox or WhatsApp.</p>
+              </div>
+              <button type="button" onclick="toggleCurriculumDropdown(false)" aria-label="Close form" style="background: none; border: 0; color: #B8B4A9; font-size: 28px; cursor: pointer; line-height: 1;">&times;</button>
+            </div>
+
+            <!-- Direct Contact Quick Badges -->
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+              <a href="mailto:info@goodsoilmakers.com?subject=Good%20Soil%20Curriculum%20Request" style="display: inline-flex; align-items: center; gap: 8px; background: #2A2925; color: #FFFFFF; border: 1px solid #44413A; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
+                <span>✉ info@goodsoilmakers.com</span>
+              </a>
+              <a href="https://wa.me/919811100000?text=Hi%20Good%20Soil%20Team%2C%20I%20would%20like%20to%20request%20the%20Master%20Curriculum%20guide." target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #128C7E; color: #FFFFFF; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
+                <span>💬 WhatsApp +91 98111 00000</span>
+              </a>
+            </div>
+
+            <!-- Request Form with Dropdowns (Matching Book a Class style) -->
+            <form id="curriculum-req-form" onsubmit="handleCurriculumRequest(event)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="curr-name" style="font-size: 13px; font-weight: 700; color: #E8E5DC;">Parent / Educator name</label>
+                <input id="curr-name" type="text" required placeholder="Your name" style="min-height: 46px; border-radius: 12px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="curr-contact" style="font-size: 13px; font-weight: 700; color: #E8E5DC;">Email or WhatsApp phone</label>
+                <input id="curr-contact" type="text" required placeholder="name@email.com or +91 98..." style="min-height: 46px; border-radius: 12px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="curr-age" style="font-size: 13px; font-weight: 700; color: #E8E5DC;">Student age group</label>
+                <select id="curr-age" style="min-height: 46px; border-radius: 12px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+                  <option value="junior">Junior (7–10 yrs · Grades 1–4)</option>
+                  <option value="senior">Senior (10–14+ yrs · Grades 5–9)</option>
+                  <option value="both">Both age groups / Whole school</option>
+                </select>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label for="curr-interest" style="font-size: 13px; font-weight: 700; color: #E8E5DC;">I am inquiring as</label>
+                <select id="curr-interest" style="min-height: 46px; border-radius: 12px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+                  <option value="parent">Parent exploring classes for my child</option>
+                  <option value="school">School / STEM Lab coordinator</option>
+                  <option value="educator">Educator or Community Maker</option>
+                </select>
+              </div>
+              <button type="submit" style="grid-column: 1 / -1; min-height: 50px; border-radius: 999px; border: 0; background: #F5B82E; color: #1C1B18; font: 800 15px 'DM Sans', sans-serif; cursor: pointer; margin-top: 6px; transition: transform 0.15s ease;">
+                Request Curriculum Guide &rarr;
+              </button>
+            </form>
+
+            <div id="curriculum-req-success" style="display: none; margin-top: 16px; background: #1F6B44; color: #FFFFFF; padding: 18px 20px; border-radius: 16px; text-align: center;">
+              <div style="font-size: 17px; font-weight: 800; margin-bottom: 4px;">🎉 Request Received!</div>
+              <p style="margin: 0 0 12px; font-size: 14px; color: #DCEBE2;">We've logged your request and our team will dispatch the full Master Curriculum to you.</p>
+              <a id="curr-wa-action" href="#" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 13px; padding: 10px 20px; border-radius: 999px;">
+                <span>Send via WhatsApp now &rarr;</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div role="tablist" aria-label="Age group"
@@ -387,22 +453,89 @@
         <span>Slides + build guide</span>
       </div>
       <div style="display: flex; gap: 10px; margin-top: auto; padding-top: 12px; flex-wrap: wrap">
-        <button type="button" onclick="downloadPdf('${m.title}')" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 700 14px 'DM Sans', sans-serif; cursor: pointer; transition: background 0.2s">Download PDF</button>
-        <a href="shop.html" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid #DAD7CE; color: #1C1B18; text-decoration: none; font-weight: 700; font-size: 14px; transition: border-color 0.2s">Get the kits &rarr;</a>
+        <button type="button" onclick="downloadPdf('${m.title}')" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 700 14px 'DM Sans', sans-serif; cursor: pointer; transition: background 0.2s">Request Syllabus Guide</button>
+        <a href="classes.html" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid #DAD7CE; color: #1C1B18; text-decoration: none; font-weight: 700; font-size: 14px; transition: border-color 0.2s">Learn in class &rarr;</a>
       </div>
     </div>
   `).join('');
     }
 
+    function toggleCurriculumDropdown(forceOpen) {
+      const panel = document.getElementById('curriculum-contact-dropdown');
+      const btn = document.getElementById('curriculum-toggle-btn');
+      const chevron = document.getElementById('curriculum-chevron');
+      if (!panel) return;
+      const isHidden = panel.style.display === 'none' || !panel.style.display;
+      const shouldOpen = forceOpen !== undefined ? forceOpen : isHidden;
+
+      if (shouldOpen) {
+        panel.style.display = 'block';
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        const nameInput = document.getElementById('curr-name');
+        if (nameInput) setTimeout(() => nameInput.focus(), 250);
+      } else {
+        panel.style.display = 'none';
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        if (chevron) chevron.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    function handleCurriculumRequest(e) {
+      e.preventDefault();
+      const name = document.getElementById('curr-name')?.value.trim() || '';
+      const contact = document.getElementById('curr-contact')?.value.trim() || '';
+      const ageSelect = document.getElementById('curr-age');
+      const ageText = ageSelect?.options[ageSelect.selectedIndex]?.text || '';
+      const roleSelect = document.getElementById('curr-interest');
+      const roleText = roleSelect?.options[roleSelect.selectedIndex]?.text || '';
+
+      const requestData = {
+        name,
+        contact,
+        age: ageText,
+        role: roleText,
+        date: new Date().toISOString()
+      };
+
+      try {
+        const list = JSON.parse(localStorage.getItem('goodsoil_curriculum_requests') || '[]');
+        list.push(requestData);
+        localStorage.setItem('goodsoil_curriculum_requests', JSON.stringify(list));
+      } catch (err) {
+        console.warn('Could not store curriculum request locally', err);
+      }
+
+      const msg = `Hi Good Soil Team! I would like to request the Master Curriculum PDF.\n\nName: ${name}\nContact: ${contact}\nAge Focus: ${ageText}\nInquiring As: ${roleText}`;
+      const waUrl = `https://wa.me/919811100000?text=${encodeURIComponent(msg)}`;
+      const waAction = document.getElementById('curr-wa-action');
+      if (waAction) waAction.href = waUrl;
+
+      const form = document.getElementById('curriculum-req-form');
+      const success = document.getElementById('curriculum-req-success');
+      if (form) form.style.display = 'none';
+      if (success) success.style.display = 'block';
+
+      if (typeof showToast === 'function') {
+        showToast('🎉 Request sent! We will dispatch the curriculum to ' + contact);
+      }
+    }
+
     function showToast(msg) {
       const toast = document.getElementById('toast');
+      if (!toast) return;
       toast.textContent = msg;
       toast.style.display = 'block';
       setTimeout(() => { toast.style.display = 'none'; }, 2600);
     }
 
     function downloadPdf(title) {
-      openPdfModal(title);
+      // Toggle dropdown open and pre-select or open modal
+      toggleCurriculumDropdown(true);
+      if (typeof showToast === 'function') {
+        showToast('📄 Select your contact preferences below for: ' + (title || 'Curriculum'));
+      }
     }
 
     renderModules();

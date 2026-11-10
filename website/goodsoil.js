@@ -258,8 +258,8 @@
             🌱
           </div>
           <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; color: #1C1B18;">Your cart is empty</h3>
-          <p style="margin: 0; color: #55524A; font-size: 15px; max-width: 26ch; line-height: 1.5;">Every Good Soil kit comes with illustrated guides and classroom testing.</p>
-          <a href="shop.html" onclick="closeCartDrawer()" style="margin-top: 10px; background: #1F6B44; color: #FFFFFF; font-weight: 700; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-size: 14px;">Browse 840+ Kits &rarr;</a>
+          <p style="margin: 0; color: #55524A; font-size: 15px; max-width: 28ch; line-height: 1.5;">Our custom home-delivery kits are launching soon. In the meantime, all kits and tools are provided in class!</p>
+          <a href="classes.html" onclick="closeCartDrawer()" style="margin-top: 10px; background: #1F6B44; color: #FFFFFF; font-weight: 700; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-size: 14px;">Explore Classes &amp; Camps &rarr;</a>
         </div>
       `;
       if (footer) footer.style.display = 'none';
@@ -456,42 +456,112 @@
     if (!modal) {
       modal = document.createElement('div');
       modal.id = 'goodsoil-pdf-modal';
-      modal.style.cssText = 'position: fixed; inset: 0; z-index: 10002; display: flex; align-items: center; justify-content: center; background: rgba(14,14,12,0.8); backdrop-filter: blur(8px); padding: 20px; font-family: "DM Sans", sans-serif;';
+      modal.style.cssText = 'position: fixed; inset: 0; z-index: 10002; display: flex; align-items: center; justify-content: center; background: rgba(14,14,12,0.8); backdrop-filter: blur(8px); padding: 16px; font-family: "DM Sans", sans-serif; box-sizing: border-box; overflow-y: auto;';
       document.body.appendChild(modal);
     }
 
+    const title = moduleTitle || '25-Class Master Curriculum';
+
     modal.innerHTML = `
-      <div style="position: relative; width: 100%; max-width: 580px; background: #FFFFFF; border-radius: 28px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.3); border: 1px solid #ECEAE3;">
-        <div style="padding: 20px 24px; border-bottom: 1px solid #ECEAE3; display: flex; justify-content: space-between; align-items: center; background: #FAF9F5;">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 20px;">📄</span>
-            <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; color: #1C1B18;">Curriculum Guide: ${moduleTitle}</h3>
+      <div style="position: relative; width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto; background: #1C1B18; color: #FFFFFF; border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); border: 1px solid #33312B; box-sizing: border-box;">
+        <div style="padding: 20px 24px; border-bottom: 1px solid #33312B; display: flex; justify-content: space-between; align-items: center; background: #252420; border-top-left-radius: 28px; border-top-right-radius: 28px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 22px;">📄</span>
+            <div>
+              <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #F5B82E;">Official Syllabus Guide</div>
+              <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; color: #FFFFFF;">${title}</h3>
+            </div>
           </div>
-          <button type="button" onclick="closePdfModal()" aria-label="Close build guide preview" style="background: none; border: 0; color: #1C1B18; font-size: 24px; cursor: pointer;">&times;</button>
+          <button type="button" onclick="closePdfModal()" aria-label="Close" style="background: none; border: 0; color: #B8B4A9; font-size: 28px; cursor: pointer; line-height: 1;">&times;</button>
         </div>
+        
         <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
-          <div style="background: #F2F5EF; padding: 14px 18px; border-radius: 14px; font-size: 14px; color: #1F6B44; font-weight: 700;">
-            ✓ Official Good Soil 25-Class Master Curriculum
-          </div>
-          <div style="font-size: 15px; color: #4A4740; line-height: 1.6;">
-            Complete 25-class STEM &amp; Robotics curriculum for Junior (7–10) and Senior (10–14+) cohorts — including 10 take-home kits, 10 team studio builds, aeromodelling, and hands-on milestone challenges.
-          </div>
-          <div style="border-top: 1px solid #ECEAE3; padding-top: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 14px;">
-            <div><strong>Format:</strong> Detailed Curriculum &amp; Batch Guide</div>
-            <div><strong>Covers:</strong> 25 Weekend Classes · 50 Hours · 4 Phases</div>
-            <div><strong>Age Groups:</strong> Junior (7–10) &amp; Senior (10–14+)</div>
-          </div>
-          <div style="display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap;">
-            <a href="mailto:info@goodsoilmakers.com?subject=Good%20Soil%20Curriculum%20Request%3A%20${encodeURIComponent(moduleTitle)}&body=Hi%20Good%20Soil%20Team%2C%0A%0AI%20would%20like%20to%20request%20the%20curriculum%20guide%20for%20${encodeURIComponent(moduleTitle)}.%0A%0AParent%20%2F%20School%20Name%3A%0APhone%20%2F%20WhatsApp%3A%0AStudent%20Age%3A%0A%0AThank%20you!" onclick="closePdfModal()" style="flex: 1; min-height: 48px; border-radius: 999px; background: #1F6B44; color: #FFFFFF; font-weight: 700; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
-              <span>✉ Contact info@goodsoilmakers.com &rarr;</span>
+          <p style="margin: 0; font-size: 14px; color: #DCEBE2; line-height: 1.55;">
+            Fill in your contact preferences below to receive the complete 25-class curriculum syllabus, project milestones, and build guides:
+          </p>
+
+          <!-- Direct Contact Badges -->
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <a href="mailto:info@goodsoilmakers.com?subject=Good%20Soil%20Curriculum%20Request%3A%20${encodeURIComponent(title)}" style="display: inline-flex; align-items: center; gap: 8px; background: #2A2925; color: #FFFFFF; border: 1px solid #44413A; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              <span>✉ info@goodsoilmakers.com</span>
             </a>
-            <a href="shop.html" onclick="closePdfModal()" style="display: inline-flex; align-items: center; justify-content: center; padding: 0 20px; border-radius: 999px; border: 1.5px solid #1C1B18; color: #1C1B18; font-weight: 700; font-size: 14px; text-decoration: none;">Get the Kit &rarr;</a>
+            <a href="https://wa.me/919811100000?text=${encodeURIComponent('Hi Good Soil Team, I would like to request the curriculum guide for ' + title)}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #128C7E; color: #FFFFFF; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              <span>💬 WhatsApp +91 98111 00000</span>
+            </a>
           </div>
+
+          <!-- Contact Inquiry Form with Dropdowns (matching Book a class) -->
+          <form id="modal-curr-form" onsubmit="event.preventDefault(); handleModalCurriculumSubmit('${title.replace(/'/g, "\\'")}', this)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 4px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="modal-curr-name" style="font-size: 13px; font-weight: 700; color: #E8E5DC;">Parent / Educator name</label>
+              <input id="modal-curr-name" type="text" required placeholder="Your name" style="min-height: 46px; border-radius: 12px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="modal-curr-contact" style="font-size: 13px; font-weight: 700; color: #E8E5DC;">Email or WhatsApp phone</label>
+              <input id="modal-curr-contact" type="text" required placeholder="name@email.com or +91 98..." style="min-height: 46px; border-radius: 12px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="modal-curr-age" style="font-size: 13px; font-weight: 700; color: #E8E5DC;">Student age group</label>
+              <select id="modal-curr-age" style="min-height: 46px; border-radius: 12px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+                <option value="junior">Junior (7–10 yrs · Grades 1–4)</option>
+                <option value="senior">Senior (10–14+ yrs · Grades 5–9)</option>
+                <option value="both">Both age groups / Whole school</option>
+              </select>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label for="modal-curr-role" style="font-size: 13px; font-weight: 700; color: #E8E5DC;">I am inquiring as</label>
+              <select id="modal-curr-role" style="min-height: 46px; border-radius: 12px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+                <option value="parent">Parent exploring classes for my child</option>
+                <option value="school">School / STEM Lab coordinator</option>
+                <option value="educator">Educator or Community Maker</option>
+              </select>
+            </div>
+            <button type="submit" style="grid-column: 1 / -1; min-height: 50px; border-radius: 999px; border: 0; background: #F5B82E; color: #1C1B18; font: 800 15px 'DM Sans', sans-serif; cursor: pointer; margin-top: 6px; transition: transform 0.15s ease;">
+              Send Me the Curriculum Guide &rarr;
+            </button>
+          </form>
+
+          <div id="modal-curr-success" style="display: none; background: #1F6B44; color: #FFFFFF; padding: 18px 20px; border-radius: 16px; text-align: center;">
+            <div style="font-size: 17px; font-weight: 800; margin-bottom: 4px;">🎉 Request Received!</div>
+            <p style="margin: 0 0 12px; font-size: 14px; color: #DCEBE2;">Our team will dispatch the full Master Curriculum guide to you shortly.</p>
+            <a id="modal-curr-wa-btn" href="#" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 13px; padding: 10px 20px; border-radius: 999px;">
+              <span>Confirm on WhatsApp &rarr;</span>
+            </a>
+          </div>
+
         </div>
       </div>
     `;
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+  }
+
+  function handleModalCurriculumSubmit(title, formEl) {
+    const name = document.getElementById('modal-curr-name')?.value.trim() || '';
+    const contact = document.getElementById('modal-curr-contact')?.value.trim() || '';
+    const ageSelect = document.getElementById('modal-curr-age');
+    const ageText = ageSelect?.options[ageSelect.selectedIndex]?.text || '';
+    const roleSelect = document.getElementById('modal-curr-role');
+    const roleText = roleSelect?.options[roleSelect.selectedIndex]?.text || '';
+
+    try {
+      const list = JSON.parse(localStorage.getItem('goodsoil_curriculum_requests') || '[]');
+      list.push({ title, name, contact, age: ageText, role: roleText, date: new Date().toISOString() });
+      localStorage.setItem('goodsoil_curriculum_requests', JSON.stringify(list));
+    } catch (err) {
+      console.warn('Could not store locally', err);
+    }
+
+    const msg = `Hi Good Soil Team! I would like to request the curriculum guide for ${title}.\n\nName: ${name}\nContact: ${contact}\nAge: ${ageText}\nRole: ${roleText}`;
+    const waUrl = `https://wa.me/919811100000?text=${encodeURIComponent(msg)}`;
+    const waBtn = document.getElementById('modal-curr-wa-btn');
+    if (waBtn) waBtn.href = waUrl;
+
+    if (formEl) formEl.style.display = 'none';
+    const successEl = document.getElementById('modal-curr-success');
+    if (successEl) successEl.style.display = 'block';
+
+    showToast('🎉 Curriculum request received! We are sending details to ' + contact);
   }
 
   function closePdfModal() {
@@ -503,18 +573,13 @@
   }
 
   function triggerPdfDownload(title) {
-    showToast('✉ Redirecting to email info@goodsoilmakers.com…');
-    closePdfModal();
-    const subject = encodeURIComponent('Good Soil Master Curriculum Request: ' + (title || '25-Class Curriculum'));
-    const body = encodeURIComponent('Hi Good Soil Team,\n\nI would like to request the 25-Class Master STEM & Robotics Curriculum guide.\n\nParent / School Name:\nPhone / WhatsApp:\nStudent Age:\n\nThank you!');
-    setTimeout(() => {
-      window.location.href = `mailto:info@goodsoilmakers.com?subject=${subject}&body=${body}`;
-    }, 300);
+    openPdfModal(title);
   }
 
   window.openPdfModal = openPdfModal;
   window.closePdfModal = closePdfModal;
   window.triggerPdfDownload = triggerPdfDownload;
+  window.handleModalCurriculumSubmit = handleModalCurriculumSubmit;
 
   // ─────────────────────────────────────────────────────────────
   // 5b. RESPONSIVE MOBILE NAVIGATION SYSTEM
