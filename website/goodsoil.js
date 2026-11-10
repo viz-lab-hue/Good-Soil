@@ -449,7 +449,7 @@
   window.closeVideoModal = closeVideoModal;
 
   // ─────────────────────────────────────────────────────────────
-  // 5. ACCESSIBLE CURRICULUM PDF PREVIEW MODAL
+  // 5. ACCESSIBLE CURRICULUM REDIRECTION & MODAL
   // ─────────────────────────────────────────────────────────────
   function openPdfModal(moduleTitle) {
     let modal = document.getElementById('goodsoil-pdf-modal');
@@ -471,18 +471,20 @@
         </div>
         <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
           <div style="background: #F2F5EF; padding: 14px 18px; border-radius: 14px; font-size: 14px; color: #1F6B44; font-weight: 700;">
-            ✓ Official Good Soil 25-Class Master Curriculum (PDF)
+            ✓ Official Good Soil 25-Class Master Curriculum
           </div>
           <div style="font-size: 15px; color: #4A4740; line-height: 1.6;">
-            Complete 25-class STEM &amp; Robotics curriculum for Junior (6–9) and Senior (10–14) cohorts — including 10 take-home kits, 10 team studio builds, aeromodelling, and hands-on milestone challenges.
+            Complete 25-class STEM &amp; Robotics curriculum for Junior (7–10) and Senior (10–14+) cohorts — including 10 take-home kits, 10 team studio builds, aeromodelling, and hands-on milestone challenges.
           </div>
           <div style="border-top: 1px solid #ECEAE3; padding-top: 14px; display: flex; flex-direction: column; gap: 6px; font-size: 14px;">
-            <div><strong>Format:</strong> Printable PDF (A4)</div>
+            <div><strong>Format:</strong> Detailed Curriculum &amp; Batch Guide</div>
             <div><strong>Covers:</strong> 25 Weekend Classes · 50 Hours · 4 Phases</div>
-            <div><strong>Age Groups:</strong> Junior (6–9) &amp; Senior (10–14)</div>
+            <div><strong>Age Groups:</strong> Junior (7–10) &amp; Senior (10–14+)</div>
           </div>
           <div style="display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap;">
-            <button type="button" onclick="triggerPdfDownload('${moduleTitle}')" style="flex: 1; min-height: 48px; border-radius: 999px; border: 0; background: #1F6B44; color: #FFFFFF; font-weight: 700; font-size: 15px; cursor: pointer;">Download PDF File</button>
+            <a href="mailto:info@goodsoilmakers.com?subject=Good%20Soil%20Curriculum%20Request%3A%20${encodeURIComponent(moduleTitle)}&body=Hi%20Good%20Soil%20Team%2C%0A%0AI%20would%20like%20to%20request%20the%20curriculum%20guide%20for%20${encodeURIComponent(moduleTitle)}.%0A%0AParent%20%2F%20School%20Name%3A%0APhone%20%2F%20WhatsApp%3A%0AStudent%20Age%3A%0A%0AThank%20you!" onclick="closePdfModal()" style="flex: 1; min-height: 48px; border-radius: 999px; background: #1F6B44; color: #FFFFFF; font-weight: 700; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+              <span>✉ Contact info@goodsoilmakers.com &rarr;</span>
+            </a>
             <a href="shop.html" onclick="closePdfModal()" style="display: inline-flex; align-items: center; justify-content: center; padding: 0 20px; border-radius: 999px; border: 1.5px solid #1C1B18; color: #1C1B18; font-weight: 700; font-size: 14px; text-decoration: none;">Get the Kit &rarr;</a>
           </div>
         </div>
@@ -501,15 +503,13 @@
   }
 
   function triggerPdfDownload(title) {
-    showToast('📥 Downloading Good Soil Curriculum PDF…');
+    showToast('✉ Redirecting to email info@goodsoilmakers.com…');
     closePdfModal();
-    const a = document.createElement('a');
-    a.href = 'assets/GoodSoil_Curriculum.pdf';
-    a.download = 'GoodSoil_25_Class_Curriculum.pdf';
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    const subject = encodeURIComponent('Good Soil Master Curriculum Request: ' + (title || '25-Class Curriculum'));
+    const body = encodeURIComponent('Hi Good Soil Team,\n\nI would like to request the 25-Class Master STEM & Robotics Curriculum guide.\n\nParent / School Name:\nPhone / WhatsApp:\nStudent Age:\n\nThank you!');
+    setTimeout(() => {
+      window.location.href = `mailto:info@goodsoilmakers.com?subject=${subject}&body=${body}`;
+    }, 300);
   }
 
   window.openPdfModal = openPdfModal;
@@ -517,10 +517,237 @@
   window.triggerPdfDownload = triggerPdfDownload;
 
   // ─────────────────────────────────────────────────────────────
+  // 5b. RESPONSIVE MOBILE NAVIGATION SYSTEM
+  // ─────────────────────────────────────────────────────────────
+  function injectMobileNav() {
+    // 1. Inject responsive CSS styles for navigation across all pages
+    if (!document.getElementById('goodsoil-mobile-styles')) {
+      const style = document.createElement('style');
+      style.id = 'goodsoil-mobile-styles';
+      style.textContent = `
+        /* Mobile-friendly responsiveness */
+        @media (max-width: 768px) {
+          body {
+            overflow-x: hidden !important;
+          }
+          header {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 1000 !important;
+          }
+          header nav {
+            padding: 10px 16px !important;
+            gap: 10px !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            flex-wrap: nowrap !important;
+          }
+          /* Hide desktop links from header bar on mobile */
+          header nav > div:first-of-type {
+            display: none !important;
+          }
+          /* Hide desktop 'Book a class' button in top bar on small screens */
+          header nav > div:last-of-type > a[href*="classes.html#book"] {
+            display: none !important;
+          }
+          .goodsoil-mobile-toggle {
+            display: inline-flex !important;
+          }
+          section {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+        }
+        @media (min-width: 769px) {
+          .goodsoil-mobile-toggle {
+            display: none !important;
+          }
+          #goodsoil-mobile-menu {
+            display: none !important;
+          }
+        }
+        .goodsoil-mobile-toggle {
+          display: none;
+          width: 44px;
+          height: 44px;
+          border-radius: 22px;
+          border: 1px solid #DAD7CE;
+          background: #FFFFFF;
+          color: #1C1B18;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 20px;
+          transition: background 0.2s, border-color 0.2s;
+        }
+        .goodsoil-mobile-toggle:hover {
+          background: #F2F5EF;
+          border-color: #1F6B44;
+        }
+        #goodsoil-mobile-menu {
+          display: none;
+          position: fixed;
+          top: 65px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(28,27,24,0.6);
+          backdrop-filter: blur(4px);
+          z-index: 9998;
+        }
+        #goodsoil-mobile-menu-inner {
+          background: #FFFFFF;
+          border-bottom: 3px solid #1F6B44;
+          box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+          padding: 20px 24px 28px;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          max-height: calc(100vh - 80px);
+          overflow-y: auto;
+          animation: slideDownNav 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes slideDownNav {
+          from { transform: translateY(-16px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        .mobile-nav-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 12px 14px;
+          border-radius: 14px;
+          text-decoration: none;
+          color: #1C1B18;
+          font-family: 'DM Sans', sans-serif;
+          font-weight: 700;
+          font-size: 16px;
+          transition: background 0.15s ease;
+        }
+        .mobile-nav-item:hover, .mobile-nav-item.active {
+          background: #F2F5EF;
+          color: #1F6B44;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // 2. Add Hamburger button to nav if not present
+    const navActions = document.querySelector('header nav > div:last-of-type');
+    if (navActions && !document.getElementById('goodsoil-mobile-btn')) {
+      const toggleBtn = document.createElement('button');
+      toggleBtn.type = 'button';
+      toggleBtn.id = 'goodsoil-mobile-btn';
+      toggleBtn.className = 'goodsoil-mobile-toggle';
+      toggleBtn.setAttribute('aria-label', 'Toggle mobile navigation menu');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.innerHTML = `
+        <svg id="goodsoil-burger-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      `;
+      toggleBtn.onclick = toggleMobileNav;
+      navActions.appendChild(toggleBtn);
+    }
+
+    // 3. Inject Mobile Menu Drawer container
+    if (!document.getElementById('goodsoil-mobile-menu')) {
+      const menu = document.createElement('div');
+      menu.id = 'goodsoil-mobile-menu';
+      menu.onclick = function (e) {
+        if (e.target === menu) closeMobileNav();
+      };
+
+      const path = (window.location.pathname || '').toLowerCase();
+      const isClasses = path.includes('classes');
+      const isShop = path.includes('shop');
+      const isCurric = path.includes('curriculum');
+
+      menu.innerHTML = `
+        <div id="goodsoil-mobile-menu-inner">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <a href="classes.html" class="mobile-nav-item ${isClasses ? 'active' : ''}" onclick="closeMobileNav()">
+              <span style="font-size: 20px;">🏫</span>
+              <span>Classes &amp; Camps</span>
+            </a>
+            <a href="shop.html" class="mobile-nav-item ${isShop ? 'active' : ''}" onclick="closeMobileNav()">
+              <span style="font-size: 20px;">🛠️</span>
+              <span>Kit Shop</span>
+            </a>
+            <a href="curriculum.html" class="mobile-nav-item ${isCurric ? 'active' : ''}" onclick="closeMobileNav()">
+              <span style="font-size: 20px;">📄</span>
+              <span>Curriculum</span>
+            </a>
+            <a href="index.html#gallery" class="mobile-nav-item" onclick="closeMobileNav()">
+              <span style="font-size: 20px;">📸</span>
+              <span>Workshop Gallery</span>
+            </a>
+            <a href="index.html#story" class="mobile-nav-item" onclick="closeMobileNav()">
+              <span style="font-size: 20px;">🌱</span>
+              <span>Our Story</span>
+            </a>
+          </div>
+
+          <div style="border-top: 1px solid #ECEAE3; padding-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+            <a href="classes.html#book" onclick="closeMobileNav()" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 16px; padding: 14px; border-radius: 999px; text-align: center; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+              Book a class &rarr;
+            </a>
+            <div style="font-size: 13px; color: #55524A; text-align: center; line-height: 1.5; padding-top: 4px;">
+              <div>Have questions? Contact us:</div>
+              <a href="mailto:info@goodsoilmakers.com" style="color: #1F6B44; font-weight: 700; text-decoration: none;">info@goodsoilmakers.com</a>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(menu);
+    }
+  }
+
+  function toggleMobileNav() {
+    const menu = document.getElementById('goodsoil-mobile-menu');
+    const btn = document.getElementById('goodsoil-mobile-btn');
+    if (!menu) return;
+
+    if (menu.style.display === 'block') {
+      closeMobileNav();
+    } else {
+      menu.style.display = 'block';
+      if (btn) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.innerHTML = `<span style="font-size: 24px; line-height: 1; font-weight: 800;">&times;</span>`;
+      }
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileNav() {
+    const menu = document.getElementById('goodsoil-mobile-menu');
+    const btn = document.getElementById('goodsoil-mobile-btn');
+    if (menu) menu.style.display = 'none';
+    if (btn) {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.innerHTML = `
+        <svg id="goodsoil-burger-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      `;
+    }
+    document.body.style.overflow = '';
+  }
+
+  window.toggleMobileNav = toggleMobileNav;
+  window.closeMobileNav = closeMobileNav;
+
+  // ─────────────────────────────────────────────────────────────
   // 6. INITIALIZATION & GLOBAL EVENT WIRING
   // ─────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     injectCartDrawerHTML();
+    injectMobileNav();
     updateNavCartBadges();
 
     // Wire up all Cart trigger buttons across any page
