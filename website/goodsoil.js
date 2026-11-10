@@ -886,4 +886,67 @@
     }
   });
 
+  // ─────────────────────────────────────────────────────────────
+  // WORKSHOP ENQUIRY FORM HANDLER
+  // ─────────────────────────────────────────────────────────────
+  window.handleWorkshopEnquiry = function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const fd = new FormData(form);
+    const data = {
+      name: fd.get('name') || '',
+      phone: fd.get('phone') || '',
+      email: fd.get('email') || '',
+      age: fd.get('age') || '',
+      role: fd.get('role') || '',
+      interest: fd.get('interest') || '',
+      message: fd.get('message') || '',
+      date: new Date().toISOString()
+    };
+
+    // Save to localStorage
+    try {
+      const existing = JSON.parse(localStorage.getItem('goodsoil_workshop_enquiries') || '[]');
+      existing.push(data);
+      localStorage.setItem('goodsoil_workshop_enquiries', JSON.stringify(existing));
+    } catch (err) { /* silently continue */ }
+
+    // Build WhatsApp message
+    const ageLabel = { junior: 'Junior (7–10)', senior: 'Senior (10–14+)', both: 'Both / Not sure' }[data.age] || 'Not specified';
+    const interestLabel = {
+      'weekend-classes': 'Weekend Batch Classes',
+      'holiday-camp': 'Holiday Camps',
+      'school-workshop': 'School Workshop / Assembly',
+      'curriculum': 'Curriculum / Teaching Material',
+      'industry-day': 'Industry Day / Demo Visit',
+      'other': 'Other'
+    }[data.interest] || 'Not specified';
+
+    const waMsg = [
+      '📋 *New Workshop Enquiry*',
+      '',
+      '👤 Name: ' + data.name,
+      '📱 Phone: ' + data.phone,
+      data.email ? '✉ Email: ' + data.email : '',
+      '🎯 Age group: ' + ageLabel,
+      '🏷 Role: ' + (data.role || 'Not specified'),
+      '📌 Interest: ' + interestLabel,
+      data.message ? '💬 Message: ' + data.message : ''
+    ].filter(Boolean).join('\n');
+
+    const waUrl = 'https://wa.me/919811100000?text=' + encodeURIComponent(waMsg);
+
+    // Show success
+    if (typeof showToast === 'function') {
+      showToast('✅ Enquiry submitted! We\'ll reach out within 24 hours.');
+    }
+
+    form.reset();
+
+    // Try to open WhatsApp after a short delay
+    setTimeout(function () {
+      window.open(waUrl, '_blank');
+    }, 600);
+  };
+
 })();
