@@ -30,6 +30,10 @@
       scroll-behavior: smooth;
     }
 
+    #curriculum-contact-dropdown {
+      scroll-margin-top: 96px;
+    }
+
     body {
       margin: 0;
       background: #FFFFFF;
@@ -460,6 +464,19 @@
   `).join('');
     }
 
+    function scrollToElementWithOffset(el, offsetPadding = 20) {
+      if (!el) return;
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.getBoundingClientRect().height : 70;
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+      const targetY = Math.max(0, elementPosition - headerHeight - offsetPadding);
+
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth'
+      });
+    }
+
     function toggleCurriculumDropdown(forceOpen) {
       const panel = document.getElementById('curriculum-contact-dropdown');
       const btn = document.getElementById('curriculum-toggle-btn');
@@ -472,9 +489,17 @@
         panel.style.display = 'block';
         if (btn) btn.setAttribute('aria-expanded', 'true');
         if (chevron) chevron.style.transform = 'rotate(180deg)';
-        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        // Frame the toggle button and the top of the card smoothly below the sticky header
+        const target = btn || panel;
+        scrollToElementWithOffset(target, 16);
+
         const nameInput = document.getElementById('curr-name');
-        if (nameInput) setTimeout(() => nameInput.focus(), 250);
+        if (nameInput) {
+          setTimeout(() => {
+            nameInput.focus({ preventScroll: true });
+          }, 450);
+        }
       } else {
         panel.style.display = 'none';
         if (btn) btn.setAttribute('aria-expanded', 'false');

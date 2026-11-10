@@ -32,6 +32,7 @@
     .format-btn.inactive { background: transparent; color: #1C1B18; }
     .format-btn.inactive:hover { background: #E7EDE3; }
     input:focus, select:focus { outline: 2px solid #F5B82E; }
+    #book { scroll-margin-top: 96px; }
   </style>
 </head>
 <body>
@@ -114,11 +115,11 @@
     <span style="font-size: 16px">Show-and-tell, then it goes home</span>
   </div>
 </div>
-<div style="display: flex; align-items: baseline; gap: 10px; padding-top: 6px">
-  <span id="format-price" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px">₹2,499</span>
-  <span id="format-per" style="color: #55524A; font-size: 15px">per month</span>
+<div id="format-price-container" style="display: none">
+  <span id="format-price"></span>
+  <span id="format-per"></span>
 </div>
-<div style="padding-top: 8px">
+<div style="padding-top: 12px">
   <a href="#book" style="display: inline-block; background: #1F6B44; color: #FFFFFF; font-weight: 700; padding: 14px 28px; border-radius: 999px; font-size: 15px; text-decoration: none">Book this format →</a>
 </div>
 </div>
@@ -137,7 +138,7 @@
     <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Glider Lab</span>
     <span style="font-size: 15px; color: #55524A">Saturdays, 10:00 AM · New Delhi Centre</span>
     <span style="font-size: 14px; font-weight: 600; color: #1F6B44">● 4 seats left</span>
-    <a href="#book" onclick="selectBatch('Glider Lab', 'Weekend classes')" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
+    <a href="#book" onclick="selectBatch('Glider Lab', 'Weekend classes', event)" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
   </div>
 
   <div class="card" style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3">
@@ -148,7 +149,7 @@
     <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Robot Rookies</span>
     <span style="font-size: 15px; color: #55524A">Sundays, 2:00 PM · South Delhi Lab</span>
     <span style="font-size: 14px; font-weight: 600; color: #1F6B44">● 2 seats left</span>
-    <a href="#book" onclick="selectBatch('Robot Rookies', 'Weekend classes')" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
+    <a href="#book" onclick="selectBatch('Robot Rookies', 'Weekend classes', event)" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
   </div>
 
   <div class="card" style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3">
@@ -159,7 +160,7 @@
     <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Drone Flight Lab</span>
     <span style="font-size: 15px; color: #55524A">Saturdays, 11:30 AM · South Delhi Lab</span>
     <span style="font-size: 14px; font-weight: 600; color: #1F6B44">● 3 seats left</span>
-    <a href="#book" onclick="selectBatch('Drone Flight Lab', 'Weekend classes')" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
+    <a href="#book" onclick="selectBatch('Drone Flight Lab', 'Weekend classes', event)" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
   </div>
 </div>
 </div>
@@ -268,8 +269,8 @@ const formatData = {
     when: 'Every Sat & Sun',
     length: '2 hrs per session',
     kit: 'Individual kits',
-    price: '₹2,499',
-    per: 'per month',
+    price: '',
+    per: '',
     img: 'images/electronics-lab.jpg',
     mediaTag: 'Photo: circuit wiring & robotics build',
     blurb: 'A steady rhythm of building. Kids move through a track — aeromodelling first, then robotics, DIY kits, arts and tools — finishing a new project every few sessions.',
@@ -285,8 +286,8 @@ const formatData = {
     when: 'Long weekends & holidays',
     length: '2 days · 3 hrs/day',
     kit: 'Giveaway kit',
-    price: '₹1,499',
-    per: 'per child',
+    price: '',
+    per: '',
     img: 'images/drone-flight-lab.jpg',
     mediaTag: 'Photo: 2-day drone & flight testing',
     blurb: 'One big build from first part to final flight. The perfect first taste of Good Soil during festivals, event days or short breaks.',
@@ -301,9 +302,9 @@ const formatData = {
     title: '5-day camps',
     when: 'Summer · Winter · Spring break',
     length: '5 days · 4 hrs/day',
-    price: '₹4,499',
+    price: '',
     kit: 'Group + individual kits',
-    per: 'per child',
+    per: '',
     img: 'images/stem-expo-showcase.jpg',
     mediaTag: 'Photo: 5-day holiday camp capstone expo',
     blurb: 'A full week across tracks — fly, build a robot, craft and use real tools — ending in a showcase for families.',
@@ -345,19 +346,35 @@ function switchFormat(id) {
   `).join('');
 }
 
-function selectBatch(batchName, formatName) {
+function scrollToElementWithOffset(el, offsetPadding = 24) {
+  if (!el) return;
+  const header = document.querySelector('header');
+  const headerHeight = header ? header.getBoundingClientRect().height : 70;
+  const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+  const targetY = Math.max(0, elementPosition - headerHeight - offsetPadding);
+
+  window.scrollTo({
+    top: targetY,
+    behavior: 'smooth'
+  });
+}
+
+function selectBatch(batchName, formatName, event) {
+  if (event && event.preventDefault) event.preventDefault();
   const sel = document.getElementById('fm');
-  if (formatName.includes('Weekend')) sel.value = 'weekend';
-  else if (formatName.includes('2-day')) sel.value = 'two';
-  else sel.value = 'five';
+  if (sel) {
+    if (formatName.includes('Weekend')) sel.value = 'weekend';
+    else if (formatName.includes('2-day')) sel.value = 'two';
+    else sel.value = 'five';
+  }
 
   const bookSec = document.getElementById('book');
   if (bookSec) {
-    bookSec.scrollIntoView({ behavior: 'smooth' });
+    scrollToElementWithOffset(bookSec, 24);
     setTimeout(() => {
       const pn = document.getElementById('pn');
-      if (pn) pn.focus();
-    }, 500);
+      if (pn) pn.focus({ preventScroll: true });
+    }, 450);
   }
 }
 
@@ -403,6 +420,30 @@ function handleBooking(e) {
     window.open(waUrl, '_blank');
   }, 500);
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('a[href="#book"]').forEach(a => {
+    a.addEventListener('click', function (e) {
+      if (a.getAttribute('onclick')) return; // already handled by selectBatch
+      const bookSec = document.getElementById('book');
+      if (bookSec) {
+        e.preventDefault();
+        scrollToElementWithOffset(bookSec, 24);
+        setTimeout(() => {
+          const pn = document.getElementById('pn');
+          if (pn) pn.focus({ preventScroll: true });
+        }, 450);
+      }
+    });
+  });
+
+  if (window.location.hash === '#book') {
+    setTimeout(() => {
+      const bookSec = document.getElementById('book');
+      if (bookSec) scrollToElementWithOffset(bookSec, 24);
+    }, 150);
+  }
+});
 </script>
 
 <script src="goodsoil.js"></script>
