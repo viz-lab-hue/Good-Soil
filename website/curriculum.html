@@ -26,6 +26,13 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      position: relative !important;
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -131,8 +138,21 @@
       }
     }
 
-    @media (max-width: 640px) {
-      body { overflow-x: hidden; }
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+      }
+      * { max-width: 100%; box-sizing: border-box; }
+      [style*="flex: 1 1"],
+      [style*="flex: 1.3 1"],
+      [style*="flex: 1 1 auto"] {
+        flex-basis: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+      .nav-auth-btn .auth-btn-label { display: none !important; }
       h1 { font-size: clamp(28px, 7vw, 40px) !important; line-height: 1.08 !important; }
       .age-tab { min-height: 38px; padding: 0 14px; font-size: 13px; white-space: nowrap; }
       div[role="tablist"] {
@@ -237,8 +257,8 @@
               <a href="mailto:info@goodsoilmakers.com?subject=Good%20Soil%20Curriculum%20Request" style="display: inline-flex; align-items: center; gap: 8px; background: #2A2925; color: #FFFFFF; border: 1px solid #44413A; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
                 <span>✉ info@goodsoilmakers.com</span>
               </a>
-              <a href="https://wa.me/919811100000?text=Hi%20Good%20Soil%20Team%2C%20I%20would%20like%20to%20request%20the%20Master%20Curriculum%20guide." target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #128C7E; color: #FFFFFF; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
-                <span>💬 WhatsApp +91 98111 00000</span>
+              <a href="https://wa.me/918050312758?text=Hi%20Good%20Soil%20Team%2C%20I%20would%20like%20to%20request%20the%20Master%20Curriculum%20guide." target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #128C7E; color: #FFFFFF; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
+                <span>💬 WhatsApp +91 80503 12758</span>
               </a>
             </div>
 
@@ -422,8 +442,8 @@
                 kits</a><a href="shop.html" style="color: #B8B4A9">Class kits</a><a href="shop.html"
                 style="color: #B8B4A9">Gift a kit</a></div>
             <div style="display: flex; flex-direction: column; gap: 10px"><span
-                style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 98111
-                00000</span><span style="color: #B8B4A9">info@goodsoilmakers.com</span><span style="color: #B8B4A9">New Delhi,
+                style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 80503
+                12758</span><span style="color: #B8B4A9">info@goodsoilmakers.com</span><span style="color: #B8B4A9">New Delhi,
                 India</span></div>
           </div>
         </div>
@@ -550,7 +570,7 @@
       }
 
       const msg = `Hi Good Soil Team! I would like to request the Master Curriculum PDF.\n\nName: ${name}\nContact: ${contact}\nAge Focus: ${ageText}\nInquiring As: ${roleText}`;
-      const waUrl = `https://wa.me/919811100000?text=${encodeURIComponent(msg)}`;
+      const waUrl = `https://wa.me/918050312758?text=${encodeURIComponent(msg)}`;
       const waAction = document.getElementById('curr-wa-action');
       if (waAction) waAction.href = waUrl;
 

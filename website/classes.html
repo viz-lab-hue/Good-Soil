@@ -16,6 +16,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      position: relative !important;
+    }
     html { scroll-behavior: smooth; }
     body { margin: 0; background: #FFFFFF; font-family: 'DM Sans', sans-serif; color: #1C1B18; -webkit-font-smoothing: antialiased; }
     a { color: #1F6B44; text-decoration: none; transition: color 0.2s ease; }
@@ -33,8 +39,21 @@
     .format-btn.inactive:hover { background: #E7EDE3; }
     input:focus, select:focus { outline: 2px solid #F5B82E; }
     #book { scroll-margin-top: 96px; }
-    @media (max-width: 640px) {
-      body { overflow-x: hidden; }
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+      }
+      * { max-width: 100%; box-sizing: border-box; }
+      [style*="flex: 1 1"],
+      [style*="flex: 1.3 1"],
+      [style*="flex: 1 1 auto"] {
+        flex-basis: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+      .nav-auth-btn .auth-btn-label { display: none !important; }
       h1 { font-size: clamp(28px, 7vw, 40px) !important; line-height: 1.08 !important; }
       h2 { font-size: clamp(22px, 5.5vw, 30px) !important; }
       .format-btn { min-height: 38px; padding: 0 14px; font-size: 13px; white-space: nowrap; }
@@ -270,7 +289,7 @@
 <div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 15px">
 <div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Learn</span><a href="classes.html" style="color: #B8B4A9">Weekend classes</a><a href="classes.html" style="color: #B8B4A9">Holiday camps</a><a href="curriculum.html" style="color: #B8B4A9">Curriculum</a></div>
 <div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Shop</span><a href="shop.html" style="color: #B8B4A9">All kits</a><a href="shop.html" style="color: #B8B4A9">Class kits</a><a href="shop.html" style="color: #B8B4A9">Gift a kit</a></div>
-<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 98111 00000</span><span style="color: #B8B4A9">info@goodsoilmakers.com</span><span style="color: #B8B4A9">New Delhi, India</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 80503 12758</span><span style="color: #B8B4A9">info@goodsoilmakers.com</span><span style="color: #B8B4A9">New Delhi, India</span></div>
 </div>
 </div>
 <div style="border-top: 1px solid #3A3832; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8E8A7F">
@@ -427,7 +446,7 @@ function handleBooking(e) {
   btn.textContent = 'Submitting...';
 
   const waMessage = `Hello Good Soil! 🌱 I would like to reserve a seat:\n\n• Parent: ${parentName}\n• Phone: ${phone}\n• Child Cohort: ${ageText}\n• Format: ${formatText}\n\nPlease confirm availability and upcoming batch dates. Thank you!`;
-  const waUrl = `https://wa.me/919811100000?text=${encodeURIComponent(waMessage)}`;
+  const waUrl = `https://wa.me/918050312758?text=${encodeURIComponent(waMessage)}`;
 
   const waLink = document.getElementById('booking-whatsapp-link');
   if (waLink) waLink.href = waUrl;

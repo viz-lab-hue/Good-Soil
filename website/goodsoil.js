@@ -412,7 +412,7 @@
             <label for="auth-phone-input" style="font-size: 13px; font-weight: 700; color: #1C1B18;">WhatsApp / Mobile Number *</label>
             <div style="display: flex; gap: 8px;">
               <span style="min-height: 46px; padding: 0 12px; background: #FAF9F5; border: 1.5px solid #DAD7CE; border-radius: 12px; display: flex; align-items: center; font-size: 14px; font-weight: 700; color: #55524A;">+91</span>
-              <input type="tel" id="auth-phone-input" name="phone" placeholder="98111 00000" pattern="[0-9\\s]{10,13}" required style="flex: 1; min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+              <input type="tel" id="auth-phone-input" name="phone" placeholder="80503 12758" pattern="[0-9\\s]{10,13}" required style="flex: 1; min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
             </div>
           </div>
 
@@ -849,7 +849,7 @@
     });
 
     const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/919811100000?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/918050312758?text=${encoded}`, '_blank');
     GoodSoilCart.clearCart();
     closeCartDrawer();
     showToast('🎉 Order initiated via WhatsApp! Saved to your Good Soil account.');
@@ -981,8 +981,8 @@
             <a href="mailto:info@goodsoilmakers.com?subject=Good%20Soil%20Curriculum%20Request%3A%20${encodeURIComponent(title)}" style="display: inline-flex; align-items: center; gap: 8px; background: #2A2925; color: #FFFFFF; border: 1px solid #44413A; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
               <span>✉ info@goodsoilmakers.com</span>
             </a>
-            <a href="https://wa.me/919811100000?text=${encodeURIComponent('Hi Good Soil Team, I would like to request the curriculum guide for ' + title)}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #128C7E; color: #FFFFFF; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
-              <span>💬 WhatsApp +91 98111 00000</span>
+            <a href="https://wa.me/918050312758?text=${encodeURIComponent('Hi Good Soil Team, I would like to request the curriculum guide for ' + title)}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #128C7E; color: #FFFFFF; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
+              <span>💬 WhatsApp +91 80503 12758</span>
             </a>
           </div>
 
@@ -1049,7 +1049,7 @@
     }
 
     const msg = `Hi Good Soil Team! I would like to request the curriculum guide for ${title}.\n\nName: ${name}\nContact: ${contact}\nAge: ${ageText}\nRole: ${roleText}`;
-    const waUrl = `https://wa.me/919811100000?text=${encodeURIComponent(msg)}`;
+    const waUrl = `https://wa.me/918050312758?text=${encodeURIComponent(msg)}`;
     const waBtn = document.getElementById('modal-curr-wa-btn');
     if (waBtn) waBtn.href = waUrl;
 
@@ -1086,22 +1086,38 @@
       const style = document.createElement('style');
       style.id = 'goodsoil-mobile-styles';
       style.textContent = `
-        /* Mobile-friendly responsiveness */
+        /* Mobile-friendly responsiveness & strict no horizontal scroll */
+        *, *::before, *::after {
+          box-sizing: border-box;
+        }
+        html, body {
+          overflow-x: hidden !important;
+          max-width: 100vw !important;
+          width: 100% !important;
+        }
         @media (max-width: 768px) {
-          body {
+          html, body {
             overflow-x: hidden !important;
+            max-width: 100vw !important;
+            width: 100% !important;
+            position: relative !important;
           }
           header {
             position: sticky !important;
             top: 0 !important;
             z-index: 1000 !important;
+            width: 100% !important;
+            max-width: 100vw !important;
           }
           header nav {
-            padding: 10px 16px !important;
-            gap: 10px !important;
+            padding: 10px 14px !important;
+            gap: 8px !important;
             justify-content: space-between !important;
             align-items: center !important;
             flex-wrap: nowrap !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
           }
           /* Hide desktop links from header bar on mobile */
           header nav > div:first-of-type {
@@ -1111,12 +1127,37 @@
           header nav > div:last-of-type > a[href*="classes.html#book"] {
             display: none !important;
           }
+          .nav-auth-btn {
+            height: 40px !important;
+            padding: 0 10px !important;
+            font-size: 13px !important;
+          }
+          .nav-auth-btn .auth-btn-label {
+            display: none !important;
+          }
           .goodsoil-mobile-toggle {
             display: inline-flex !important;
+            flex-shrink: 0 !important;
           }
           section {
             padding-left: 16px !important;
             padding-right: 16px !important;
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
+          }
+          .slider-container {
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          .slider-arrow-left {
+            left: 6px !important;
+          }
+          .slider-arrow-right {
+            right: 6px !important;
+          }
+          .slider-card {
+            flex: 0 0 calc(100vw - 44px) !important;
+            max-width: calc(100vw - 44px) !important;
           }
         }
         @media (min-width: 769px) {
@@ -1483,7 +1524,7 @@
       data.message ? '💬 Message: ' + data.message : ''
     ].filter(Boolean).join('\n');
 
-    const waUrl = 'https://wa.me/919811100000?text=' + encodeURIComponent(waMsg);
+    const waUrl = 'https://wa.me/918050312758?text=' + encodeURIComponent(waMsg);
 
     // Show success
     if (typeof showToast === 'function') {
