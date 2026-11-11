@@ -130,6 +130,21 @@
         opacity: 1;
       }
     }
+
+    @media (max-width: 640px) {
+      body { overflow-x: hidden; }
+      h1 { font-size: clamp(28px, 7vw, 40px) !important; line-height: 1.08 !important; }
+      .age-tab { min-height: 38px; padding: 0 14px; font-size: 13px; white-space: nowrap; }
+      div[role="tablist"] {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        scrollbar-width: none;
+      }
+      div[role="tablist"]::-webkit-scrollbar { display: none; }
+    }
   </style>
 </head>
 
@@ -160,8 +175,6 @@
           <a href="classes.html" class="nav-link">Classes &amp; Camps</a>
           <a href="shop.html" class="nav-link">Kit Shop</a>
           <a href="curriculum.html" class="nav-link active">Curriculum</a>
-          <a href="index.html#gallery" class="nav-link">Gallery</a>
-          <a href="index.html#story" class="nav-link">Our story</a>
         </div>
         <div style="display: flex; align-items: center; gap: 12px">
           <button type="button" onclick="openCartDrawer(this)" aria-label="Open cart"
@@ -267,7 +280,7 @@
         </div>
       </div>
       <div role="tablist" aria-label="Age group"
-        style="display: inline-flex; flex-wrap: wrap; gap: 6px; background: #F2F5EF; padding: 6px; border-radius: 999px">
+        style="display: inline-flex; flex-wrap: nowrap; gap: 6px; background: #F2F5EF; padding: 6px; border-radius: 999px; max-width: 100%; overflow-x: auto;">
         <button type="button" role="tab" id="age-junior" class="age-tab active" onclick="filterAge('7–10')">Junior ·
           Ages 7–10</button>
         <button type="button" role="tab" id="age-senior" class="age-tab inactive" onclick="filterAge('10–14+')">Senior ·

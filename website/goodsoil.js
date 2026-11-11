@@ -679,14 +679,14 @@
         .mobile-nav-item {
           display: flex;
           align-items: center;
-          gap: 12px;
-          padding: 12px 14px;
-          border-radius: 14px;
+          gap: 10px;
+          padding: 10px 14px;
+          border-radius: 12px;
           text-decoration: none;
           color: #1C1B18;
           font-family: 'DM Sans', sans-serif;
           font-weight: 700;
-          font-size: 16px;
+          font-size: 15px;
           transition: background 0.15s ease;
         }
         .mobile-nav-item:hover, .mobile-nav-item.active {
@@ -734,33 +734,21 @@
         <div id="goodsoil-mobile-menu-inner">
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <a href="classes.html" class="mobile-nav-item ${isClasses ? 'active' : ''}" onclick="closeMobileNav()">
-              <span style="font-size: 20px;">🏫</span>
               <span>Classes &amp; Camps</span>
             </a>
             <a href="shop.html" class="mobile-nav-item ${isShop ? 'active' : ''}" onclick="closeMobileNav()">
-              <span style="font-size: 20px;">🛠️</span>
               <span>Kit Shop</span>
             </a>
             <a href="curriculum.html" class="mobile-nav-item ${isCurric ? 'active' : ''}" onclick="closeMobileNav()">
-              <span style="font-size: 20px;">📄</span>
               <span>Curriculum</span>
-            </a>
-            <a href="index.html#gallery" class="mobile-nav-item" onclick="closeMobileNav()">
-              <span style="font-size: 20px;">📸</span>
-              <span>Workshop Gallery</span>
-            </a>
-            <a href="index.html#story" class="mobile-nav-item" onclick="closeMobileNav()">
-              <span style="font-size: 20px;">🌱</span>
-              <span>Our Story</span>
             </a>
           </div>
 
-          <div style="border-top: 1px solid #ECEAE3; padding-top: 14px; display: flex; flex-direction: column; gap: 10px;">
-            <a href="classes.html#book" onclick="closeMobileNav()" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 16px; padding: 14px; border-radius: 999px; text-align: center; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          <div style="border-top: 1px solid #ECEAE3; padding-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+            <a href="classes.html#book" onclick="closeMobileNav()" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 15px; padding: 12px; border-radius: 999px; text-align: center; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.12);">
               Book a class &rarr;
             </a>
-            <div style="font-size: 13px; color: #55524A; text-align: center; line-height: 1.5; padding-top: 4px;">
-              <div>Have questions? Contact us:</div>
+            <div style="font-size: 12px; color: #55524A; text-align: center; padding-top: 2px;">
               <a href="mailto:info@goodsoilmakers.com" style="color: #1F6B44; font-weight: 700; text-decoration: none;">info@goodsoilmakers.com</a>
             </div>
           </div>
@@ -885,6 +873,29 @@
       });
     }
   });
+
+  // ─────────────────────────────────────────────────────────────
+  // CAROUSEL / SLIDER CONTROLLER (Left / Right navigation)
+  // ─────────────────────────────────────────────────────────────
+  window.slideCarousel = function (trackId, direction) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const firstChild = track.querySelector(':scope > *');
+    const cardWidth = firstChild ? firstChild.getBoundingClientRect().width : 320;
+    const gap = 20;
+    const scrollAmount = (cardWidth + gap) * direction;
+
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const currentScroll = track.scrollLeft;
+
+    if (direction > 0 && currentScroll >= maxScroll - 20) {
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else if (direction < 0 && currentScroll <= 20) {
+      track.scrollTo({ left: maxScroll, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   // ─────────────────────────────────────────────────────────────
   // WORKSHOP ENQUIRY FORM HANDLER

@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Good Soil — Hands-on STEM, Arts &amp; Skills for Kids | New Delhi</title>
-  <meta name="description" content="No textbooks. Just kits, tools &amp; imagination. Hands-on STEM, arts and skill workshops where kids build, fly, tinker and create.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <meta property="og:title" content="Good Soil — Hands-on STEM, Arts &amp; Skills for Kids">
-  <meta property="og:description" content="No textbooks. Just kits, tools &amp; imagination. Hands-on workshops where kids build, fly, tinker and create.">
+  <meta property="og:title" content="Good Soil — Hands-On STEM, Arts &amp; Skills for Kids">
+  <meta property="og:description" content="No textbooks. Real kits, real tools, real projects. The wholesome hands-on school for curious young minds.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/hero-workshop.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <title>Good Soil — Hands-On STEM, Arts &amp; Skills for Kids | Delhi NCR</title>
+  <meta name="description" content="Good Soil is a wholesome hands-on STEM, arts and skills school for kids aged 7–14+. Aeromodelling, robotics, DIY STEM kits, electronics and tools in New Delhi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
@@ -18,14 +18,14 @@
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { margin: 0; background: #FFFFFF; font-family: 'DM Sans', sans-serif; color: #1C1B18; -webkit-font-smoothing: antialiased; }
-    a { color: #1F6B44; transition: color 0.2s ease; }
+    a { color: #1F6B44; text-decoration: none; transition: color 0.2s ease; }
     a:hover { color: #174F33; }
     .ph { background-color: #E7EDE3; background-image: repeating-linear-gradient(135deg, rgba(31,107,68,.07) 0 12px, transparent 12px 24px); }
     .ph2 { background-color: #FBE9C2; background-image: repeating-linear-gradient(135deg, rgba(138,75,42,.08) 0 12px, transparent 12px 24px); }
+    .tile { transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease; }
+    .tile:hover { transform: translateY(-4px) rotate(0deg) !important; box-shadow: 0 16px 32px rgba(28,27,24,0.12); }
     .card { transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease; }
     .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(28,27,24,0.08); }
-    .tile { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease; }
-    .tile:hover { transform: scale(1.04) rotate(0deg) !important; box-shadow: 0 24px 50px rgba(28,27,24,.18); z-index: 3; }
     .bob { animation: bob 5s ease-in-out infinite; }
     .bob2 { animation: bob 6.5s ease-in-out infinite reverse; }
     .spin { animation: spin 18s linear infinite; }
@@ -33,7 +33,125 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     @media (prefers-reduced-motion: reduce) { .bob, .bob2, .spin { animation: none; } .tile { transition: none; } }
     .hero-img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; border-radius: 32px; opacity: 0.88; }
-    #enquiry, #gallery, #story, #partner { scroll-margin-top: 88px; }
+    #enquiry, #partner, #tracks, #moments, #industry { scroll-margin-top: 88px; }
+
+    /* Modern horizontal slider / carousel with arrows on either side */
+    .slider-container { position: relative; width: 100%; }
+    .slider-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 4px 24px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .slider-track::-webkit-scrollbar { display: none; }
+    .slider-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+    }
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid #1C1B18;
+      background: #FFFFFF;
+      color: #1C1B18;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .slider-arrow:hover {
+      background: #1F6B44;
+      color: #FFFFFF;
+      border-color: #1F6B44;
+      transform: translateY(-50%) scale(1.1);
+    }
+    .slider-arrow:active { transform: translateY(-50%) scale(0.92); }
+    .slider-arrow-left { left: -14px; }
+    .slider-arrow-right { right: -14px; }
+
+    .slider-arrow.dark {
+      border-color: #55524A;
+      background: #2A2925;
+      color: #FFFFFF;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+    .slider-arrow.dark:hover {
+      background: #F5B82E;
+      color: #1C1B18;
+      border-color: #F5B82E;
+    }
+
+    .slider-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid #1C1B18;
+      background: #FFFFFF;
+      color: #1C1B18;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .slider-btn:hover {
+      background: #1F6B44;
+      color: #FFFFFF;
+      border-color: #1F6B44;
+      transform: scale(1.06);
+    }
+    .slider-btn:active { transform: scale(0.94); }
+    .slider-btn.dark {
+      border-color: #55524A;
+      background: #2A2925;
+      color: #FFFFFF;
+    }
+    .slider-btn.dark:hover {
+      background: #F5B82E;
+      color: #1C1B18;
+      border-color: #F5B82E;
+    }
+
+    /* Mobile simplifications: cleaner tabs, concise text, responsive sliders */
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      h1 { font-size: clamp(32px, 8vw, 44px) !important; }
+      .slider-card { flex: 0 0 84vw; }
+      .slider-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+        background: rgba(255,255,255,0.94);
+        backdrop-filter: blur(4px);
+      }
+      .slider-arrow-left { left: 4px; }
+      .slider-arrow-right { right: 4px; }
+      .slider-arrow.dark {
+        background: rgba(42,41,37,0.94);
+      }
+      .hide-mobile { display: none !important; }
+      .mobile-compact { padding: 44px 18px !important; }
+      .mobile-title { font-size: clamp(26px, 6vw, 36px) !important; }
+    }
   </style>
 </head>
 <body>
@@ -50,8 +168,6 @@
 <a href="classes.html" style="color: #1C1B18; text-decoration: none; padding: 10px 0">Classes &amp; Camps</a>
 <a href="shop.html" style="color: #1C1B18; text-decoration: none; padding: 10px 0">Kit Shop</a>
 <a href="curriculum.html" style="color: #1C1B18; text-decoration: none; padding: 10px 0">Curriculum</a>
-<a href="#gallery" style="color: #1C1B18; text-decoration: none; padding: 10px 0">Gallery</a>
-<a href="#story" style="color: #1C1B18; text-decoration: none; padding: 10px 0">Our story</a>
 </div>
 <div style="display: flex; align-items: center; gap: 12px">
 <button type="button" onclick="openCartDrawer(this)" aria-label="Open cart" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #DAD7CE; display: flex; align-items: center; justify-content: center; color: #1C1B18; background: #FFFFFF; cursor: pointer; position: relative; transition: border-color 0.2s;">
@@ -99,310 +215,356 @@
 </div>
 </div>
 
-<!-- STORY / PARABLE -->
-<section id="story" style="background: #F2F5EF">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 56px">
-<div style="display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: flex-end">
-<h2 style="margin: 0; flex: 1 1 420px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.02; letter-spacing: -0.03em">Every child is a seed.<br>We're the good soil.</h2>
-<blockquote style="margin: 0; flex: 1 1 360px; border-top: 2px solid #1F6B44; padding-top: 18px">
-<p style="margin: 0; font-size: 20px; line-height: 1.5; font-style: italic; color: #2F4A3A">“But other fell into good ground, and brought forth fruit, some an hundredfold.”</p></blockquote>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
-<div style="background: #FFFFFF; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 15px; color: #1F6B44; letter-spacing: 0.08em">01 · SPARK</div>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; letter-spacing: -0.02em">Unlock the idea</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4A4740">A short, visual story on screen — no lectures. Kids imagine what they'll make before they touch a part.</p>
-</div>
-<div style="background: #FFFFFF; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 15px; color: #1F6B44; letter-spacing: 0.08em">02 · BUILD</div>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; letter-spacing: -0.02em">Kit in hand</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4A4740">Real kits, real tools. Solo builds or team challenges — learning happens through the hands.</p>
-</div>
-<div style="background: #1F6B44; color: #FFFFFF; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 15px; color: #F5B82E; letter-spacing: 0.08em">03 · GROW</div>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 28px; letter-spacing: -0.02em">A hundredfold</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #E3EEE7">Test, fix, show-and-tell, take it home. Skills that stick — and a kid who can't wait for next weekend.</p>
-</div>
-</div>
-</div>
-</section>
-
 <!-- WHY WHOLESOME (PARENTS) -->
-
-
-<!-- TRACKS -->
-<section style="max-width: 1280px; margin: 0 auto; padding: 96px 24px 24px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-direction: column; gap: 12px; max-width: 760px">
+<section class="mobile-compact" style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 760px">
 <div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">For parents</div>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 54px); letter-spacing: -0.03em; line-height: 1.02">One wholesome package. Not another tuition class.</h2>
-<p style="margin: 0; font-size: 18px; color: #4A4740; line-height: 1.55">Science, engineering, art and hands-on skills under one roof — so your child grows as a thinker, a maker and a creator, not just a test-taker.</p>
+<h2 class="mobile-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 50px); letter-spacing: -0.03em; line-height: 1.05">One wholesome package. Not another tuition class.</h2>
+<p style="margin: 0; font-size: 17px; color: #4A4740; line-height: 1.55">Science, engineering, art and hands-on skills under one roof — so your child grows as a thinker and creator, not just a test-taker.</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 20px">
-<div style="flex: 1 1 340px; border: 1.5px dashed #BDB8AC; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<span style="font-weight: 800; font-size: 14px; letter-spacing: 0.06em; color: #8E8A7F">THE USUAL WAY</span>
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 17px; color: #6E6A60">
-<li style="text-decoration: line-through">Read the chapter, memorise the diagram</li>
-<li style="text-decoration: line-through">One subject at a time, in silos</li>
-<li style="text-decoration: line-through">Same worksheet for every child</li>
-<li style="text-decoration: line-through">Forgotten after the exam</li>
+<div style="flex: 1 1 320px; border: 1.5px dashed #BDB8AC; border-radius: 28px; padding: clamp(20px, 3vw, 28px); display: flex; flex-direction: column; gap: 12px">
+<span style="font-weight: 800; font-size: 13px; letter-spacing: 0.06em; color: #8E8A7F">THE USUAL WAY</span>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px; color: #6E6A60">
+<li style="text-decoration: line-through">Read chapters &amp; memorise diagrams</li>
+<li style="text-decoration: line-through">Subjects taught in rigid silos</li>
+<li style="text-decoration: line-through">Forgotten after exam day</li>
 </ul>
 </div>
-<div style="flex: 1.3 1 420px; background: #1F6B44; color: #FFFFFF; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<span style="font-weight: 800; font-size: 14px; letter-spacing: 0.06em; color: #F5B82E">THE GOOD SOIL WAY</span>
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 18px">
-<li style="display: flex; gap: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>Build it, fly it, break it, fix it</li>
-<li style="display: flex; gap: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>STEM + arts + real tools, all connected</li>
-<li style="display: flex; gap: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>Kids design their own ideas, from their own passions</li>
-<li style="display: flex; gap: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>Remembered — because they made it with their hands</li>
+<div style="flex: 1.3 1 380px; background: #1F6B44; color: #FFFFFF; border-radius: 28px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px">
+<span style="font-weight: 800; font-size: 13px; letter-spacing: 0.06em; color: #F5B82E">THE GOOD SOIL WAY</span>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 17px">
+<li style="display: flex; gap: 10px; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>Build it, fly it, fix it with real kits</li>
+<li style="display: flex; gap: 10px; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>STEM, arts &amp; real tools combined</li>
+<li style="display: flex; gap: 10px; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>Remembered because they made it themselves</li>
 </ul>
-<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px">
-<span style="background: #174F33; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700">Problem-solving</span>
-<span style="background: #174F33; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700">Confidence</span>
-<span style="background: #174F33; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700">Teamwork</span>
-<span style="background: #174F33; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700">Creativity</span>
-<span style="background: #174F33; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700">Screen-free focus</span>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px">
+<span style="background: #174F33; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700">Problem-solving</span>
+<span style="background: #174F33; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700">Confidence</span>
+<span style="background: #174F33; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700">Creativity</span>
+<span style="background: #174F33; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700">Screen-free</span>
 </div>
 </div>
 </div>
-</section><section style="max-width: 1280px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
+</section>
+
+<!-- TRACKS SLIDER (Six ways to get your hands dirty) -->
+<section id="tracks" class="mobile-compact" style="max-width: 1280px; margin: 0 auto; padding: 64px 24px 24px; display: flex; flex-direction: column; gap: 24px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
-<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; max-width: 680px">
 <div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">What we make</div>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 54px); letter-spacing: -0.03em; line-height: 1.02">Six ways to get your hands dirty</h2>
+<h2 class="mobile-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 50px); letter-spacing: -0.03em; line-height: 1.05">Six ways to get your hands dirty</h2>
+<p style="margin: 0; font-size: 16px; color: #55524A; line-height: 1.5">Slide through our six dedicated maker tracks &mdash; or explore the complete curriculum.</p>
 </div>
-<a href="curriculum.html" style="font-weight: 700; font-size: 16px; padding: 10px 0">See the full curriculum →</a>
+<div style="display: flex; align-items: center; gap: 10px">
+<a href="curriculum.html" style="font-weight: 700; font-size: 14px; margin-right: 6px; text-decoration: none;">Full curriculum &rarr;</a>
+<button type="button" class="slider-btn" onclick="slideCarousel('tracks-slider', -1)" aria-label="Previous track">&larr;</button>
+<button type="button" class="slider-btn" onclick="slideCarousel('tracks-slider', 1)" aria-label="Next track">&rarr;</button>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
-<a href="curriculum.html" class="card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 16px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 28px; padding: 14px;">
-  <div style="aspect-ratio: 4 / 3; border-radius: 20px; position: relative; overflow: hidden; background: #F2F5EF;">
+</div>
+
+<div class="slider-container">
+<button type="button" class="slider-arrow slider-arrow-left" onclick="slideCarousel('tracks-slider', -1)" aria-label="Previous track">&larr;</button>
+<div id="tracks-slider" class="slider-track">
+
+<a href="curriculum.html" class="card slider-card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
     <img src="images/aeromodelling-track.jpg" alt="Aeromodelling and drones track" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-    <span style="position: absolute; bottom: 12px; left: 12px; background: #F5B82E; color: #1C1B18; font-size: 11px; font-weight: 800; padding: 6px 12px; border-radius: 999px; letter-spacing: 0.05em; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">START HERE</span>
+    <span style="position: absolute; bottom: 10px; left: 10px; background: #F5B82E; color: #1C1B18; font-size: 11px; font-weight: 800; padding: 5px 11px; border-radius: 999px; letter-spacing: 0.05em; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">START HERE</span>
   </div>
-  <div style="padding: 2px 6px 6px;">
-    <h3 style="margin: 0 0 6px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em">Aeromodelling &amp; drones</h3>
-    <p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.5">Gliders, rubber-band planes, RC flyers. Our kickstarter track.</p>
+  <div style="padding: 2px 6px 8px; display: flex; flex-direction: column; gap: 6px;">
+    <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; letter-spacing: -0.02em">Aeromodelling &amp; drones</h3>
+    <p style="margin: 0; color: #55524A; font-size: 14px; line-height: 1.5">Gliders, rubber-band planes, RC flyers. Our kickstarter track.</p>
+    <span style="font-weight: 700; font-size: 13px; color: #1F6B44; padding-top: 4px;">Explore track &rarr;</span>
   </div>
 </a>
 
-<a href="curriculum.html" class="card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 16px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 28px; padding: 14px;">
-  <div style="aspect-ratio: 4 / 3; border-radius: 20px; position: relative; overflow: hidden; background: #F2F5EF;">
+<a href="curriculum.html" class="card slider-card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
     <img src="images/robotics-build.jpg" alt="Robotics track hands-on build" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
-  <div style="padding: 2px 6px 6px;">
-    <h3 style="margin: 0 0 6px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em">Robotics</h3>
-    <p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.5">Wheels, sensors and motors — robots that move, follow and react.</p>
+  <div style="padding: 2px 6px 8px; display: flex; flex-direction: column; gap: 6px;">
+    <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; letter-spacing: -0.02em">Robotics</h3>
+    <p style="margin: 0; color: #55524A; font-size: 14px; line-height: 1.5">Wheels, sensors and motors &mdash; robots that move and react.</p>
+    <span style="font-weight: 700; font-size: 13px; color: #1F6B44; padding-top: 4px;">Explore track &rarr;</span>
   </div>
 </a>
 
-<a href="curriculum.html" class="card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 16px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 28px; padding: 14px;">
-  <div style="aspect-ratio: 4 / 3; border-radius: 20px; position: relative; overflow: hidden; background: #F2F5EF;">
+<a href="curriculum.html" class="card slider-card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
     <img src="images/diy-stem-invention.jpg" alt="DIY STEM kits and inventions" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
-  <div style="padding: 2px 6px 6px;">
-    <h3 style="margin: 0 0 6px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em">DIY STEM kits</h3>
-    <p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.5">Electronics, science and mechanical builds you can hold in your hands.</p>
+  <div style="padding: 2px 6px 8px; display: flex; flex-direction: column; gap: 6px;">
+    <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; letter-spacing: -0.02em">DIY STEM kits</h3>
+    <p style="margin: 0; color: #55524A; font-size: 14px; line-height: 1.5">Electronics, science and mechanics you hold in your hands.</p>
+    <span style="font-weight: 700; font-size: 13px; color: #1F6B44; padding-top: 4px;">Explore track &rarr;</span>
   </div>
 </a>
 
-<a href="curriculum.html" class="card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 16px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 28px; padding: 14px;">
-  <div style="aspect-ratio: 4 / 3; border-radius: 20px; position: relative; overflow: hidden; background: #F2F5EF;">
+<a href="curriculum.html" class="card slider-card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
     <img src="images/arts-crafts.jpg" alt="Arts and crafts maker studio" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
-  <div style="padding: 2px 6px 6px;">
-    <h3 style="margin: 0 0 6px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em">Arts &amp; crafts</h3>
-    <p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.5">Paint, paper, clay and colour — where STEM meets imagination.</p>
+  <div style="padding: 2px 6px 8px; display: flex; flex-direction: column; gap: 6px;">
+    <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; letter-spacing: -0.02em">Arts &amp; crafts</h3>
+    <p style="margin: 0; color: #55524A; font-size: 14px; line-height: 1.5">Paint, paper, clay and colour &mdash; STEM meets imagination.</p>
+    <span style="font-weight: 700; font-size: 13px; color: #1F6B44; padding-top: 4px;">Explore track &rarr;</span>
   </div>
 </a>
 
-<a href="curriculum.html" class="card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 16px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 28px; padding: 14px;">
-  <div style="aspect-ratio: 4 / 3; border-radius: 20px; position: relative; overflow: hidden; background: #F2F5EF;">
+<a href="curriculum.html" class="card slider-card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
     <img src="images/tools-workshop.jpg" alt="Real workshop tools and craftsmanship skills" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
-  <div style="padding: 2px 6px 6px;">
-    <h3 style="margin: 0 0 6px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em">Tools &amp; skills</h3>
-    <p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.5">Measure, cut, sand, wire, solder — safely, with real tools.</p>
+  <div style="padding: 2px 6px 8px; display: flex; flex-direction: column; gap: 6px;">
+    <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; letter-spacing: -0.02em">Tools &amp; skills</h3>
+    <p style="margin: 0; color: #55524A; font-size: 14px; line-height: 1.5">Measure, cut, sand, wire, solder &mdash; safely with real tools.</p>
+    <span style="font-weight: 700; font-size: 13px; color: #1F6B44; padding-top: 4px;">Explore track &rarr;</span>
   </div>
 </a>
 
-<a href="curriculum.html" class="card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 16px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 28px; padding: 14px;">
-  <div style="aspect-ratio: 4 / 3; border-radius: 20px; position: relative; overflow: hidden; background: #F2F5EF;">
+<a href="curriculum.html" class="card slider-card" style="text-decoration: none; color: #1C1B18; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
     <img src="images/coding-ai-lab.jpg" alt="Block coding and playful AI lab" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
-  <div style="padding: 2px 6px 6px;">
-    <h3 style="margin: 0 0 6px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em">Coding &amp; a little AI</h3>
-    <p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.5">Block coding and playful AI — always tied to something they built.</p>
+  <div style="padding: 2px 6px 8px; display: flex; flex-direction: column; gap: 6px;">
+    <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; letter-spacing: -0.02em">Coding &amp; a little AI</h3>
+    <p style="margin: 0; color: #55524A; font-size: 14px; line-height: 1.5">Block coding and AI &mdash; always tied to something they built.</p>
+    <span style="font-weight: 700; font-size: 13px; color: #1F6B44; padding-top: 4px;">Explore track &rarr;</span>
   </div>
 </a>
+
+</div>
+<button type="button" class="slider-arrow slider-arrow-right" onclick="slideCarousel('tracks-slider', 1)" aria-label="Next track">&rarr;</button>
 </div>
 </section>
 
-<!-- FORMATS -->
+<!-- FORMATS (How you join) -->
 <section style="background: #1C1B18; color: #FFFFFF">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
+<div class="mobile-compact" style="max-width: 1280px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px; max-width: 680px">
 <div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #F5B82E">How you join</div>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 54px); letter-spacing: -0.03em; line-height: 1.02">Every weekend, or every holiday</h2>
+<h2 class="mobile-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 50px); letter-spacing: -0.03em; line-height: 1.05">Every weekend, or every holiday</h2>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
-<div style="background: #2A2925; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
-<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 56px; line-height: 1; color: #F5B82E">∞</span><span style="font-size: 13px; font-weight: 700; border: 1px solid #55524A; padding: 6px 12px; border-radius: 999px">Year-round</span></div>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; letter-spacing: -0.02em">Weekend classes</h3>
-<p style="margin: 0; color: #CFCBC0; font-size: 16px; line-height: 1.55">A new build every weekend, levelling up through each track.</p>
-<ul style="margin: 0; padding-left: 18px; color: #E8E5DC; font-size: 15px; line-height: 1.9"><li>Monthly or term plans</li><li>Individual kits to take home</li><li>Progress badges per track</li></ul>
-<a href="classes.html" style="margin-top: auto; background: #FFFFFF; color: #1C1B18; text-decoration: none; text-align: center; font-weight: 700; padding: 14px 20px; border-radius: 999px">See weekend batches</a>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
+<div style="background: #2A2925; border-radius: 26px; padding: 26px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; line-height: 1; color: #F5B82E">∞</span><span style="font-size: 12px; font-weight: 700; border: 1px solid #55524A; padding: 5px 12px; border-radius: 999px">Year-round</span></div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; letter-spacing: -0.02em">Weekend classes</h3>
+<p style="margin: 0; color: #CFCBC0; font-size: 15px; line-height: 1.5">A new project build every weekend, levelling up through each track with individual take-home kits.</p>
+<a href="classes.html" style="margin-top: auto; background: #FFFFFF; color: #1C1B18; text-decoration: none; text-align: center; font-weight: 700; padding: 12px 18px; border-radius: 999px; font-size: 14px">See weekend batches &rarr;</a>
 </div>
-<div style="background: #2A2925; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
-<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 56px; line-height: 1; color: #F5B82E">2</span><span style="font-size: 13px; font-weight: 700; border: 1px solid #55524A; padding: 6px 12px; border-radius: 999px">Short breaks</span></div>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; letter-spacing: -0.02em">2-day workshops</h3>
-<p style="margin: 0; color: #CFCBC0; font-size: 16px; line-height: 1.55">One big build over a long weekend, festival or event holiday.</p>
-<ul style="margin: 0; padding-left: 18px; color: #E8E5DC; font-size: 15px; line-height: 1.9"><li>One project, start to finish</li><li>Giveaway kit included</li><li>Great first taste of Good Soil</li></ul>
-<a href="classes.html" style="margin-top: auto; background: #FFFFFF; color: #1C1B18; text-decoration: none; text-align: center; font-weight: 700; padding: 14px 20px; border-radius: 999px">See upcoming dates</a>
+<div style="background: #2A2925; border-radius: 26px; padding: 26px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; line-height: 1; color: #F5B82E">2</span><span style="font-size: 12px; font-weight: 700; border: 1px solid #55524A; padding: 5px 12px; border-radius: 999px">Short breaks</span></div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; letter-spacing: -0.02em">2-day workshops</h3>
+<p style="margin: 0; color: #CFCBC0; font-size: 15px; line-height: 1.5">One big build from start to finish over long weekends and holidays. Includes take-home kit.</p>
+<a href="classes.html" style="margin-top: auto; background: #FFFFFF; color: #1C1B18; text-decoration: none; text-align: center; font-weight: 700; padding: 12px 18px; border-radius: 999px; font-size: 14px">See upcoming dates &rarr;</a>
 </div>
-<div style="background: #F5B82E; color: #1C1B18; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
-<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 56px; line-height: 1">5</span><span style="font-size: 13px; font-weight: 700; border: 1px solid #1C1B18; padding: 6px 12px; border-radius: 999px">Summer · Winter · Spring</span></div>
-<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; letter-spacing: -0.02em">5-day camps</h3>
-<p style="margin: 0; color: #3A2A10; font-size: 16px; line-height: 1.55">A full week across tracks — fly, build, craft, and a finale showcase.</p>
-<ul style="margin: 0; padding-left: 18px; font-size: 15px; line-height: 1.9"><li>Mix of solo and team builds</li><li>Group activity + individual kits</li><li>Showcase day for parents</li></ul>
-<a href="classes.html" style="margin-top: auto; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 14px 20px; border-radius: 999px">Reserve a camp seat</a>
+<div style="background: #F5B82E; color: #1C1B18; border-radius: 26px; padding: 26px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; line-height: 1">5</span><span style="font-size: 12px; font-weight: 700; border: 1px solid #1C1B18; padding: 5px 12px; border-radius: 999px">Camp</span></div>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; letter-spacing: -0.02em">5-day camps</h3>
+<p style="margin: 0; color: #3A2A10; font-size: 15px; line-height: 1.5">A full week across tracks &mdash; fly, build, craft, and an end-of-camp showcase for families.</p>
+<a href="classes.html" style="margin-top: auto; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 12px 18px; border-radius: 999px; font-size: 14px">Reserve a camp seat &rarr;</a>
 </div>
 </div>
 </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" style="max-width: 1280px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
+<!-- WORKSHOP MOMENTS SLIDER (Replaces static gallery) -->
+<section id="moments" class="mobile-compact" style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 32px; display: flex; flex-direction: column; gap: 24px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
-<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 8px; max-width: 680px">
 <div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">From the workshop floor</div>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 54px); letter-spacing: -0.03em; line-height: 1.02">Messy hands, proud faces</h2>
+<h2 class="mobile-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 50px); letter-spacing: -0.03em; line-height: 1.05">Real builds. Messy hands. Proud faces.</h2>
+<p style="margin: 0; font-size: 16px; color: #55524A; line-height: 1.5">Slide through live action snapshots from our Delhi maker labs &amp; camps.</p>
 </div>
-<div style="display: flex; gap: 8px">
-<button type="button" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 700 14px 'DM Sans', sans-serif; cursor: pointer">All</button>
-<button type="button" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #DAD7CE; background: #FFFFFF; color: #1C1B18; font: 700 14px 'DM Sans', sans-serif; cursor: pointer">Photos</button>
+<div style="display: flex; align-items: center; gap: 10px">
+<button type="button" class="slider-btn" onclick="slideCarousel('moments-slider', -1)" aria-label="Previous photo">&larr;</button>
+<button type="button" class="slider-btn" onclick="slideCarousel('moments-slider', 1)" aria-label="Next photo">&rarr;</button>
 </div>
-</div>
-<div style="position: relative; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center; padding: 24px 0">
-<!-- floating doodles -->
-<svg class="bob" width="90" height="60" viewBox="0 0 90 60" fill="none" aria-hidden="true" style="position: absolute; top: -10px; left: 2%; z-index: 4"><path d="M4 40 L86 6 L50 54 L40 34 Z" fill="#FFFFFF" stroke="#1C1B18" stroke-width="2.5" stroke-linejoin="round"></path><path d="M40 34 L86 6" stroke="#1C1B18" stroke-width="2.5"></path></svg>
-<svg class="spin" width="70" height="70" viewBox="0 0 70 70" fill="none" aria-hidden="true" style="position: absolute; bottom: 0; right: 3%; z-index: 4"><circle cx="35" cy="35" r="12" stroke="#1F6B44" stroke-width="3"></circle><path d="M35 5v12M35 53v12M5 35h12M53 35h12M14 14l8 8M48 48l8 8M14 56l8-8M48 22l8-8" stroke="#1F6B44" stroke-width="3" stroke-linecap="round"></path></svg>
-<svg class="bob2" width="56" height="56" viewBox="0 0 56 56" fill="#F5B82E" aria-hidden="true" style="position: absolute; top: 46%; left: 30%; z-index: 4"><path d="M28 2l6 20 20 6-20 6-6 20-6-20-20-6 20-6Z"></path></svg>
-<svg width="240" height="80" viewBox="0 0 240 80" fill="none" aria-hidden="true" style="position: absolute; bottom: -18px; left: 20%; z-index: 0"><path d="M4 60 C40 10, 80 80, 120 36 S200 10, 236 50" stroke="#8A4B2A" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round"></path></svg>
-
-<div style="flex: 1 1 260px; max-width: 300px; display: flex; flex-direction: column; gap: 20px; z-index: 1">
-<div class="ph2 tile" role="img" aria-label="Art & craft workshop photo" style="aspect-ratio: 4 / 5; border-radius: 24px; border: 8px solid #FFFFFF; box-shadow: 0 10px 30px rgba(28,27,24,0.12); transform: rotate(-5deg); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px; box-sizing: border-box; position: relative; overflow: hidden">
-<img src="images/arts-crafts.jpg" alt="Art & craft workshop table" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-<span style="position: relative; z-index: 2; font-size: 12px; font-weight: 700; color: #1C1B18; background: rgba(255,255,255,0.9); backdrop-filter: blur(4px); padding: 4px 12px; border-radius: 999px">Art &amp; craft table</span></div>
-<div class="ph tile" role="img" aria-label="Robotics team build photo" style="aspect-ratio: 4 / 3; border-radius: 24px; border: 8px solid #FFFFFF; box-shadow: 0 10px 30px rgba(28,27,24,0.12); transform: rotate(3deg); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px; box-sizing: border-box; position: relative; overflow: hidden">
-<img src="images/robotics-build.jpg" alt="Team robotics build" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-<span style="position: relative; z-index: 2; font-size: 12px; font-weight: 700; color: #1C1B18; background: rgba(255,255,255,0.9); backdrop-filter: blur(4px); padding: 4px 12px; border-radius: 999px">Team robotics build</span></div>
 </div>
 
-<div class="tile" style="flex: 2 1 480px; max-width: 640px; z-index: 2; border-radius: 32px; overflow: hidden; background: #1C1B18; box-shadow: 0 24px 60px rgba(28,27,24,0.25); transform: rotate(0deg)">
-<div class="ph" style="aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 14px; position: relative; overflow: hidden">
-<img src="images/drone-flight-lab.jpg" alt="Featured Good Soil drone workshop reel" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.88;">
-<button type="button" aria-label="Play featured video" style="width: 92px; height: 92px; border-radius: 46px; border: 0; background: #F5B82E; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 0 14px rgba(245,184,46,0.25)"><svg width="32" height="32" viewBox="0 0 24 24" fill="#1C1B18" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z"></path></svg></button>
-<span style="font-size: 14px; font-weight: 700; color: #FFFFFF; text-shadow: 0 1px 4px rgba(0,0,0,0.4)">A day at Good Soil</span>
-</div>
-<div style="padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: #FFFFFF"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 18px">Drone Flight Lab · Workshop Highlights</span><span style="font-size: 13px; color: #CFCBC0">Preview</span></div>
+<div class="slider-container">
+<button type="button" class="slider-arrow slider-arrow-left" onclick="slideCarousel('moments-slider', -1)" aria-label="Previous photo">&larr;</button>
+<div id="moments-slider" class="slider-track">
+
+<div class="card slider-card" style="display: flex; flex-direction: column; gap: 12px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
+    <img src="images/child-glider.jpg" alt="Child with finished glider" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+    <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(28,27,24,0.85); color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">Aeromodelling</span>
+  </div>
+  <div style="padding: 2px 6px 6px;">
+    <h3 style="margin: 0 0 4px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px;">Glider Flight Trials</h3>
+    <p style="margin: 0; color: #55524A; font-size: 13px; line-height: 1.45;">Students test lift and balance on balsa gliders before launching outdoors.</p>
+  </div>
 </div>
 
-<div style="flex: 1 1 260px; max-width: 300px; display: flex; flex-direction: column; gap: 20px; z-index: 1">
-<div class="ph tile" role="img" aria-label="Glider flight test photo" style="aspect-ratio: 4 / 3; border-radius: 24px; border: 8px solid #FFFFFF; box-shadow: 0 10px 30px rgba(28,27,24,0.12); transform: rotate(4deg); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px; box-sizing: border-box; position: relative; overflow: hidden">
-<img src="images/child-glider.jpg" alt="Glider flight test in class" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-<span style="position: relative; z-index: 2; font-size: 12px; font-weight: 700; color: #1C1B18; background: rgba(255,255,255,0.9); backdrop-filter: blur(4px); padding: 4px 12px; border-radius: 999px">Glider flight test</span></div>
-<div class="ph2 tile" role="img" aria-label="Circuit & breadboard lab photo" style="aspect-ratio: 4 / 5; border-radius: 24px; border: 8px solid #FFFFFF; box-shadow: 0 10px 30px rgba(28,27,24,0.12); transform: rotate(-3deg); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px; box-sizing: border-box; position: relative; overflow: hidden">
-<img src="images/electronics-lab.jpg" alt="Hands-on electronics breadboard circuit" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-<span style="position: relative; z-index: 2; font-size: 12px; font-weight: 700; color: #1C1B18; background: rgba(255,255,255,0.9); backdrop-filter: blur(4px); padding: 4px 12px; border-radius: 999px">Circuits &amp; Breadboarding</span></div>
+<div class="card slider-card" style="display: flex; flex-direction: column; gap: 12px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
+    <img src="images/robotics-build.jpg" alt="Team robotics build" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+    <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(28,27,24,0.85); color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">Robotics</span>
+  </div>
+  <div style="padding: 2px 6px 6px;">
+    <h3 style="margin: 0 0 4px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px;">Rover Chassis Assembly</h3>
+    <p style="margin: 0; color: #55524A; font-size: 13px; line-height: 1.45;">Hands-on wiring of gearmotors, wheels and ultrasonic obstacle sensors.</p>
+  </div>
 </div>
+
+<div class="card slider-card" style="display: flex; flex-direction: column; gap: 12px; background: #1C1B18; color: #FFFFFF; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #2A2925;">
+    <img src="images/drone-flight-lab.jpg" alt="Featured Good Soil drone workshop reel" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.88;">
+    <button type="button" aria-label="Play featured video" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; border-radius: 50%; border: 0; background: #F5B82E; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 0 10px rgba(245,184,46,0.25);">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#1C1B18" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z"></path></svg>
+    </button>
+    <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(28,27,24,0.85); color: #F5B82E; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">Flight Reel</span>
+  </div>
+  <div style="padding: 2px 6px 6px;">
+    <h3 style="margin: 0 0 4px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; color: #FFFFFF;">Drone Flight Lab</h3>
+    <p style="margin: 0; color: #CFCBC0; font-size: 13px; line-height: 1.45;">Live drone piloting drills inside safe workshop netting zones.</p>
+  </div>
+</div>
+
+<div class="card slider-card" style="display: flex; flex-direction: column; gap: 12px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
+    <img src="images/electronics-lab.jpg" alt="Hands-on electronics breadboard circuit" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+    <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(28,27,24,0.85); color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">Electronics</span>
+  </div>
+  <div style="padding: 2px 6px 6px;">
+    <h3 style="margin: 0 0 4px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px;">Sensors &amp; Breadboarding</h3>
+    <p style="margin: 0; color: #55524A; font-size: 13px; line-height: 1.45;">Safe low-voltage circuits, light sensors, buzzers and smart controllers.</p>
+  </div>
+</div>
+
+<div class="card slider-card" style="display: flex; flex-direction: column; gap: 12px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
+    <img src="images/arts-crafts.jpg" alt="Art & craft workshop table" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+    <span style="position: absolute; bottom: 10px; left: 10px; background: rgba(28,27,24,0.85); color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">Art &amp; Design</span>
+  </div>
+  <div style="padding: 2px 6px 6px;">
+    <h3 style="margin: 0 0 4px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px;">Craft Studio &amp; Finishes</h3>
+    <p style="margin: 0; color: #55524A; font-size: 13px; line-height: 1.45;">Paint, aerofoil shaping, clay modeling and precision balsa trimming.</p>
+  </div>
+</div>
+
+<div class="card slider-card" style="display: flex; flex-direction: column; gap: 12px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 26px; padding: 14px;">
+  <div style="aspect-ratio: 16 / 11; border-radius: 18px; position: relative; overflow: hidden; background: #F2F5EF;">
+    <img src="images/stem-expo-showcase.jpg" alt="Student presentation day" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+    <span style="position: absolute; bottom: 10px; left: 10px; background: #1F6B44; color: #FFFFFF; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 999px;">Showcase</span>
+  </div>
+  <div style="padding: 2px 6px 6px;">
+    <h3 style="margin: 0 0 4px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px;">Passion Project Pitch</h3>
+    <p style="margin: 0; color: #55524A; font-size: 13px; line-height: 1.45;">Young makers proudly demonstrate working builds to parents and mentors.</p>
+  </div>
+</div>
+
+</div>
+<button type="button" class="slider-arrow slider-arrow-right" onclick="slideCarousel('moments-slider', 1)" aria-label="Next photo">&rarr;</button>
 </div>
 </section>
 
-<!-- AMC ROOTS -->
-<section style="background: #FFF4D6">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
-<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
-<div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">Where we come from</div>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 54px); letter-spacing: -0.03em; line-height: 1.02">Grown from 10+ years of aeromodelling workshops.</h2>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A3A20">Good Soil grew out of Airmodelcrafts (AMC) — a decade of teaching kids to build and fly across schools and communities. We saw what lit them up wasn't the theory. It was the moment their own plane left their hands.</p>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A3A20">So we took that spark and widened the field: robotics, DIY science, arts, tools — the whole garden.</p>
+<!-- WHERE WE COME FROM (Compact Trust Strip) -->
+<section style="background: #FFF4D6; border-top: 1px solid #EADBBA; border-bottom: 1px solid #EADBBA;">
+<div class="mobile-compact" style="max-width: 1280px; margin: 0 auto; padding: 44px 24px; display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">Planted on Experience</span>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(22px, 3vw, 32px); letter-spacing: -0.02em; line-height: 1.15">Grown from 10+ years of aeromodelling workshops.</h3>
+<p style="margin: 0; font-size: 15px; color: #5A4A30; line-height: 1.5">Born out of Airmodelcrafts (AMC) &mdash; widened to robotics, electronics, arts and real tools for 2026.</p>
 </div>
-<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 0">
-<div style="display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #E9D5A4"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; min-width: 96px; color: #8A4B2A">The seed</span><span style="font-size: 16px; color: #3A2A10">AMC: aeromodelling workshops, camps and events, New Delhi</span></div>
-<div style="display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #E9D5A4"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; min-width: 96px; color: #8A4B2A">The roots</span><span style="font-size: 16px; color: #3A2A10">10+ years of hands-on teaching across schools &amp; communities</span></div>
-<div style="display: flex; gap: 20px; padding: 20px 0"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px; min-width: 96px; color: #1F6B44">The harvest</span><span style="font-size: 16px; color: #3A2A10">Good Soil: the full STEM, arts &amp; skills package — 2026</span></div>
+<div style="flex: 1 1 360px; display: flex; flex-wrap: wrap; gap: 12px; font-size: 14px; color: #4A3A20">
+<div style="background: rgba(255,255,255,0.75); border-radius: 16px; padding: 12px 18px; flex: 1 1 160px">
+  <div style="font-weight: 800; color: #8A4B2A; margin-bottom: 2px">10+ Years</div>
+  <div style="font-size: 13px; color: #5A4A30">Teaching in Delhi NCR schools &amp; clubs</div>
+</div>
+<div style="background: rgba(255,255,255,0.75); border-radius: 16px; padding: 12px 18px; flex: 1 1 160px">
+  <div style="font-weight: 800; color: #1F6B44; margin-bottom: 2px">Complete Track</div>
+  <div style="font-size: 13px; color: #5A4A30">Kits, flight labs, tools &amp; mini-AI</div>
+</div>
 </div>
 </div>
 </section>
 
 <!-- INVENT YOUR OWN -->
-<section style="max-width: 1280px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
-<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<section class="mobile-compact" style="max-width: 1280px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 36px; align-items: center">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 <div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1F6B44">The Passion Project</div>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 54px); letter-spacing: -0.03em; line-height: 1.02">They don't just follow instructions. They invent.</h2>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4740">After the basics, every child picks a problem they care about and designs their own product to solve it — then pitches it on Showcase Day.</p>
+<h2 class="mobile-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 48px); letter-spacing: -0.03em; line-height: 1.05">They don't just follow instructions. They invent.</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4A4740">After mastering core techniques, every child picks a real problem they care about, prototypes their solution, and pitches it on Showcase Day.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
-<span style="border: 1.5px solid #1C1B18; padding: 10px 16px; border-radius: 999px; font-weight: 700; font-size: 15px">Notice</span>
-<span style="border: 1.5px solid #1C1B18; padding: 10px 16px; border-radius: 999px; font-weight: 700; font-size: 15px">Imagine</span>
-<span style="border: 1.5px solid #1C1B18; padding: 10px 16px; border-radius: 999px; font-weight: 700; font-size: 15px">Design</span>
-<span style="border: 1.5px solid #1C1B18; padding: 10px 16px; border-radius: 999px; font-weight: 700; font-size: 15px">Build &amp; test</span>
-<span style="background: #F5B82E; padding: 11px 17px; border-radius: 999px; font-weight: 800; font-size: 15px">Pitch</span>
+<span style="border: 1.5px solid #1C1B18; padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 14px">Notice</span>
+<span style="border: 1.5px solid #1C1B18; padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 14px">Imagine</span>
+<span style="border: 1.5px solid #1C1B18; padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 14px">Design</span>
+<span style="border: 1.5px solid #1C1B18; padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 14px">Build &amp; test</span>
+<span style="background: #F5B82E; padding: 8px 16px; border-radius: 999px; font-weight: 800; font-size: 14px">Pitch</span>
 </div>
-<a href="curriculum.html" style="font-weight: 700; font-size: 16px; padding: 10px 0">See the capstone module →</a>
+<a href="curriculum.html" style="font-weight: 700; font-size: 15px; padding: 6px 0">See the capstone module &rarr;</a>
 </div>
-<div style="flex: 1 1 460px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
-<div class="tile" style="background: #F2F5EF; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 800; color: #1F6B44; letter-spacing: 0.06em">IDEA EXAMPLE</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">A plant that waters itself</span></div>
-<div class="tile" style="background: #1F6B44; color: #FFFFFF; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 800; color: #F5B82E; letter-spacing: 0.06em">IDEA EXAMPLE</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">A drone that drops seed balls</span></div>
-<div class="tile" style="background: #FFF4D6; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 800; color: #8A4B2A; letter-spacing: 0.06em">IDEA EXAMPLE</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">A robot that sorts my toys</span></div>
-<div class="tile" style="background: #1C1B18; color: #FFFFFF; border-radius: 24px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 12px; font-weight: 800; color: #F5B82E; letter-spacing: 0.06em">YOUR CHILD'S IDEA</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Custom Glider / Eco-Project</span></div>
+<div style="flex: 1 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div class="tile" style="background: #F2F5EF; border-radius: 20px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 11px; font-weight: 800; color: #1F6B44; letter-spacing: 0.06em">IDEA EXAMPLE</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px">Self-watering plant</span></div>
+<div class="tile" style="background: #1F6B44; color: #FFFFFF; border-radius: 20px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 11px; font-weight: 800; color: #F5B82E; letter-spacing: 0.06em">IDEA EXAMPLE</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px">Seed ball dropper drone</span></div>
+<div class="tile" style="background: #FFF4D6; border-radius: 20px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 11px; font-weight: 800; color: #8A4B2A; letter-spacing: 0.06em">IDEA EXAMPLE</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px">Toy sorter rover</span></div>
+<div class="tile" style="background: #1C1B18; color: #FFFFFF; border-radius: 20px; padding: 18px 16px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 11px; font-weight: 800; color: #F5B82E; letter-spacing: 0.06em">YOUR CHILD'S IDEA</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px">Custom Eco Invention</span></div>
 </div>
 </section>
 
-<!-- INDUSTRY DAYS -->
-<section style="background: #1C1B18; color: #FFFFFF">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-end">
-<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
+<!-- INDUSTRY DAYS SLIDER -->
+<section id="industry" style="background: #1C1B18; color: #FFFFFF">
+<div class="mobile-compact" style="max-width: 1280px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px">
 <div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #F5B82E">Industry Days</div>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 4vw, 54px); letter-spacing: -0.03em; line-height: 1.02">Real engineers. Real drones. Right here at our centre.</h2>
-<p style="margin: 0; font-size: 17px; color: #CFCBC0; line-height: 1.6">We invite people building robots, drones and AI products to come demo their work, answer questions and judge our Passion Projects.</p>
+<h2 class="mobile-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 50px); letter-spacing: -0.03em; line-height: 1.05">Real engineers. Real drones. Right here at our centre.</h2>
+<p style="margin: 0; font-size: 16px; color: #CFCBC0; line-height: 1.55">We invite people building robots, drones and AI products to demo work, answer questions and judge Passion Projects.</p>
 </div>
-<a href="#enquiry" style="background: #F5B82E; color: #1C1B18; text-decoration: none; font-weight: 800; padding: 15px 24px; border-radius: 999px">Get Workshop Details →</a>
+<div style="display: flex; align-items: center; gap: 12px">
+<a href="#enquiry" style="background: #F5B82E; color: #1C1B18; text-decoration: none; font-weight: 800; padding: 13px 22px; border-radius: 999px; font-size: 14px">Get Details &rarr;</a>
+<button type="button" class="slider-btn dark" onclick="slideCarousel('industry-slider', -1)" aria-label="Previous demo">&larr;</button>
+<button type="button" class="slider-btn dark" onclick="slideCarousel('industry-slider', 1)" aria-label="Next demo">&rarr;</button>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
-<div class="tile card" style="background: #2A2925; border: 1px solid #3A3832; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
-  <div style="aspect-ratio: 16 / 9; overflow: hidden; background: #1C1B18">
+</div>
+
+<div class="slider-container">
+<button type="button" class="slider-arrow slider-arrow-left dark" onclick="slideCarousel('industry-slider', -1)" aria-label="Previous demo">&larr;</button>
+<div id="industry-slider" class="slider-track">
+
+<div class="tile card slider-card" style="background: #2A2925; border: 1px solid #3A3832; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+  <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #1C1B18">
     <img src="images/drone-demo-day.jpg" alt="Live drone flight demo with engineer" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
   </div>
-  <div style="padding: 22px; display: flex; flex-direction: column; gap: 6px">
+  <div style="padding: 20px; display: flex; flex-direction: column; gap: 6px">
     <span style="font-size: 12px; font-weight: 800; color: #F5B82E; letter-spacing: 0.06em">DRONES</span>
-    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px">Live flight demo</span>
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 21px">Live flight demo</span>
     <span style="color: #CFCBC0; font-size: 14px">Upcoming Demo · Weekend Session</span>
   </div>
 </div>
-<div class="tile card" style="background: #2A2925; border: 1px solid #3A3832; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
-  <div style="aspect-ratio: 16 / 9; overflow: hidden; background: #1C1B18">
+
+<div class="tile card slider-card" style="background: #2A2925; border: 1px solid #3A3832; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+  <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #1C1B18">
     <img src="images/robotics-demo-day.jpg" alt="Meet a working robot and teardown demo" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
   </div>
-  <div style="padding: 22px; display: flex; flex-direction: column; gap: 6px">
+  <div style="padding: 20px; display: flex; flex-direction: column; gap: 6px">
     <span style="font-size: 12px; font-weight: 800; color: #F5B82E; letter-spacing: 0.06em">ROBOTICS</span>
-    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px">Meet a working robot</span>
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 21px">Meet a working robot</span>
     <span style="color: #CFCBC0; font-size: 14px">Upcoming Demo · Weekend Session</span>
   </div>
 </div>
-<div class="tile card" style="background: #2A2925; border: 1px solid #3A3832; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
-  <div style="aspect-ratio: 16 / 9; overflow: hidden; background: #1C1B18">
+
+<div class="tile card slider-card" style="background: #2A2925; border: 1px solid #3A3832; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+  <div style="aspect-ratio: 16 / 10; overflow: hidden; background: #1C1B18">
     <img src="images/ai-app-demo-day.jpg" alt="Build a cool AI app with software engineer" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
   </div>
-  <div style="padding: 22px; display: flex; flex-direction: column; gap: 6px">
+  <div style="padding: 20px; display: flex; flex-direction: column; gap: 6px">
     <span style="font-size: 12px; font-weight: 800; color: #F5B82E; letter-spacing: 0.06em">AI</span>
-    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 22px">Build a cool AI app</span>
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 21px">Build a cool AI app</span>
     <span style="color: #CFCBC0; font-size: 14px">Upcoming Demo · Weekend Session</span>
   </div>
 </div>
+
 </div>
-<div id="partner" style="border-top: 1px solid #3A3832; padding-top: 28px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
-<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center"><span style="font-size: 14px; color: #8E8A7F; font-weight: 700">PARTNERS</span><span style="color: #55524A; font-size: 14px; font-style: italic">Partner announcements coming soon</span></div>
-<a href="#enquiry" style="color: #F5B82E; font-weight: 700; padding: 10px 0">Build drones or robots? Demo at Good Soil →</a>
+<button type="button" class="slider-arrow slider-arrow-right dark" onclick="slideCarousel('industry-slider', 1)" aria-label="Next demo">&rarr;</button>
+</div>
+
+<div id="partner" style="border-top: 1px solid #3A3832; padding-top: 24px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center"><span style="font-size: 13px; color: #8E8A7F; font-weight: 700">PARTNERS</span><span style="color: #7A766D; font-size: 14px; font-style: italic">Partner announcements coming soon</span></div>
+<a href="#enquiry" style="color: #F5B82E; font-weight: 700; padding: 6px 0; font-size: 14px">Build drones or robots? Demo at Good Soil &rarr;</a>
 </div>
 </div>
 </section>
@@ -410,39 +572,39 @@
 <!-- SHOP TEASER -->
 <section style="background: #F2F5EF">
 <div style="max-width: 1280px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 36px">
-  <div style="background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 32px; padding: clamp(32px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 36px; align-items: center; justify-content: space-between; box-shadow: 0 10px 30px rgba(0,0,0,0.03)">
-    <div style="flex: 1 1 480px; display: flex; flex-direction: column; gap: 14px">
+  <div style="background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 32px; padding: clamp(28px, 4vw, 52px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between; box-shadow: 0 10px 30px rgba(0,0,0,0.03)">
+    <div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 14px">
       <div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; background: #FFF4D6; color: #8A4B2A; font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px">
         The Kit Shop &middot; Coming Soon
       </div>
-      <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; line-height: 1.05">
+      <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 3.8vw, 44px); letter-spacing: -0.03em; line-height: 1.05">
         Custom Good Soil build kits, delivered home.
       </h2>
-      <p style="margin: 0; font-size: 17px; color: #4A4740; line-height: 1.6; max-width: 54ch">
+      <p style="margin: 0; font-size: 16px; color: #4A4740; line-height: 1.6; max-width: 54ch">
         We're designing our official take-home kits with illustrated step-by-step visual guides so young makers can continue building at home. In the meantime, every student gets complete hands-on kits and tools in our in-person classes!
       </p>
-      <div style="display: flex; flex-wrap: wrap; gap: 14px; padding-top: 8px">
-        <a href="classes.html#book" style="background: #1F6B44; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 14px 26px; border-radius: 999px; font-size: 15px; box-shadow: 0 4px 14px rgba(31,107,68,0.25)">Book a workshop &rarr;</a>
-        <a href="curriculum.html" style="background: #FFFFFF; color: #1C1B18; text-decoration: none; font-weight: 700; padding: 14px 24px; border-radius: 999px; font-size: 15px; border: 1.5px solid #1C1B18">See curriculum &rarr;</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 6px">
+        <a href="classes.html#book" style="background: #1F6B44; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 13px 24px; border-radius: 999px; font-size: 14px; box-shadow: 0 4px 14px rgba(31,107,68,0.25)">Book a workshop &rarr;</a>
+        <a href="curriculum.html" style="background: #FFFFFF; color: #1C1B18; text-decoration: none; font-weight: 700; padding: 13px 22px; border-radius: 999px; font-size: 14px; border: 1.5px solid #1C1B18">See curriculum &rarr;</a>
       </div>
     </div>
-    <div style="flex: 1 1 320px; max-width: 440px; display: flex; flex-direction: column; gap: 14px">
-      <div style="background: #F8FAF7; border: 1px solid #E1E8DE; border-radius: 20px; padding: 16px 20px; display: flex; align-items: flex-start; gap: 14px">
-        <span style="font-size: 26px">✈️</span>
+    <div style="flex: 1 1 300px; max-width: 420px; display: flex; flex-direction: column; gap: 12px">
+      <div style="background: #F8FAF7; border: 1px solid #E1E8DE; border-radius: 18px; padding: 14px 18px; display: flex; align-items: flex-start; gap: 12px">
+        <span style="font-size: 24px">✈️</span>
         <div>
           <div style="font-weight: 800; font-size: 15px; color: #1C1B18">Aeromodelling &amp; Drones</div>
           <div style="font-size: 13px; color: #55524A; line-height: 1.4">Catapult gliders, balsa aerofoils, and micro quadcopters.</div>
         </div>
       </div>
-      <div style="background: #F8FAF7; border: 1px solid #E1E8DE; border-radius: 20px; padding: 16px 20px; display: flex; align-items: flex-start; gap: 14px">
-        <span style="font-size: 26px">🤖</span>
+      <div style="background: #F8FAF7; border: 1px solid #E1E8DE; border-radius: 18px; padding: 14px 18px; display: flex; align-items: flex-start; gap: 12px">
+        <span style="font-size: 24px">🤖</span>
         <div>
           <div style="font-weight: 800; font-size: 15px; color: #1C1B18">Robotics &amp; Mechanics</div>
           <div style="font-size: 13px; color: #55524A; line-height: 1.4">Dual-gearmotor rovers, ultrasonic radar, and hydraulic cranes.</div>
         </div>
       </div>
-      <div style="background: #F8FAF7; border: 1px solid #E1E8DE; border-radius: 20px; padding: 16px 20px; display: flex; align-items: flex-start; gap: 14px">
-        <span style="font-size: 26px">⚡</span>
+      <div style="background: #F8FAF7; border: 1px solid #E1E8DE; border-radius: 18px; padding: 14px 18px; display: flex; align-items: flex-start; gap: 12px">
+        <span style="font-size: 24px">⚡</span>
         <div>
           <div style="font-weight: 800; font-size: 15px; color: #1C1B18">Electronics &amp; IoT</div>
           <div style="font-size: 13px; color: #55524A; line-height: 1.4">Safe breadboard prototyping, smart soil monitors, and controllers.</div>
@@ -454,46 +616,46 @@
 </section>
 
 <!-- WORKSHOP ENQUIRY FORM -->
-<section id="enquiry" style="background: #FFFFFF">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
-<div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 16px">
+<section id="enquiry" class="mobile-compact" style="background: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 16px">
 <div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1F6B44">Enquire Now</div>
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; line-height: 1.05">Want to know more? Fill in and we'll reach out.</h2>
-<p style="margin: 0; font-size: 17px; color: #4A4740; line-height: 1.6">Whether you're a parent exploring classes, a school planning a workshop, or an educator wanting our curriculum — drop your details and our team will get back within 24 hours.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px">
-<a href="https://wa.me/919811100000?text=Hi%20Good%20Soil%2C%20I%27d%20like%20to%20know%20more%20about%20your%20workshops" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 999px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.584-1.212A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.684-6.05-1.854l-.422-.3-2.956.782.814-2.888-.328-.468A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>WhatsApp us</a>
-<a href="mailto:info@goodsoilmakers.com" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #1C1B18; color: #1C1B18; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 999px; font-size: 14px">✉ info@goodsoilmakers.com</a>
+<h2 class="mobile-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 46px); letter-spacing: -0.03em; line-height: 1.05">Want to know more? Fill in and we'll reach out.</h2>
+<p style="margin: 0; font-size: 16px; color: #4A4740; line-height: 1.6">Whether you're a parent exploring classes, a school planning a workshop, or an educator wanting our curriculum — drop your details and our team will get back within 24 hours.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px">
+<a href="https://wa.me/919811100000?text=Hi%20Good%20Soil%2C%20I%27d%20like%20to%20know%20more%20about%20your%20workshops" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.584-1.212A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.684-6.05-1.854l-.422-.3-2.956.782.814-2.888-.328-.468A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>WhatsApp us</a>
+<a href="mailto:info@goodsoilmakers.com" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #1C1B18; color: #1C1B18; text-decoration: none; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 14px">✉ info@goodsoilmakers.com</a>
 </div>
 </div>
-<div style="flex: 1 1 420px; background: #F8FAF7; border: 1.5px solid #E1E8DE; border-radius: 28px; padding: clamp(28px, 4vw, 44px)">
-<form id="workshop-enquiry-form" onsubmit="handleWorkshopEnquiry(event)" style="display: flex; flex-direction: column; gap: 18px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
-<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="flex: 1 1 420px; background: #F8FAF7; border: 1.5px solid #E1E8DE; border-radius: 26px; padding: clamp(24px, 3.5vw, 38px)">
+<form id="workshop-enquiry-form" onsubmit="handleWorkshopEnquiry(event)" style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 5px">
 <label style="font-weight: 700; font-size: 13px; color: #1C1B18">Parent / Contact Name *</label>
-<input type="text" name="name" required placeholder="Full name" style="min-height: 48px; border-radius: 14px; border: 1.5px solid #DAD7CE; padding: 0 16px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF">
+<input type="text" name="name" required placeholder="Full name" style="min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF">
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-direction: column; gap: 5px">
 <label style="font-weight: 700; font-size: 13px; color: #1C1B18">WhatsApp / Phone *</label>
-<input type="tel" name="phone" required placeholder="+91 98765 43210" style="min-height: 48px; border-radius: 14px; border: 1.5px solid #DAD7CE; padding: 0 16px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF">
+<input type="tel" name="phone" required placeholder="+91 98765 43210" style="min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF">
 </div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-direction: column; gap: 5px">
 <label style="font-weight: 700; font-size: 13px; color: #1C1B18">Email</label>
-<input type="email" name="email" placeholder="you@example.com" style="min-height: 48px; border-radius: 14px; border: 1.5px solid #DAD7CE; padding: 0 16px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF">
+<input type="email" name="email" placeholder="you@example.com" style="min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF">
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
-<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 5px">
 <label style="font-weight: 700; font-size: 13px; color: #1C1B18">Student Age Group</label>
-<select name="age" style="min-height: 48px; border-radius: 14px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF; color: #1C1B18; cursor: pointer">
+<select name="age" style="min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 12px; font: 14px 'DM Sans', sans-serif; background: #FFFFFF; color: #1C1B18; cursor: pointer">
 <option value="">Select age group</option>
 <option value="junior">Junior (7 – 10 yrs)</option>
 <option value="senior">Senior (10 – 14+ yrs)</option>
 <option value="both">Both / Not sure</option>
 </select>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-direction: column; gap: 5px">
 <label style="font-weight: 700; font-size: 13px; color: #1C1B18">I am a…</label>
-<select name="role" style="min-height: 48px; border-radius: 14px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF; color: #1C1B18; cursor: pointer">
+<select name="role" style="min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 12px; font: 14px 'DM Sans', sans-serif; background: #FFFFFF; color: #1C1B18; cursor: pointer">
 <option value="">Select</option>
 <option value="parent">Parent</option>
 <option value="school">School / Institution</option>
@@ -502,9 +664,9 @@
 </select>
 </div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-direction: column; gap: 5px">
 <label style="font-weight: 700; font-size: 13px; color: #1C1B18">What are you interested in?</label>
-<select name="interest" style="min-height: 48px; border-radius: 14px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF; color: #1C1B18; cursor: pointer">
+<select name="interest" style="min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 12px; font: 14px 'DM Sans', sans-serif; background: #FFFFFF; color: #1C1B18; cursor: pointer">
 <option value="">Select</option>
 <option value="weekend-classes">Weekend Batch Classes</option>
 <option value="holiday-camp">Holiday Camps</option>
@@ -514,11 +676,11 @@
 <option value="other">Something else</option>
 </select>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-direction: column; gap: 5px">
 <label style="font-weight: 700; font-size: 13px; color: #1C1B18">Message (optional)</label>
-<textarea name="message" rows="3" placeholder="Anything specific you'd like to know…" style="border-radius: 14px; border: 1.5px solid #DAD7CE; padding: 14px 16px; font: 15px 'DM Sans', sans-serif; background: #FFFFFF; resize: vertical"></textarea>
+<textarea name="message" rows="2" placeholder="Anything specific you'd like to know…" style="border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 12px 14px; font: 14px 'DM Sans', sans-serif; background: #FFFFFF; resize: vertical"></textarea>
 </div>
-<button type="submit" style="min-height: 52px; border-radius: 999px; border: 0; background: #1F6B44; color: #FFFFFF; font: 800 16px 'DM Sans', sans-serif; cursor: pointer; box-shadow: 0 4px 14px rgba(31,107,68,0.25); transition: transform 0.15s ease" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Submit Enquiry →</button>
+<button type="submit" style="min-height: 48px; border-radius: 999px; border: 0; background: #1F6B44; color: #FFFFFF; font: 800 15px 'DM Sans', sans-serif; cursor: pointer; box-shadow: 0 4px 14px rgba(31,107,68,0.25); transition: transform 0.15s ease" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Submit Enquiry &rarr;</button>
 <p style="margin: 0; font-size: 13px; color: #8E8A7F; text-align: center">We'll respond via WhatsApp or email within 24 hours.</p>
 </form>
 </div>
@@ -526,36 +688,36 @@
 </section>
 
 <!-- CURRICULUM CTA -->
-<section style="max-width: 1280px; margin: 0 auto; padding: 96px 24px">
-<div style="background: #1F6B44; color: #FFFFFF; border-radius: 36px; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
-<div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 14px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(32px, 3.6vw, 48px); letter-spacing: -0.03em; line-height: 1.04">Teaching at home or at school? Take our curriculum.</h2>
-<p style="margin: 0; font-size: 17px; color: #DCEBE2; line-height: 1.55">Downloadable modules with visual slides, build guides and the exact kit list — ages 7 to 14+.</p>
+<section style="max-width: 1280px; margin: 0 auto; padding: 72px 24px">
+<div style="background: #1F6B44; color: #FFFFFF; border-radius: 32px; padding: clamp(28px, 4vw, 56px); display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 400px; display: flex; flex-direction: column; gap: 12px">
+<h2 class="mobile-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -0.03em; line-height: 1.05">Teaching at home or at school? Take our curriculum.</h2>
+<p style="margin: 0; font-size: 16px; color: #DCEBE2; line-height: 1.55">Downloadable modules with visual slides, build guides and the exact kit list — ages 7 to 14+.</p>
 </div>
-<a href="curriculum.html" style="background: #F5B82E; color: #1C1B18; text-decoration: none; font-weight: 800; padding: 16px 28px; border-radius: 999px; font-size: 16px">Download modules</a>
+<a href="curriculum.html" style="background: #F5B82E; color: #1C1B18; text-decoration: none; font-weight: 800; padding: 15px 28px; border-radius: 999px; font-size: 15px; white-space: nowrap">Download modules</a>
 </div>
 </section>
 
 <!-- FOOTER -->
 <footer style="background: #1C1B18; color: #E8E5DC">
-<div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 48px">
-<div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
-<div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #FFFFFF; letter-spacing: -0.03em">Good Soil</span>
+<div style="max-width: 1280px; margin: 0 auto; padding: 64px 24px 36px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; gap: 36px; justify-content: space-between">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 36px; color: #FFFFFF; letter-spacing: -0.03em">Good Soil</span>
 <p style="margin: 0; color: #B8B4A9; font-size: 15px; line-height: 1.6; max-width: 36ch">Hands-on STEM, arts &amp; skills education. Planted by the team behind 10+ years of aeromodelling workshops.</p>
-<form style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px">
-<label for="nl" style="width: 100%; font-size: 14px; font-weight: 700; color: #FFFFFF">Get new camp dates first</label>
-<input id="nl" type="email" placeholder="Parent's email" style="flex: 1 1 200px; min-height: 48px; border-radius: 999px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 18px; font: 15px 'DM Sans', sans-serif">
-<button type="submit" style="min-height: 48px; padding: 0 22px; border-radius: 999px; border: 0; background: #F5B82E; color: #1C1B18; font: 700 15px 'DM Sans', sans-serif; cursor: pointer">Subscribe</button>
+<form style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px">
+<label for="nl" style="width: 100%; font-size: 13px; font-weight: 700; color: #FFFFFF">Get new camp dates first</label>
+<input id="nl" type="email" placeholder="Parent's email" style="flex: 1 1 180px; min-height: 46px; border-radius: 999px; border: 1px solid #55524A; background: #2A2925; color: #FFFFFF; padding: 0 16px; font: 14px 'DM Sans', sans-serif">
+<button type="submit" style="min-height: 46px; padding: 0 20px; border-radius: 999px; border: 0; background: #F5B82E; color: #1C1B18; font: 700 14px 'DM Sans', sans-serif; cursor: pointer">Subscribe</button>
 </form>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 15px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px; font-size: 14px">
 <div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Learn</span><a href="classes.html" style="color: #B8B4A9; text-decoration: none">Weekend classes</a><a href="classes.html" style="color: #B8B4A9; text-decoration: none">Holiday camps</a><a href="curriculum.html" style="color: #B8B4A9; text-decoration: none">Curriculum</a></div>
 <div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Shop</span><a href="shop.html" style="color: #B8B4A9; text-decoration: none">All kits</a><a href="shop.html" style="color: #B8B4A9; text-decoration: none">Class kits</a><a href="shop.html" style="color: #B8B4A9; text-decoration: none">Gift a kit</a></div>
 <div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 98111 00000</span><span style="color: #B8B4A9">info@goodsoilmakers.com</span><span style="color: #B8B4A9">New Delhi, India</span></div>
 </div>
 </div>
-<div style="border-top: 1px solid #3A3832; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8E8A7F"><span>&copy; 2026 Good Soil. All rights reserved.</span><span>Instagram &bull; YouTube &bull; WhatsApp</span></div>
+<div style="border-top: 1px solid #3A3832; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8E8A7F"><span>&copy; 2026 Good Soil. All rights reserved.</span><span>Instagram &bull; YouTube &bull; WhatsApp</span></div>
 </div>
 </footer>
 

@@ -33,6 +33,23 @@
     .format-btn.inactive:hover { background: #E7EDE3; }
     input:focus, select:focus { outline: 2px solid #F5B82E; }
     #book { scroll-margin-top: 96px; }
+    @media (max-width: 640px) {
+      body { overflow-x: hidden; }
+      h1 { font-size: clamp(28px, 7vw, 40px) !important; line-height: 1.08 !important; }
+      h2 { font-size: clamp(22px, 5.5vw, 30px) !important; }
+      .format-btn { min-height: 38px; padding: 0 14px; font-size: 13px; white-space: nowrap; }
+      div[role="tablist"] {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        scrollbar-width: none;
+      }
+      div[role="tablist"]::-webkit-scrollbar { display: none; }
+      #format-blurb { font-size: 15px !important; line-height: 1.5 !important; }
+      .card { padding: 20px 18px !important; }
+    }
   </style>
 </head>
 <body>
@@ -50,8 +67,6 @@
 <a href="classes.html" class="nav-link active">Classes &amp; Camps</a>
 <a href="shop.html" class="nav-link">Kit Shop</a>
 <a href="curriculum.html" class="nav-link">Curriculum</a>
-<a href="index.html#gallery" class="nav-link">Gallery</a>
-<a href="index.html#story" class="nav-link">Our story</a>
 </div>
 <div style="display: flex; align-items: center; gap: 12px">
 <button type="button" onclick="openCartDrawer(this)" aria-label="Open cart" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #DAD7CE; display: flex; align-items: center; justify-content: center; color: #1C1B18; background: #FFFFFF; cursor: pointer; position: relative; transition: border-color 0.2s;">
@@ -72,7 +87,7 @@
 
 <!-- TABS -->
 <section style="max-width: 1280px; margin: 0 auto; padding: 16px 24px 32px">
-<div role="tablist" aria-label="Program format" style="display: inline-flex; flex-wrap: wrap; gap: 6px; background: #F2F5EF; padding: 6px; border-radius: 999px">
+<div role="tablist" aria-label="Program format" style="display: inline-flex; flex-wrap: nowrap; gap: 6px; background: #F2F5EF; padding: 6px; border-radius: 999px; max-width: 100%; overflow-x: auto;">
 <button type="button" role="tab" id="tab-weekend" class="format-btn active" onclick="switchFormat('weekend')">Weekend classes</button>
 <button type="button" role="tab" id="tab-two" class="format-btn inactive" onclick="switchFormat('two')">2-day workshops</button>
 <button type="button" role="tab" id="tab-five" class="format-btn inactive" onclick="switchFormat('five')">5-day camps</button>
