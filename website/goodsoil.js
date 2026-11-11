@@ -33,6 +33,10 @@
   function saveStoredCart(items) {
     try {
       localStorage.setItem(CART_KEY, JSON.stringify(items));
+      const user = (typeof GoodSoilAuth !== 'undefined' && GoodSoilAuth.getUser) ? GoodSoilAuth.getUser() : null;
+      if (user) {
+        localStorage.setItem('goodsoil_user_cart_' + user.id, JSON.stringify(items));
+      }
       window.dispatchEvent(new CustomEvent('goodsoil:cartupdated', { detail: { items } }));
     } catch (e) {
       console.warn('Could not save cart to localStorage', e);
@@ -93,6 +97,456 @@
     }
   };
 
+  // Helper for safe HTML escaping
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // 1b. USER AUTHENTICATION & ORDER TRACKER (GoodSoilAuth)
+  // ─────────────────────────────────────────────────────────────
+  const AUTH_KEY = 'goodsoil_auth_user_v1';
+  const ORDERS_KEY = 'goodsoil_orders_v1';
+
+  function getStoredUser() {
+    try {
+      const data = localStorage.getItem(AUTH_KEY);
+      return data ? JSON.parse(data) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function saveStoredUser(user) {
+    try {
+      if (user) {
+        localStorage.setItem(AUTH_KEY, JSON.stringify(user));
+      } else {
+        localStorage.removeItem(AUTH_KEY);
+      }
+      window.dispatchEvent(new CustomEvent('goodsoil:authchange', { detail: { user } }));
+    } catch (e) {
+      console.warn('Could not save auth user', e);
+    }
+  }
+
+  window.GoodSoilAuth = {
+    getUser: getStoredUser,
+    isLoggedIn: function () {
+      return Boolean(getStoredUser());
+    },
+    login: function (data) {
+      let phone = (data.phone || '').trim().replace(/\s+/g, ' ');
+      let email = (data.email || '').trim().toLowerCase();
+      let name = (data.name || '').trim();
+
+      if (!phone && !email) {
+        showToast('⚠️ Please enter your phone number or email.');
+        return false;
+      }
+
+      if (phone && !phone.startsWith('+')) {
+        const digits = phone.replace(/\D/g, '');
+        if (digits.length === 10) {
+          phone = '+91 ' + digits.slice(0, 5) + ' ' + digits.slice(5);
+        }
+      }
+
+      const id = 'usr_' + (phone ? phone.replace(/\D/g, '') : email.replace(/[^a-z0-9]/g, ''));
+      if (!name) {
+        name = phone ? ('Parent (' + phone.slice(-4) + ')') : email.split('@')[0];
+      }
+
+      const user = {
+        id: id,
+        name: name,
+        phone: phone,
+        email: email,
+        method: phone ? 'phone' : 'email',
+        loggedInAt: new Date().toISOString()
+      };
+
+      saveStoredUser(user);
+
+      // Restore / merge user's saved cart
+      try {
+        const userCartKey = 'goodsoil_user_cart_' + user.id;
+        const savedItems = JSON.parse(localStorage.getItem(userCartKey) || '[]');
+        if (savedItems.length > 0) {
+          const active = GoodSoilCart.getItems();
+          savedItems.forEach(si => {
+            const match = active.find(i => i.id === si.id || i.name === si.name);
+            if (!match) active.push(si);
+          });
+          saveStoredCart(active);
+        } else {
+          localStorage.setItem(userCartKey, JSON.stringify(GoodSoilCart.getItems()));
+        }
+      } catch (err) {}
+
+      updateAuthUI();
+      showToast('🎉 Welcome, ' + user.name + '! Cart synced.');
+      closeAuthModal();
+      return true;
+    },
+    logout: function () {
+      const user = getStoredUser();
+      if (user) {
+        try {
+          localStorage.setItem('goodsoil_user_cart_' + user.id, JSON.stringify(GoodSoilCart.getItems()));
+        } catch (e) {}
+      }
+      saveStoredUser(null);
+      updateAuthUI();
+      showToast('👋 You have been logged out. Your cart is saved.');
+      closeAuthModal();
+    },
+    saveOrder: function (orderData) {
+      try {
+        const orders = JSON.parse(localStorage.getItem(ORDERS_KEY) || '[]');
+        const user = getStoredUser();
+        const order = {
+          id: 'GS-' + Math.floor(100000 + Math.random() * 900000),
+          date: new Date().toISOString(),
+          user: user ? { name: user.name, phone: user.phone, email: user.email } : null,
+          items: orderData.items || [],
+          total: orderData.total || 0,
+          method: orderData.method || 'WhatsApp Order',
+          status: 'Confirmed'
+        };
+        orders.unshift(order);
+        localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+        return order;
+      } catch (e) {
+        return null;
+      }
+    },
+    getOrders: function () {
+      try {
+        const orders = JSON.parse(localStorage.getItem(ORDERS_KEY) || '[]');
+        const user = getStoredUser();
+        if (!user) return orders.slice(0, 5);
+        return orders.filter(o => {
+          if (!o.user) return false;
+          return (user.phone && o.user.phone === user.phone) || (user.email && o.user.email === user.email);
+        });
+      } catch (e) {
+        return [];
+      }
+    }
+  };
+
+  // ─────────────────────────────────────────────────────────────
+  // AUTH MODAL COMPONENT (Sign in / Account)
+  // ─────────────────────────────────────────────────────────────
+  function injectAuthModalHTML() {
+    if (document.getElementById('auth-modal-container')) return;
+
+    const modalHTML = `
+      <div id="auth-modal-container" style="display: none; position: fixed; inset: 0; z-index: 10001; font-family: 'DM Sans', sans-serif;">
+        <div id="auth-backdrop" onclick="closeAuthModal()" style="position: absolute; inset: 0; background: rgba(28,27,24,0.65); backdrop-filter: blur(4px); opacity: 0; transition: opacity 0.25s ease;"></div>
+        <div id="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.95); width: 92%; max-width: 480px; max-height: 90vh; overflow-y: auto; background: #FFFFFF; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); opacity: 0; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); padding: 28px 24px; box-sizing: border-box;">
+          <div id="auth-modal-content"></div>
+        </div>
+      </div>
+    `;
+
+    const div = document.createElement('div');
+    div.innerHTML = modalHTML;
+    document.body.appendChild(div.firstElementChild);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isAuthModalOpen()) {
+        closeAuthModal();
+      }
+    });
+  }
+
+  function isAuthModalOpen() {
+    const container = document.getElementById('auth-modal-container');
+    return container && container.style.display !== 'none';
+  }
+
+  function openAuthModal() {
+    injectAuthModalHTML();
+    renderAuthModal();
+    const container = document.getElementById('auth-modal-container');
+    const backdrop = document.getElementById('auth-backdrop');
+    const dialog = document.getElementById('auth-dialog');
+    if (!container || !backdrop || !dialog) return;
+
+    container.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => {
+      backdrop.style.opacity = '1';
+      dialog.style.opacity = '1';
+      dialog.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+  }
+
+  function closeAuthModal() {
+    const container = document.getElementById('auth-modal-container');
+    const backdrop = document.getElementById('auth-backdrop');
+    const dialog = document.getElementById('auth-dialog');
+    if (!container || !backdrop || !dialog) return;
+
+    backdrop.style.opacity = '0';
+    dialog.style.opacity = '0';
+    dialog.style.transform = 'translate(-50%, -50%) scale(0.95)';
+    setTimeout(() => {
+      container.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 250);
+  }
+
+  window.openAuthModal = openAuthModal;
+  window.closeAuthModal = closeAuthModal;
+
+  function renderAuthModal() {
+    const content = document.getElementById('auth-modal-content');
+    if (!content) return;
+
+    const user = GoodSoilAuth.getUser();
+    if (user) {
+      const orders = GoodSoilAuth.getOrders();
+      const cartCount = GoodSoilCart.getCount();
+      const cartTotal = GoodSoilCart.getTotal();
+
+      content.innerHTML = `
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 20px;">
+          <div>
+            <div style="display: inline-flex; align-items: center; gap: 6px; background: #EBF5EF; color: #1F6B44; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px; margin-bottom: 8px;">
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: #1F6B44;"></span> Active Session
+            </div>
+            <h2 id="auth-modal-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; font-weight: 800; color: #1C1B18;">
+              ${escapeHtml(user.name)}
+            </h2>
+            <div style="font-size: 14px; color: #55524A; margin-top: 2px;">
+              ${user.phone ? '📱 ' + escapeHtml(user.phone) : ''}
+              ${user.phone && user.email ? ' · ' : ''}
+              ${user.email ? '✉️ ' + escapeHtml(user.email) : ''}
+            </div>
+          </div>
+          <button type="button" onclick="closeAuthModal()" aria-label="Close" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #ECEAE3; background: #FFFFFF; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #55524A;">&times;</button>
+        </div>
+
+        <div style="background: #F8FAF7; border: 1px solid #E1E8DE; border-radius: 18px; padding: 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+          <div>
+            <div style="font-weight: 800; font-size: 15px; color: #1C1B18;">🛒 Saved Kit Cart</div>
+            <div style="font-size: 13px; color: #55524A;">${cartCount} ${cartCount === 1 ? 'item' : 'items'} · ₹${cartTotal.toLocaleString('en-IN')}</div>
+          </div>
+          <button type="button" onclick="closeAuthModal(); openCartDrawer();" style="background: #1F6B44; color: #FFFFFF; border: 0; font-weight: 700; font-size: 13px; padding: 8px 16px; border-radius: 999px; cursor: pointer;">
+            View Cart &rarr;
+          </button>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <div style="font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: #8A4B2A; margin-bottom: 10px;">
+            Your Orders &amp; Registrations
+          </div>
+          ${orders.length === 0 ? `
+            <div style="text-align: center; padding: 24px 12px; background: #FAF9F5; border-radius: 16px; border: 1px dashed #DAD7CE;">
+              <span style="font-size: 28px; display: block; margin-bottom: 6px;">📦</span>
+              <p style="margin: 0; font-size: 14px; color: #55524A; font-weight: 600;">No past kit orders yet.</p>
+              <p style="margin: 4px 0 12px; font-size: 12px; color: #8E8A7F;">Explore our workshop curriculum or class batches to get started.</p>
+              <a href="classes.html" onclick="closeAuthModal()" style="display: inline-block; background: #1C1B18; color: #FFFFFF; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 999px; text-decoration: none;">Browse Classes &rarr;</a>
+            </div>
+          ` : `
+            <div style="display: flex; flex-direction: column; gap: 8px; max-height: 200px; overflow-y: auto;">
+              ${orders.map(o => `
+                <div style="background: #FAF9F5; border: 1px solid #ECEAE3; border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px;">
+                  <div>
+                    <div style="font-weight: 800; color: #1C1B18;">${o.id} · <span style="color: #1F6B44;">₹${(o.total || 0).toLocaleString('en-IN')}</span></div>
+                    <div style="font-size: 11px; color: #8E8A7F;">${new Date(o.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} · ${(o.items || []).length} items</div>
+                  </div>
+                  <span style="background: #EBF5EF; color: #1F6B44; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px;">${o.method || 'WhatsApp'}</span>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+
+        <div style="border-top: 1px solid #ECEAE3; padding-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+          <button type="button" onclick="GoodSoilAuth.logout()" style="background: none; border: 0; color: #C0392B; font-weight: 700; font-size: 13px; cursor: pointer; text-decoration: underline;">
+            Log out
+          </button>
+          <button type="button" onclick="closeAuthModal()" style="background: #ECEAE3; border: 0; color: #1C1B18; font-weight: 700; font-size: 13px; padding: 8px 18px; border-radius: 999px; cursor: pointer;">
+            Close
+          </button>
+        </div>
+      `;
+    } else {
+      content.innerHTML = `
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
+          <div>
+            <div style="display: inline-flex; align-items: center; gap: 6px; background: #FFF4D6; color: #8A4B2A; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px; margin-bottom: 8px;">
+              Good Soil Account
+            </div>
+            <h2 id="auth-modal-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: #1C1B18;">
+              Sign in to save your cart
+            </h2>
+            <p style="margin: 4px 0 0; font-size: 14px; color: #55524A; line-height: 1.45;">
+              Keep your selected kits safe, track workshop batches, and speed up WhatsApp ordering.
+            </p>
+          </div>
+          <button type="button" onclick="closeAuthModal()" aria-label="Close" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #ECEAE3; background: #FFFFFF; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #55524A;">&times;</button>
+        </div>
+
+        <div style="display: flex; background: #F2F5EF; border-radius: 999px; padding: 4px; gap: 4px; margin-bottom: 18px;">
+          <button type="button" id="tab-auth-phone" onclick="switchAuthTab('phone')" style="flex: 1; min-height: 38px; border-radius: 999px; border: 0; background: #1F6B44; color: #FFFFFF; font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s;">
+            📱 Phone / WhatsApp
+          </button>
+          <button type="button" id="tab-auth-email" onclick="switchAuthTab('email')" style="flex: 1; min-height: 38px; border-radius: 999px; border: 0; background: transparent; color: #55524A; font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s;">
+            ✉️ Email
+          </button>
+        </div>
+
+        <form id="form-auth-phone" onsubmit="handleAuthSubmit(event, 'phone')" style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label for="auth-phone-input" style="font-size: 13px; font-weight: 700; color: #1C1B18;">WhatsApp / Mobile Number *</label>
+            <div style="display: flex; gap: 8px;">
+              <span style="min-height: 46px; padding: 0 12px; background: #FAF9F5; border: 1.5px solid #DAD7CE; border-radius: 12px; display: flex; align-items: center; font-size: 14px; font-weight: 700; color: #55524A;">+91</span>
+              <input type="tel" id="auth-phone-input" name="phone" placeholder="98111 00000" pattern="[0-9\\s]{10,13}" required style="flex: 1; min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 15px 'DM Sans', sans-serif;">
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label for="auth-name-input-phone" style="font-size: 13px; font-weight: 700; color: #1C1B18;">Parent / Maker Name (optional)</label>
+            <input type="text" id="auth-name-input-phone" name="name" placeholder="e.g. Vikram Singh" style="min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 14px 'DM Sans', sans-serif;">
+          </div>
+
+          <button type="submit" style="min-height: 48px; border-radius: 999px; border: 0; background: #1F6B44; color: #FFFFFF; font-weight: 800; font-size: 15px; cursor: pointer; box-shadow: 0 4px 14px rgba(31,107,68,0.25); display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 4px;">
+            <span>Save Cart &amp; Continue &rarr;</span>
+          </button>
+        </form>
+
+        <form id="form-auth-email" onsubmit="handleAuthSubmit(event, 'email')" style="display: none; flex-direction: column; gap: 14px;">
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label for="auth-email-input" style="font-size: 13px; font-weight: 700; color: #1C1B18;">Email Address *</label>
+            <input type="email" id="auth-email-input" name="email" placeholder="parent@example.com" required style="min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 14px 'DM Sans', sans-serif;">
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label for="auth-name-input-email" style="font-size: 13px; font-weight: 700; color: #1C1B18;">Parent / Maker Name (optional)</label>
+            <input type="text" id="auth-name-input-email" name="name" placeholder="e.g. Vikram Singh" style="min-height: 46px; border-radius: 12px; border: 1.5px solid #DAD7CE; padding: 0 14px; font: 14px 'DM Sans', sans-serif;">
+          </div>
+
+          <button type="submit" style="min-height: 48px; border-radius: 999px; border: 0; background: #1F6B44; color: #FFFFFF; font-weight: 800; font-size: 15px; cursor: pointer; box-shadow: 0 4px 14px rgba(31,107,68,0.25); display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 4px;">
+            <span>Save Cart &amp; Continue &rarr;</span>
+          </button>
+        </form>
+
+        <div style="margin-top: 20px; border-top: 1px solid #ECEAE3; padding-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 12px; color: #55524A;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>💾</span> <span>Sync across devices</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>⚡</span> <span>1-click WhatsApp order</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>📦</span> <span>Track kit dispatch</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>🛡️</span> <span>No passwords needed</span>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  window.switchAuthTab = function (tab) {
+    const phoneForm = document.getElementById('form-auth-phone');
+    const emailForm = document.getElementById('form-auth-email');
+    const phoneTab = document.getElementById('tab-auth-phone');
+    const emailTab = document.getElementById('tab-auth-email');
+
+    if (tab === 'phone') {
+      if (phoneForm) phoneForm.style.display = 'flex';
+      if (emailForm) emailForm.style.display = 'none';
+      if (phoneTab) { phoneTab.style.background = '#1F6B44'; phoneTab.style.color = '#FFFFFF'; }
+      if (emailTab) { emailTab.style.background = 'transparent'; emailTab.style.color = '#55524A'; }
+    } else {
+      if (phoneForm) phoneForm.style.display = 'none';
+      if (emailForm) emailForm.style.display = 'flex';
+      if (emailTab) { emailTab.style.background = '#1F6B44'; emailTab.style.color = '#FFFFFF'; }
+      if (phoneTab) { phoneTab.style.background = 'transparent'; phoneTab.style.color = '#55524A'; }
+    }
+  };
+
+  window.handleAuthSubmit = function (e, method) {
+    e.preventDefault();
+    const form = e.target;
+    const fd = new FormData(form);
+    const phone = fd.get('phone');
+    const email = fd.get('email');
+    const name = fd.get('name');
+
+    GoodSoilAuth.login({
+      phone: phone,
+      email: email,
+      name: name,
+      method: method
+    });
+  };
+
+  function updateAuthUI() {
+    const user = GoodSoilAuth.getUser();
+
+    document.querySelectorAll('.nav-auth-btn, #nav-auth-btn').forEach(btn => {
+      if (user) {
+        btn.setAttribute('aria-label', 'My Account (' + (user.name || user.phone) + ')');
+        btn.innerHTML = `
+          <span style="font-size: 15px;">👤</span>
+          <span class="auth-btn-label" style="max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(user.name.split(' ')[0] || user.phone)}</span>
+        `;
+        btn.style.background = '#F2F5EF';
+        btn.style.borderColor = '#CFD9CD';
+        btn.style.color = '#1F6B44';
+      } else {
+        btn.setAttribute('aria-label', 'Sign in to save cart');
+        btn.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span class="auth-btn-label">Log in</span>
+        `;
+        btn.style.background = '#FFFFFF';
+        btn.style.borderColor = '#DAD7CE';
+        btn.style.color = '#1C1B18';
+      }
+    });
+
+    if (isCartDrawerOpen()) {
+      renderCartDrawer();
+    }
+
+    updateMobileMenuAccount();
+  }
+
+  function ensureNavAuthBtn() {
+    if (document.getElementById('nav-auth-btn')) {
+      updateAuthUI();
+      return;
+    }
+
+    const cartBtn = document.querySelector('button[onclick*="openCartDrawer"], button[aria-label="Open cart"]');
+    if (!cartBtn || !cartBtn.parentElement) return;
+
+    const authBtn = document.createElement('button');
+    authBtn.type = 'button';
+    authBtn.id = 'nav-auth-btn';
+    authBtn.className = 'nav-auth-btn';
+    authBtn.onclick = function () { openAuthModal(); };
+    authBtn.setAttribute('style', "height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #DAD7CE; display: inline-flex; align-items: center; gap: 8px; color: #1C1B18; background: #FFFFFF; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; transition: all 0.2s;");
+
+    cartBtn.parentElement.insertBefore(authBtn, cartBtn.nextSibling);
+    updateAuthUI();
+  }
+
   // ─────────────────────────────────────────────────────────────
   // 2. ACCESSIBLE CART DRAWER COMPONENT
   // ─────────────────────────────────────────────────────────────
@@ -126,6 +580,9 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
             <span id="shipping-banner-text">Free shipping on all orders across India!</span>
           </div>
+
+          <!-- Auth Status Banner -->
+          <div id="cart-auth-banner"></div>
 
           <!-- Items List Container -->
           <div id="cart-items-list" style="flex: 1; overflow-y: auto; padding: 20px 24px; display: flex; flex-direction: column; gap: 16px;">
@@ -247,6 +704,32 @@
     const badge = document.getElementById('cart-drawer-badge');
     if (badge) badge.textContent = count;
 
+    const authBanner = document.getElementById('cart-auth-banner');
+    if (authBanner) {
+      const user = GoodSoilAuth.getUser();
+      if (user) {
+        authBanner.innerHTML = `
+          <div style="background: #EBF5EF; border-bottom: 1px solid #D6E8DC; padding: 10px 24px; font-size: 13px; display: flex; align-items: center; justify-content: space-between; color: #1F6B44;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 15px;">✅</span>
+              <span>Cart saved to <strong>${escapeHtml(user.name)}</strong></span>
+            </div>
+            <button type="button" onclick="openAuthModal()" style="background: none; border: 0; color: #1F6B44; font-weight: 700; text-decoration: underline; cursor: pointer; font-size: 12px;">Account</button>
+          </div>
+        `;
+      } else {
+        authBanner.innerHTML = `
+          <div style="background: #FFF4D6; border-bottom: 1px solid #ECEAE3; padding: 10px 24px; font-size: 13px; display: flex; align-items: center; justify-content: space-between; color: #8A4B2A;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 15px;">📱</span>
+              <span>Sign in to save your cart across devices</span>
+            </div>
+            <button type="button" onclick="openAuthModal()" style="background: #1C1B18; color: #FFFFFF; border: 0; padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 12px; cursor: pointer;">Log In</button>
+          </div>
+        `;
+      }
+    }
+
     const list = document.getElementById('cart-items-list');
     const footer = document.getElementById('cart-footer');
     if (!list) return;
@@ -340,11 +823,15 @@
     const items = GoodSoilCart.getItems();
     if (items.length === 0) return;
 
+    const user = GoodSoilAuth.getUser();
     const subtotal = GoodSoilCart.getTotal();
     const discountAmount = Math.round(subtotal * (discountPercent / 100));
     const total = subtotal - discountAmount;
 
     let text = "Hello Good Soil! 🌱 I would like to order the following kits from your catalogue:\n\n";
+    if (user) {
+      text += `*Customer:* ${user.name} (${user.phone || user.email})\n\n`;
+    }
     items.forEach((item, idx) => {
       text += `${idx + 1}. *${item.name}* (x${item.qty}) — ₹${(item.price * item.qty).toLocaleString('en-IN')}\n`;
     });
@@ -354,9 +841,18 @@
     }
     text += `\n*Total Amount:* ₹${total.toLocaleString('en-IN')}\n\nPlease confirm availability and delivery details. Thank you!`;
 
+    // Save order in auth history!
+    GoodSoilAuth.saveOrder({
+      items: items.map(i => ({ name: i.name, qty: i.qty, price: i.price })),
+      total: total,
+      method: 'WhatsApp Order'
+    });
+
     const encoded = encodeURIComponent(text);
     window.open(`https://wa.me/919811100000?text=${encoded}`, '_blank');
     GoodSoilCart.clearCart();
+    closeCartDrawer();
+    showToast('🎉 Order initiated via WhatsApp! Saved to your Good Soil account.');
   }
   window.checkoutViaWhatsApp = checkoutViaWhatsApp;
 
@@ -732,6 +1228,7 @@
 
       menu.innerHTML = `
         <div id="goodsoil-mobile-menu-inner">
+          <div id="mobile-menu-auth-card" style="margin-bottom: 14px;"></div>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <a href="classes.html" class="mobile-nav-item ${isClasses ? 'active' : ''}" onclick="closeMobileNav()">
               <span>Classes &amp; Camps</span>
@@ -792,6 +1289,40 @@
     document.body.style.overflow = '';
   }
 
+  function updateMobileMenuAccount() {
+    const card = document.getElementById('mobile-menu-auth-card');
+    if (!card) return;
+    const user = GoodSoilAuth.getUser();
+    if (user) {
+      card.innerHTML = `
+        <div style="background: #F8FAF7; border: 1px solid #E1E8DE; border-radius: 16px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 16px;">👤</span>
+              <strong style="font-size: 14px; color: #1C1B18;">${escapeHtml(user.name)}</strong>
+            </div>
+            <span style="background: #EBF5EF; color: #1F6B44; font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px;">SIGNED IN</span>
+          </div>
+          <div style="font-size: 12px; color: #55524A;">${escapeHtml(user.phone || user.email)}</div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <button type="button" onclick="closeMobileNav(); openAuthModal();" style="flex: 1; min-height: 34px; border-radius: 999px; border: 1px solid #1F6B44; background: #FFFFFF; color: #1F6B44; font-weight: 700; font-size: 12px; cursor: pointer;">My Account</button>
+            <button type="button" onclick="GoodSoilAuth.logout();" style="min-height: 34px; padding: 0 12px; border-radius: 999px; border: 1px solid #DAD7CE; background: #FAF9F5; color: #8A4B2A; font-weight: 700; font-size: 12px; cursor: pointer;">Log out</button>
+          </div>
+        </div>
+      `;
+    } else {
+      card.innerHTML = `
+        <div style="background: #FFF4D6; border: 1px solid #EADBBA; border-radius: 16px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <div>
+            <div style="font-weight: 800; font-size: 13px; color: #8A4B2A;">Save Cart &amp; Kits</div>
+            <div style="font-size: 12px; color: #55524A;">Sign in with phone or email</div>
+          </div>
+          <button type="button" onclick="closeMobileNav(); openAuthModal();" style="min-height: 34px; padding: 0 14px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font-weight: 700; font-size: 12px; cursor: pointer;">Log In</button>
+        </div>
+      `;
+    }
+  }
+
   window.toggleMobileNav = toggleMobileNav;
   window.closeMobileNav = closeMobileNav;
 
@@ -800,8 +1331,15 @@
   // ─────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     injectCartDrawerHTML();
+    injectAuthModalHTML();
     injectMobileNav();
+    ensureNavAuthBtn();
     updateNavCartBadges();
+    updateAuthUI();
+
+    window.addEventListener('goodsoil:authchange', () => {
+      updateAuthUI();
+    });
 
     // Wire up all Cart trigger buttons across any page
     document.querySelectorAll('[data-open-cart], a[aria-label="Cart"], button[aria-label="Open cart"], a[href="shop.html"][aria-label="Cart"]').forEach(btn => {
