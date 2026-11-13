@@ -40,6 +40,14 @@
     input:focus, select:focus { outline: 2px solid #F5B82E; }
     #book { scroll-margin-top: 96px; }
     @media (max-width: 768px) {
+      /* Prevent iOS Safari auto-zoom on input focus */
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+      /* Safe padding for bottom navigation bar */
+      body {
+        padding-bottom: calc(68px + env(safe-area-inset-bottom, 10px)) !important;
+      }
       html, body {
         overflow-x: hidden !important;
         width: 100% !important;

@@ -252,6 +252,7 @@
       <div id="auth-modal-container" style="display: none; position: fixed; inset: 0; z-index: 10001; font-family: 'DM Sans', sans-serif;">
         <div id="auth-backdrop" onclick="closeAuthModal()" style="position: absolute; inset: 0; background: rgba(28,27,24,0.65); backdrop-filter: blur(4px); opacity: 0; transition: opacity 0.25s ease;"></div>
         <div id="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.95); width: 92%; max-width: 480px; max-height: 90vh; overflow-y: auto; background: #FFFFFF; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); opacity: 0; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); padding: 28px 24px; box-sizing: border-box;">
+          <div class="mobile-sheet-handle" style="width: 42px; height: 5px; background: #DAD7CE; border-radius: 999px; margin: 0 auto 14px; display: none;"></div>
           <div id="auth-modal-content"></div>
         </div>
       </div>
@@ -283,10 +284,11 @@
 
     container.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    const isMobile = window.innerWidth <= 768;
     requestAnimationFrame(() => {
       backdrop.style.opacity = '1';
       dialog.style.opacity = '1';
-      dialog.style.transform = 'translate(-50%, -50%) scale(1)';
+      dialog.style.transform = isMobile ? 'translateY(0)' : 'translate(-50%, -50%) scale(1)';
     });
   }
 
@@ -296,9 +298,10 @@
     const dialog = document.getElementById('auth-dialog');
     if (!container || !backdrop || !dialog) return;
 
+    const isMobile = window.innerWidth <= 768;
     backdrop.style.opacity = '0';
     dialog.style.opacity = '0';
-    dialog.style.transform = 'translate(-50%, -50%) scale(0.95)';
+    dialog.style.transform = isMobile ? 'translateY(100%)' : 'translate(-50%, -50%) scale(0.95)';
     setTimeout(() => {
       container.style.display = 'none';
       document.body.style.overflow = '';
@@ -562,7 +565,7 @@
         
         <!-- Drawer Dialog -->
         <aside id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-heading" style="position: absolute; top: 0; right: 0; bottom: 0; width: 100%; max-width: 440px; background: #FFFFFF; box-shadow: -10px 0 40px rgba(0,0,0,0.25); display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1); font-family: 'DM Sans', sans-serif;">
-          
+          <div class="mobile-sheet-handle" style="width: 42px; height: 5px; background: #DAD7CE; border-radius: 999px; margin: 10px auto 4px; display: none;"></div>
           <!-- Header -->
           <div style="padding: 20px 24px; border-bottom: 1px solid #ECEAE3; display: flex; align-items: center; justify-content: space-between; background: #FAF9F5;">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -666,9 +669,10 @@
     document.body.style.overflow = 'hidden';
 
     // Animation frame
+    const isMobile = window.innerWidth <= 768;
     requestAnimationFrame(() => {
       backdrop.style.opacity = '1';
-      drawer.style.transform = 'translateX(0)';
+      drawer.style.transform = isMobile ? 'translateY(0)' : 'translateX(0)';
       const closeBtn = document.getElementById('cart-close-btn');
       if (closeBtn) closeBtn.focus();
     });
@@ -681,8 +685,9 @@
 
     if (!container || container.style.display === 'none') return;
 
+    const isMobile = window.innerWidth <= 768;
     backdrop.style.opacity = '0';
-    drawer.style.transform = 'translateX(100%)';
+    drawer.style.transform = isMobile ? 'translateY(100%)' : 'translateX(100%)';
 
     setTimeout(() => {
       container.style.display = 'none';
@@ -859,8 +864,11 @@
   // Sync navbar cart counters whenever cart changes
   function updateNavCartBadges() {
     const count = GoodSoilCart.getCount();
-    document.querySelectorAll('[data-cart-counter], #cart-counter, #nav-cart-badge').forEach(badge => {
+    document.querySelectorAll('[data-cart-counter], #cart-counter, #nav-cart-badge, .bottom-tab-badge').forEach(badge => {
       badge.textContent = count;
+      if (badge.classList.contains('bottom-tab-badge')) {
+        badge.style.display = count > 0 ? 'inline-block' : 'none';
+      }
     });
   }
 
@@ -1086,9 +1094,13 @@
       const style = document.createElement('style');
       style.id = 'goodsoil-mobile-styles';
       style.textContent = `
-        /* Mobile-friendly responsiveness & strict no horizontal scroll */
+        /* Global tap & touch optimizations */
+        button, a, input, select {
+          touch-action: manipulation;
+        }
         *, *::before, *::after {
           box-sizing: border-box;
+          -webkit-tap-highlight-color: transparent;
         }
         html, body {
           overflow-x: hidden !important;
@@ -1159,8 +1171,172 @@
             flex: 0 0 calc(100vw - 44px) !important;
             max-width: calc(100vw - 44px) !important;
           }
+          /* Prevent iOS Safari auto-zoom on input tap */
+          input, select, textarea {
+            font-size: 16px !important;
+          }
+          /* Safe body padding for sticky bottom navigation bar */
+          body {
+            padding-bottom: calc(68px + env(safe-area-inset-bottom, 10px)) !important;
+          }
+
+          /* Native Bottom-Sheet styling for Cart Drawer */
+          #cart-drawer {
+            top: auto !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            max-height: 88vh !important;
+            border-radius: 26px 26px 0 0 !important;
+            transform: translateY(100%) !important;
+            box-shadow: 0 -12px 40px rgba(0,0,0,0.3) !important;
+            padding-bottom: env(safe-area-inset-bottom, 16px) !important;
+          }
+          .mobile-sheet-handle {
+            display: block !important;
+          }
+
+          /* Native Bottom-Sheet styling for Auth Modal */
+          #auth-dialog {
+            top: auto !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            border-radius: 26px 26px 0 0 !important;
+            transform: translateY(100%) !important;
+            max-height: 88vh !important;
+            padding: 16px 20px calc(24px + env(safe-area-inset-bottom, 14px)) !important;
+            box-shadow: 0 -12px 40px rgba(0,0,0,0.3) !important;
+          }
+
+          /* Carousel Dots */
+          .slider-dots-container {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 7px !important;
+            padding: 12px 0 4px !important;
+            width: 100% !important;
+          }
+          .slider-dot {
+            width: 8px !important;
+            height: 8px !important;
+            border-radius: 999px !important;
+            background: #DAD7CE !important;
+            border: 0 !important;
+            padding: 0 !important;
+            cursor: pointer !important;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+          }
+          .slider-dot.active {
+            width: 22px !important;
+            background: #1F6B44 !important;
+          }
+          .slider-container:has(.slider-arrow.dark) .slider-dot {
+            background: #55524A !important;
+          }
+          .slider-container:has(.slider-arrow.dark) .slider-dot.active {
+            background: #F5B82E !important;
+          }
+
+          /* Mobile Bottom App Navigation Bar */
+          #goodsoil-bottom-bar {
+            display: block !important;
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 9990 !important;
+            background: rgba(255, 255, 255, 0.96) !important;
+            backdrop-filter: blur(14px) !important;
+            -webkit-backdrop-filter: blur(14px) !important;
+            border-top: 1px solid #E5E2D9 !important;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.07) !important;
+            padding-bottom: env(safe-area-inset-bottom, 6px) !important;
+          }
+          #goodsoil-bottom-bar-inner {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-around !important;
+            height: 58px !important;
+            max-width: 520px !important;
+            margin: 0 auto !important;
+            padding: 0 4px !important;
+          }
+          .bottom-tab {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 3px !important;
+            text-decoration: none !important;
+            color: #6E6A60 !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            font-family: 'DM Sans', sans-serif !important;
+            padding: 6px 8px !important;
+            border-radius: 12px !important;
+            transition: all 0.15s ease !important;
+            position: relative !important;
+            flex: 1 !important;
+            max-width: 76px !important;
+          }
+          .bottom-tab.active {
+            color: #1F6B44 !important;
+          }
+          .bottom-tab.active svg {
+            transform: translateY(-1px) scale(1.08) !important;
+          }
+          .bottom-tab-badge {
+            position: absolute !important;
+            top: -4px !important;
+            right: -8px !important;
+            background: #F5B82E !important;
+            color: #1C1B18 !important;
+            font-size: 10px !important;
+            font-weight: 800 !important;
+            border-radius: 999px !important;
+            padding: 1px 6px !important;
+            min-width: 14px !important;
+            text-align: center !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
+          }
+          .bottom-tab-wa {
+            color: #128C7E !important;
+          }
+          .bottom-tab:active {
+            transform: scale(0.92) !important;
+          }
+
+          /* Kit Card Mobile Styling */
+          .goodsoil-kit-card {
+            border-radius: 20px !important;
+            padding: 14px !important;
+            background: #FFFFFF !important;
+            border: 1px solid #ECEAE3 !important;
+            box-shadow: 0 4px 14px rgba(28,27,24,0.04) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+          }
+          .goodsoil-kit-card:active {
+            transform: scale(0.98) !important;
+          }
         }
         @media (min-width: 769px) {
+          #goodsoil-bottom-bar {
+            display: none !important;
+          }
+          .slider-dots-container {
+            display: none !important;
+          }
+          .mobile-sheet-handle {
+            display: none !important;
+          }
           .goodsoil-mobile-toggle {
             display: none !important;
           }
@@ -1364,6 +1540,127 @@
     }
   }
 
+
+  // ─────────────────────────────────────────────────────────────
+  // 5c. STICKY MOBILE BOTTOM NAVIGATION BAR
+  // ─────────────────────────────────────────────────────────────
+  function injectMobileBottomBar() {
+    if (document.getElementById('goodsoil-bottom-bar')) return;
+
+    const path = (window.location.pathname || '').toLowerCase();
+    const isClasses = path.includes('classes');
+    const isShop = path.includes('shop');
+    const isCurric = path.includes('curriculum');
+    const isHome = !isClasses && !isShop && !isCurric;
+
+    const bar = document.createElement('nav');
+    bar.id = 'goodsoil-bottom-bar';
+    bar.setAttribute('aria-label', 'Mobile bottom navigation');
+    bar.innerHTML = `
+      <div id="goodsoil-bottom-bar-inner">
+        <a href="index.html" class="bottom-tab ${isHome ? 'active' : ''}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Home</span>
+        </a>
+
+        <a href="classes.html" class="bottom-tab ${isClasses ? 'active' : ''}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+            <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-2.05 9a22 22 0 0 1-3.95 2l-3-3z"></path>
+          </svg>
+          <span>Classes</span>
+        </a>
+
+        <a href="shop.html" class="bottom-tab ${isShop ? 'active' : ''}">
+          <div style="position: relative; display: inline-flex;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+            <span class="bottom-tab-badge" data-cart-counter style="display: none;">0</span>
+          </div>
+          <span>Kits</span>
+        </a>
+
+        <a href="curriculum.html" class="bottom-tab ${isCurric ? 'active' : ''}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          <span>Curriculum</span>
+        </a>
+
+        <a href="https://wa.me/918050312758?text=Hi%20Good%20Soil%2C%20I%20have%20an%20enquiry%20about%20kits%20and%20classes" target="_blank" class="bottom-tab bottom-tab-wa" aria-label="Chat on WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.584-1.212A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.684-6.05-1.854l-.422-.3-2.956.782.814-2.888-.328-.468A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+          </svg>
+          <span>Chat</span>
+        </a>
+      </div>
+    `;
+    document.body.appendChild(bar);
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // 5d. CAROUSEL DOTS CONTROLLER (Swipe indicators on mobile)
+  // ─────────────────────────────────────────────────────────────
+  function initCarouselDots() {
+    const tracks = ['tracks-slider', 'moments-slider', 'industry-slider'];
+    tracks.forEach(trackId => {
+      const track = document.getElementById(trackId);
+      if (!track) return;
+      const container = track.closest('.slider-container');
+      if (!container) return;
+
+      const dotsId = trackId + '-dots';
+      let dotsContainer = document.getElementById(dotsId);
+      if (!dotsContainer) {
+        dotsContainer = document.createElement('div');
+        dotsId && (dotsContainer.id = dotsId);
+        dotsContainer.className = 'slider-dots-container';
+        container.appendChild(dotsContainer);
+      }
+
+      const cards = track.querySelectorAll(':scope > *');
+      if (cards.length <= 1) return;
+
+      dotsContainer.innerHTML = '';
+      cards.forEach((card, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'slider-dot' + (idx === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
+        dot.onclick = () => {
+          const cardWidth = card.getBoundingClientRect().width;
+          const gap = 20;
+          track.scrollTo({ left: (cardWidth + gap) * idx, behavior: 'smooth' });
+        };
+        dotsContainer.appendChild(dot);
+      });
+
+      let isScrolling;
+      track.addEventListener('scroll', () => {
+        clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          const firstCard = track.querySelector(':scope > *');
+          if (!firstCard) return;
+          const cardWidth = firstCard.getBoundingClientRect().width + 20;
+          const activeIndex = Math.round(track.scrollLeft / cardWidth);
+          const dots = dotsContainer.querySelectorAll('.slider-dot');
+          dots.forEach((d, i) => {
+            if (i === activeIndex) d.classList.add('active');
+            else d.classList.remove('active');
+          });
+        }, 50);
+      }, { passive: true });
+    });
+  }
+
   window.toggleMobileNav = toggleMobileNav;
   window.closeMobileNav = closeMobileNav;
 
@@ -1374,6 +1671,8 @@
     injectCartDrawerHTML();
     injectAuthModalHTML();
     injectMobileNav();
+    injectMobileBottomBar();
+    initCarouselDots();
     ensureNavAuthBtn();
     updateNavCartBadges();
     updateAuthUI();
@@ -1399,10 +1698,10 @@
       });
     });
 
-    // Wire up newsletter forms across all pages
-    document.querySelectorAll('form').forEach(f => {
+    // Wire up newsletter forms across all pages (scoped to footer newsletter forms)
+    document.querySelectorAll('footer form, form.newsletter-form').forEach(f => {
       const emailInput = f.querySelector('input[type="email"]');
-      if (emailInput && !f.id.includes('seat-form')) {
+      if (emailInput) {
         f.addEventListener('submit', function (e) {
           e.preventDefault();
           const email = emailInput.value.trim();
