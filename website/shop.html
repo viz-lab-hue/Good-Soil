@@ -209,8 +209,164 @@
 <script src="goodsoil.js"></script>
 
 <script>
-// Empty product catalogue per owner request while custom Good Soil kits are in production
-const allProducts = [];
+// =========================================================================
+// GOOD SOIL KIT CATALOGUE CONFIGURATION
+// To publish kits live on the website, change KITS_LAUNCHED = false to true!
+// Tip: You can test the live kit shop anytime by visiting shop.html?preview=kits
+// =========================================================================
+const urlParams = new URLSearchParams(window.location.search);
+const KITS_LAUNCHED = urlParams.get('preview') === 'kits' || false;
+
+const allProducts = [
+  {
+    id: 'diy-drone-kit',
+    name: 'DIY Engineering Quadcopter Drone Kit',
+    price: 2499,
+    img: 'images/kits/diy_engineering_drone_kit.png',
+    cat: 'Aeromodelling',
+    age: '10–14+ yrs',
+    desc: 'Lightweight carbon composite frame, high-speed coreless motors, 6-axis gyro, and safety propeller guards. Includes take-home flight transmitter.',
+    badge: 'Flagship'
+  },
+  {
+    id: '6-dof-robotic-arm',
+    name: '6-DOF Precision Robotic Arm Kit',
+    price: 3200,
+    img: 'images/kits/6_dof_robotic_arm_kit.png',
+    cat: 'Robotics',
+    age: '10–14+ yrs',
+    desc: 'Six metal gear servos with multi-axis joystick controls. Teaches inverse kinematics, mechanical linkages, and automated pick-and-place routines.',
+    badge: 'Advanced'
+  },
+  {
+    id: 'advanced-robotics-kit',
+    name: 'RoboRover Multi-Terrain Autonomous Kit',
+    price: 1850,
+    img: 'images/kits/advanced_robotics_kit.png',
+    cat: 'Robotics',
+    age: '7–12 yrs',
+    desc: 'Twin dual-shaft gearmotors, high-traction rubber wheels, ultrasonic obstacle sensor, and solder-free breadboard controller.',
+    badge: 'Best Seller'
+  },
+  {
+    id: 'microbit-robotics-kit',
+    name: 'Smart Micro:bit Explorer Rover',
+    price: 2100,
+    img: 'images/kits/microbit_robotics_kit.png',
+    cat: 'Coding & AI',
+    age: '8–14 yrs',
+    desc: 'Visual block programming rover with line-tracking infrared sensors, LED matrix expressions, and programmable buzzer audio.',
+    badge: 'Popular'
+  },
+  {
+    id: 'smart-farming-kit',
+    name: 'IoT Eco-Farmer Automated Greenhouse Kit',
+    price: 1450,
+    img: 'images/kits/smart_farming_kit.png',
+    cat: 'DIY STEM',
+    age: '7–12 yrs',
+    desc: 'Soil moisture probe, mini water submersible pump, solar cell, and automated plant watering microcontroller. Science in your hands.',
+    badge: 'Eco Science'
+  },
+  {
+    id: 'smart-home-kit',
+    name: 'Smart Home Automation Lab',
+    price: 1650,
+    img: 'images/kits/smart_home_automation_kit.png',
+    cat: 'Electronics',
+    age: '8–14 yrs',
+    desc: 'PIR motion sensor, twilight LDR light sensor, relay module, and miniature laser-cut house frame. Automate lights and alarms safely.',
+    badge: 'Hands-On'
+  },
+  {
+    id: 'drone-kit-kids',
+    name: 'Junior AeroMaker Catapult Glider Pack',
+    price: 850,
+    img: 'images/kits/drone_kit_kids.png',
+    cat: 'Aeromodelling',
+    age: '7–10 yrs',
+    desc: 'Set of 3 precision laser-cut balsa aerofoils, high-tension elastic launcher, balance clay, and illustrated visual flight manual.',
+    badge: 'Beginner'
+  },
+  {
+    id: 'drone-kit-pro',
+    name: 'AeroCraft Pro Rubber-Powered Endurance Flyer',
+    price: 1150,
+    img: 'images/kits/drone_kit_pro.png',
+    cat: 'Aeromodelling',
+    age: '8–14 yrs',
+    desc: 'Competition-grade balsa fuselage, geared propeller mechanism, calibrated Japanese rubber motor, and tissue wing covering kit for 60s+ sustained flight.',
+    badge: 'Maker Favorite'
+  }
+];
+
+// If launched or in preview mode, render the live catalog dynamically!
+document.addEventListener('DOMContentLoaded', function () {
+  if (!KITS_LAUNCHED) return;
+
+  const comingSoonSec = document.querySelector('section:has(#kit-notify-form)');
+  if (!comingSoonSec) return;
+
+  comingSoonSec.innerHTML = `
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+      
+      <!-- Category Tabs -->
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center;" id="kit-category-filters">
+        <button type="button" class="format-btn active" onclick="filterKits('all', this)">All Kits (${allProducts.length})</button>
+        <button type="button" class="format-btn inactive" onclick="filterKits('Aeromodelling', this)">Aeromodelling</button>
+        <button type="button" class="format-btn inactive" onclick="filterKits('Robotics', this)">Robotics</button>
+        <button type="button" class="format-btn inactive" onclick="filterKits('Electronics', this)">Electronics</button>
+        <button type="button" class="format-btn inactive" onclick="filterKits('Coding & AI', this)">Coding & AI</button>
+        <button type="button" class="format-btn inactive" onclick="filterKits('DIY STEM', this)">DIY STEM</button>
+      </div>
+
+      <!-- Live Kit Grid -->
+      <div id="live-kit-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px;">
+        <!-- Rendered by renderLiveKits() -->
+      </div>
+    </div>
+  `;
+
+  window.filterKits = function (cat, btn) {
+    document.querySelectorAll('#kit-category-filters button').forEach(b => {
+      b.className = 'format-btn inactive';
+    });
+    if (btn) btn.className = 'format-btn active';
+    renderLiveKits(cat);
+  };
+
+  window.renderLiveKits = function (filterCat = 'all') {
+    const grid = document.getElementById('live-kit-grid');
+    if (!grid) return;
+    const filtered = filterCat === 'all' ? allProducts : allProducts.filter(p => p.cat.toLowerCase().includes(filterCat.toLowerCase()));
+    
+    grid.innerHTML = filtered.map(kit => `
+      <div class="card goodsoil-kit-card" style="background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 24px; padding: 18px; display: flex; flex-direction: column; gap: 14px; position: relative;">
+        <div style="position: relative; aspect-ratio: 1 / 1; border-radius: 18px; overflow: hidden; background: #F8FAF7; display: flex; align-items: center; justify-content: center;">
+          <img src="${kit.img}" alt="${kit.name}" loading="lazy" style="width: 90%; height: 90%; object-fit: contain;">
+          <span style="position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,0.95); backdrop-filter: blur(6px); color: #1F6B44; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 999px;">${kit.badge}</span>
+          <span style="position: absolute; top: 12px; right: 12px; background: rgba(28,27,24,0.85); color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">${kit.age}</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; flex: 1;">
+          <span style="font-size: 11px; font-weight: 800; color: #8A4B2A; letter-spacing: 0.05em; text-transform: uppercase;">${kit.cat}</span>
+          <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 800; color: #1C1B18; line-height: 1.25;">${kit.name}</h3>
+          <p style="margin: 0; font-size: 13px; color: #55524A; line-height: 1.5; flex: 1;">${kit.desc}</p>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #ECEAE3; padding-top: 12px; margin-top: auto;">
+          <div>
+            <div style="font-size: 10px; color: #8E8A7F; font-weight: 700; text-transform: uppercase;">Price</div>
+            <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; color: #1F6B44;">₹${kit.price.toLocaleString('en-IN')}</div>
+          </div>
+          <button type="button" onclick="GoodSoilCart.addItem({ id: '${kit.id}', name: '${kit.name.replace(/'/g, "\'")}', price: ${kit.price}, img: '${kit.img}', cat: '${kit.cat}', age: '${kit.age}' })" style="min-height: 44px; padding: 0 20px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 800 14px 'DM Sans', sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.15s ease;" onmouseover="this.style.background='#1F6B44'" onmouseout="this.style.background='#1C1B18'">
+            <span>+ Add to Cart</span>
+          </button>
+        </div>
+      </div>
+    `).join('');
+  };
+
+  renderLiveKits();
+});
 </script>
 
 </body>

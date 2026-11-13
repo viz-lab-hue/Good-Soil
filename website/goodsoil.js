@@ -905,38 +905,81 @@
   window.showToast = showToast;
 
   // ─────────────────────────────────────────────────────────────
-  // 4. ACCESSIBLE VIDEO SHOWCASE MODAL
+  // 4. ACCESSIBLE VIDEO & VERTICAL REEL MODAL PLAYER
   // ─────────────────────────────────────────────────────────────
-  function openVideoModal() {
+  function openVideoModal(videoSrc, title, caption, isVertical, posterSrc) {
     let modal = document.getElementById('goodsoil-video-modal');
     if (!modal) {
       modal = document.createElement('div');
       modal.id = 'goodsoil-video-modal';
-      modal.style.cssText = 'position: fixed; inset: 0; z-index: 10002; display: flex; align-items: center; justify-content: center; background: rgba(14,14,12,0.85); backdrop-filter: blur(8px); padding: 20px;';
-      modal.innerHTML = `
-        <div style="position: relative; width: 100%; max-width: 800px; background: #1C1B18; border-radius: 28px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.5); border: 1px solid #3A3832;">
-          <div style="padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2A2925;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="width: 10px; height: 10px; border-radius: 50%; background: #E03E3E; display: inline-block;"></span>
-              <span style="color: #FFFFFF; font-weight: 700; font-size: 15px; font-family: 'Bricolage Grotesque', sans-serif;">Good Soil Hands-On Workshop Reel</span>
-            </div>
-            <button type="button" onclick="closeVideoModal()" aria-label="Close video player" style="background: none; border: 0; color: #FFFFFF; font-size: 24px; cursor: pointer; padding: 4px;">&times;</button>
-          </div>
-          <div style="aspect-ratio: 16 / 9; position: relative; background: #000000; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="images/hero-workshop.jpg" alt="Children testing gliders and robots" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.8) 100%);"></div>
-            <div style="position: absolute; bottom: 20px; left: 24px; right: 24px; color: #FFFFFF; font-family: 'DM Sans', sans-serif;">
-              <div style="font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; margin-bottom: 4px;">Glider Lab & Drone Flight Testing Day</div>
-              <div style="font-size: 14px; color: #DCEBE2;">Filmed on location at Good Soil Experience Centre, New Delhi</div>
-            </div>
-          </div>
-        </div>
-      `;
+      modal.style.cssText = 'position: fixed; inset: 0; z-index: 10002; display: flex; align-items: center; justify-content: center; background: rgba(14,14,12,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 16px; font-family: "DM Sans", sans-serif; box-sizing: border-box;';
+      document.body.appendChild(modal);
       modal.onclick = function (e) {
         if (e.target === modal) closeVideoModal();
       };
-      document.body.appendChild(modal);
     }
+
+    const t = title || 'Good Soil Hands-On Workshop Reel';
+    const c = caption || 'Filmed live on location at Good Soil Maker Centre, New Delhi';
+    const vertical = isVertical || (videoSrc && (videoSrc.includes('reel') || videoSrc.includes('vertical')));
+    const poster = posterSrc || 'images/hero-workshop.jpg';
+
+    const maxWidth = vertical ? '420px' : '820px';
+    const aspectRatio = vertical ? '9 / 16' : '16 / 9';
+
+    let mediaHTML = '';
+    if (videoSrc && (videoSrc.endsWith('.mp4') || videoSrc.endsWith('.webm') || videoSrc.endsWith('.mov'))) {
+      mediaHTML = `
+        <video id="goodsoil-active-video" controls autoplay playsinline style="width: 100%; height: 100%; object-fit: contain; background: #000000;" onerror="this.style.display='none'; document.getElementById('goodsoil-video-fallback').style.display='flex';">
+          <source src="${escapeHtml(videoSrc)}" type="video/mp4">
+        </video>
+        <div id="goodsoil-video-fallback" style="display: none; position: relative; width: 100%; height: 100%; align-items: center; justify-content: center; background: #1C1B18;">
+          <img src="${escapeHtml(poster)}" alt="${escapeHtml(t)}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);"></div>
+          <div style="position: absolute; top: 16px; left: 16px; background: #F5B82E; color: #1C1B18; font-weight: 800; font-size: 11px; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.05em;">
+            EDITED CLIP LANDING SOON
+          </div>
+          <div style="width: 68px; height: 68px; border-radius: 50%; background: #F5B82E; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 10px rgba(245,184,46,0.3); z-index: 2;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#1C1B18"><path d="M8 5.5v13l11-6.5Z"></path></svg>
+          </div>
+          <div style="position: absolute; bottom: 18px; left: 16px; right: 16px; text-align: center; color: #FFFFFF; font-size: 12px; color: #DCEBE2;">
+            Recorded on phone during workshop · Raw file in editing
+          </div>
+        </div>
+      `;
+    } else {
+      mediaHTML = `
+        <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #1C1B18;">
+          <img src="${escapeHtml(poster)}" alt="${escapeHtml(t)}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.88;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);"></div>
+          <div style="position: absolute; top: 16px; left: 16px; background: #F5B82E; color: #1C1B18; font-weight: 800; font-size: 11px; padding: 4px 10px; border-radius: 999px;">
+            RECORDED LIVE IN WORKSHOP
+          </div>
+          <div style="width: 68px; height: 68px; border-radius: 50%; background: #F5B82E; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 10px rgba(245,184,46,0.3); z-index: 2;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#1C1B18"><path d="M8 5.5v13l11-6.5Z"></path></svg>
+          </div>
+        </div>
+      `;
+    }
+
+    modal.innerHTML = `
+      <div style="position: relative; width: 100%; max-width: ${maxWidth}; background: #1C1B18; border-radius: 26px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.5); border: 1px solid #3A3832; max-height: 94vh; display: flex; flex-direction: column;">
+        <div style="padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2A2925; background: #252420;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #E03E3E; display: inline-block;"></span>
+            <span style="color: #FFFFFF; font-weight: 700; font-size: 14px; font-family: 'Bricolage Grotesque', sans-serif;">${escapeHtml(t)}</span>
+          </div>
+          <button type="button" onclick="closeVideoModal()" aria-label="Close video player" style="background: none; border: 0; color: #FFFFFF; font-size: 26px; cursor: pointer; padding: 0 6px; line-height: 1;">&times;</button>
+        </div>
+        <div style="aspect-ratio: ${aspectRatio}; position: relative; background: #000000; overflow: hidden; max-height: 72vh;">
+          ${mediaHTML}
+        </div>
+        <div style="padding: 14px 20px; background: #1C1B18; border-top: 1px solid #2A2925;">
+          <div style="font-size: 13px; color: #CFCBC0; line-height: 1.45;">${escapeHtml(c)}</div>
+        </div>
+      </div>
+    `;
+
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
@@ -944,6 +987,13 @@
   function closeVideoModal() {
     const modal = document.getElementById('goodsoil-video-modal');
     if (modal) {
+      const vid = modal.querySelector('video');
+      if (vid) {
+        try {
+          vid.pause();
+          vid.currentTime = 0;
+        } catch (e) {}
+      }
       modal.style.display = 'none';
       document.body.style.overflow = '';
     }
@@ -1610,7 +1660,7 @@
   // 5d. CAROUSEL DOTS CONTROLLER (Swipe indicators on mobile)
   // ─────────────────────────────────────────────────────────────
   function initCarouselDots() {
-    const tracks = ['tracks-slider', 'moments-slider', 'industry-slider'];
+    const tracks = ['reels-slider', 'tracks-slider', 'moments-slider', 'industry-slider'];
     tracks.forEach(trackId => {
       const track = document.getElementById(trackId);
       if (!track) return;
