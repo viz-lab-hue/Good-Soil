@@ -38,3 +38,4 @@ Drop your edited phone videos and workshop recordings into this directory (`webs
 
 ### How It Works:
 The website layout is pre-wired to look for these files. While you are editing them, the site automatically displays high-resolution photo posters with play buttons. Once you drop your `.mp4` or `.webm` files here with these names, they will play directly inside the custom modal player!
+

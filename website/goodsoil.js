@@ -854,10 +854,21 @@
     });
 
     const encoded = encodeURIComponent(text);
-    window.open(`https://wa.me/918050312758?text=${encoded}`, '_blank');
+    const waUrl = `https://wa.me/918050312758?text=${encoded}`;
+
     GoodSoilCart.clearCart();
     closeCartDrawer();
     showToast('🎉 Order initiated via WhatsApp! Saved to your Good Soil account.');
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = waUrl;
+    } else {
+      const win = window.open(waUrl, '_blank');
+      if (!win) {
+        window.location.href = waUrl;
+      }
+    }
   }
   window.checkoutViaWhatsApp = checkoutViaWhatsApp;
 
@@ -1115,7 +1126,17 @@
     const successEl = document.getElementById('modal-curr-success');
     if (successEl) successEl.style.display = 'block';
 
-    showToast('🎉 Curriculum request received! We are sending details to ' + contact);
+    showToast('🎉 Curriculum request received! Connecting to WhatsApp...');
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = waUrl;
+    } else {
+      const win = window.open(waUrl, '_blank');
+      if (!win) {
+        window.location.href = waUrl;
+      }
+    }
   }
 
   function closePdfModal() {
@@ -1875,17 +1896,30 @@
 
     const waUrl = 'https://wa.me/918050312758?text=' + encodeURIComponent(waMsg);
 
-    // Show success
-    if (typeof showToast === 'function') {
-      showToast('✅ Enquiry submitted! We\'ll reach out within 24 hours.');
+    // Update fallback link and swap UI
+    const successCard = document.getElementById('enquiry-success');
+    const waLink = document.getElementById('enquiry-wa-link');
+    if (waLink) waLink.href = waUrl;
+    if (successCard) {
+      form.style.display = 'none';
+      successCard.style.display = 'block';
     }
 
-    form.reset();
+    // Show success
+    if (typeof showToast === 'function') {
+      showToast('✅ Enquiry submitted! Opening WhatsApp...');
+    }
 
-    // Try to open WhatsApp after a short delay
-    setTimeout(function () {
-      window.open(waUrl, '_blank');
-    }, 600);
+    // Direct synchronous WhatsApp launch (avoids browser popup blocker)
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = waUrl;
+    } else {
+      const win = window.open(waUrl, '_blank');
+      if (!win) {
+        window.location.href = waUrl;
+      }
+    }
   };
 
 })();

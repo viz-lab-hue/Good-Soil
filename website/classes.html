@@ -426,7 +426,8 @@ function selectBatch(batchName, formatName, event) {
 
 function handleBooking(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
   const parentName = document.getElementById('pn')?.value.trim() || '';
   const phone = document.getElementById('ph')?.value.trim() || '';
   const ageSelect = document.getElementById('ca');
@@ -450,21 +451,37 @@ function handleBooking(e) {
     console.warn('Could not store booking locally', err);
   }
 
-  btn.disabled = true;
-  btn.textContent = 'Submitting...';
+  const waMessage = `Hello Good Soil! 🌱 I would like to reserve a seat:
 
-  const waMessage = `Hello Good Soil! 🌱 I would like to reserve a seat:\n\n• Parent: ${parentName}\n• Phone: ${phone}\n• Child Cohort: ${ageText}\n• Format: ${formatText}\n\nPlease confirm availability and upcoming batch dates. Thank you!`;
+• Parent: ${parentName}
+• Phone: ${phone}
+• Child Cohort: ${ageText}
+• Format: ${formatText}
+
+Please confirm availability and upcoming batch dates. Thank you!`;
   const waUrl = `https://wa.me/918050312758?text=${encodeURIComponent(waMessage)}`;
 
   const waLink = document.getElementById('booking-whatsapp-link');
   if (waLink) waLink.href = waUrl;
 
-  setTimeout(() => {
-    btn.style.display = 'none';
-    document.getElementById('booking-success').style.display = 'block';
-    showToast('🎉 Reservation request saved! Opening WhatsApp confirmation...');
-    window.open(waUrl, '_blank');
-  }, 500);
+  if (btn) btn.style.display = 'none';
+  const successBox = document.getElementById('booking-success');
+  if (successBox) successBox.style.display = 'block';
+
+  if (typeof showToast === 'function') {
+    showToast('🎉 Reservation request saved! Opening WhatsApp...');
+  }
+
+  // Open WhatsApp synchronously to prevent popup blocker suppression
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (isMobile) {
+    window.location.href = waUrl;
+  } else {
+    const win = window.open(waUrl, '_blank');
+    if (!win) {
+      window.location.href = waUrl;
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function () {

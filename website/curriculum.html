@@ -588,7 +588,18 @@
       if (success) success.style.display = 'block';
 
       if (typeof showToast === 'function') {
-        showToast('🎉 Request sent! We will dispatch the curriculum to ' + contact);
+        showToast('🎉 Request received! Opening WhatsApp confirmation...');
+      }
+
+      // Open WhatsApp synchronously
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.location.href = waUrl;
+      } else {
+        const win = window.open(waUrl, '_blank');
+        if (!win) {
+          window.location.href = waUrl;
+        }
       }
     }
 
