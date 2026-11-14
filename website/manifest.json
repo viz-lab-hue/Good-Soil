@@ -1,0 +1,17 @@
+{
+  "name": "Good Soil — Hands-On STEM, Arts & Skills",
+  "short_name": "Good Soil",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1F6B44",
+  "description": "Wholesome hands-on STEM, arts and skills school for kids.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
