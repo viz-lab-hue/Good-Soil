@@ -44,8 +44,8 @@ export default async function handler(req, res) {
       pageUrl: data.pageUrl || data.url || ''
     };
 
-    // Webhook URL configured in Vercel Environment Variables
-    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+    // Webhook URL configured in Vercel Environment Variables or live deployed Google Webhook
+    const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL || 'https://script.google.com/macros/s/AKfycbzGYNcsm0XNGDHyqojk1ZVC5zve9VR5cm3xlejo4gpMpb93Hop6_fTsvcHQuio2YHd7/exec';
 
     if (webhookUrl) {
       try {

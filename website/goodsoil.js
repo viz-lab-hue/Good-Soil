@@ -18,6 +18,8 @@
   // ─────────────────────────────────────────────────────────────
   // 0. CENTRAL LEAD CAPTURE (Async sync to /api/lead -> Google Sheets)
   // ─────────────────────────────────────────────────────────────
+  const GOOGLE_SHEET_FALLBACK_URL = 'https://script.google.com/macros/s/AKfycbzGYNcsm0XNGDHyqojk1ZVC5zve9VR5cm3xlejo4gpMpb93Hop6_fTsvcHQuio2YHd7/exec';
+
   function sendLeadToBackend(leadData) {
     try {
       const payload = {
@@ -25,17 +27,32 @@
         pageUrl: window.location.href,
         submittedAt: new Date().toISOString()
       };
+      
+      // Attempt serverless /api/lead first
       fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
-      }).then(res => res.json())
-        .then(res => {
-          console.log('Lead synced to backend:', res);
-        })
-        .catch(err => {
-          console.warn('Backend sync deferred/offline:', err);
-        });
+      }).then(res => {
+        if (!res.ok) throw new Error('API route returned status ' + res.status);
+        return res.json();
+      }).then(res => {
+        console.log('Lead synced via /api/lead:', res);
+      }).catch(err => {
+        // Fallback: If /api/lead is not available (e.g. preview, localhost, or file://), send directly to Google Apps Script
+        try {
+          fetch(GOOGLE_SHEET_FALLBACK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).then(() => {
+            console.log('Lead synced directly to Google Sheet fallback');
+          }).catch(e => {
+            console.warn('Google Sheet fallback error:', e);
+          });
+        } catch (fbErr) {}
+      });
     } catch (e) {
       console.warn('sendLeadToBackend error:', e);
     }
