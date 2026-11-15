@@ -176,6 +176,67 @@
       }
       div[role="tablist"]::-webkit-scrollbar { display: none; }
     }
+  
+    /* Universal Slider & Smooth Transitions */
+    .slider-container {
+      position: relative;
+      width: 100%;
+    }
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 8;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid #ECEAE3;
+      color: #1C1B18;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      padding: 0;
+    }
+    .slider-arrow svg {
+      display: block;
+      width: 22px;
+      height: 22px;
+      pointer-events: none;
+    }
+    .slider-arrow:hover {
+      background: #1F6B44;
+      color: #FFFFFF;
+      border-color: #1F6B44;
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 6px 20px rgba(31,107,68,0.28);
+    }
+    .slider-arrow:active { transform: translateY(-50%) scale(0.92); }
+    .slider-arrow-left { left: -18px; }
+    .slider-arrow-right { right: -18px; }
+    #modules-grid {
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+    @keyframes smoothPageEnter {
+      from { opacity: 0.92; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    body > div:first-of-type {
+      animation: smoothPageEnter 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (max-width: 768px) {
+      .slider-arrow { width: 38px; height: 38px; }
+      .slider-arrow svg { width: 18px; height: 18px; }
+      .slider-arrow-left { left: 4px !important; }
+      .slider-arrow-right { right: 4px !important; }
+      .slider-card { flex: 0 0 calc(100vw - 48px) !important; max-width: calc(100vw - 48px) !important; }
+    }
+
   </style>
 </head>
 
@@ -344,11 +405,30 @@
       </div>
     </section>
 
-    <!-- MODULES GRID -->
+    <!-- SYLLABUS MODULES SLIDER -->
     <section style="max-width: 1280px; margin: 0 auto; padding: 0 24px 64px">
-      <div id="modules-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px">
-        <!-- Populated by JavaScript -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.08em; color: #8A4B2A; text-transform: uppercase;">Progressive Syllabi</div>
+          <h2 style="margin: 4px 0 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; color: #1C1B18;">Core Track Syllabus Modules</h2>
+        </div>
+        <div style="font-size: 13px; color: #55524A; font-weight: 700; display: flex; align-items: center; gap: 6px;">
+          <span>Swipe or click arrows to explore</span> &rarr;
+        </div>
+      </div>
+
+      <div class="slider-container" style="position: relative; width: 100%;">
+        <button type="button" class="slider-arrow slider-arrow-left" onclick="slideCarousel('modules-grid', -1)" aria-label="Previous syllabus guide" style="top: 50%;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 19l-7-7 7-7"/></svg>
+        </button>
+
+        <div id="modules-grid" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding: 12px 4px 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch;">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <button type="button" class="slider-arrow slider-arrow-right" onclick="slideCarousel('modules-grid', 1)" aria-label="Next syllabus guide" style="top: 50%;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
       </div>
     </section>
 
@@ -485,37 +565,52 @@
       currentAge = age;
       document.getElementById('age-junior').className = age === '7–10' ? 'age-tab active' : 'age-tab inactive';
       document.getElementById('age-senior').className = age === '10–14+' ? 'age-tab active' : 'age-tab inactive';
-      renderModules();
+      
+      const grid = document.getElementById('modules-grid');
+      if (grid) {
+        grid.style.opacity = '0.35';
+        grid.style.transform = 'translateY(5px)';
+        setTimeout(() => {
+          renderModules();
+          grid.style.opacity = '1';
+          grid.style.transform = 'translateY(0)';
+          grid.scrollTo({ left: 0, behavior: 'smooth' });
+        }, 120);
+      } else {
+        renderModules();
+      }
     }
 
     function renderModules() {
       const filtered = modulesData.filter(m => m.age === currentAge);
       const grid = document.getElementById('modules-grid');
+      if (!grid) return;
       grid.innerHTML = filtered.map(m => `
-    <div class="card" style="border: 1px solid #ECEAE3; border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF">
+    <div class="card slider-card" style="flex: 0 0 340px; scroll-snap-align: start; min-width: 0; border: 1px solid #ECEAE3; border-radius: 26px; padding: 26px 24px; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF;">
       <div style="display: flex; justify-content: space-between; align-items: center">
-        <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A">${m.track}</span>
-        <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 5px 12px; border-radius: 999px">${m.age}</span>
+        <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A">${m.track}</span>
+        <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 4px 12px; border-radius: 999px">${m.age}</span>
       </div>
-      <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; letter-spacing: -0.02em">${m.title}</h3>
-      <p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.55">${m.desc}</p>
+      <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; color: #1C1B18;">${m.title}</h3>
+      <p style="margin: 0; color: #55524A; font-size: 14px; line-height: 1.55">${m.desc}</p>
       <div style="display: flex; gap: 14px; font-size: 13px; color: #55524A; padding-top: 4px">
         <span>${m.sessions} sessions</span>
         <span>·</span>
         <span>Slides + build guide</span>
       </div>
-      <div style="display: flex; gap: 10px; margin-top: auto; padding-top: 12px; flex-wrap: wrap">
-        <button type="button" onclick="downloadPdf('${m.title}')" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 700 14px 'DM Sans', sans-serif; cursor: pointer; transition: background 0.2s">Request Syllabus Guide</button>
-        <a href="classes.html" style="min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid #DAD7CE; color: #1C1B18; text-decoration: none; font-weight: 700; font-size: 14px; transition: border-color 0.2s">Learn in class &rarr;</a>
+      <div style="display: flex; gap: 10px; margin-top: auto; padding-top: 12px; flex-direction: column;">
+        <button type="button" onclick="downloadPdf('${m.title}')" style="min-height: 44px; width: 100%; padding: 0 18px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 700 14px 'DM Sans', sans-serif; cursor: pointer; transition: background 0.2s">Request Syllabus Guide &rarr;</button>
+        <a href="classes.html" style="min-height: 40px; width: 100%; display: inline-flex; align-items: center; justify-content: center; padding: 0 16px; border-radius: 999px; border: 1px solid #DAD7CE; color: #1C1B18; text-decoration: none; font-weight: 700; font-size: 13px; transition: border-color 0.2s">Learn in class &rarr;</a>
       </div>
     </div>
   `).join('');
     }
 
-    function scrollToElementWithOffset(el, offsetPadding = 20) {
+    // Smooth scrolling calibrated to frame dark card comfortably below header
+    function scrollToElementWithOffset(el, offsetPadding = 14) {
       if (!el) return;
       const header = document.querySelector('header');
-      const headerHeight = header ? header.getBoundingClientRect().height : 70;
+      const headerHeight = header ? header.getBoundingClientRect().height : 68;
       const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
       const targetY = Math.max(0, elementPosition - headerHeight - offsetPadding);
 
@@ -538,16 +633,8 @@
         if (btn) btn.setAttribute('aria-expanded', 'true');
         if (chevron) chevron.style.transform = 'rotate(180deg)';
 
-        // Frame the toggle button and the top of the card smoothly below the sticky header
-        const target = btn || panel;
-        scrollToElementWithOffset(target, 16);
-
-        const nameInput = document.getElementById('curr-name');
-        if (nameInput) {
-          setTimeout(() => {
-            nameInput.focus({ preventScroll: true });
-          }, 450);
-        }
+        // Frame the dark card cleanly below the header matching user reference level
+        scrollToElementWithOffset(panel, 14);
       } else {
         panel.style.display = 'none';
         if (btn) btn.setAttribute('aria-expanded', 'false');
@@ -593,7 +680,12 @@
         });
       }
 
-      const msg = `Hi Good Soil Team! I would like to request the Master Curriculum PDF.\n\nName: ${name}\nContact: ${contact}\nAge Focus: ${ageText}\nInquiring As: ${roleText}`;
+      const msg = `Hi Good Soil Team! I would like to request the Master Curriculum PDF.
+
+Name: ${name}
+Contact: ${contact}
+Age Focus: ${ageText}
+Inquiring As: ${roleText}`;
       const waUrl = `https://wa.me/918050312758?text=${encodeURIComponent(msg)}`;
       const waAction = document.getElementById('curr-wa-action');
       if (waAction) waAction.href = waUrl;
@@ -628,7 +720,6 @@
     }
 
     function downloadPdf(title) {
-      // Toggle dropdown open and pre-select or open modal
       toggleCurriculumDropdown(true);
       if (typeof showToast === 'function') {
         showToast('📄 Select your contact preferences below for: ' + (title || 'Curriculum'));

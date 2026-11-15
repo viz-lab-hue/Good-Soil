@@ -80,6 +80,67 @@
       #format-blurb { font-size: 15px !important; line-height: 1.5 !important; }
       .card { padding: 20px 18px !important; }
     }
+  
+    /* Universal Slider & Smooth Transitions */
+    .slider-container {
+      position: relative;
+      width: 100%;
+    }
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 8;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid #ECEAE3;
+      color: #1C1B18;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      padding: 0;
+    }
+    .slider-arrow svg {
+      display: block;
+      width: 22px;
+      height: 22px;
+      pointer-events: none;
+    }
+    .slider-arrow:hover {
+      background: #1F6B44;
+      color: #FFFFFF;
+      border-color: #1F6B44;
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 6px 20px rgba(31,107,68,0.28);
+    }
+    .slider-arrow:active { transform: translateY(-50%) scale(0.92); }
+    .slider-arrow-left { left: -18px; }
+    .slider-arrow-right { right: -18px; }
+    #format-media, #format-title, #format-flow {
+      transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes smoothPageEnter {
+      from { opacity: 0.92; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    body > div:first-of-type {
+      animation: smoothPageEnter 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (max-width: 768px) {
+      .slider-arrow { width: 38px; height: 38px; }
+      .slider-arrow svg { width: 18px; height: 18px; }
+      .slider-arrow-left { left: 4px !important; }
+      .slider-arrow-right { right: 4px !important; }
+      .slider-card { flex: 0 0 285px !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -107,7 +168,6 @@
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
 <span class="auth-btn-label">Log in</span>
 </button>
-<a href="#book" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 999px; font-size: 15px">Book a class</a>
 </div>
 </nav>
 </header>
@@ -168,50 +228,119 @@
   <span id="format-price"></span>
   <span id="format-per"></span>
 </div>
-<div style="padding-top: 12px">
-  <a href="#book" style="display: inline-block; background: #1F6B44; color: #FFFFFF; font-weight: 700; padding: 14px 28px; border-radius: 999px; font-size: 15px; text-decoration: none">Book this format →</a>
+<div style="padding-top: 16px; width: 100%;">
+  <a href="#book" onclick="scrollToBookingCard(event)" style="display: flex; align-items: center; justify-content: center; width: 100%; min-height: 50px; background: #1F6B44; color: #FFFFFF; font-weight: 800; font-size: 16px; padding: 14px 24px; border-radius: 999px; text-decoration: none; text-align: center; box-shadow: 0 4px 14px rgba(31,107,68,0.22); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">Book this format &rarr;</a>
 </div>
 </div>
 </section>
 
-<!-- UPCOMING -->
-<section style="background: #F2F5EF">
-<div style="max-width: 1280px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px">
-<h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -0.03em">Upcoming batches</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
-  <div class="card" style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3">
-    <div style="display: flex; justify-content: space-between; align-items: center">
-      <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A">AEROMODELLING</span>
-      <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 5px 12px; border-radius: 999px">7–10</span>
+<!-- UPCOMING BATCHES SLIDER -->
+<section style="background: #F2F5EF; position: relative;">
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 64px; display: flex; flex-direction: column; gap: 28px;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 6px; max-width: 720px;">
+      <span style="font-weight: 800; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A;">Schedules &amp; Cohorts</span>
+      <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -0.03em;">Upcoming batches</h2>
+      <p style="margin: 0; font-size: 16px; color: #4A4740; line-height: 1.5;">New batch dates are being scheduled for Delhi NCR centres. Slide to preview cohorts and pre-register below.</p>
     </div>
-    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Glider Lab</span>
-    <span style="font-size: 15px; color: #55524A">Saturdays, 10:00 AM · New Delhi Centre</span>
-    <span style="font-size: 14px; font-weight: 600; color: #1F6B44">● 4 seats left</span>
-    <a href="#book" onclick="selectBatch('Glider Lab', 'Weekend classes', event)" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 13px; font-weight: 700; color: #1F6B44; background: #E7EDE3; padding: 6px 14px; border-radius: 999px;">● New Dates Releasing Soon</span>
+    </div>
   </div>
 
-  <div class="card" style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3">
-    <div style="display: flex; justify-content: space-between; align-items: center">
-      <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A">ROBOTICS</span>
-      <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 5px 12px; border-radius: 999px">10–14+</span>
-    </div>
-    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Robot Rookies</span>
-    <span style="font-size: 15px; color: #55524A">Sundays, 2:00 PM · South Delhi Lab</span>
-    <span style="font-size: 14px; font-weight: 600; color: #1F6B44">● 2 seats left</span>
-    <a href="#book" onclick="selectBatch('Robot Rookies', 'Weekend classes', event)" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
-  </div>
+  <div class="slider-container" style="position: relative; width: 100%;">
+    <button type="button" class="slider-arrow slider-arrow-left" onclick="slideCarousel('batches-slider', -1)" aria-label="Previous batch" style="top: 50%;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 19l-7-7 7-7"/></svg>
+    </button>
 
-  <div class="card" style="background: #FFFFFF; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3">
-    <div style="display: flex; justify-content: space-between; align-items: center">
-      <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A">DRONES &amp; AVIONICS</span>
-      <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 5px 12px; border-radius: 999px">10–14+</span>
+    <div id="batches-slider" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding: 12px 4px 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch;">
+      
+      <!-- Batch 1: Glider Lab -->
+      <div class="card slider-card" style="flex: 0 0 320px; scroll-snap-align: start; min-width: 0; background: #FFFFFF; border-radius: 26px; padding: 26px 24px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A;">AEROMODELLING</span>
+          <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 4px 12px; border-radius: 999px;">Ages 7–10</span>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em; color: #1C1B18;">Glider &amp; Flight Lab</h3>
+          <div style="font-size: 14px; color: #55524A; margin-top: 4px;">Weekend Cohort · New Delhi Centre</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #8A4B2A; background: #FFF4D6; padding: 6px 12px; border-radius: 999px; width: fit-content;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #F5B82E; display: inline-block;"></span>
+          <span>New Batch Dropping Soon</span>
+        </div>
+        <div style="font-size: 13px; color: #55524A; line-height: 1.5; margin-top: auto; padding-top: 6px; border-top: 1px solid #ECEAE3;">
+          Individual balsa aerofoils, trimming sessions &amp; flight launch competitions.
+        </div>
+        <a href="#book" onclick="selectBatch('Glider &amp; Flight Lab', 'Weekend classes', event)" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; font-size: 14px; padding: 13px 18px; border-radius: 999px; transition: background 0.2s; margin-top: 4px;">Pre-register for Batch &rarr;</a>
+      </div>
+
+      <!-- Batch 2: Robot Rookies -->
+      <div class="card slider-card" style="flex: 0 0 320px; scroll-snap-align: start; min-width: 0; background: #FFFFFF; border-radius: 26px; padding: 26px 24px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A;">ROBOTICS</span>
+          <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 4px 12px; border-radius: 999px;">Ages 10–14+</span>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em; color: #1C1B18;">RoboRover Autonomous Lab</h3>
+          <div style="font-size: 14px; color: #55524A; margin-top: 4px;">Weekend Cohort · South Delhi Centre</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #8A4B2A; background: #FFF4D6; padding: 6px 12px; border-radius: 999px; width: fit-content;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #F5B82E; display: inline-block;"></span>
+          <span>New Batch Dropping Soon</span>
+        </div>
+        <div style="font-size: 13px; color: #55524A; line-height: 1.5; margin-top: auto; padding-top: 6px; border-top: 1px solid #ECEAE3;">
+          Gearbox transmission, ultrasonic obstacle radar &amp; autonomous rovers.
+        </div>
+        <a href="#book" onclick="selectBatch('RoboRover Autonomous Lab', 'Weekend classes', event)" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; font-size: 14px; padding: 13px 18px; border-radius: 999px; transition: background 0.2s; margin-top: 4px;">Pre-register for Batch &rarr;</a>
+      </div>
+
+      <!-- Batch 3: Drone Flight Lab -->
+      <div class="card slider-card" style="flex: 0 0 320px; scroll-snap-align: start; min-width: 0; background: #FFFFFF; border-radius: 26px; padding: 26px 24px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A;">DRONES &amp; AVIONICS</span>
+          <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 4px 12px; border-radius: 999px;">Ages 10–14+</span>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em; color: #1C1B18;">Quadcopter Drone Build</h3>
+          <div style="font-size: 14px; color: #55524A; margin-top: 4px;">Weekend Cohort · South Delhi Lab</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #8A4B2A; background: #FFF4D6; padding: 6px 12px; border-radius: 999px; width: fit-content;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #F5B82E; display: inline-block;"></span>
+          <span>New Batch Dropping Soon</span>
+        </div>
+        <div style="font-size: 13px; color: #55524A; line-height: 1.5; margin-top: auto; padding-top: 6px; border-top: 1px solid #ECEAE3;">
+          Carbon fiber airframe assembly, motor calibration, 6-axis gyro &amp; netting flights.
+        </div>
+        <a href="#book" onclick="selectBatch('Quadcopter Drone Build', 'Weekend classes', event)" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; font-size: 14px; padding: 13px 18px; border-radius: 999px; transition: background 0.2s; margin-top: 4px;">Pre-register for Batch &rarr;</a>
+      </div>
+
+      <!-- Batch 4: 5-Day Holiday Camp -->
+      <div class="card slider-card" style="flex: 0 0 320px; scroll-snap-align: start; min-width: 0; background: #FFFFFF; border-radius: 26px; padding: 26px 24px; display: flex; flex-direction: column; gap: 14px; border: 1px solid #ECEAE3;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.06em; color: #8A4B2A;">HOLIDAY CAMPS</span>
+          <span style="font-size: 12px; font-weight: 700; background: #F2F5EF; color: #1F6B44; padding: 4px 12px; border-radius: 999px;">Ages 7–14+</span>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em; color: #1C1B18;">5-Day Maker Intensive Camp</h3>
+          <div style="font-size: 14px; color: #55524A; margin-top: 4px;">Mon–Fri Holiday Camp · Experience Centre</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #8A4B2A; background: #FFF4D6; padding: 6px 12px; border-radius: 999px; width: fit-content;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #F5B82E; display: inline-block;"></span>
+          <span>Camp Dates Dropping Soon</span>
+        </div>
+        <div style="font-size: 13px; color: #55524A; line-height: 1.5; margin-top: auto; padding-top: 6px; border-top: 1px solid #ECEAE3;">
+          Aeromodelling, robotics, electronics and capstone project pitch showcase.
+        </div>
+        <a href="#book" onclick="selectBatch('5-Day Maker Intensive Camp', '5-day camp', event)" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; font-size: 14px; padding: 13px 18px; border-radius: 999px; transition: background 0.2s; margin-top: 4px;">Pre-register for Camp &rarr;</a>
+      </div>
+
     </div>
-    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em">Drone Flight Lab</span>
-    <span style="font-size: 15px; color: #55524A">Saturdays, 11:30 AM · South Delhi Lab</span>
-    <span style="font-size: 14px; font-weight: 600; color: #1F6B44">● 3 seats left</span>
-    <a href="#book" onclick="selectBatch('Drone Flight Lab', 'Weekend classes', event)" style="margin-top: 6px; background: #1C1B18; color: #FFFFFF; text-decoration: none; text-align: center; font-weight: 700; padding: 13px 18px; border-radius: 999px; transition: background 0.2s">Reserve a seat</a>
+
+    <button type="button" class="slider-arrow slider-arrow-right" onclick="slideCarousel('batches-slider', 1)" aria-label="Next batch" style="top: 50%;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
   </div>
-</div>
 </div>
 </section>
 
@@ -312,17 +441,17 @@
 </div>
 
 <script>
-const formatData = {
+const formats = {
   weekend: {
     title: 'Weekend classes',
+    blurb: 'A steady rhythm of building. Kids move through a track — aeromodelling first, then robotics, DIY kits, arts and tools — finishing a new project every few sessions.',
+    price: '',
+    per: '',
     when: 'Every Sat & Sun',
     length: '2 hrs per session',
     kit: 'Individual kits',
-    price: '',
-    per: '',
     img: 'images/electronics-lab.jpg',
     mediaTag: 'Photo: circuit wiring & robotics build',
-    blurb: 'A steady rhythm of building. Kids move through a track — aeromodelling first, then robotics, DIY kits, arts and tools — finishing a new project every few sessions.',
     flow: [
       { step: 'Spark', text: 'Visual slides: what are we making today?' },
       { step: 'Build', text: 'Kit in hand, step-by-step with a mentor' },
@@ -332,73 +461,85 @@ const formatData = {
   },
   two: {
     title: '2-day workshops',
-    when: 'Long weekends & holidays',
-    length: '2 days · 3 hrs/day',
-    kit: 'Giveaway kit',
+    blurb: 'A deep dive into one machine. Over a Saturday and Sunday, kids assemble, wire, tune and test a single substantial project from raw parts to completion.',
     price: '',
     per: '',
+    when: 'Select weekends',
+    length: '4 hrs total',
+    kit: '1 take-home kit',
     img: 'images/drone-flight-lab.jpg',
-    mediaTag: 'Photo: 2-day drone & flight testing',
-    blurb: 'One big build from first part to final flight. The perfect first taste of Good Soil during festivals, event days or short breaks.',
+    mediaTag: 'Photo: glider balance & flight tuning',
     flow: [
-      { step: 'Day 1', text: 'Spark and build the core project' },
-      { step: 'Day 1', text: 'Mid-way test and aerodynamics tweak' },
-      { step: 'Day 2', text: 'Finish, decorate, calibrate and perfect it' },
-      { step: 'Day 2', text: 'Final challenge and take-home flight' }
+      { step: 'Day 1', text: 'Theory, unboxing, structural build & mechanics' },
+      { step: 'Day 2', text: 'Electronics, calibration, maiden flight & demo' }
     ]
   },
   five: {
     title: '5-day camps',
-    when: 'Summer · Winter · Spring break',
-    length: '5 days · 4 hrs/day',
+    blurb: 'The complete maker experience during school holidays. Five consecutive mornings of serious building across multiple tracks, culminating in a showcase demo for parents.',
     price: '',
-    kit: 'Group + individual kits',
     per: '',
+    when: 'Mon–Fri during holidays',
+    length: '3 hrs / day',
+    kit: '3 take-home kits',
     img: 'images/stem-expo-showcase.jpg',
-    mediaTag: 'Photo: 5-day holiday camp capstone expo',
-    blurb: 'A full week across tracks — fly, build a robot, craft and use real tools — ending in a showcase for families.',
+    mediaTag: 'Photo: full cohort multi-project build',
     flow: [
-      { step: 'Day 1', text: 'Aeromodelling: fly your first glider' },
-      { step: 'Day 2–3', text: 'Robotics and DIY STEM team builds' },
-      { step: 'Day 4', text: 'Arts, crafts and tools studio' },
-      { step: 'Day 5', text: 'Showcase day for parents and guests' }
+      { step: 'Days 1–2', text: 'Aeromodelling & principles of flight' },
+      { step: 'Days 3–4', text: 'Robotics, motor drives & sensors' },
+      { step: 'Day 5', text: 'Final tuning, parent showcase & certificate' }
     ]
   }
 };
 
-function switchFormat(id) {
-  document.querySelectorAll('.format-btn').forEach(b => {
-    b.className = 'format-btn inactive';
+function switchFormat(key) {
+  ['weekend', 'two', 'five'].forEach(k => {
+    const btn = document.getElementById('tab-' + k);
+    if (btn) btn.className = k === key ? 'format-btn active' : 'format-btn inactive';
   });
-  const activeBtn = document.getElementById('tab-' + id);
-  if (activeBtn) activeBtn.className = 'format-btn active';
 
-  const d = formatData[id];
-  if (!d) return;
+  const mediaEl = document.getElementById('format-media');
+  const detailsEl = document.getElementById('format-title')?.parentElement;
 
-  document.getElementById('format-title').textContent = d.title;
-  document.getElementById('format-blurb').textContent = d.blurb;
-  document.getElementById('format-price').textContent = d.price;
-  document.getElementById('format-per').textContent = d.per;
-  document.getElementById('badge-when').textContent = d.when;
-  document.getElementById('badge-length').textContent = d.length;
-  document.getElementById('badge-kit').textContent = d.kit;
-  document.getElementById('format-img').src = d.img;
-  document.getElementById('format-media-tag').textContent = d.mediaTag;
+  if (mediaEl && detailsEl) {
+    mediaEl.style.opacity = '0.35';
+    mediaEl.style.transform = 'translateY(5px)';
+    detailsEl.style.opacity = '0.35';
+    detailsEl.style.transform = 'translateY(5px)';
+  }
 
-  const flowEl = document.getElementById('format-flow');
-  flowEl.innerHTML = d.flow.map(f => `
-    <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ECEAE3; align-items: baseline">
-      <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #1F6B44; min-width: 72px">${f.step}</span>
-      <span style="font-size: 16px">${f.text}</span>
-    </div>
-  `).join('');
+  setTimeout(() => {
+    const d = formats[key];
+    document.getElementById('format-title').textContent = d.title;
+    document.getElementById('format-blurb').textContent = d.blurb;
+    document.getElementById('badge-when').textContent = d.when;
+    document.getElementById('badge-length').textContent = d.length;
+    document.getElementById('badge-kit').textContent = d.kit;
+    document.getElementById('format-img').src = d.img;
+    document.getElementById('format-media-tag').textContent = d.mediaTag;
+
+    const flowEl = document.getElementById('format-flow');
+    flowEl.innerHTML = d.flow.map(f => `
+      <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ECEAE3; align-items: baseline">
+        <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #1F6B44; min-width: 72px">${f.step}</span>
+        <span style="font-size: 16px">${f.text}</span>
+      </div>
+    `).join('');
+
+    if (mediaEl && detailsEl) {
+      mediaEl.style.opacity = '1';
+      mediaEl.style.transform = 'translateY(0)';
+      detailsEl.style.opacity = '1';
+      detailsEl.style.transform = 'translateY(0)';
+    }
+  }, 100);
 }
 
-function scrollToElementWithOffset(el, offsetPadding = 24) {
+// Smooth scrolling calibrated to frame dark card comfortably below header (no jittery auto-focus on mobile)
+function scrollToElementWithOffset(el, offsetPadding = 14) {
   if (!el) return;
   const header = document.querySelector('header');
-  const headerHeight = header ? header.getBoundingClientRect().height : 70;
+  const headerHeight = header ? header.getBoundingClientRect().height : 68;
   const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
   const targetY = Math.max(0, elementPosition - headerHeight - offsetPadding);
 
@@ -406,6 +547,14 @@ function scrollToElementWithOffset(el, offsetPadding = 24) {
     top: targetY,
     behavior: 'smooth'
   });
+}
+
+function scrollToBookingCard(event) {
+  if (event && event.preventDefault) event.preventDefault();
+  const bookCard = document.querySelector('#book > div') || document.getElementById('book');
+  if (bookCard) {
+    scrollToElementWithOffset(bookCard, 14);
+  }
 }
 
 function selectBatch(batchName, formatName, event) {
@@ -417,13 +566,9 @@ function selectBatch(batchName, formatName, event) {
     else sel.value = 'five';
   }
 
-  const bookSec = document.getElementById('book');
-  if (bookSec) {
-    scrollToElementWithOffset(bookSec, 24);
-    setTimeout(() => {
-      const pn = document.getElementById('pn');
-      if (pn) pn.focus({ preventScroll: true });
-    }, 450);
+  const bookCard = document.querySelector('#book > div') || document.getElementById('book');
+  if (bookCard) {
+    scrollToElementWithOffset(bookCard, 14);
   }
 }
 
@@ -501,23 +646,15 @@ Please confirm availability and upcoming batch dates. Thank you!`;
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('a[href="#book"]').forEach(a => {
     a.addEventListener('click', function (e) {
-      if (a.getAttribute('onclick')) return; // already handled by selectBatch
-      const bookSec = document.getElementById('book');
-      if (bookSec) {
-        e.preventDefault();
-        scrollToElementWithOffset(bookSec, 24);
-        setTimeout(() => {
-          const pn = document.getElementById('pn');
-          if (pn) pn.focus({ preventScroll: true });
-        }, 450);
-      }
+      if (a.getAttribute('onclick')) return; // already handled
+      e.preventDefault();
+      scrollToBookingCard(e);
     });
   });
 
   if (window.location.hash === '#book') {
     setTimeout(() => {
-      const bookSec = document.getElementById('book');
-      if (bookSec) scrollToElementWithOffset(bookSec, 24);
+      scrollToBookingCard();
     }, 150);
   }
 });

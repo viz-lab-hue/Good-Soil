@@ -1746,7 +1746,7 @@
   // 5d. CAROUSEL DOTS CONTROLLER (Swipe indicators on mobile)
   // ─────────────────────────────────────────────────────────────
   function initCarouselDots() {
-    const tracks = ['reels-slider', 'tracks-slider', 'moments-slider', 'industry-slider'];
+    const tracks = ['reels-slider', 'tracks-slider', 'moments-slider', 'industry-slider', 'batches-slider', 'modules-grid'];
     tracks.forEach(trackId => {
       const track = document.getElementById(trackId);
       if (!track) return;
@@ -2005,5 +2005,39 @@
       }
     }
   };
+
+  // ─────────────────────────────────────────────────────────────
+  // CALIBRATED SMOOTH SCROLL TO CARDS (#book, #enquiry, #curriculum-contact-dropdown)
+  // ─────────────────────────────────────────────────────────────
+  window.scrollToCard = function (targetElOrSelector, customOffset) {
+    const el = typeof targetElOrSelector === 'string'
+      ? document.querySelector(targetElOrSelector)
+      : targetElOrSelector;
+    if (!el) return;
+
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.getBoundingClientRect().height : 68;
+    const padding = customOffset !== undefined ? customOffset : 14;
+
+    const rect = el.getBoundingClientRect();
+    const targetY = Math.max(0, rect.top + window.pageYOffset - headerHeight - padding);
+
+    window.scrollTo({
+      top: targetY,
+      behavior: 'smooth'
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href="#enquiry"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        const enq = document.getElementById('enquiry');
+        if (enq) {
+          e.preventDefault();
+          window.scrollToCard(enq, 14);
+        }
+      });
+    });
+  });
 
 })();
