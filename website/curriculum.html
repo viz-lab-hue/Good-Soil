@@ -580,6 +580,19 @@
         console.warn('Could not store curriculum request locally', err);
       }
 
+      // Auto-sync curriculum request to Google Sheet
+      if (typeof sendLeadToBackend === 'function') {
+        sendLeadToBackend({
+          type: 'Master Curriculum Request',
+          name: name,
+          phone: contact.includes('@') ? '' : contact,
+          email: contact.includes('@') ? contact : '',
+          age: ageText,
+          format: 'Master Curriculum Guide',
+          details: `Inquiring As: ${roleText}`
+        });
+      }
+
       const msg = `Hi Good Soil Team! I would like to request the Master Curriculum PDF.\n\nName: ${name}\nContact: ${contact}\nAge Focus: ${ageText}\nInquiring As: ${roleText}`;
       const waUrl = `https://wa.me/918050312758?text=${encodeURIComponent(msg)}`;
       const waAction = document.getElementById('curr-wa-action');

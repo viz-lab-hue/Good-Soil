@@ -454,6 +454,17 @@ function handleBooking(e) {
     console.warn('Could not store booking locally', err);
   }
 
+  // Auto-sync booking lead to Google Sheet
+  if (typeof sendLeadToBackend === 'function') {
+    sendLeadToBackend({
+      type: 'Weekend Class Booking',
+      name: parentName,
+      phone: phone,
+      age: ageText,
+      format: formatText
+    });
+  }
+
   const waMessage = `Hello Good Soil! 🌱 I would like to reserve a seat:
 
 • Parent: ${parentName}

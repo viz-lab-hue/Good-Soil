@@ -16,6 +16,33 @@
   'use strict';
 
   // ─────────────────────────────────────────────────────────────
+  // 0. CENTRAL LEAD CAPTURE (Async sync to /api/lead -> Google Sheets)
+  // ─────────────────────────────────────────────────────────────
+  function sendLeadToBackend(leadData) {
+    try {
+      const payload = {
+        ...leadData,
+        pageUrl: window.location.href,
+        submittedAt: new Date().toISOString()
+      };
+      fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(res => res.json())
+        .then(res => {
+          console.log('Lead synced to backend:', res);
+        })
+        .catch(err => {
+          console.warn('Backend sync deferred/offline:', err);
+        });
+    } catch (e) {
+      console.warn('sendLeadToBackend error:', e);
+    }
+  }
+  window.sendLeadToBackend = sendLeadToBackend;
+
+  // ─────────────────────────────────────────────────────────────
   // 1. PERSISTENT CART STORE (localStorage)
   // ─────────────────────────────────────────────────────────────
   const CART_KEY = 'goodsoil_cart_v1';
@@ -853,6 +880,16 @@
       method: 'WhatsApp Order'
     });
 
+    // Auto-sync order enquiry to Google Sheet
+    sendLeadToBackend({
+      type: 'Kit Order',
+      name: user ? user.name : 'Store Customer',
+      phone: user ? (user.phone || '') : '',
+      email: user ? (user.email || '') : '',
+      format: items.map(i => `${i.name} (x${i.qty})`).join(', '),
+      details: `Subtotal: ₹${subtotal} | Total: ₹${total} | Method: WhatsApp Checkout`
+    });
+
     const encoded = encodeURIComponent(text);
     const waUrl = `https://wa.me/918050312758?text=${encoded}`;
 
@@ -1116,6 +1153,17 @@
     } catch (err) {
       console.warn('Could not store locally', err);
     }
+
+    // Auto-sync to Google Sheet
+    sendLeadToBackend({
+      type: 'Track Guide Request',
+      name: name,
+      phone: contact.includes('@') ? '' : contact,
+      email: contact.includes('@') ? contact : '',
+      age: ageText,
+      format: title,
+      details: `Inquiring As: ${roleText}`
+    });
 
     const msg = `Hi Good Soil Team! I would like to request the curriculum guide for ${title}.\n\nName: ${name}\nContact: ${contact}\nAge: ${ageText}\nRole: ${roleText}`;
     const waUrl = `https://wa.me/918050312758?text=${encodeURIComponent(msg)}`;
@@ -1782,6 +1830,14 @@
               subs.push({ email, timestamp: new Date().toISOString() });
               localStorage.setItem('goodsoil_subscribers', JSON.stringify(subs));
             } catch (err) {}
+
+            // Auto-sync subscriber to Google Sheet
+            sendLeadToBackend({
+              type: 'Newsletter Subscriber',
+              email: email,
+              format: 'Camp Dates Alert'
+            });
+
             showToast('🎉 Thank you! ' + email + ' has been subscribed to camp dates.');
             emailInput.value = '';
           }
@@ -1870,6 +1926,17 @@
       existing.push(data);
       localStorage.setItem('goodsoil_workshop_enquiries', JSON.stringify(existing));
     } catch (err) { /* silently continue */ }
+
+    // Auto-sync enquiry to Google Sheet
+    sendLeadToBackend({
+      type: 'Workshop Enquiry',
+      name: data.name,
+      phone: data.phone,
+      email: data.email,
+      age: ageLabel,
+      format: interestLabel,
+      details: (data.role ? 'Role: ' + data.role + '\n' : '') + (data.message || '')
+    });
 
     // Build WhatsApp message
     const ageLabel = { junior: 'Junior (7–10)', senior: 'Senior (10–14+)', both: 'Both / Not sure' }[data.age] || 'Not specified';
