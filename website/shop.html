@@ -34,6 +34,37 @@
     .nav-link { color: #1C1B18; text-decoration: none; padding: 10px 0; font-weight: 500; font-size: 15px; transition: color 0.15s ease; }
     .nav-link:hover { color: #1F6B44; }
     .nav-link.active { color: #1F6B44; font-weight: 700; }
+    .format-btn {
+      min-height: 44px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 0;
+      font: 700 15px 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                  color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .format-btn:active {
+      transform: scale(0.96);
+    }
+    .format-btn.active {
+      background: #1C1B18;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(28,27,24,0.18);
+    }
+    .format-btn.inactive {
+      background: transparent;
+      color: #1C1B18;
+    }
+    .format-btn.inactive:hover {
+      background: #E7EDE3;
+    }
+    #live-kit-grid {
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
     @media (max-width: 768px) {
       /* Prevent iOS Safari auto-zoom on input focus */
       input, select, textarea {
@@ -88,6 +119,9 @@
 </div>
 </nav>
 </header>
+
+<main id="page-content" class="page-content-wrapper">
+
 
 <!-- SHOP HERO -->
 <section style="max-width: 1280px; margin: 0 auto; padding: 56px 24px 24px; display: flex; flex-direction: column; gap: 14px">
@@ -205,6 +239,8 @@
 </div>
 </div>
 </footer>
+</main>
+
 
 </div>
 
@@ -220,7 +256,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const KITS_LAUNCHED = urlParams.get('preview') === 'kits' || false;
 
-const allProducts = [
+window.allProducts = window.allProducts || [
+  
   {
     id: 'diy-drone-kit',
     name: 'DIY Engineering Quadcopter Drone Kit',

@@ -96,12 +96,19 @@
       border: 0;
       font: 700 15px 'DM Sans', sans-serif;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: background 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                  color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .age-tab:active {
+      transform: scale(0.96);
     }
 
     .age-tab.active {
       background: #1C1B18;
       color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(28,27,24,0.18);
     }
 
     .age-tab.inactive {
@@ -111,6 +118,10 @@
 
     .age-tab.inactive:hover {
       background: #E7EDE3;
+    }
+    #modules-grid {
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
 
     #toast {
@@ -289,6 +300,9 @@
         </div>
       </nav>
     </header>
+
+<main id="page-content" class="page-content-wrapper">
+
 
     <!-- HEADER SECTION -->
     <section
@@ -544,6 +558,8 @@
         </div>
       </div>
     </footer>
+</main>
+
 
   </div>
 
@@ -563,19 +579,22 @@
 
     function filterAge(age) {
       currentAge = age;
-      document.getElementById('age-junior').className = age === '7–10' ? 'age-tab active' : 'age-tab inactive';
-      document.getElementById('age-senior').className = age === '10–14+' ? 'age-tab active' : 'age-tab inactive';
+      const jBtn = document.getElementById('age-junior');
+      const sBtn = document.getElementById('age-senior');
+      if (jBtn) jBtn.className = age === '7–10' ? 'age-tab active' : 'age-tab inactive';
+      if (sBtn) sBtn.className = age === '10–14+' ? 'age-tab active' : 'age-tab inactive';
       
       const grid = document.getElementById('modules-grid');
       if (grid) {
-        grid.style.opacity = '0.35';
+        grid.style.opacity = '0';
         grid.style.transform = 'translateY(5px)';
         setTimeout(() => {
           renderModules();
           grid.style.opacity = '1';
           grid.style.transform = 'translateY(0)';
           grid.scrollTo({ left: 0, behavior: 'smooth' });
-        }, 120);
+          if (typeof initCarouselDots === 'function') initCarouselDots();
+        }, 90);
       } else {
         renderModules();
       }
@@ -725,6 +744,13 @@ Inquiring As: ${roleText}`;
         showToast('📄 Select your contact preferences below for: ' + (title || 'Curriculum'));
       }
     }
+
+    window.modulesData = modulesData;
+    window.filterAge = filterAge;
+    window.renderModules = renderModules;
+    window.toggleCurriculumDropdown = toggleCurriculumDropdown;
+    window.downloadPdf = downloadPdf;
+    window.handleCurriculumRequest = handleCurriculumRequest;
 
     renderModules();
   </script>

@@ -123,8 +123,36 @@
     .slider-arrow:active { transform: translateY(-50%) scale(0.92); }
     .slider-arrow-left { left: -18px; }
     .slider-arrow-right { right: -18px; }
-    #format-media, #format-title, #format-flow {
-      transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    .format-btn {
+      min-height: 44px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 0;
+      font: 700 15px 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                  color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .format-btn:active {
+      transform: scale(0.96);
+    }
+    .format-btn.active {
+      background: #1C1B18;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(28,27,24,0.18);
+    }
+    .format-btn.inactive {
+      background: transparent;
+      color: #1C1B18;
+    }
+    .format-btn.inactive:hover {
+      background: #E7EDE3;
+    }
+    #format-media, #format-details-box, #format-title, #format-flow, #format-badges {
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
     @keyframes smoothPageEnter {
       from { opacity: 0.92; transform: translateY(4px); }
@@ -172,6 +200,9 @@
 </nav>
 </header>
 
+<main id="page-content" class="page-content-wrapper">
+
+
 <!-- HEADER -->
 <section style="max-width: 1280px; margin: 0 auto; padding: 64px 24px 32px; display: flex; flex-direction: column; gap: 18px">
 <div style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">Classes &amp; Camps</div>
@@ -203,7 +234,7 @@
 <span id="badge-kit" style="background: #F2F5EF; color: #1F6B44; font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 999px">Individual kits</span>
 </div>
 </div>
-<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<div id="format-details-box" style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
 <h2 id="format-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.03em; line-height: 1.05">Weekend classes</h2>
 <p id="format-blurb" style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A4740">A steady rhythm of building. Kids move through a track — aeromodelling first, then robotics, DIY kits, arts and tools — finishing a new project every few sessions.</p>
 <div id="format-flow" style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #ECEAE3">
@@ -437,6 +468,8 @@
 </div>
 </div>
 </footer>
+</main>
+
 
 </div>
 
@@ -499,41 +532,62 @@ function switchFormat(key) {
   });
 
   const mediaEl = document.getElementById('format-media');
-  const detailsEl = document.getElementById('format-title')?.parentElement;
+  const detailsEl = document.getElementById('format-details-box') || document.getElementById('format-title')?.parentElement;
 
-  if (mediaEl && detailsEl) {
-    mediaEl.style.opacity = '0.35';
+  if (mediaEl) {
+    mediaEl.style.opacity = '0';
     mediaEl.style.transform = 'translateY(5px)';
-    detailsEl.style.opacity = '0.35';
+  }
+  if (detailsEl) {
+    detailsEl.style.opacity = '0';
     detailsEl.style.transform = 'translateY(5px)';
   }
 
   setTimeout(() => {
-    const d = formats[key];
-    document.getElementById('format-title').textContent = d.title;
-    document.getElementById('format-blurb').textContent = d.blurb;
-    document.getElementById('badge-when').textContent = d.when;
-    document.getElementById('badge-length').textContent = d.length;
-    document.getElementById('badge-kit').textContent = d.kit;
-    document.getElementById('format-img').src = d.img;
-    document.getElementById('format-media-tag').textContent = d.mediaTag;
-
+    const d = (window.formats || formats)[key];
+    if (!d) return;
+    const titleEl = document.getElementById('format-title');
+    const blurbEl = document.getElementById('format-blurb');
+    const whenEl = document.getElementById('badge-when');
+    const lenEl = document.getElementById('badge-length');
+    const kitEl = document.getElementById('badge-kit');
+    const imgEl = document.getElementById('format-img');
+    const tagEl = document.getElementById('format-media-tag');
     const flowEl = document.getElementById('format-flow');
-    flowEl.innerHTML = d.flow.map(f => `
-      <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ECEAE3; align-items: baseline">
-        <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #1F6B44; min-width: 72px">${f.step}</span>
-        <span style="font-size: 16px">${f.text}</span>
-      </div>
-    `).join('');
 
-    if (mediaEl && detailsEl) {
+    if (titleEl) titleEl.textContent = d.title;
+    if (blurbEl) blurbEl.textContent = d.blurb;
+    if (whenEl) whenEl.textContent = d.when;
+    if (lenEl) lenEl.textContent = d.length;
+    if (kitEl) kitEl.textContent = d.kit;
+    if (imgEl) imgEl.src = d.img;
+    if (tagEl) tagEl.textContent = d.mediaTag;
+
+    if (flowEl) {
+      flowEl.innerHTML = d.flow.map(f => `
+        <div style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ECEAE3; align-items: baseline">
+          <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #1F6B44; min-width: 72px">${f.step}</span>
+          <span style="font-size: 16px">${f.text}</span>
+        </div>
+      `).join('');
+    }
+
+    if (mediaEl) {
       mediaEl.style.opacity = '1';
       mediaEl.style.transform = 'translateY(0)';
+    }
+    if (detailsEl) {
       detailsEl.style.opacity = '1';
       detailsEl.style.transform = 'translateY(0)';
     }
-  }, 100);
+  }, 90);
 }
+
+window.formats = formats;
+window.switchFormat = switchFormat;
+window.selectBatch = selectBatch;
+window.scrollToBookingCard = scrollToBookingCard;
+window.handleBooking = handleBooking;
 
 // Smooth scrolling calibrated to frame dark card comfortably below header (no jittery auto-focus on mobile)
 function scrollToElementWithOffset(el, offsetPadding = 14) {

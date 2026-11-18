@@ -1231,6 +1231,48 @@
       style.id = 'goodsoil-mobile-styles';
       style.textContent = `
         /* Global tap & touch optimizations */
+        @view-transition {
+          navigation: auto;
+        }
+        header {
+          view-transition-name: goodsoil-header;
+        }
+        #goodsoil-bottom-bar {
+          view-transition-name: goodsoil-bottom-bar;
+        }
+        #goodsoil-mobile-menu, #auth-dialog, #auth-backdrop, #cart-drawer, #cart-backdrop {
+          view-transition-name: none !important;
+        }
+        #page-content {
+          view-transition-name: goodsoil-page;
+          display: block;
+          min-height: calc(100vh - 68px);
+          will-change: opacity, transform;
+        }
+        ::view-transition-old(goodsoil-page) {
+          animation: 100ms cubic-bezier(0.4, 0, 1, 1) both gsPageFadeOut;
+        }
+        ::view-transition-new(goodsoil-page) {
+          animation: 170ms cubic-bezier(0.16, 1, 0.3, 1) both gsPageFadeIn;
+        }
+        @keyframes gsPageFadeOut {
+          from { opacity: 1; transform: translateY(0); }
+          to { opacity: 0; transform: translateY(-4px); }
+        }
+        @keyframes gsPageFadeIn {
+          from { opacity: 0; transform: translateY(4px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .gs-page-leaving {
+          opacity: 0 !important;
+          transform: translateY(-4px) !important;
+          transition: opacity 0.1s cubic-bezier(0.4, 0, 1, 1), transform 0.1s cubic-bezier(0.4, 0, 1, 1) !important;
+        }
+        .gs-page-entering {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+          transition: opacity 0.16s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
         button, a, input, select {
           touch-action: manipulation;
         }
@@ -1416,16 +1458,19 @@
             font-family: 'DM Sans', sans-serif !important;
             padding: 6px 8px !important;
             border-radius: 12px !important;
-            transition: all 0.15s ease !important;
+            transition: color 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s cubic-bezier(0.16, 1, 0.3, 1) !important;
             position: relative !important;
             flex: 1 !important;
             max-width: 76px !important;
+          }
+          .bottom-tab svg {
+            transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease, fill 0.2s ease !important;
           }
           .bottom-tab.active {
             color: #1F6B44 !important;
           }
           .bottom-tab.active svg {
-            transform: translateY(-1px) scale(1.08) !important;
+            transform: translateY(-2px) scale(1.12) !important;
           }
           .bottom-tab-badge {
             position: absolute !important;
@@ -2039,5 +2084,379 @@
       });
     });
   });
+
+
+  // ─────────────────────────────────────────────────────────────
+  // 7. SEAMLESS SPA-STYLE NAVIGATION ROUTER (Zero White Flicker)
+  // ─────────────────────────────────────────────────────────────
+  const pageCache = new Map();
+  const PRECACHE_PAGES = ['index.html', 'classes.html', 'curriculum.html', 'shop.html'];
+  let isTransitioningPage = false;
+
+  function prefetchPages() {
+    if (!window.fetch) return;
+    const run = () => {
+      // Store current page in cache
+      const currPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      const currMain = document.getElementById('page-content');
+      if (currMain) {
+        pageCache.set(currPath, {
+          title: document.title,
+          html: currMain.innerHTML,
+          doc: document
+        });
+      }
+
+      PRECACHE_PAGES.forEach(page => {
+        if (currPath.includes(page.replace('.html', '')) && currPath !== 'index.html' && page !== 'index.html') return;
+        fetch(page, { priority: 'low' })
+          .then(res => {
+            if (!res.ok) throw new Error('Status ' + res.status);
+            return res.text();
+          })
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const main = doc.getElementById('page-content');
+            if (main) {
+              pageCache.set(page.toLowerCase(), {
+                title: doc.title,
+                html: main.innerHTML,
+                doc: doc
+              });
+            }
+          })
+          .catch(() => {});
+      });
+    };
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(run);
+    } else {
+      setTimeout(run, 350);
+    }
+  }
+
+  function updateActiveNavState(targetPath) {
+    const norm = (targetPath || window.location.pathname || '').toLowerCase();
+    const isClasses = norm.includes('classes');
+    const isShop = norm.includes('shop');
+    const isCurric = norm.includes('curriculum');
+    const isHome = !isClasses && !isShop && !isCurric;
+
+    // 1. Mobile Bottom Bar tabs
+    document.querySelectorAll('#goodsoil-bottom-bar .bottom-tab').forEach(tab => {
+      const href = (tab.getAttribute('href') || '').toLowerCase();
+      if (tab.classList.contains('bottom-tab-wa')) return;
+      let active = false;
+      if (isHome && (href.includes('index') || href === '/' || href === '')) active = true;
+      else if (isClasses && href.includes('classes')) active = true;
+      else if (isShop && href.includes('shop')) active = true;
+      else if (isCurric && href.includes('curriculum')) active = true;
+
+      if (active) tab.classList.add('active');
+      else tab.classList.remove('active');
+    });
+
+    // 2. Desktop Header Nav links
+    document.querySelectorAll('header nav a.nav-link').forEach(link => {
+      const href = (link.getAttribute('href') || '').toLowerCase();
+      const isActive = (isClasses && href.includes('classes')) ||
+                       (isShop && href.includes('shop')) ||
+                       (isCurric && href.includes('curriculum'));
+      if (isActive) {
+        link.classList.add('active');
+        link.style.color = '#1F6B44';
+        link.style.fontWeight = '700';
+      } else {
+        link.classList.remove('active');
+        link.style.color = '#1C1B18';
+        link.style.fontWeight = '500';
+      }
+    });
+
+    // 3. Mobile Hamburger Menu items
+    document.querySelectorAll('#goodsoil-mobile-menu .mobile-nav-item').forEach(item => {
+      const href = (item.getAttribute('href') || '').toLowerCase();
+      const isActive = (isClasses && href.includes('classes')) ||
+                       (isShop && href.includes('shop')) ||
+                       (isCurric && href.includes('curriculum'));
+      if (isActive) item.classList.add('active');
+      else item.classList.remove('active');
+    });
+  }
+
+  function executePageScripts(doc) {
+    if (!doc) return;
+    const scripts = doc.querySelectorAll('script');
+    scripts.forEach(s => {
+      if (s.src && s.src.includes('goodsoil.js')) return;
+      try {
+        const newScript = document.createElement('script');
+        if (s.src) {
+          newScript.src = s.src;
+          document.body.appendChild(newScript);
+        } else if (s.textContent) {
+          // Use Function to evaluate safely in window scope
+          (new Function(s.textContent)).call(window);
+        }
+      } catch (err) {
+        console.warn('Script execution notice:', err);
+      }
+    });
+  }
+
+  function reinitCurrentPage(targetPath, hash) {
+    const p = targetPath.toLowerCase();
+
+    // Classes page
+    if (p.includes('classes')) {
+      if (typeof window.switchFormat === 'function') {
+        window.switchFormat('weekend');
+      }
+      if (hash === '#book') {
+        setTimeout(() => {
+          if (typeof window.scrollToBookingCard === 'function') window.scrollToBookingCard();
+          else if (window.scrollToCard) window.scrollToCard('#book', 14);
+        }, 80);
+      }
+    }
+
+    // Curriculum page
+    if (p.includes('curriculum')) {
+      if (typeof window.renderModules === 'function') {
+        window.renderModules();
+      }
+    }
+
+    // Shop page
+    if (p.includes('shop')) {
+      if (typeof window.renderLiveKits === 'function') {
+        window.renderLiveKits();
+      }
+    }
+
+    // Common initializations across all pages
+    if (typeof initCarouselDots === 'function') initCarouselDots();
+    if (typeof updateNavCartBadges === 'function') updateNavCartBadges();
+    if (typeof ensureNavAuthBtn === 'function') ensureNavAuthBtn();
+    if (typeof updateAuthUI === 'function') updateAuthUI();
+    wireUniversalTriggers();
+  }
+
+  async function navigateTo(targetUrl, targetHash, isPopState = false) {
+    if (isTransitioningPage) return;
+
+    const currentPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    const targetUrlObj = new URL(targetUrl, window.location.href);
+    const targetPath = (targetUrlObj.pathname.split('/').pop() || 'index.html').toLowerCase();
+    const hash = targetHash !== undefined ? targetHash : targetUrlObj.hash;
+
+    // If navigating to an anchor on the same page, smoothly scroll to card
+    if (currentPath === targetPath && hash) {
+      if (!isPopState) {
+        window.history.pushState(null, '', targetUrlObj.pathname + hash);
+      }
+      if (window.scrollToCard) {
+        window.scrollToCard(hash, 14);
+      }
+      return;
+    }
+
+    isTransitioningPage = true;
+
+    // Immediately highlight target tab in bottom navigation bar
+    updateActiveNavState(targetPath);
+
+    // Close mobile menu if open
+    if (typeof closeMobileNav === 'function') {
+      closeMobileNav();
+    }
+
+    try {
+      let cached = pageCache.get(targetPath);
+      if (!cached) {
+        const res = await fetch(targetUrlObj.pathname);
+        if (!res.ok) throw new Error('Fetch status ' + res.status);
+        const html = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const main = doc.getElementById('page-content');
+        if (!main) throw new Error('No #page-content container in target document');
+        cached = {
+          title: doc.title,
+          html: main.innerHTML,
+          doc: doc
+        };
+        pageCache.set(targetPath, cached);
+      }
+
+      const applySwap = () => {
+        document.title = cached.title;
+        const main = document.getElementById('page-content');
+        if (main) {
+          main.innerHTML = cached.html;
+        }
+
+        if (!isPopState) {
+          window.history.pushState(null, '', targetUrlObj.pathname + (hash || ''));
+        }
+
+        // Scroll gracefully
+        if (hash) {
+          setTimeout(() => {
+            if (window.scrollToCard) window.scrollToCard(hash, 14);
+          }, 50);
+        } else {
+          window.scrollTo(0, 0);
+        }
+
+        // Execute scripts from cached doc & re-initialize page
+        if (cached.doc) {
+          executePageScripts(cached.doc);
+        }
+        reinitCurrentPage(targetPath, hash);
+      };
+
+      if (typeof document.startViewTransition === 'function') {
+        const transition = document.startViewTransition(() => {
+          applySwap();
+        });
+        await transition.finished;
+      } else {
+        const main = document.getElementById('page-content');
+        if (main) {
+          main.classList.add('gs-page-leaving');
+          await new Promise(r => setTimeout(r, 90));
+          applySwap();
+          main.classList.remove('gs-page-leaving');
+          main.classList.add('gs-page-entering');
+          setTimeout(() => {
+            main.classList.remove('gs-page-entering');
+          }, 160);
+        } else {
+          applySwap();
+        }
+      }
+    } catch (err) {
+      console.warn('Seamless navigation fallback:', err);
+      window.location.href = targetUrl;
+    } finally {
+      isTransitioningPage = false;
+    }
+  }
+
+  function wireUniversalTriggers() {
+    // 1. Cart triggers
+    document.querySelectorAll('[data-open-cart], a[aria-label="Cart"], button[aria-label="Open cart"], a[href="shop.html"][aria-label="Cart"]').forEach(btn => {
+      btn.onclick = function (e) {
+        e.preventDefault();
+        openCartDrawer(this);
+      };
+    });
+
+    // 2. Video triggers
+    document.querySelectorAll('button[aria-label="Play workshop reel"], button[aria-label="Play featured video"]').forEach(btn => {
+      btn.onclick = function (e) {
+        e.preventDefault();
+        openVideoModal();
+      };
+    });
+
+    // 3. Newsletter forms
+    document.querySelectorAll('footer form, form.newsletter-form').forEach(f => {
+      const emailInput = f.querySelector('input[type="email"]');
+      if (emailInput && !f.dataset.wired) {
+        f.dataset.wired = 'true';
+        f.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const email = emailInput.value.trim();
+          if (email) {
+            try {
+              const subs = JSON.parse(localStorage.getItem('goodsoil_subscribers') || '[]');
+              subs.push({ email, timestamp: new Date().toISOString() });
+              localStorage.setItem('goodsoil_subscribers', JSON.stringify(subs));
+            } catch (err) {}
+
+            sendLeadToBackend({
+              type: 'Newsletter Subscriber',
+              email: email,
+              format: 'Camp Dates Alert'
+            });
+
+            showToast('🎉 Thank you! ' + email + ' has been subscribed to camp dates.');
+            emailInput.value = '';
+          }
+        });
+      }
+    });
+
+    // 4. Smooth scroll triggers for #enquiry and #book
+    document.querySelectorAll('a[href="#enquiry"]').forEach(a => {
+      a.onclick = function (e) {
+        const enq = document.getElementById('enquiry');
+        if (enq) {
+          e.preventDefault();
+          window.scrollToCard(enq, 14);
+        }
+      };
+    });
+    document.querySelectorAll('a[href="#book"], a[href="classes.html#book"]').forEach(a => {
+      a.onclick = function (e) {
+        const currentPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        if (currentPath.includes('classes')) {
+          e.preventDefault();
+          if (typeof window.scrollToBookingCard === 'function') window.scrollToBookingCard(e);
+          else window.scrollToCard('#book', 14);
+        }
+      };
+    });
+  }
+
+  // Intercept internal link clicks document-wide for instantaneous, flicker-free transitions
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    // Skip new window / modified clicks
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (link.target && link.target !== '_self') return;
+    if (link.hasAttribute('download')) return;
+
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('javascript:') || href.startsWith('mailto:') || href.startsWith('tel:') || href.includes('wa.me')) return;
+
+    try {
+      const targetUrl = new URL(link.href, window.location.href);
+      if (targetUrl.origin !== window.location.origin) return;
+
+      const targetPath = (targetUrl.pathname.split('/').pop() || 'index.html').toLowerCase();
+      const isKnownPage = ['index.html', 'classes.html', 'curriculum.html', 'shop.html', ''].includes(targetPath);
+      if (!isKnownPage) return;
+
+      // Handle seamless transition!
+      e.preventDefault();
+      navigateTo(targetUrl.pathname, targetUrl.hash);
+    } catch (err) {}
+  });
+
+  // Handle browser Back / Forward buttons seamlessly
+  window.addEventListener('popstate', function () {
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    navigateTo(path, window.location.hash, true);
+  });
+
+  // Start pre-caching pages and wire initial universal triggers
+  document.addEventListener('DOMContentLoaded', function () {
+    prefetchPages();
+    wireUniversalTriggers();
+    updateActiveNavState();
+  });
+
+  window.GoodSoilRouter = {
+    navigateTo,
+    prefetchPages,
+    updateActiveNavState
+  };
 
 })();
