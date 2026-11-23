@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Good Soil — Stall Kits &amp; Exhibition Hardware Master Specification</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1F2421;
+    background-color: #FFFFFF;
+    line-height: 1.4;
+    font-size: 9.5pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 100%;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 275mm;
+    max-height: 275mm;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .page:last-child {
+    page-break-after: avoid;
+  }
+
+  .page-content {
+    flex: 1;
+  }
+
+  /* Header Section */
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #1F6B44;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-logo-svg {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .brand-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 19pt;
+    font-weight: 800;
+    color: #1F6B44;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .brand-tagline {
+    font-size: 8pt;
+    color: #556B59;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .header-meta {
+    text-align: right;
+  }
+
+  .badge-tag {
+    display: inline-block;
+    background: #EBF5EE;
+    color: #1F6B44;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid #C4E2CF;
+    margin-bottom: 2px;
+  }
+
+  .header-date {
+    font-size: 8pt;
+    color: #6C7A6F;
+  }
+
+  /* Intro Banner */
+  .intro-box {
+    background: #F6FAF7;
+    border: 1px solid #D6E8DC;
+    border-left: 4px solid #1F6B44;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+  }
+
+  .intro-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: #1F6B44;
+    margin-bottom: 3px;
+  }
+
+  .intro-desc {
+    font-size: 8.8pt;
+    color: #384A3B;
+    line-height: 1.4;
+  }
+
+  .intro-highlights {
+    display: flex;
+    gap: 16px;
+    margin-top: 6px;
+    font-size: 8pt;
+    color: #1F6B44;
+    font-weight: 600;
+  }
+
+  .intro-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* Kit Card Styling */
+  .kit-card {
+    background: #FFFFFF;
+    border: 1px solid #DFE7E1;
+    border-radius: 8px;
+    padding: 13px 15px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #EDF3EE;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+
+  .station-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: #1F6B44;
+    text-transform: uppercase;
+    background: #EBF5EE;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-bottom: 3px;
+  }
+
+  .card-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 13.5pt;
+    font-weight: 700;
+    color: #161C17;
+    line-height: 1.2;
+  }
+
+  .card-subtitle {
+    font-size: 8.8pt;
+    color: #556658;
+    margin-top: 1px;
+  }
+
+  .card-price-tag {
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  .cost-value {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 13pt;
+    font-weight: 800;
+    color: #1F6B44;
+  }
+
+  .cost-type {
+    font-size: 7pt;
+    color: #718575;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* Inside Card Grid */
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1.55fr 1.45fr;
+    gap: 14px;
+  }
+
+  .section-label {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: #506654;
+    margin-bottom: 5px;
+  }
+
+  .items-list {
+    list-style: none;
+  }
+
+  .items-list li {
+    font-size: 8.5pt;
+    color: #2D3A2F;
+    position: relative;
+    padding-left: 13px;
+    margin-bottom: 5px;
+    line-line: 1.35;
+  }
+
+  .items-list li::before {
+    content: "•";
+    position: absolute;
+    left: 2px;
+    color: #1F6B44;
+    font-size: 10pt;
+    line-height: 1;
+  }
+
+  .items-list li strong {
+    color: #111A13;
+    font-weight: 600;
+  }
+
+  .feature-box {
+    background: #F8FAF8;
+    border: 1px solid #E5EDE7;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+  }
+
+  .feature-box-title {
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1F6B44;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .feature-box-text {
+    font-size: 8.2pt;
+    color: #38483B;
+    line-height: 1.35;
+  }
+
+  .reusable-badge {
+    display: inline-block;
+    background: #FFF8E6;
+    border: 1px solid #FFE4A8;
+    color: #8C5500;
+    font-size: 7.5pt;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+
+  .vendor-line {
+    font-size: 8pt;
+    color: #4A5C4D;
+    margin-top: 5px;
+  }
+
+  .vendor-name {
+    font-weight: 700;
+    color: #1F6B44;
+  }
+
+  /* Tables on Page 3 */
+  .budget-table-wrap {
+    margin-bottom: 16px;
+  }
+
+  .table-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1F6B44;
+    margin-bottom: 6px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.2pt;
+  }
+
+  th {
+    background: #1F6B44;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 7px 9px;
+    font-weight: 600;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  th:first-child { border-radius: 4px 0 0 0; }
+  th:last-child { border-radius: 0 4px 0 0; text-align: right; }
+
+  td {
+    padding: 7px 9px;
+    border-bottom: 1px solid #E1E9E3;
+    color: #243026;
+  }
+
+  td:last-child {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) td {
+    background: #F9FAF9;
+  }
+
+  .total-row td {
+    background: #EBF5EE !important;
+    font-weight: 700;
+    color: #1F6B44;
+    border-top: 2px solid #1F6B44;
+    font-size: 9pt;
+  }
+
+  /* Vendor Directory Grid */
+  .vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .vendor-card {
+    background: #F9FBF9;
+    border: 1px solid #E0E8E2;
+    border-radius: 6px;
+    padding: 9px 11px;
+  }
+
+  .vendor-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .vendor-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #1F6B44;
+  }
+
+  .vendor-role-tag {
+    font-size: 7pt;
+    font-family: 'JetBrains Mono', monospace;
+    color: #556B5A;
+    background: #EAF2EC;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  .vendor-body {
+    font-size: 8pt;
+    color: #3C4D3E;
+    line-height: 1.35;
+  }
+
+  /* Workflow guide */
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .guide-step {
+    background: #F8FAF8;
+    border: 1px solid #E4ECE6;
+    border-radius: 6px;
+    padding: 8px 9px;
+  }
+
+  .guide-step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    font-weight: 700;
+    color: #1F6B44;
+    margin-bottom: 2px;
+  }
+
+  .guide-step-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #18241A;
+    margin-bottom: 3px;
+  }
+
+  .guide-step-text {
+    font-size: 7.5pt;
+    color: #48594A;
+    line-height: 1.3;
+  }
+
+  /* Footer */
+  .doc-footer {
+    border-top: 1px solid #D6E0D8;
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.5pt;
+    color: #6A7B6E;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================================================================= -->
+<!-- PAGE 1: HEADER, INTRO, STATION 01 & STATION 02 -->
+<!-- ========================================================================= -->
+<div class="page">
+  <div class="page-content">
+
+    <header class="doc-header">
+      <div class="brand-group">
+        <svg class="brand-logo-svg" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="16" fill="#1F6B44"/>
+          <path d="M17 26V15" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M17 17c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#F5B82E"/>
+          <path d="M17 20c0-3.5-2.6-6-6-6 0 3.5 2.6 6 6 6Z" fill="#fff"/>
+        </svg>
+        <div>
+          <div class="brand-title">Good Soil</div>
+          <div class="brand-tagline">Hands-on STEM &amp; Maker Academy · Delhi NCR</div>
+        </div>
+      </div>
+      <div class="header-meta">
+        <div class="badge-tag">STALL &amp; EXPO SPECIFICATION</div>
+        <div class="header-date">Curated Kit Roster · Page 1 of 3</div>
+      </div>
+    </header>
+
+    <div class="intro-box">
+      <div class="intro-title">Event Stall Architecture: 4 High-Impact Interactive Stations</div>
+      <div class="intro-desc">
+        Engineered for school carnivals, science expos, and maker pop-ups across Delhi NCR. Each station is selected to maximize kid engagement, demonstrate tangible engineering principles (100% screen-free physical hardware), and convert parent interest into WhatsApp waitlist registrations. All projection and tech hardware are verified for immediate sale and warranty support in India.
+      </div>
+      <div class="intro-highlights">
+        <div class="intro-highlight-item">🎯 <strong>Target:</strong> 200+ Kid Builds / 50+ Qualified Parent Leads</div>
+        <div class="intro-highlight-item">🇮🇳 <strong>India Availability:</strong> Readily Stocked on Amazon.in / Croma / Official Brands</div>
+        <div class="intro-highlight-item">🔄 <strong>Efficiency:</strong> Reuses Regular Academy Curriculum Kits</div>
+      </div>
+    </div>
+
+    <!-- STATION 01 CARD -->
+    <div class="kit-card">
+      <div class="card-top">
+        <div>
+          <div class="station-label">STATION 01 · THE SPECTACLE</div>
+          <div class="card-title">Projection Mapping Digital Wind Tunnel</div>
+          <div class="card-subtitle">Real Aerodynamic Flow Streamlines Projected onto a Physical Balsa Aerofoil</div>
+        </div>
+        <div class="card-price-tag">
+          <div class="cost-value">₹8,449</div>
+          <div class="cost-type">Permanent Tech CapEx</div>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div>
+          <div class="section-label">Verified India Market Projector &amp; Hardware Package</div>
+          <ul class="items-list">
+            <li><strong>Primary LED Projector (India Stock):</strong> <strong>Portronics Beem 440 / Beem 470</strong> (₹6,499 – ₹7,299). Built-in 180° rotatable gimbal bracket (angles downward onto table/wing directly without a separate tripod), 720p HD native with 1080p support, 350 ANSI lumens, HDMI, standard Indian 230V plug &amp; 1-year official Portronics India domestic warranty.</li>
+            <li><strong>Alternate Native 1080p Options (India):</strong> <strong>EGate Atom 3X</strong> (₹7,490) or <strong>WZATCO Yuva Go / Plus</strong> (₹7,990). BIS certified, 360–400 ANSI lumens, doorstep India warranty, fast Delhi NCR dispatch.</li>
+            <li><strong>Mount &amp; AV Rigging:</strong> Desk C-clamp or compact table boom mount (₹800) + 10m Indian spike guard &amp; 3m braided HDMI cable (₹800).</li>
+            <li><strong>Physical Target Aerofoil:</strong> 40cm wingspan matte-white finished balsa wing model (<code>CUSTOM-AERO-02</code>/<code>04</code>) on weighted matte-black desk pedestal (₹350).</li>
+          </ul>
+          <div class="vendor-line">
+            <strong>Procurement:</strong> <span class="vendor-name">Amazon.in / Croma India</span> (Portronics / EGate) + <span class="vendor-name">Good Soil In-House</span> (Target Wing).
+          </div>
+        </div>
+
+        <div>
+          <div class="feature-box">
+            <div class="feature-box-title">⚡ How It Engages at the Stall</div>
+            <div class="feature-box-text">
+              Acts as the primary crowd magnet from 10 meters away. High-contrast neon cyan (<code>#00FFFF</code>) and electric green streamlines illuminate the wing contour. Kids tilt the wing angle and watch streamlines bend into turbulent stall vortices in real time.
+            </div>
+          </div>
+          <div class="reusable-badge">
+            🔄 Curriculum Link: Senior Aerodynamics Track (Classes 11–15)
+          </div>
+          <div style="font-size: 7.5pt; color: #5B6E5F; margin-top: 5px; line-height: 1.3;">
+            <em>Rotatable Gimbal Advantage:</em> The Portronics Beem rotatable body allows instant 35°–45° tilt adjustment downward with zero wobble, significantly speeding up on-site booth setup.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATION 02 CARD -->
+    <div class="kit-card">
+      <div class="card-top">
+        <div>
+          <div class="station-label">STATION 02 · THE CHALLENGE</div>
+          <div class="card-title">Hydraulic Candy Grabber Robotic Arm</div>
+          <div class="card-subtitle">Fluid-Powered Syringe Actuators with Laser-Cut Wood Mechanical Claw</div>
+        </div>
+        <div class="card-price-tag">
+          <div class="cost-value">₹629 – ₹749</div>
+          <div class="cost-type">Per Live Unit (Reusable)</div>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div>
+          <div class="section-label">Kit Specifications &amp; Build Components</div>
+          <ul class="items-list">
+            <li><strong>Model &amp; SKU:</strong> Kintaro DIY Hydraulic Arm (<code>WEB-KIN-001</code>, ₹749) or Pludo Robotic Arm (<code>WEB-PLU-075</code>, ₹629). Readily stocked in India on Amazon.in and brand portals.</li>
+            <li><strong>Fluid Power Transmission:</strong> 6 medical-grade transparent syringes, food-grade colored liquid tubing, closed hydraulic loop.</li>
+            <li><strong>Mechanical Movement:</strong> 3 Degrees of Freedom (Base rotation, vertical arm lift, mechanical gripping claw).</li>
+            <li><strong>Framing &amp; Fasteners:</strong> Precision laser-cut birch/pine engineered plates, brass pivot eyelets, silicone gripping tips.</li>
+          </ul>
+          <div class="vendor-line">
+            <strong>Primary Vendors:</strong> <span class="vendor-name">Kintaro DIY / Pludo</span> (Vendor #2 &amp; #3 · Domestic India Dispatch).
+          </div>
+        </div>
+
+        <div>
+          <div class="feature-box">
+            <div class="feature-box-title">⚡ How It Engages at the Stall</div>
+            <div class="feature-box-text">
+              <strong>The 45-Second Candy Challenge:</strong> Kids manipulate 3 master syringes to maneuver the mechanical claw, pick up a wrapped chocolate from an arena tray, and drop it into a win chute. Demonstrates Pascal's Principle of fluid pressure with zero batteries.
+            </div>
+          </div>
+          <div class="reusable-badge">
+            🔄 Curriculum Kit: Directly Reused from Senior Regular Kit #7
+          </div>
+          <div style="font-size: 7.5pt; color: #5B6E5F; margin-top: 5px; line-height: 1.3;">
+            <em>Mentor Bridge:</em> While kid concentrates on claw control, mentor introduces the parent to Good Soil’s screen-free engineering philosophy.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="doc-footer">
+    <div><strong>Good Soil STEM Academy</strong> · Sowing curiosity, building real engineers.</div>
+    <div class="footer-links">
+      <span>📱 WhatsApp: +91 80503 12758</span>
+      <span>✉️ info@goodsoilmakers.com</span>
+      <span>📍 Delhi NCR</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 2: HEADER, STATION 03 & STATION 04 -->
+<!-- ========================================================================= -->
+<div class="page">
+  <div class="page-content">
+
+    <header class="doc-header">
+      <div class="brand-group">
+        <svg class="brand-logo-svg" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="16" fill="#1F6B44"/>
+          <path d="M17 26V15" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M17 17c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#F5B82E"/>
+          <path d="M17 20c0-3.5-2.6-6-6-6 0 3.5 2.6 6 6 6Z" fill="#fff"/>
+        </svg>
+        <div>
+          <div class="brand-title">Good Soil</div>
+          <div class="brand-tagline">Hands-on STEM &amp; Maker Academy · Delhi NCR</div>
+        </div>
+      </div>
+      <div class="header-meta">
+        <div class="badge-tag">WALK-IN BUILD &amp; ACADEMY DEMO</div>
+        <div class="header-date">Curated Kit Roster · Page 2 of 3</div>
+      </div>
+    </header>
+
+    <!-- STATION 03 CARD -->
+    <div class="kit-card">
+      <div class="card-top">
+        <div>
+          <div class="station-label">STATION 03 · WALK-IN BUILD</div>
+          <div class="card-title">5-Minute Chuck Glider Flight Trials</div>
+          <div class="card-subtitle">Rapid Slot-Fit Aerodynamic Build with Target Landing Challenge &amp; Take-Home Keepsake</div>
+        </div>
+        <div class="card-price-tag">
+          <div class="cost-value">₹120 – ₹180</div>
+          <div class="cost-type">Per Take-Home Build (50–100 Pcs)</div>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div>
+          <div class="section-label">Kit Materials &amp; Assembly Specs</div>
+          <ul class="items-list">
+            <li><strong>Model &amp; SKU:</strong> High-Lift Balsa/Foam Chuck Glider (<code>CUSTOM-AERO-01</code> / <code>02</code>). Manufactured in Delhi NCR.</li>
+            <li><strong>Airframe Components:</strong> Laser-profiled balsa wood fuselage, high-camber dihedral foam wings, vertical stabilizer, horizontal elevator with adjustable trim tab.</li>
+            <li><strong>Ballast &amp; Safety:</strong> Impact-absorbing nose cone + calibrated balancing clay to achieve stable neutral Center of Gravity (CG).</li>
+            <li><strong>Assembly Speed:</strong> 5 to 7 minutes slot-and-key friction fit with quick-tack adhesive strips (instant build, zero waiting for wet glue).</li>
+          </ul>
+          <div class="vendor-line">
+            <strong>Primary Vendor:</strong> <span class="vendor-name">Good Soil Aero / Crossvind</span> (Heritage: 10+ Yr Delhi Aeromodelling).
+          </div>
+        </div>
+
+        <div>
+          <div class="feature-box">
+            <div class="feature-box-title">⚡ How It Engages at the Stall</div>
+            <div class="feature-box-text">
+              <strong>The Take-Home Hook:</strong> Kids assemble the plane at the build table, test-launch it through a 3-meter hanging target hoop, and <em>take it home for free</em>. Every child walks through the expo carrying a Good Soil aircraft, driving constant foot traffic back to the booth.
+            </div>
+          </div>
+          <div class="reusable-badge">
+            🔄 Curriculum Kit: Directly Reused from Junior Regular Kit #8
+          </div>
+          <div style="font-size: 7.5pt; color: #5B6E5F; margin-top: 5px; line-height: 1.3;">
+            <em>Conversion Note:</em> As mentor hands the completed plane to the child, mentor hands the physical curriculum syllabus card directly to the parent.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATION 04 CARD -->
+    <div class="kit-card">
+      <div class="card-top">
+        <div>
+          <div class="station-label">STATION 04 · ACADEMY DEMO</div>
+          <div class="card-title">Autonomous 4WD Rover &amp; Ultrasonic Radar</div>
+          <div class="card-subtitle">Live Microcontroller Robotics, Distance Echo Sensing &amp; Real-Time Sweeping Display</div>
+        </div>
+        <div class="card-price-tag">
+          <div class="cost-value">₹1,148</div>
+          <div class="cost-type">Live Arena Display (Reusable)</div>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div>
+          <div class="section-label">Hardware Specifications &amp; Modules</div>
+          <ul class="items-list">
+            <li><strong>Chassis &amp; Drive:</strong> RoboRover 4WD Autonomous Kit (<code>WEB-RBC-4WD-01</code>, ₹899). 4 geared TT DC motors, high-grip rubber tires, dual H-bridge L298N driver, dual-tier transparent acrylic deck. Sourced via Robocraze India.</li>
+            <li><strong>Active Radar Transducer:</strong> Ultrasonic Echo Radar (<code>WEB-KGU-RAD-01</code>, ₹249). Micro-servo (SG90) mounted HC-SR04 sonar module performing continuous 180° sweeps. Sourced via KitsGuru India.</li>
+            <li><strong>Display Telemetry:</strong> Live visual radar sweep rendered on an onboard micro OLED display or mentor laptop screen.</li>
+            <li><strong>Power Supply:</strong> Rechargeable 18650 Li-ion battery pack with onboard step-down regulator.</li>
+          </ul>
+          <div class="vendor-line">
+            <strong>Primary Vendors:</strong> <span class="vendor-name">Robocraze India</span> (Chassis) + <span class="vendor-name">KitsGuru India</span> (Radar Scanner).
+          </div>
+        </div>
+
+        <div>
+          <div class="feature-box">
+            <div class="feature-box-title">⚡ How It Engages at the Stall</div>
+            <div class="feature-box-text">
+              Demonstrates the advanced robotics &amp; electronics capstone of the 25-week Good Soil curriculum. Kids place obstacles in the rover's path on the demonstration table and watch it detect distance, stop, steer around, and plot proximity vectors in real time.
+            </div>
+          </div>
+          <div class="reusable-badge">
+            🔄 Curriculum Kit: Directly Reused from Senior Regular Kits #5 &amp; #6
+          </div>
+          <div style="font-size: 7.5pt; color: #5B6E5F; margin-top: 5px; line-height: 1.3;">
+            <em>Parent Impact:</em> Proves to parents that Good Soil is a serious engineering academy rather than a casual craft club.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collateral & Physical Trust Anchors -->
+    <div style="background: #F9FAF9; border: 1px solid #E1E8E2; border-radius: 8px; padding: 11px 14px; margin-top: 6px;">
+      <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 10.5pt; font-weight: 700; color: #1F6B44; margin-bottom: 5px;">
+        Stall Collateral &amp; Lead Capture Essentials (Physical Assets)
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 7.8pt; color: #384A3B;">
+        <div>
+          <strong>1. Dual Acrylic Standees:</strong><br>
+          • WhatsApp QR: <code>wa.me/918050312758</code><br>
+          • "Founding Cohort · Max 8 Kids/Batch"
+        </div>
+        <div>
+          <strong>2. Physical STEM Passports:</strong><br>
+          • 100× Heavy cardstock 1-pagers<br>
+          • Complete 25-Class Curriculum map
+        </div>
+        <div>
+          <strong>3. Flight Pride Badges:</strong><br>
+          • Branded Good Soil stickers<br>
+          • Target flight hoop (3m distance)
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="doc-footer">
+    <div><strong>Good Soil STEM Academy</strong> · Sowing curiosity, building real engineers.</div>
+    <div class="footer-links">
+      <span>📱 WhatsApp: +91 80503 12758</span>
+      <span>✉️ info@goodsoilmakers.com</span>
+      <span>📍 Delhi NCR</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 3: PROCUREMENT BUDGET, TOP 4 VENDORS & CONVERSION PLAYBOOK -->
+<!-- ========================================================================= -->
+<div class="page">
+  <div class="page-content">
+
+    <header class="doc-header">
+      <div class="brand-group">
+        <svg class="brand-logo-svg" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="16" fill="#1F6B44"/>
+          <path d="M17 26V15" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M17 17c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#F5B82E"/>
+          <path d="M17 20c0-3.5-2.6-6-6-6 0 3.5 2.6 6 6 6Z" fill="#fff"/>
+        </svg>
+        <div>
+          <div class="brand-title">Good Soil</div>
+          <div class="brand-tagline">Hands-on STEM &amp; Maker Academy · Delhi NCR</div>
+        </div>
+      </div>
+      <div class="header-meta">
+        <div class="badge-tag">MASTER BUDGET &amp; OPERATIONS</div>
+        <div class="header-date">Curated Kit Roster · Page 3 of 3</div>
+      </div>
+    </header>
+
+    <!-- Master BOM Table -->
+    <div class="budget-table-wrap">
+      <div class="table-title">Consolidated Stall Procurement &amp; Budget Roster (India Sourced)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Station / Item Description</th>
+            <th>Primary Vendor (India)</th>
+            <th>Asset Type</th>
+            <th>Curriculum Source</th>
+            <th>Stall Qty</th>
+            <th>Est. Outlay</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Digital Wind Tunnel (Portronics Beem 440/470 LED, Mount, Wing)</strong></td>
+            <td>Amazon India / Portronics</td>
+            <td>Permanent CapEx</td>
+            <td>Aero Module (Cl. 11–15)</td>
+            <td>1 Setup</td>
+            <td>₹8,449</td>
+          </tr>
+          <tr>
+            <td><strong>Hydraulic Mech Grabber Robotic Arm</strong></td>
+            <td>Kintaro DIY / Pludo India</td>
+            <td>Permanent Live Unit</td>
+            <td>Senior Regular Kit #7</td>
+            <td>1 Unit</td>
+            <td>₹749</td>
+          </tr>
+          <tr>
+            <td><strong>5-Minute Chuck Gliders (Take-Home Activity)</strong></td>
+            <td>Good Soil / Crossvind Delhi</td>
+            <td>Event Consumable</td>
+            <td>Junior Regular Kit #8</td>
+            <td>75 Units</td>
+            <td>₹11,250</td>
+          </tr>
+          <tr>
+            <td><strong>Autonomous 4WD Rover + Sonar Radar Scanner</strong></td>
+            <td>Robocraze / KitsGuru India</td>
+            <td>Permanent Live Unit</td>
+            <td>Senior Regular Kits #5 &amp; #6</td>
+            <td>1 Setup</td>
+            <td>₹1,148</td>
+          </tr>
+          <tr>
+            <td><strong>Collateral Pack (QR Standees, 100 Passports, Stickers)</strong></td>
+            <td>Local Delhi Print Vendor</td>
+            <td>Event Marketing</td>
+            <td>Stall Operations Kit</td>
+            <td>100 Sets</td>
+            <td>₹2,500</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="4"><strong>TOTAL ESTIMATED INITIAL EVENT OUTLAY (CapEx + 75 Kid Takeaways)</strong></td>
+            <td><strong>—</strong></td>
+            <td><strong>₹24,096</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Top 4 Vendors Directory -->
+    <div style="margin-bottom: 14px;">
+      <div class="table-title" style="font-size: 11pt; margin-bottom: 6px;">Top 4 Verified Indian Vendors Matrix</div>
+      <div class="vendor-grid">
+        <div class="vendor-card">
+          <div class="vendor-header-row">
+            <span class="vendor-title">1. Good Soil Aero / Crossvind</span>
+            <span class="vendor-role-tag">AEROMODELLING</span>
+          </div>
+          <div class="vendor-body">
+            <strong>Role:</strong> High-lift balsa chuck gliders (Station 3) &amp; projection target wing (Station 1).<br>
+            <strong>Heritage:</strong> 10+ years Delhi NCR aeromodelling workshops (Airmodelcrafts). Direct factory laser-cutting in Delhi.
+          </div>
+        </div>
+
+        <div class="vendor-card">
+          <div class="vendor-header-row">
+            <span class="vendor-title">2. Robocraze / Portronics</span>
+            <span class="vendor-role-tag">ELECTRONICS &amp; TECH</span>
+          </div>
+          <div class="vendor-body">
+            <strong>Role:</strong> RoboRover 4WD chassis kit, TT motors, L298N drivers &amp; Portronics Beem rotatable projectors.<br>
+            <strong>Strengths:</strong> Fast Delhi NCR courier dispatch, official Indian warranty, GST tax invoicing.
+          </div>
+        </div>
+
+        <div class="vendor-card">
+          <div class="vendor-header-row">
+            <span class="vendor-title">3. Kintaro DIY / Pludo</span>
+            <span class="vendor-role-tag">MECHANICAL &amp; WOOD</span>
+          </div>
+          <div class="vendor-body">
+            <strong>Role:</strong> Wooden hydraulic mechanical gripper arm kits (Station 2, SKU <code>WEB-KIN-001</code>).<br>
+            <strong>Strengths:</strong> Clean birch die-cuts, child-safe rounded edges, medical-grade syringes included.
+          </div>
+        </div>
+
+        <div class="vendor-card">
+          <div class="vendor-header-row">
+            <span class="vendor-title">4. Practiko / KitsGuru</span>
+            <span class="vendor-role-tag">ELECTRONICS &amp; RADAR</span>
+          </div>
+          <div class="vendor-body">
+            <strong>Role:</strong> Ultrasonic radar scanner kits, HC-SR04 sonar sensors, SG90 servos &amp; academy curricula.<br>
+            <strong>Strengths:</strong> Low component cost, individual sensor testing, high educational relevance.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mentor Pitch & Conversion Flow -->
+    <div style="margin-bottom: 6px;">
+      <div class="table-title" style="font-size: 11pt; margin-bottom: 6px;">On-Ground Mentor Pitch &amp; WhatsApp Conversion Playbook</div>
+      <div class="guide-grid">
+        <div class="guide-step">
+          <div class="guide-step-num">PHASE 1 · 0–10 SEC</div>
+          <div class="guide-step-title">The Physical Hook</div>
+          <div class="guide-step-text">
+            Engage the child with action: <em>"Think you can fly this balsa plane through the yellow hoop?"</em> or <em>"Grab the blue syringe to catch a candy!"</em>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-num">PHASE 2 · 15–45 SEC</div>
+          <div class="guide-step-title">The Parent Bridge</div>
+          <div class="guide-step-text">
+            While child is building: <em>"Notice how your child hasn't looked at a phone screen once? We are Good Soil — 100% screen-free physical maker workshops."</em>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-num">PHASE 3 · 45–90 SEC</div>
+          <div class="guide-step-title">The Trust Anchor</div>
+          <div class="guide-step-text">
+            <em>"Born out of 10+ years of Delhi aeromodelling heritage. Our founding cohorts are strictly capped at 6 to 8 kids with direct engineer mentorship."</em>
+          </div>
+        </div>
+
+        <div class="guide-step">
+          <div class="guide-step-num">PHASE 4 · CLOSING</div>
+          <div class="guide-step-title">Low-Barrier CTA</div>
+          <div class="guide-step-text">
+            Never hard-sell on spot. Hand child the plane to keep, point parent to WhatsApp QR: <em>"Scan here to receive our complete 25-Class Syllabus guide."</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="doc-footer">
+    <div><strong>Good Soil STEM Academy</strong> · Sowing curiosity, building real engineers.</div>
+    <div class="footer-links">
+      <span>📱 WhatsApp: +91 80503 12758</span>
+      <span>✉️ info@goodsoilmakers.com</span>
+      <span>📍 Delhi NCR</span>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
