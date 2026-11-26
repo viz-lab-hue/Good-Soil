@@ -2186,11 +2186,27 @@
     });
   }
 
+  function ensureKitsLoaded(cb) {
+    if (window.GOOD_SOIL_KITS) {
+      if (typeof cb === 'function') cb();
+      return;
+    }
+    const existing = document.querySelector('script[src*="kits_data.js"]');
+    if (existing) {
+      existing.addEventListener('load', () => { if (typeof cb === 'function') cb(); });
+      return;
+    }
+    const s = document.createElement('script');
+    s.src = 'kits_data.js?v=1';
+    s.onload = () => { if (typeof cb === 'function') cb(); };
+    document.body.appendChild(s);
+  }
+
   function executePageScripts(doc) {
     if (!doc) return;
     const scripts = doc.querySelectorAll('script');
     scripts.forEach(s => {
-      if (s.src && s.src.includes('goodsoil.js')) return;
+      if (s.src && (s.src.includes('goodsoil.js') || s.src.includes('kits_data.js'))) return;
       try {
         const newScript = document.createElement('script');
         if (s.src) {
@@ -2231,9 +2247,20 @@
 
     // Shop page
     if (p.includes('shop')) {
-      if (typeof window.renderLiveKits === 'function') {
-        window.renderLiveKits();
-      }
+      ensureKitsLoaded(() => {
+        if (typeof window.renderLiveKits === 'function') {
+          window.renderLiveKits();
+        }
+      });
+    }
+
+    // Home page
+    if (!p || p === 'index.html') {
+      ensureKitsLoaded(() => {
+        if (typeof window.renderHomepageKitPreview === 'function') {
+          window.renderHomepageKitPreview();
+        }
+      });
     }
 
     // Common initializations across all pages
