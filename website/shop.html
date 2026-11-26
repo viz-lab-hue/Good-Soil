@@ -279,8 +279,8 @@
 </div>
 </section>
 
-<!-- QUICK VIEW MODAL FOR KIT DETAILS + EXPLICIT REDIRECT -->
-<div id="kit-detail-modal" style="display: none; position: fixed; inset: 0; z-index: 9999; align-items: center; justify-content: center; padding: 16px; background: rgba(28,27,24,0.65); backdrop-filter: blur(4px)" onclick="if(event.target===this) closeKitDetailModal()">
+<!-- QUICK VIEW MODAL FOR KIT DETAILS + EXPLICIT REDIRECT (portaled to body on open) -->
+<div id="kit-detail-modal" style="display: none; position: fixed; inset: 0; z-index: 10005; align-items: center; justify-content: center; padding: 16px; background: rgba(28,27,24,0.65); backdrop-filter: blur(4px)" onclick="if(event.target===this) closeKitDetailModal()">
   <div role="dialog" aria-modal="true" style="background: #FFFFFF; border-radius: 28px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 28px; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,0.28); display: flex; flex-direction: column; gap: 18px">
     <button type="button" onclick="closeKitDetailModal()" aria-label="Close modal" style="position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #ECEAE3; background: #FFFFFF; color: #1C1B18; font-size: 18px; font-weight: 700; cursor: pointer">&times;</button>
     <div id="kit-detail-body"></div>
@@ -312,7 +312,7 @@
 
 <!-- Curated Kits Dataset + Good Soil Core -->
 <script src="kits_data.js?v=1"></script>
-<script src="goodsoil.js?v=6"></script>
+<script src="goodsoil.js?v=7"></script>
 
 <script>
 (function () {
@@ -538,39 +538,53 @@
     const body = document.getElementById('kit-detail-body');
     if (!modal || !body) return;
 
+    // Ensure modal is mounted on document.body so parent transforms never trap position:fixed below screen
+    if (modal.parentElement !== document.body) {
+      document.body.appendChild(modal);
+    }
+
     body.innerHTML = `
-      <div style="background: #F8FAF7; border-radius: 18px; padding: 16px; display: flex; justify-content: center; align-items: center; max-height: 260px;">
-        <img src="${escHtml(kit.img)}" alt="${escHtml(kit.title)}" onerror="this.onerror=null;this.src='images/stem-kits.jpg';" style="max-height: 220px; width: auto; max-width: 100%; object-fit: contain;">
+      <div style="background: #F8FAF7; border-radius: 18px; padding: 14px; display: flex; justify-content: center; align-items: center; max-height: 220px;">
+        <img src="${escHtml(kit.img)}" alt="${escHtml(kit.title)}" onerror="this.onerror=null;this.src='images/stem-kits.jpg';" style="max-height: 190px; width: auto; max-width: 100%; object-fit: contain;">
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-        <span style="background: #E8EFE5; color: #1F6B44; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px;">${escHtml(kit.vendor)}</span>
-        <span style="background: #F2F5EF; color: #1C1B18; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px;">${escHtml(kit.cat)}</span>
-        <span style="background: #1C1B18; color: #FFFFFF; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px;">Ages ${escHtml(kit.age)}</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center;">
+        <span style="background: #E8EFE5; color: #1F6B44; font-size: 11.5px; font-weight: 800; padding: 4px 10px; border-radius: 999px;">${escHtml(kit.vendor)}</span>
+        <span style="background: #F2F5EF; color: #1C1B18; font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">${escHtml(kit.cat)}</span>
+        <span style="background: #1C1B18; color: #FFFFFF; font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">${kit.age && kit.age.toLowerCase().includes('all') ? escHtml(kit.age) : 'Ages ' + escHtml(kit.age)}</span>
       </div>
-      <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; font-weight: 800; color: #1C1B18; line-height: 1.2;">${escHtml(kit.title)}</h2>
-      <p style="margin: 0; font-size: 14px; color: #4A4740; line-height: 1.6;">${escHtml(kit.desc)}</p>
+      <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(20px, 3vw, 24px); font-weight: 800; color: #1C1B18; line-height: 1.2;">${escHtml(kit.title)}</h2>
+      <p style="margin: 0; font-size: 14px; color: #4A4740; line-height: 1.55;">${escHtml(kit.desc)}</p>
 
-      <div style="background: #FFFBEB; border: 1.5px solid #F5D061; border-radius: 16px; padding: 12px 16px; font-size: 13px; color: #55524A; line-height: 1.5;">
-        <strong style="color: #1C1B18">↗ External Vendor Redirect:</strong> Clicking the button below takes you directly to <strong>${escHtml(kit.domain)}</strong> (${escHtml(kit.vendor)}'s official store) to complete your purchase while Good Soil Makers sets up direct procurement.
+      <div style="background: #FFFBEB; border: 1.5px solid #F5D061; border-radius: 14px; padding: 10px 14px; font-size: 12.5px; color: #55524A; line-height: 1.45;">
+        <strong style="color: #1C1B18">↗ External Vendor Redirect:</strong> Opens <strong>${escHtml(kit.domain)}</strong> (${escHtml(kit.vendor)}'s official store) in a new tab while Good Soil Makers prepares direct warehouse shipping.
       </div>
 
-      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; border-top: 1px solid #ECEAE3; padding-top: 16px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #ECEAE3; padding-top: 14px;">
         <div>
-          <div style="font-size: 11px; color: #8E8A7F; font-weight: 700; text-transform: uppercase;">Vendor Retail Price</div>
-          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 800; color: #1F6B44;">${escHtml(kit.priceText)}</div>
+          <div style="font-size: 10.5px; color: #8E8A7F; font-weight: 700; text-transform: uppercase;">Vendor Retail Price</div>
+          <div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; font-weight: 800; color: #1F6B44;">${escHtml(kit.priceText)}</div>
         </div>
-        <a href="${escHtml(kit.link)}" target="_blank" rel="noopener noreferrer" style="min-height: 46px; padding: 0 24px; border-radius: 999px; background: #1F6B44; color: #FFFFFF; font: 700 15px 'DM Sans', sans-serif; display: inline-flex; align-items: center; gap: 8px;">
-          Continue to ${escHtml(shortVendorName(kit.vendor))} Website &nearr;
+        <a href="${escHtml(kit.link)}" target="_blank" rel="noopener noreferrer" style="min-height: 44px; padding: 0 22px; border-radius: 999px; background: #1F6B44; color: #FFFFFF; font: 700 14.5px 'DM Sans', sans-serif; display: inline-flex; align-items: center; gap: 8px;">
+          Continue to ${escHtml(shortVendorName(kit.vendor))} &nearr;
         </a>
       </div>
     `;
     modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   };
 
   window.closeKitDetailModal = function () {
     const modal = document.getElementById('kit-detail-modal');
     if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
   };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('kit-detail-modal');
+      if (modal && modal.style.display !== 'none') closeKitDetailModal();
+    }
+  });
 
   document.addEventListener('DOMContentLoaded', function () {
     if (window.GOOD_SOIL_KITS) {

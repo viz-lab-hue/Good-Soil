@@ -332,6 +332,7 @@
     requestAnimationFrame(() => {
       backdrop.style.opacity = '1';
       dialog.style.opacity = '1';
+      dialog.classList.add('gs-sheet-open');
       dialog.style.transform = isMobile ? 'translateY(0)' : 'translate(-50%, -50%) scale(1)';
     });
   }
@@ -345,6 +346,7 @@
     const isMobile = window.innerWidth <= 768;
     backdrop.style.opacity = '0';
     dialog.style.opacity = '0';
+    dialog.classList.remove('gs-sheet-open');
     dialog.style.transform = isMobile ? 'translateY(100%)' : 'translate(-50%, -50%) scale(0.95)';
     setTimeout(() => {
       container.style.display = 'none';
@@ -716,6 +718,7 @@
     const isMobile = window.innerWidth <= 768;
     requestAnimationFrame(() => {
       backdrop.style.opacity = '1';
+      drawer.classList.add('gs-sheet-open');
       drawer.style.transform = isMobile ? 'translateY(0)' : 'translateX(0)';
       const closeBtn = document.getElementById('cart-close-btn');
       if (closeBtn) closeBtn.focus();
@@ -731,6 +734,7 @@
 
     const isMobile = window.innerWidth <= 768;
     backdrop.style.opacity = '0';
+    drawer.classList.remove('gs-sheet-open');
     drawer.style.transform = isMobile ? 'translateY(100%)' : 'translateX(100%)';
 
     setTimeout(() => {
@@ -996,7 +1000,7 @@
     if (videoSrc && (videoSrc.endsWith('.mp4') || videoSrc.endsWith('.webm') || videoSrc.endsWith('.mov'))) {
       mediaHTML = `
         <video id="goodsoil-active-video" controls autoplay playsinline style="width: 100%; height: 100%; object-fit: contain; background: #000000;" onerror="this.style.display='none'; document.getElementById('goodsoil-video-fallback').style.display='flex';">
-          <source src="${escapeHtml(videoSrc)}" type="video/mp4">
+          <source src="${escapeHtml(videoSrc)}" type="video/mp4" onerror="var v=document.getElementById('goodsoil-active-video'); if(v) v.style.display='none'; var fb=document.getElementById('goodsoil-video-fallback'); if(fb) fb.style.display='flex';">
         </video>
         <div id="goodsoil-video-fallback" style="display: none; position: relative; width: 100%; height: 100%; align-items: center; justify-content: center; background: #1C1B18;">
           <img src="${escapeHtml(poster)}" alt="${escapeHtml(t)}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;">
@@ -1075,14 +1079,15 @@
     if (!modal) {
       modal = document.createElement('div');
       modal.id = 'goodsoil-pdf-modal';
-      modal.style.cssText = 'position: fixed; inset: 0; z-index: 10002; display: flex; align-items: center; justify-content: center; background: rgba(14,14,12,0.8); backdrop-filter: blur(8px); padding: 16px; font-family: "DM Sans", sans-serif; box-sizing: border-box; overflow-y: auto;';
+      modal.style.cssText = 'position: fixed; inset: 0; z-index: 10005; display: flex; align-items: flex-start; justify-content: center; background: rgba(14,14,12,0.8); backdrop-filter: blur(8px); padding: 16px; font-family: "DM Sans", sans-serif; box-sizing: border-box; overflow-y: auto;';
+      modal.onclick = function (e) { if (e.target === modal) closePdfModal(); };
       document.body.appendChild(modal);
     }
 
     const title = moduleTitle || '25-Class Master Curriculum';
 
     modal.innerHTML = `
-      <div style="position: relative; width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto; background: #1C1B18; color: #FFFFFF; border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); border: 1px solid #33312B; box-sizing: border-box;">
+      <div style="position: relative; margin: auto; width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto; background: #1C1B18; color: #FFFFFF; border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); border: 1px solid #33312B; box-sizing: border-box;">
         <div style="padding: 20px 24px; border-bottom: 1px solid #33312B; display: flex; justify-content: space-between; align-items: center; background: #252420; border-top-left-radius: 28px; border-top-right-radius: 28px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <span style="font-size: 22px;">📄</span>
@@ -1252,22 +1257,30 @@
           display: block;
           min-height: calc(100vh - 68px);
           transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1), transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
-          will-change: opacity, transform;
         }
         .gs-page-leaving {
           opacity: 0 !important;
           transform: translateY(6px) !important;
+          will-change: opacity, transform;
           transition: opacity 0.13s cubic-bezier(0.4, 0, 1, 1), transform 0.13s cubic-bezier(0.4, 0, 1, 1) !important;
         }
         .gs-page-prep-enter {
           opacity: 0 !important;
           transform: translateY(10px) !important;
+          will-change: opacity, transform;
           transition: none !important;
         }
         .gs-page-entering {
           opacity: 1 !important;
           transform: translateY(0) !important;
+          will-change: opacity, transform;
           transition: opacity 0.24s cubic-bezier(0.22, 1, 0.36, 1), transform 0.24s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+        #cart-drawer.gs-sheet-open {
+          transform: translateX(0) !important;
+        }
+        #auth-dialog.gs-sheet-open {
+          transform: translate(-50%, -50%) scale(1) !important;
         }
 
         /* Shared Component Styles (Guaranteed across all SPA tab switches!) */
@@ -1632,9 +1645,12 @@
             max-width: 100% !important;
             max-height: 88vh !important;
             border-radius: 26px 26px 0 0 !important;
-            transform: translateY(100%) !important;
+            transform: translateY(100%);
             box-shadow: 0 -12px 40px rgba(0,0,0,0.3) !important;
             padding-bottom: env(safe-area-inset-bottom, 16px) !important;
+          }
+          #cart-drawer.gs-sheet-open {
+            transform: translateY(0) !important;
           }
           .mobile-sheet-handle {
             display: block !important;
@@ -1649,10 +1665,25 @@
             width: 100% !important;
             max-width: 100% !important;
             border-radius: 26px 26px 0 0 !important;
-            transform: translateY(100%) !important;
+            transform: translateY(100%);
             max-height: 88vh !important;
             padding: 16px 20px calc(24px + env(safe-area-inset-bottom, 14px)) !important;
             box-shadow: 0 -12px 40px rgba(0,0,0,0.3) !important;
+          }
+          #auth-dialog.gs-sheet-open {
+            transform: translateY(0) !important;
+          }
+
+          /* Kit Detail Modal Mobile Bottom Sheet */
+          #kit-detail-modal {
+            padding: 0 !important;
+            align-items: flex-end !important;
+          }
+          #kit-detail-modal > div {
+            border-radius: 26px 26px 0 0 !important;
+            max-width: 100% !important;
+            max-height: 88vh !important;
+            padding: 20px 18px calc(24px + env(safe-area-inset-bottom, 14px)) !important;
           }
 
           /* Carousel Dots */
@@ -1810,7 +1841,7 @@
         #goodsoil-mobile-menu {
           display: none;
           position: fixed;
-          top: 65px;
+          top: 58px;
           left: 0;
           right: 0;
           bottom: 0;
@@ -2593,10 +2624,12 @@
     // Immediately highlight target tab in bottom navigation bar
     updateActiveNavState(targetPath);
 
-    // Close mobile menu if open
-    if (typeof closeMobileNav === 'function') {
-      closeMobileNav();
-    }
+    // Close any open drawers/modals cleanly on page transition
+    document.body.style.overflow = '';
+    if (typeof closeMobileNav === 'function') closeMobileNav();
+    if (typeof closeKitDetailModal === 'function') closeKitDetailModal();
+    if (typeof closeVideoModal === 'function') closeVideoModal();
+    if (typeof closePdfModal === 'function') closePdfModal();
 
     try {
       const main = document.getElementById('page-content');
