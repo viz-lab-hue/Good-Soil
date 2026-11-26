@@ -27,7 +27,7 @@
         pageUrl: window.location.href,
         submittedAt: new Date().toISOString()
       };
-      
+
       // Attempt serverless /api/lead first
       fetch('/api/lead', {
         method: 'POST',
@@ -51,7 +51,7 @@
           }).catch(e => {
             console.warn('Google Sheet fallback error:', e);
           });
-        } catch (fbErr) {}
+        } catch (fbErr) { }
       });
     } catch (e) {
       console.warn('sendLeadToBackend error:', e);
@@ -232,7 +232,7 @@
         } else {
           localStorage.setItem(userCartKey, JSON.stringify(GoodSoilCart.getItems()));
         }
-      } catch (err) {}
+      } catch (err) { }
 
       updateAuthUI();
       showToast('🎉 Welcome, ' + user.name + '! Cart synced.');
@@ -244,7 +244,7 @@
       if (user) {
         try {
           localStorage.setItem('goodsoil_user_cart_' + user.id, JSON.stringify(GoodSoilCart.getItems()));
-        } catch (e) {}
+        } catch (e) { }
       }
       saveStoredUser(null);
       updateAuthUI();
@@ -834,7 +834,7 @@
     const totalEl = document.getElementById('cart-total-val');
 
     if (subtotalEl) subtotalEl.textContent = '₹' + subtotal.toLocaleString('en-IN');
-    
+
     let discountAmount = 0;
     if (discountPercent > 0) {
       discountAmount = Math.round(subtotal * (discountPercent / 100));
@@ -1011,7 +1011,7 @@
           <div style="width: 68px; height: 68px; border-radius: 50%; background: #F5B82E; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 10px rgba(245,184,46,0.3); z-index: 2;">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="#1C1B18"><path d="M8 5.5v13l11-6.5Z"></path></svg>
           </div>
-          <div style="position: absolute; bottom: 18px; left: 16px; right: 16px; text-align: center; color: #FFFFFF; font-size: 12px; color: #DCEBE2;">
+          <div style="position: absolute; bottom: 18px; left: 16px; right: 16px; text-align: center; font-size: 12px; color: #DCEBE2;">
             Recorded on phone during workshop · Raw file in editing
           </div>
         </div>
@@ -1061,7 +1061,7 @@
         try {
           vid.pause();
           vid.currentTime = 0;
-        } catch (e) {}
+        } catch (e) { }
       }
       modal.style.display = 'none';
       document.body.style.overflow = '';
@@ -2143,12 +2143,46 @@
   // ─────────────────────────────────────────────────────────────
   // 6. INITIALIZATION & GLOBAL EVENT WIRING
   // ─────────────────────────────────────────────────────────────
+  function initGalleryFilters() {
+    const gallerySection = document.getElementById('gallery');
+    if (!gallerySection) return;
+    const filterBtns = gallerySection.querySelectorAll('div > button[type="button"]');
+    filterBtns.forEach(btn => {
+      btn.onclick = function () {
+        filterBtns.forEach(b => {
+          b.style.background = '#FFFFFF';
+          b.style.color = '#1C1B18';
+          b.style.border = '1px solid #DAD7CE';
+        });
+        this.style.background = '#1C1B18';
+        this.style.color = '#FFFFFF';
+        this.style.border = '0';
+
+        const filterType = this.textContent.trim().toLowerCase();
+        const photoTiles = gallerySection.querySelectorAll('.tile[role="img"]');
+        const videoTile = gallerySection.querySelector('.tile button[aria-label="Play featured video"]')?.closest('.tile');
+
+        if (filterType === 'videos') {
+          photoTiles.forEach(t => t.style.opacity = '0.35');
+          if (videoTile) { videoTile.style.opacity = '1'; videoTile.style.transform = 'scale(1.03)'; }
+        } else if (filterType === 'photos') {
+          photoTiles.forEach(t => t.style.opacity = '1');
+          if (videoTile) { videoTile.style.opacity = '0.35'; videoTile.style.transform = ''; }
+        } else {
+          photoTiles.forEach(t => t.style.opacity = '1');
+          if (videoTile) { videoTile.style.opacity = '1'; videoTile.style.transform = ''; }
+        }
+      };
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     injectCartDrawerHTML();
     injectAuthModalHTML();
     injectMobileNav();
     injectMobileBottomBar();
     initCarouselDots();
+    initGalleryFilters();
     ensureNavAuthBtn();
     updateNavCartBadges();
     updateAuthUI();
@@ -2156,84 +2190,6 @@
     window.addEventListener('goodsoil:authchange', () => {
       updateAuthUI();
     });
-
-    // Wire up all Cart trigger buttons across any page
-    document.querySelectorAll('[data-open-cart], a[aria-label="Cart"], button[aria-label="Open cart"], a[href="shop.html"][aria-label="Cart"]').forEach(btn => {
-      btn.addEventListener('click', function (e) {
-        // If clicking on cart icon on any page, open the drawer instead of redirecting!
-        e.preventDefault();
-        openCartDrawer(this);
-      });
-    });
-
-    // Wire up video play buttons in heroes and gallery
-    document.querySelectorAll('button[aria-label="Play workshop reel"], button[aria-label="Play featured video"]').forEach(btn => {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        openVideoModal();
-      });
-    });
-
-    // Wire up newsletter forms across all pages (scoped to footer newsletter forms)
-    document.querySelectorAll('footer form, form.newsletter-form').forEach(f => {
-      const emailInput = f.querySelector('input[type="email"]');
-      if (emailInput) {
-        f.addEventListener('submit', function (e) {
-          e.preventDefault();
-          const email = emailInput.value.trim();
-          if (email) {
-            try {
-              const subs = JSON.parse(localStorage.getItem('goodsoil_subscribers') || '[]');
-              subs.push({ email, timestamp: new Date().toISOString() });
-              localStorage.setItem('goodsoil_subscribers', JSON.stringify(subs));
-            } catch (err) {}
-
-            // Auto-sync subscriber to Google Sheet
-            sendLeadToBackend({
-              type: 'Newsletter Subscriber',
-              email: email,
-              format: 'Camp Dates Alert'
-            });
-
-            showToast('🎉 Thank you! ' + email + ' has been subscribed to camp dates.');
-            emailInput.value = '';
-          }
-        });
-      }
-    });
-
-    // Gallery Filter wiring if on home page
-    const gallerySection = document.getElementById('gallery');
-    if (gallerySection) {
-      const filterBtns = gallerySection.querySelectorAll('div > button[type="button"]');
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-          filterBtns.forEach(b => {
-            b.style.background = '#FFFFFF';
-            b.style.color = '#1C1B18';
-            b.style.border = '1px solid #DAD7CE';
-          });
-          this.style.background = '#1C1B18';
-          this.style.color = '#FFFFFF';
-          this.style.border = '0';
-
-          const filterType = this.textContent.trim().toLowerCase();
-          const photoTiles = gallerySection.querySelectorAll('.tile[role="img"]');
-          const videoTile = gallerySection.querySelector('.tile button[aria-label="Play featured video"]')?.closest('.tile');
-
-          if (filterType === 'videos') {
-            photoTiles.forEach(t => t.style.opacity = '0.35');
-            if (videoTile) { videoTile.style.opacity = '1'; videoTile.style.transform = 'scale(1.03)'; }
-          } else if (filterType === 'photos') {
-            photoTiles.forEach(t => t.style.opacity = '1');
-            if (videoTile) { videoTile.style.opacity = '0.35'; videoTile.style.transform = ''; }
-          } else {
-            photoTiles.forEach(t => t.style.opacity = '1');
-            if (videoTile) { videoTile.style.opacity = '1'; videoTile.style.transform = ''; }
-          }
-        });
-      });
-    }
   });
 
   // ─────────────────────────────────────────────────────────────
@@ -2284,6 +2240,16 @@
       localStorage.setItem('goodsoil_workshop_enquiries', JSON.stringify(existing));
     } catch (err) { /* silently continue */ }
 
+    const ageLabel = { junior: 'Junior (7–10)', senior: 'Senior (10–14+)', both: 'Both / Not sure' }[data.age] || 'Not specified';
+    const interestLabel = {
+      'weekend-classes': 'Weekend Batch Classes',
+      'holiday-camp': 'Holiday Camps',
+      'school-workshop': 'School Workshop / Assembly',
+      'curriculum': 'Curriculum / Teaching Material',
+      'industry-day': 'Industry Day / Demo Visit',
+      'other': 'Other'
+    }[data.interest] || 'Not specified';
+
     // Auto-sync enquiry to Google Sheet
     sendLeadToBackend({
       type: 'Workshop Enquiry',
@@ -2294,17 +2260,6 @@
       format: interestLabel,
       details: (data.role ? 'Role: ' + data.role + '\n' : '') + (data.message || '')
     });
-
-    // Build WhatsApp message
-    const ageLabel = { junior: 'Junior (7–10)', senior: 'Senior (10–14+)', both: 'Both / Not sure' }[data.age] || 'Not specified';
-    const interestLabel = {
-      'weekend-classes': 'Weekend Batch Classes',
-      'holiday-camp': 'Holiday Camps',
-      'school-workshop': 'School Workshop / Assembly',
-      'curriculum': 'Curriculum / Teaching Material',
-      'industry-day': 'Industry Day / Demo Visit',
-      'other': 'Other'
-    }[data.interest] || 'Not specified';
 
     const waMsg = [
       '📋 *New Workshop Enquiry*',
@@ -2368,18 +2323,6 @@
     });
   };
 
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('a[href="#enquiry"]').forEach(a => {
-      a.addEventListener('click', function (e) {
-        const enq = document.getElementById('enquiry');
-        if (enq) {
-          e.preventDefault();
-          window.scrollToCard(enq, 14);
-        }
-      });
-    });
-  });
-
 
   // ─────────────────────────────────────────────────────────────
   // 7. SEAMLESS SPA-STYLE NAVIGATION ROUTER (Zero White Flicker)
@@ -2416,7 +2359,7 @@
     pageCache.set(key, entry);
     try {
       sessionStorage.setItem('gs_pg_v2_' + key, JSON.stringify({ title: doc.title, rawHtml: rawHtml }));
-    } catch (e) {}
+    } catch (e) { }
     return entry;
   }
 
@@ -2430,7 +2373,7 @@
           return storePageCache(key, parsed.title, parsed.rawHtml);
         }
       }
-    } catch (e) {}
+    } catch (e) { }
     return null;
   }
 
@@ -2459,7 +2402,7 @@
           .then(html => {
             storePageCache(key, null, html);
           })
-          .catch(() => {});
+          .catch(() => { });
       });
     };
 
@@ -2491,8 +2434,8 @@
     document.querySelectorAll('header nav a.nav-link').forEach(link => {
       const href = (link.getAttribute('href') || '').toLowerCase();
       const isActive = (isClasses && href.includes('classes')) ||
-                       (isShop && href.includes('shop')) ||
-                       (isCurric && href.includes('curriculum'));
+        (isShop && href.includes('shop')) ||
+        (isCurric && href.includes('curriculum'));
       if (isActive) {
         link.classList.add('active');
         link.style.color = '#1F6B44';
@@ -2508,8 +2451,8 @@
     document.querySelectorAll('#goodsoil-mobile-menu .mobile-nav-item').forEach(item => {
       const href = (item.getAttribute('href') || '').toLowerCase();
       const isActive = (isClasses && href.includes('classes')) ||
-                       (isShop && href.includes('shop')) ||
-                       (isCurric && href.includes('curriculum'));
+        (isShop && href.includes('shop')) ||
+        (isCurric && href.includes('curriculum'));
       if (isActive) item.classList.add('active');
       else item.classList.remove('active');
     });
@@ -2594,6 +2537,7 @@
 
     // Common initializations across all pages
     if (typeof initCarouselDots === 'function') initCarouselDots();
+    if (typeof initGalleryFilters === 'function') initGalleryFilters();
     if (typeof updateNavCartBadges === 'function') updateNavCartBadges();
     if (typeof ensureNavAuthBtn === 'function') ensureNavAuthBtn();
     if (typeof updateAuthUI === 'function') updateAuthUI();
@@ -2638,10 +2582,10 @@
       // Start smooth leave glide right away
       const leavePromise = main
         ? new Promise(r => {
-            main.classList.remove('gs-page-entering', 'gs-page-prep-enter');
-            main.classList.add('gs-page-leaving');
-            setTimeout(r, 125);
-          })
+          main.classList.remove('gs-page-entering', 'gs-page-prep-enter');
+          main.classList.add('gs-page-leaving');
+          setTimeout(r, 125);
+        })
         : Promise.resolve();
 
       if (!cached) {
@@ -2746,7 +2690,7 @@
               const subs = JSON.parse(localStorage.getItem('goodsoil_subscribers') || '[]');
               subs.push({ email, timestamp: new Date().toISOString() });
               localStorage.setItem('goodsoil_subscribers', JSON.stringify(subs));
-            } catch (err) {}
+            } catch (err) { }
 
             sendLeadToBackend({
               type: 'Newsletter Subscriber',
@@ -2807,7 +2751,7 @@
       // Handle seamless transition!
       e.preventDefault();
       navigateTo(targetUrl.pathname, targetUrl.hash);
-    } catch (err) {}
+    } catch (err) { }
   });
 
   // Handle browser Back / Forward buttons seamlessly

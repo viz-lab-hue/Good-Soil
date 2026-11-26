@@ -16,3 +16,4 @@ scratch/
 # Raw unedited phone uploads (converted versions in website/images/ & website/videos/ are tracked)
 website/images/real.images/
 website/videos/WhatsApp Video*.mp4
+website/moremedia/

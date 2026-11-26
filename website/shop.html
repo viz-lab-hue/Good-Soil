@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,32 +9,83 @@
   <meta name="application-name" content="Good Soil Makers">
   <meta name="apple-mobile-web-app-title" content="Good Soil Makers">
   <meta property="og:title" content="Good Soil Makers — STEM &amp; Robotics Kit Shop">
-  <meta property="og:description" content="Explore 380+ curated robotics, aeromodelling, electronics, coding, and hands-on STEM kits from verified Indian makers — all in one directory.">
+  <meta property="og:description"
+    content="Explore 380+ curated robotics, aeromodelling, electronics, coding, and hands-on STEM kits from verified Indian makers — all in one directory.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/hero-workshop.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <title>Kit Shop — Good Soil Makers</title>
-  <meta name="description" content="Curated STEM, robotics, aeromodelling, and electronics kit directory by Good Soil Makers. Browse vetted kits from top Indian brands with direct links to official vendor websites.">
+  <meta name="description"
+    content="Curated STEM, robotics, aeromodelling, and electronics kit directory by Good Soil Makers. Browse vetted kits from top Indian brands with direct links to official vendor websites.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body {
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
       overflow-x: hidden !important;
       width: 100% !important;
       max-width: 100vw !important;
       position: relative !important;
     }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: #FFFFFF; font-family: 'DM Sans', sans-serif; color: #1C1B18; -webkit-font-smoothing: antialiased; }
-    a { color: #1F6B44; text-decoration: none; transition: color 0.2s ease; }
-    a:hover { color: #174F33; }
-    .card { transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(28,27,24,0.08); }
-    .nav-link { color: #1C1B18; text-decoration: none; padding: 10px 0; font-weight: 500; font-size: 15px; transition: color 0.15s ease; }
-    .nav-link:hover { color: #1F6B44; }
-    .nav-link.active { color: #1F6B44; font-weight: 700; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      color: #1C1B18;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #1F6B44;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #174F33;
+    }
+
+    .card {
+      transition: transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(28, 27, 24, 0.08);
+    }
+
+    .nav-link {
+      color: #1C1B18;
+      text-decoration: none;
+      padding: 10px 0;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      color: #1F6B44;
+    }
+
+    .nav-link.active {
+      color: #1F6B44;
+      font-weight: 700;
+    }
+
     .format-btn {
       min-height: 40px;
       padding: 0 18px;
@@ -44,22 +96,30 @@
       white-space: nowrap;
       transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
     }
-    .format-btn:active { transform: scale(0.96); }
+
+    .format-btn:active {
+      transform: scale(0.96);
+    }
+
     .format-btn.active {
       background: #1C1B18;
       color: #FFFFFF;
       border-color: #1C1B18;
-      box-shadow: 0 4px 12px rgba(28,27,24,0.16);
+      box-shadow: 0 4px 12px rgba(28, 27, 24, 0.16);
     }
+
     .format-btn.inactive {
       background: #FFFFFF;
       color: #1C1B18;
     }
+
     .format-btn.inactive:hover {
       background: #F2F5EF;
       border-color: #1F6B44;
     }
-    .shop-input, .shop-select {
+
+    .shop-input,
+    .shop-select {
       min-height: 44px;
       border-radius: 999px;
       border: 1.5px solid #DAD7CE;
@@ -71,10 +131,13 @@
       max-width: 100%;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .shop-input:focus, .shop-select:focus {
+
+    .shop-input:focus,
+    .shop-select:focus {
       border-color: #1F6B44;
-      box-shadow: 0 0 0 3px rgba(31,107,68,0.12);
+      box-shadow: 0 0 0 3px rgba(31, 107, 68, 0.12);
     }
+
     .kit-ext-btn {
       min-height: 42px;
       padding: 0 16px;
@@ -89,319 +152,444 @@
       white-space: nowrap;
       transition: background 0.2s ease, transform 0.15s ease;
     }
+
     .kit-ext-btn:hover {
       background: #1F6B44;
       color: #FFFFFF !important;
       transform: translateY(-1px);
     }
+
     #live-kit-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
       gap: 22px;
     }
+
     @media (max-width: 768px) {
-      input, select, textarea { font-size: 16px !important; }
-      body { padding-bottom: calc(68px + env(safe-area-inset-bottom, 10px)) !important; }
-      html, body { overflow-x: clip !important; width: 100% !important; max-width: 100vw !important; }
-      * { max-width: 100%; box-sizing: border-box; }
-      .nav-auth-btn .auth-btn-label { display: none !important; }
+
+      input,
+      select,
+      textarea {
+        font-size: 16px !important;
+      }
+
+      body {
+        padding-bottom: calc(68px + env(safe-area-inset-bottom, 10px)) !important;
+      }
+
+      html,
+      body {
+        overflow-x: clip !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+      }
+
+      * {
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .nav-auth-btn .auth-btn-label {
+        display: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<div style="font-family: 'DM Sans', sans-serif; color: #1C1B18; background: #FFFFFF; min-height: 100vh">
+  <div style="font-family: 'DM Sans', sans-serif; color: #1C1B18; background: #FFFFFF; min-height: 100vh">
 
-<!-- NAV -->
-<header style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #ECEAE3">
-<nav style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
-<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1C1B18">
-<svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1F6B44"></circle><path d="M17 26V15" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"></path><path d="M17 17c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#F5B82E"></path><path d="M17 20c0-3.5-2.6-6-6-6 0 3.5 2.6 6 6 6Z" fill="#FFFFFF"></path></svg>
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 21px; letter-spacing: -0.02em">Good Soil Makers</span>
-</a>
-<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; flex: 1 1 auto; font-weight: 500; font-size: 15px">
-<a href="classes.html" class="nav-link">Classes &amp; Camps</a>
-<a href="shop.html" class="nav-link active">Kit Shop</a>
-<a href="curriculum.html" class="nav-link">Curriculum</a>
-</div>
-<div style="display: flex; align-items: center; gap: 12px">
-<button type="button" onclick="openCartDrawer(this)" aria-label="Open cart" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #DAD7CE; display: flex; align-items: center; justify-content: center; color: #1C1B18; background: #FFFFFF; cursor: pointer; position: relative; transition: border-color 0.2s;">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.5 10.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
-<span id="nav-cart-badge" data-cart-counter style="position: absolute; top: -4px; right: -4px; background: #F5B82E; color: #1C1B18; border-radius: 999px; padding: 2px 7px; font-size: 11px; font-weight: 800;">0</span>
-</button>
-<button type="button" id="nav-auth-btn" class="nav-auth-btn" onclick="openAuthModal(this)" aria-label="Sign in" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #DAD7CE; display: inline-flex; align-items: center; gap: 8px; color: #1C1B18; background: #FFFFFF; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; transition: all 0.2s;">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-<span class="auth-btn-label">Log in</span>
-</button>
-</div>
-</nav>
-</header>
+    <!-- NAV -->
+    <header
+      style="position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #ECEAE3">
+      <nav
+        style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
+        <a href="index.html"
+          style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1C1B18">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+            <circle cx="17" cy="17" r="16" fill="#1F6B44"></circle>
+            <path d="M17 26V15" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"></path>
+            <path d="M17 17c0-4 3-7 7-7 0 4-3 7-7 7Z" fill="#F5B82E"></path>
+            <path d="M17 20c0-3.5-2.6-6-6-6 0 3.5 2.6 6 6 6Z" fill="#FFFFFF"></path>
+          </svg>
+          <span
+            style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 21px; letter-spacing: -0.02em">Good
+            Soil Makers</span>
+        </a>
+        <div style="display: flex; flex-wrap: wrap; gap: 4px 24px; flex: 1 1 auto; font-weight: 500; font-size: 15px">
+          <a href="classes.html" class="nav-link">Classes &amp; Camps</a>
+          <a href="shop.html" class="nav-link active">Kit Shop</a>
+          <a href="curriculum.html" class="nav-link">Curriculum</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <button type="button" onclick="openCartDrawer(this)" aria-label="Open cart"
+            style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #DAD7CE; display: flex; align-items: center; justify-content: center; color: #1C1B18; background: #FFFFFF; cursor: pointer; position: relative; transition: border-color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 7h14l-1.5 10.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5Z"></path>
+              <path d="M9 7a3 3 0 0 1 6 0"></path>
+            </svg>
+            <span id="nav-cart-badge" data-cart-counter
+              style="position: absolute; top: -4px; right: -4px; background: #F5B82E; color: #1C1B18; border-radius: 999px; padding: 2px 7px; font-size: 11px; font-weight: 800;">0</span>
+          </button>
+          <button type="button" id="nav-auth-btn" class="nav-auth-btn" onclick="openAuthModal(this)"
+            aria-label="Sign in"
+            style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #DAD7CE; display: inline-flex; align-items: center; gap: 8px; color: #1C1B18; background: #FFFFFF; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; transition: all 0.2s;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span class="auth-btn-label">Log in</span>
+          </button>
+        </div>
+      </nav>
+    </header>
 
-<main id="page-content" class="page-content-wrapper">
+    <main id="page-content" class="page-content-wrapper">
 
-<!-- SHOP HERO -->
-<section class="mobile-tight-section" style="max-width: 1280px; margin: 0 auto; padding: 36px 24px 16px; display: flex; flex-direction: column; gap: 10px">
-  <div class="desktop-only-block" style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; background: #FFF4D6; color: #8A4B2A; font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px">
-    All-Kits STEM Store &middot; Vetted Indian Makers
-  </div>
-  <h1 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 4.5vw, 52px); line-height: 1.05; letter-spacing: -0.03em">
-    Good Soil Makers Kit Shop
-  </h1>
-  <p style="margin: 0; font-size: clamp(14px, 1.8vw, 16.5px); color: #4A4740; line-height: 1.5; max-width: 66ch">
-    <strong id="hero-kit-count">389</strong> robotics, drone, electronics &amp; STEM kits from 14 Indian brands.<span class="desktop-only-inline"> Zero craft clutter — only real builder hardware.</span>
-  </p>
+      <!-- SHOP HERO -->
+      <section class="mobile-tight-section"
+        style="max-width: 1280px; margin: 0 auto; padding: 36px 24px 16px; display: flex; flex-direction: column; gap: 10px">
+        <div class="desktop-only-block"
+          style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; background: #FFF4D6; color: #8A4B2A; font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px">
+          All-Kits STEM Store &middot; Vetted Indian Makers
+        </div>
+        <h1
+          style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 4.5vw, 52px); line-height: 1.05; letter-spacing: -0.03em">
+          Good Soil Makers Kit Shop
+        </h1>
+        <p style="margin: 0; font-size: clamp(14px, 1.8vw, 16.5px); color: #4A4740; line-height: 1.5; max-width: 66ch">
+          <strong id="hero-kit-count">389</strong> robotics, drone, electronics &amp; STEM kits from 14 Indian
+          brands.<span class="desktop-only-inline"> Zero craft clutter — only real builder hardware.</span>
+        </p>
 
-  <!-- EXPLICIT PARTNER REDIRECT BANNER (Compact & expandable on mobile) -->
-  <div style="margin-top: 4px; background: #FFFBEB; border: 1px solid #F5D061; border-radius: 16px; padding: 11px 14px; display: flex; flex-direction: column; gap: 6px">
-    <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-      <div style="display: flex; align-items: center; gap: 8px; min-width: 0;">
-        <span style="width: 24px; height: 24px; border-radius: 50%; background: #F5B82E; color: #1C1B18; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0">↗</span>
-        <span style="font-weight: 800; font-size: 13px; color: #1C1B18; line-height: 1.3;">
-          Partner Store Redirect <span class="desktop-only-inline">&middot; Buys open the official brand site</span>
-        </span>
+        <!-- EXPLICIT PARTNER REDIRECT BANNER (Compact & expandable on mobile) -->
+        <div
+          style="margin-top: 4px; background: #FFFBEB; border: 1px solid #F5D061; border-radius: 16px; padding: 11px 14px; display: flex; flex-direction: column; gap: 6px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 8px; min-width: 0;">
+              <span
+                style="width: 24px; height: 24px; border-radius: 50%; background: #F5B82E; color: #1C1B18; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0">↗</span>
+              <span style="font-weight: 800; font-size: 13px; color: #1C1B18; line-height: 1.3;">
+                Partner Store Redirect <span class="desktop-only-inline">&middot; Buys open the official brand
+                  site</span>
+              </span>
+            </div>
+            <button type="button"
+              onclick="const d=document.getElementById('redirect-info-extra'); const open=d.style.display==='block'; d.style.display=open?'none':'block'; this.textContent=open?'How it works ▾':'Hide ▴';"
+              style="border: 0; background: #FFF4D6; color: #8A4B2A; font-weight: 700; font-size: 11.5px; padding: 5px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap; flex-shrink: 0">
+              How it works ▾
+            </button>
+          </div>
+          <div id="redirect-info-extra"
+            style="display: none; font-size: 13px; color: #55524A; line-height: 1.5; padding-top: 4px; border-top: 1px dashed #F5D061">
+            We are building Good Soil Makers into an all-in-one STEM kit store. While direct warehouse shipping is being
+            set up, tapping <strong>&ldquo;Buy &nearr;&rdquo;</strong> explicitly redirects you to the
+            manufacturer&rsquo;s official website to purchase directly.
+          </div>
+        </div>
+      </section>
+
+      <!-- FILTER BAR & LIVE CATALOGUE -->
+      <section
+        style="max-width: 1280px; margin: 0 auto; padding: 6px 24px 64px; display: flex; flex-direction: column; gap: 18px">
+
+        <!-- Controls Card -->
+        <div class="shop-controls-card"
+          style="background: #F8FAF7; border: 1px solid #E4E8DF; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+          <!-- Category Tabs (single scrollable strip on mobile) -->
+          <div id="kit-category-filters" class="gs-cat-scroll">
+            <button type="button" class="format-btn active" data-cat="all" onclick="setKitCategory('all', this)">All
+              Kits</button>
+            <button type="button" class="format-btn inactive" data-cat="Robotics"
+              onclick="setKitCategory('Robotics', this)">🤖 Robotics</button>
+            <button type="button" class="format-btn inactive" data-cat="Electronics & Circuits"
+              onclick="setKitCategory('Electronics & Circuits', this)">⚡ Electronics</button>
+            <button type="button" class="format-btn inactive" data-cat="Coding & AI"
+              onclick="setKitCategory('Coding & AI', this)">💻 Coding &amp; AI</button>
+            <button type="button" class="format-btn inactive" data-cat="Aeromodelling & Drones"
+              onclick="setKitCategory('Aeromodelling & Drones', this)">✈️ Drones</button>
+            <button type="button" class="format-btn inactive" data-cat="Mechanics & STEM"
+              onclick="setKitCategory('Mechanics & STEM', this)">⚙️ Mechanics</button>
+          </div>
+
+          <!-- Search + Dropdowns -->
+          <div class="shop-controls-row" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+            <div class="shop-search-wrap" style="flex: 2 1 260px; position: relative">
+              <input id="kit-search-input" class="shop-input" type="search"
+                placeholder="Search kits, Arduino, drone, rover..." oninput="onShopFilterChange()"
+                style="width: 100%; padding-left: 38px">
+              <span aria-hidden="true"
+                style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #7A766D; font-size: 14px">🔍</span>
+            </div>
+            <select id="kit-vendor-select" class="shop-select shop-select-vendor" aria-label="Filter by vendor"
+              onchange="onShopFilterChange()" style="flex: 1 1 190px">
+              <option value="all">All 14 Brands</option>
+            </select>
+            <select id="kit-age-select" class="shop-select" aria-label="Filter by age" onchange="onShopFilterChange()"
+              style="flex: 1 1 135px">
+              <option value="all">All Ages</option>
+              <option value="6-9">Ages 6–9</option>
+              <option value="8-12">Ages 8–12</option>
+              <option value="10-14">Ages 10–14+</option>
+            </select>
+            <select id="kit-sort-select" class="shop-select" aria-label="Sort kits" onchange="onShopFilterChange()"
+              style="flex: 1 1 150px">
+              <option value="curated">Sort: Featured</option>
+              <option value="price-asc">Price: Low–High</option>
+              <option value="price-desc">Price: High–Low</option>
+              <option value="vendor">Brand: A–Z</option>
+            </select>
+          </div>
+
+          <div
+            style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; font-size: 12.5px; color: #55524A;">
+            <span id="kit-results-summary">Loading curated STEM kits...</span>
+            <button id="kit-reset-btn" type="button" onclick="resetShopFilters()"
+              style="display: none; border: 0; background: none; color: #1F6B44; font-weight: 700; font-size: 12.5px; cursor: pointer; text-decoration: underline; padding: 0">Clear
+              filters</button>
+          </div>
+        </div>
+
+        <!-- Live Kit Grid -->
+        <div id="live-kit-grid">
+          <!-- Rendered dynamically by renderShopKits() -->
+        </div>
+
+        <!-- Load More Pagination -->
+        <div id="kit-pagination-wrap"
+          style="display: none; flex-direction: column; align-items: center; gap: 10px; padding-top: 12px">
+          <button id="kit-load-more-btn" type="button" onclick="loadMoreKits()"
+            style="min-height: 48px; padding: 0 32px; border-radius: 999px; border: 1.5px solid #1C1B18; background: #FFFFFF; color: #1C1B18; font: 700 15px 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s"
+            onmouseover="this.style.background='#1C1B18';this.style.color='#FFFFFF'"
+            onmouseout="this.style.background='#FFFFFF';this.style.color='#1C1B18'">
+            Show More Kits
+          </button>
+          <span id="kit-pagination-hint" style="font-size: 13px; color: #7A766D"></span>
+        </div>
+
+      </section>
+
+      <!-- IN-PERSON & DIRECT SHOP LAUNCH BANNER -->
+      <section id="notify-direct" style="max-width: 1280px; margin: 0 auto; padding: 0 24px 72px">
+        <div
+          style="background: #F8FAF7; border: 1.5px solid #E1E8DE; border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+          <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 12px">
+            <span
+              style="font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #1F6B44">Good
+              Soil Makers Unified Kit Storefront</span>
+            <h2
+              style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.025em; line-height: 1.1; color: #1C1B18">
+              Direct Good Soil Makers Warehouse Shipping Coming Soon
+            </h2>
+            <p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.6">
+              Soon you will be able to add kits across multiple STEM brands into one Good Soil Makers order with bundled
+              delivery. Also remember: <strong>all kits and tools are 100% provided in our weekend classes and holiday
+                camps</strong>.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px">
+              <a href="classes.html"
+                style="display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 20px; border-radius: 999px; background: #1F6B44; color: #FFFFFF; font-weight: 700; font-size: 14px">Explore
+                Classes &amp; Camps &rarr;</a>
+              <a href="curriculum.html"
+                style="display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 20px; border-radius: 999px; border: 1.5px solid #1C1B18; color: #1C1B18; font-weight: 700; font-size: 14px">View
+                Curriculum &rarr;</a>
+            </div>
+          </div>
+
+          <div
+            style="flex: 1 1 340px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+            <span style="font-weight: 800; font-size: 15px; color: #1C1B18">Get notified when unified checkout
+              launches:</span>
+            <form id="kit-notify-form"
+              onsubmit="event.preventDefault(); const em=this.querySelector('input').value; try{const s=JSON.parse(localStorage.getItem('goodsoil_subscribers')||'[]'); s.push({email:em, date:new Date().toISOString()}); localStorage.setItem('goodsoil_subscribers', JSON.stringify(s));}catch(e){} if(typeof sendLeadToBackend==='function'){sendLeadToBackend({type:'Kit Shop Launch Alert', email:em});} if(typeof showToast==='function'){showToast('🎉 Subscribed! We will notify you when direct Good Soil Makers kit fulfillment launches.');} this.reset();"
+              style="display: flex; flex-wrap: wrap; gap: 8px; width: 100%">
+              <input type="email" placeholder="Parent's email" required
+                style="flex: 1 1 200px; min-height: 46px; border-radius: 999px; border: 1.5px solid #DAD7CE; padding: 0 18px; font: 15px 'DM Sans', sans-serif">
+              <button type="submit"
+                style="min-height: 46px; padding: 0 22px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 800 14px 'DM Sans', sans-serif; cursor: pointer">Notify
+                Me</button>
+            </form>
+            <span style="font-size: 12px; color: #7A766D">Currently every &ldquo;Buy on Vendor Site &nearr;&rdquo; link
+              opens the brand&rsquo;s verified store directly.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRUST STRIP -->
+      <section style="background: #1C1B18; color: #FFFFFF">
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: 52px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">100%
+              STEM-filtered</span>
+            <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Non-STEM clutter and general craft
+              accessories removed &mdash; only robotics, circuits, aero &amp; mechanics.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Verified
+              Indian brands</span>
+            <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Featuring Pludo, Avishkaar, Practiko,
+              Kintaro DIY, Butterfly Edufields, Mindtronix, Kiddale &amp; more.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Direct store
+              transparency</span>
+            <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Today you are redirected to the official
+              vendor website; unified Good Soil Makers cart checkout comes next.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Included in
+              class</span>
+            <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Students joining weekend batches receive
+              workshop hardware to build &amp; take home.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUICK VIEW MODAL FOR KIT DETAILS + EXPLICIT REDIRECT (portaled to body on open) -->
+      <div id="kit-detail-modal"
+        style="display: none; position: fixed; inset: 0; z-index: 10005; align-items: center; justify-content: center; padding: 16px; background: rgba(28,27,24,0.65); backdrop-filter: blur(4px)"
+        onclick="if(event.target===this) closeKitDetailModal()">
+        <div role="dialog" aria-modal="true"
+          style="background: #FFFFFF; border-radius: 28px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 28px; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,0.28); display: flex; flex-direction: column; gap: 18px">
+          <button type="button" onclick="closeKitDetailModal()" aria-label="Close modal"
+            style="position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #ECEAE3; background: #FFFFFF; color: #1C1B18; font-size: 18px; font-weight: 700; cursor: pointer">&times;</button>
+          <div id="kit-detail-body"></div>
+        </div>
       </div>
-      <button type="button" onclick="const d=document.getElementById('redirect-info-extra'); const open=d.style.display==='block'; d.style.display=open?'none':'block'; this.textContent=open?'How it works ▾':'Hide ▴';" style="border: 0; background: #FFF4D6; color: #8A4B2A; font-weight: 700; font-size: 11.5px; padding: 5px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap; flex-shrink: 0">
-        How it works ▾
-      </button>
-    </div>
-    <div id="redirect-info-extra" style="display: none; font-size: 13px; color: #55524A; line-height: 1.5; padding-top: 4px; border-top: 1px dashed #F5D061">
-      We are building Good Soil Makers into an all-in-one STEM kit store. While direct warehouse shipping is being set up, tapping <strong>&ldquo;Buy &nearr;&rdquo;</strong> explicitly redirects you to the manufacturer&rsquo;s official website to purchase directly.
-    </div>
-  </div>
-</section>
 
-<!-- FILTER BAR & LIVE CATALOGUE -->
-<section style="max-width: 1280px; margin: 0 auto; padding: 6px 24px 64px; display: flex; flex-direction: column; gap: 18px">
+      <!-- FOOTER -->
+      <footer style="background: #1C1B18; color: #E8E5DC; border-top: 1px solid #2D2B27">
+        <div
+          style="max-width: 1280px; margin: 0 auto; padding: 64px 24px 40px; display: flex; flex-direction: column; gap: 40px">
+          <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
+            <div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
+              <span
+                style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 38px; color: #FFFFFF; letter-spacing: -0.03em">Good
+                Soil Makers</span>
+              <p style="margin: 0; color: #B8B4A9; font-size: 15px; line-height: 1.6; max-width: 36ch">Hands-on STEM,
+                arts &amp; skills education. Planted by the team behind 10+ years of aeromodelling workshops.</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 15px">
+              <div style="display: flex; flex-direction: column; gap: 10px"><span
+                  style="font-weight: 700; color: #FFFFFF">Learn</span><a href="classes.html"
+                  style="color: #B8B4A9">Weekend classes</a><a href="classes.html" style="color: #B8B4A9">Holiday
+                  camps</a><a href="curriculum.html" style="color: #B8B4A9">Curriculum</a></div>
+              <div style="display: flex; flex-direction: column; gap: 10px"><span
+                  style="font-weight: 700; color: #FFFFFF">Shop</span><a href="shop.html" style="color: #B8B4A9">All
+                  kits</a><a href="shop.html#notify-direct" style="color: #B8B4A9">Direct store launch</a></div>
+              <div style="display: flex; flex-direction: column; gap: 10px"><span
+                  style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 80503
+                  12758</span><span style="color: #B8B4A9">info@goodsoilmakers.com</span><span
+                  style="color: #B8B4A9">New Delhi, India</span></div>
+            </div>
+          </div>
+          <div
+            style="border-top: 1px solid #3A3832; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8E8A7F">
+            <span>&copy; 2026 Good Soil Makers. All rights reserved.</span><span>Instagram &bull; YouTube &bull;
+              WhatsApp</span>
+          </div>
+        </div>
+      </footer>
+    </main>
 
-  <!-- Controls Card -->
-  <div class="shop-controls-card" style="background: #F8FAF7; border: 1px solid #E4E8DF; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
-    <!-- Category Tabs (single scrollable strip on mobile) -->
-    <div id="kit-category-filters" class="gs-cat-scroll">
-      <button type="button" class="format-btn active" data-cat="all" onclick="setKitCategory('all', this)">All Kits</button>
-      <button type="button" class="format-btn inactive" data-cat="Robotics" onclick="setKitCategory('Robotics', this)">🤖 Robotics</button>
-      <button type="button" class="format-btn inactive" data-cat="Electronics & Circuits" onclick="setKitCategory('Electronics & Circuits', this)">⚡ Electronics</button>
-      <button type="button" class="format-btn inactive" data-cat="Coding & AI" onclick="setKitCategory('Coding & AI', this)">💻 Coding &amp; AI</button>
-      <button type="button" class="format-btn inactive" data-cat="Aeromodelling & Drones" onclick="setKitCategory('Aeromodelling & Drones', this)">✈️ Drones</button>
-      <button type="button" class="format-btn inactive" data-cat="Mechanics & STEM" onclick="setKitCategory('Mechanics & STEM', this)">⚙️ Mechanics</button>
-    </div>
-
-    <!-- Search + Dropdowns -->
-    <div class="shop-controls-row" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
-      <div class="shop-search-wrap" style="flex: 2 1 260px; position: relative">
-        <input id="kit-search-input" class="shop-input" type="search" placeholder="Search kits, Arduino, drone, rover..." oninput="onShopFilterChange()" style="width: 100%; padding-left: 38px">
-        <span aria-hidden="true" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #7A766D; font-size: 14px">🔍</span>
-      </div>
-      <select id="kit-vendor-select" class="shop-select shop-select-vendor" aria-label="Filter by vendor" onchange="onShopFilterChange()" style="flex: 1 1 190px">
-        <option value="all">All 14 Brands</option>
-      </select>
-      <select id="kit-age-select" class="shop-select" aria-label="Filter by age" onchange="onShopFilterChange()" style="flex: 1 1 135px">
-        <option value="all">All Ages</option>
-        <option value="6-9">Ages 6–9</option>
-        <option value="8-12">Ages 8–12</option>
-        <option value="10-14">Ages 10–14+</option>
-      </select>
-      <select id="kit-sort-select" class="shop-select" aria-label="Sort kits" onchange="onShopFilterChange()" style="flex: 1 1 150px">
-        <option value="curated">Sort: Featured</option>
-        <option value="price-asc">Price: Low–High</option>
-        <option value="price-desc">Price: High–Low</option>
-        <option value="vendor">Brand: A–Z</option>
-      </select>
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; font-size: 12.5px; color: #55524A;">
-      <span id="kit-results-summary">Loading curated STEM kits...</span>
-      <button id="kit-reset-btn" type="button" onclick="resetShopFilters()" style="display: none; border: 0; background: none; color: #1F6B44; font-weight: 700; font-size: 12.5px; cursor: pointer; text-decoration: underline; padding: 0">Clear filters</button>
-    </div>
   </div>
 
-  <!-- Live Kit Grid -->
-  <div id="live-kit-grid">
-    <!-- Rendered dynamically by renderShopKits() -->
-  </div>
+  <!-- Curated Kits Dataset + Good Soil Core -->
+  <script src="kits_data.js?v=1"></script>
+  <script src="goodsoil.js?v=8"></script>
 
-  <!-- Load More Pagination -->
-  <div id="kit-pagination-wrap" style="display: none; flex-direction: column; align-items: center; gap: 10px; padding-top: 12px">
-    <button id="kit-load-more-btn" type="button" onclick="loadMoreKits()" style="min-height: 48px; padding: 0 32px; border-radius: 999px; border: 1.5px solid #1C1B18; background: #FFFFFF; color: #1C1B18; font: 700 15px 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s" onmouseover="this.style.background='#1C1B18';this.style.color='#FFFFFF'" onmouseout="this.style.background='#FFFFFF';this.style.color='#1C1B18'">
-      Show More Kits
-    </button>
-    <span id="kit-pagination-hint" style="font-size: 13px; color: #7A766D"></span>
-  </div>
+  <script>
+    (function () {
+      let activeCat = 'all';
+      let visibleLimit = 24;
+      let currentFiltered = [];
 
-</section>
-
-<!-- IN-PERSON & DIRECT SHOP LAUNCH BANNER -->
-<section id="notify-direct" style="max-width: 1280px; margin: 0 auto; padding: 0 24px 72px">
-  <div style="background: #F8FAF7; border: 1.5px solid #E1E8DE; border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
-    <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 12px">
-      <span style="font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #1F6B44">Good Soil Makers Unified Kit Storefront</span>
-      <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.025em; line-height: 1.1; color: #1C1B18">
-        Direct Good Soil Makers Warehouse Shipping Coming Soon
-      </h2>
-      <p style="margin: 0; color: #55524A; font-size: 15px; line-height: 1.6">
-        Soon you will be able to add kits across multiple STEM brands into one Good Soil Makers order with bundled delivery. Also remember: <strong>all kits and tools are 100% provided in our weekend classes and holiday camps</strong>.
-      </p>
-      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px">
-        <a href="classes.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 20px; border-radius: 999px; background: #1F6B44; color: #FFFFFF; font-weight: 700; font-size: 14px">Explore Classes &amp; Camps &rarr;</a>
-        <a href="curriculum.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 20px; border-radius: 999px; border: 1.5px solid #1C1B18; color: #1C1B18; font-weight: 700; font-size: 14px">View Curriculum &rarr;</a>
-      </div>
-    </div>
-
-    <div style="flex: 1 1 340px; background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
-      <span style="font-weight: 800; font-size: 15px; color: #1C1B18">Get notified when unified checkout launches:</span>
-      <form id="kit-notify-form" onsubmit="event.preventDefault(); const em=this.querySelector('input').value; try{const s=JSON.parse(localStorage.getItem('goodsoil_subscribers')||'[]'); s.push({email:em, date:new Date().toISOString()}); localStorage.setItem('goodsoil_subscribers', JSON.stringify(s));}catch(e){} if(typeof sendLeadToBackend==='function'){sendLeadToBackend({type:'Kit Shop Launch Alert', email:em});} if(typeof showToast==='function'){showToast('🎉 Subscribed! We will notify you when direct Good Soil Makers kit fulfillment launches.');} this.reset();" style="display: flex; flex-wrap: wrap; gap: 8px; width: 100%">
-        <input type="email" placeholder="Parent's email" required style="flex: 1 1 200px; min-height: 46px; border-radius: 999px; border: 1.5px solid #DAD7CE; padding: 0 18px; font: 15px 'DM Sans', sans-serif">
-        <button type="submit" style="min-height: 46px; padding: 0 22px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font: 800 14px 'DM Sans', sans-serif; cursor: pointer">Notify Me</button>
-      </form>
-      <span style="font-size: 12px; color: #7A766D">Currently every &ldquo;Buy on Vendor Site &nearr;&rdquo; link opens the brand&rsquo;s verified store directly.</span>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST STRIP -->
-<section style="background: #1C1B18; color: #FFFFFF">
-<div style="max-width: 1280px; margin: 0 auto; padding: 52px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px">
-<div style="display: flex; flex-direction: column; gap: 6px">
-  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">100% STEM-filtered</span>
-  <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Non-STEM clutter and general craft accessories removed &mdash; only robotics, circuits, aero &amp; mechanics.</span>
-</div>
-<div style="display: flex; flex-direction: column; gap: 6px">
-  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Verified Indian brands</span>
-  <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Featuring Pludo, Avishkaar, Practiko, Kintaro DIY, Butterfly Edufields, Mindtronix, Kiddale &amp; more.</span>
-</div>
-<div style="display: flex; flex-direction: column; gap: 6px">
-  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Direct store transparency</span>
-  <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Today you are redirected to the official vendor website; unified Good Soil Makers cart checkout comes next.</span>
-</div>
-<div style="display: flex; flex-direction: column; gap: 6px">
-  <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px">Included in class</span>
-  <span style="color: #CFCBC0; font-size: 14px; line-height: 1.5">Students joining weekend batches receive workshop hardware to build &amp; take home.</span>
-</div>
-</div>
-</section>
-
-<!-- QUICK VIEW MODAL FOR KIT DETAILS + EXPLICIT REDIRECT (portaled to body on open) -->
-<div id="kit-detail-modal" style="display: none; position: fixed; inset: 0; z-index: 10005; align-items: center; justify-content: center; padding: 16px; background: rgba(28,27,24,0.65); backdrop-filter: blur(4px)" onclick="if(event.target===this) closeKitDetailModal()">
-  <div role="dialog" aria-modal="true" style="background: #FFFFFF; border-radius: 28px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 28px; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,0.28); display: flex; flex-direction: column; gap: 18px">
-    <button type="button" onclick="closeKitDetailModal()" aria-label="Close modal" style="position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; border-radius: 50%; border: 1px solid #ECEAE3; background: #FFFFFF; color: #1C1B18; font-size: 18px; font-weight: 700; cursor: pointer">&times;</button>
-    <div id="kit-detail-body"></div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer style="background: #1C1B18; color: #E8E5DC; border-top: 1px solid #2D2B27">
-<div style="max-width: 1280px; margin: 0 auto; padding: 64px 24px 40px; display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
-<div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
-<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 38px; color: #FFFFFF; letter-spacing: -0.03em">Good Soil Makers</span>
-<p style="margin: 0; color: #B8B4A9; font-size: 15px; line-height: 1.6; max-width: 36ch">Hands-on STEM, arts &amp; skills education. Planted by the team behind 10+ years of aeromodelling workshops.</p>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 48px; font-size: 15px">
-<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Learn</span><a href="classes.html" style="color: #B8B4A9">Weekend classes</a><a href="classes.html" style="color: #B8B4A9">Holiday camps</a><a href="curriculum.html" style="color: #B8B4A9">Curriculum</a></div>
-<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Shop</span><a href="shop.html" style="color: #B8B4A9">All kits</a><a href="shop.html#notify-direct" style="color: #B8B4A9">Direct store launch</a></div>
-<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-weight: 700; color: #FFFFFF">Say hello</span><span style="color: #B8B4A9">+91 80503 12758</span><span style="color: #B8B4A9">info@goodsoilmakers.com</span><span style="color: #B8B4A9">New Delhi, India</span></div>
-</div>
-</div>
-<div style="border-top: 1px solid #3A3832; padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8E8A7F">
-<span>&copy; 2026 Good Soil Makers. All rights reserved.</span><span>Instagram &bull; YouTube &bull; WhatsApp</span>
-</div>
-</div>
-</footer>
-</main>
-
-</div>
-
-<!-- Curated Kits Dataset + Good Soil Core -->
-<script src="kits_data.js?v=1"></script>
-<script src="goodsoil.js?v=7"></script>
-
-<script>
-(function () {
-  let activeCat = 'all';
-  let visibleLimit = 24;
-  let currentFiltered = [];
-
-  function escHtml(str) {
-    return String(str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
-
-  function shortVendorName(vendor) {
-    if (!vendor) return 'Vendor';
-    if (vendor === 'Pludo (Robocraze)') return 'Robocraze';
-    if (vendor === 'Butterfly Edufields') return 'Butterfly Edu';
-    if (vendor === 'Mechatron Robotics') return 'Mechatron';
-    if (vendor === 'Edusoft Robotix') return 'Edusoft';
-    if (vendor === 'Yagen Robotics') return 'Yagen';
-    return vendor;
-  }
-
-  function populateVendorDropdown() {
-    const sel = document.getElementById('kit-vendor-select');
-    const kits = window.GOOD_SOIL_KITS || [];
-    if (!sel || !kits.length || sel.options.length > 1) return;
-
-    const counts = {};
-    kits.forEach(k => { counts[k.vendor] = (counts[k.vendor] || 0) + 1; });
-    Object.keys(counts)
-      .sort((a, b) => counts[b] - counts[a])
-      .forEach(v => {
-        const opt = document.createElement('option');
-        opt.value = v;
-        opt.textContent = v + ' (' + counts[v] + ')';
-        sel.appendChild(opt);
-      });
-
-    const countEl = document.getElementById('hero-kit-count');
-    if (countEl) countEl.textContent = kits.length;
-  }
-
-  function matchAgeBucket(kitAge, selected) {
-    if (selected === 'all') return true;
-    const nums = (String(kitAge || '').match(/\d+/g) || []).map(Number);
-    if (!nums.length) return true;
-    const minAge = nums[0];
-    const maxAge = nums[nums.length - 1] || minAge;
-    if (selected === '6-9') return minAge <= 9;
-    if (selected === '8-12') return minAge <= 12 && maxAge >= 8;
-    if (selected === '10-14') return maxAge >= 10;
-    return true;
-  }
-
-  function getFilteredKits() {
-    const kits = window.GOOD_SOIL_KITS || [];
-    const q = (document.getElementById('kit-search-input')?.value || '').trim().toLowerCase();
-    const vendor = document.getElementById('kit-vendor-select')?.value || 'all';
-    const age = document.getElementById('kit-age-select')?.value || 'all';
-    const sort = document.getElementById('kit-sort-select')?.value || 'curated';
-
-    let list = kits.filter(k => {
-      if (activeCat !== 'all' && k.cat !== activeCat) return false;
-      if (vendor !== 'all' && k.vendor !== vendor) return false;
-      if (!matchAgeBucket(k.age, age)) return false;
-      if (q) {
-        const hay = (k.title + ' ' + k.vendor + ' ' + k.cat + ' ' + k.tags + ' ' + k.desc).toLowerCase();
-        if (!hay.includes(q)) return false;
+      function escHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
       }
-      return true;
-    });
 
-    if (sort === 'price-asc') {
-      list = [...list].sort((a, b) => (a.price || 0) - (b.price || 0));
-    } else if (sort === 'price-desc') {
-      list = [...list].sort((a, b) => (b.price || 0) - (a.price || 0));
-    } else if (sort === 'vendor') {
-      list = [...list].sort((a, b) => a.vendor.localeCompare(b.vendor) || a.title.localeCompare(b.title));
-    }
-    return list;
-  }
+      function shortVendorName(vendor) {
+        if (!vendor) return 'Vendor';
+        if (vendor === 'Pludo (Robocraze)') return 'Robocraze';
+        if (vendor === 'Butterfly Edufields') return 'Butterfly Edu';
+        if (vendor === 'Mechatron Robotics') return 'Mechatron';
+        if (vendor === 'Edusoft Robotix') return 'Edusoft';
+        if (vendor === 'Yagen Robotics') return 'Yagen';
+        return vendor;
+      }
 
-  function renderKitCard(kit) {
-    const vShort = shortVendorName(kit.vendor);
-    return `
+      function populateVendorDropdown() {
+        const sel = document.getElementById('kit-vendor-select');
+        const kits = window.GOOD_SOIL_KITS || [];
+        if (!sel || !kits.length || sel.options.length > 1) return;
+
+        const counts = {};
+        kits.forEach(k => { counts[k.vendor] = (counts[k.vendor] || 0) + 1; });
+        Object.keys(counts)
+          .sort((a, b) => counts[b] - counts[a])
+          .forEach(v => {
+            const opt = document.createElement('option');
+            opt.value = v;
+            opt.textContent = v + ' (' + counts[v] + ')';
+            sel.appendChild(opt);
+          });
+
+        const countEl = document.getElementById('hero-kit-count');
+        if (countEl) countEl.textContent = kits.length;
+      }
+
+      function matchAgeBucket(kitAge, selected) {
+        if (selected === 'all') return true;
+        const nums = (String(kitAge || '').match(/\d+/g) || []).map(Number);
+        if (!nums.length) return true;
+        const minAge = nums[0];
+        const maxAge = nums[nums.length - 1] || minAge;
+        if (selected === '6-9') return minAge <= 9;
+        if (selected === '8-12') return minAge <= 12 && maxAge >= 8;
+        if (selected === '10-14') return maxAge >= 10;
+        return true;
+      }
+
+      function getFilteredKits() {
+        const kits = window.GOOD_SOIL_KITS || [];
+        const q = (document.getElementById('kit-search-input')?.value || '').trim().toLowerCase();
+        const vendor = document.getElementById('kit-vendor-select')?.value || 'all';
+        const age = document.getElementById('kit-age-select')?.value || 'all';
+        const sort = document.getElementById('kit-sort-select')?.value || 'curated';
+
+        let list = kits.filter(k => {
+          if (activeCat !== 'all' && k.cat !== activeCat) return false;
+          if (vendor !== 'all' && k.vendor !== vendor) return false;
+          if (!matchAgeBucket(k.age, age)) return false;
+          if (q) {
+            const hay = (k.title + ' ' + k.vendor + ' ' + k.cat + ' ' + k.tags + ' ' + k.desc).toLowerCase();
+            if (!hay.includes(q)) return false;
+          }
+          return true;
+        });
+
+        if (sort === 'price-asc') {
+          list = [...list].sort((a, b) => (a.price || 0) - (b.price || 0));
+        } else if (sort === 'price-desc') {
+          list = [...list].sort((a, b) => (b.price || 0) - (a.price || 0));
+        } else if (sort === 'vendor') {
+          list = [...list].sort((a, b) => a.vendor.localeCompare(b.vendor) || a.title.localeCompare(b.title));
+        }
+        return list;
+      }
+
+      function renderKitCard(kit) {
+        const vShort = shortVendorName(kit.vendor);
+        return `
       <article class="card gs-kit-card" style="background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px; position: relative;">
         <div class="gs-kit-thumb" onclick="openKitDetailModal('${escHtml(kit.id)}')" style="cursor: pointer; position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: #F8FAF7; display: flex; align-items: center; justify-content: center; padding: 10px;">
           <img src="${escHtml(kit.img)}" alt="${escHtml(kit.title)}" loading="lazy" onerror="this.onerror=null;this.src='images/stem-kits.jpg';" style="width: 100%; height: 100%; object-fit: contain;">
@@ -439,34 +627,34 @@
         </div>
       </article>
     `;
-  }
+      }
 
-  window.renderLiveKits = function () {
-    const grid = document.getElementById('live-kit-grid');
-    if (!grid) return;
+      window.renderLiveKits = function () {
+        const grid = document.getElementById('live-kit-grid');
+        if (!grid) return;
 
-    populateVendorDropdown();
-    currentFiltered = getFilteredKits();
+        populateVendorDropdown();
+        currentFiltered = getFilteredKits();
 
-    const toShow = currentFiltered.slice(0, visibleLimit);
-    const total = currentFiltered.length;
+        const toShow = currentFiltered.slice(0, visibleLimit);
+        const total = currentFiltered.length;
 
-    const summaryEl = document.getElementById('kit-results-summary');
-    const resetBtn = document.getElementById('kit-reset-btn');
-    const hasFilter = activeCat !== 'all' ||
-      (document.getElementById('kit-search-input')?.value || '').trim() !== '' ||
-      (document.getElementById('kit-vendor-select')?.value || 'all') !== 'all' ||
-      (document.getElementById('kit-age-select')?.value || 'all') !== 'all';
+        const summaryEl = document.getElementById('kit-results-summary');
+        const resetBtn = document.getElementById('kit-reset-btn');
+        const hasFilter = activeCat !== 'all' ||
+          (document.getElementById('kit-search-input')?.value || '').trim() !== '' ||
+          (document.getElementById('kit-vendor-select')?.value || 'all') !== 'all' ||
+          (document.getElementById('kit-age-select')?.value || 'all') !== 'all';
 
-    if (summaryEl) {
-      summaryEl.textContent = total === 0
-        ? 'No kits match your current search or filters.'
-        : 'Showing ' + toShow.length + ' of ' + total + ' curated kits · External links open official vendor sites';
-    }
-    if (resetBtn) resetBtn.style.display = hasFilter ? 'inline-block' : 'none';
+        if (summaryEl) {
+          summaryEl.textContent = total === 0
+            ? 'No kits match your current search or filters.'
+            : 'Showing ' + toShow.length + ' of ' + total + ' curated kits · External links open official vendor sites';
+        }
+        if (resetBtn) resetBtn.style.display = hasFilter ? 'inline-block' : 'none';
 
-    if (total === 0) {
-      grid.innerHTML = `
+        if (total === 0) {
+          grid.innerHTML = `
         <div style="grid-column: 1 / -1; background: #F8FAF7; border: 1.5px dashed #CFD9CD; border-radius: 24px; padding: 48px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px">
           <span style="font-size: 36px">🔍</span>
           <h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800">No matching kits found</h3>
@@ -474,76 +662,76 @@
           <button type="button" onclick="resetShopFilters()" style="margin-top: 6px; min-height: 42px; padding: 0 22px; border-radius: 999px; border: 0; background: #1C1B18; color: #FFFFFF; font-weight: 700; cursor: pointer">Show All Curated Kits</button>
         </div>
       `;
-    } else {
-      grid.innerHTML = toShow.map(renderKitCard).join('');
-    }
+        } else {
+          grid.innerHTML = toShow.map(renderKitCard).join('');
+        }
 
-    const pagWrap = document.getElementById('kit-pagination-wrap');
-    const pagBtn = document.getElementById('kit-load-more-btn');
-    const pagHint = document.getElementById('kit-pagination-hint');
-    if (pagWrap && pagBtn && pagHint) {
-      if (toShow.length < total) {
-        const nextCount = Math.min(24, total - toShow.length);
-        pagWrap.style.display = 'flex';
-        pagBtn.textContent = 'Load ' + nextCount + ' More Kits (' + (total - toShow.length) + ' remaining)';
-        pagHint.textContent = 'Displaying ' + toShow.length + ' of ' + total + ' STEM kits';
-      } else {
-        pagWrap.style.display = 'none';
-      }
-    }
-  };
+        const pagWrap = document.getElementById('kit-pagination-wrap');
+        const pagBtn = document.getElementById('kit-load-more-btn');
+        const pagHint = document.getElementById('kit-pagination-hint');
+        if (pagWrap && pagBtn && pagHint) {
+          if (toShow.length < total) {
+            const nextCount = Math.min(24, total - toShow.length);
+            pagWrap.style.display = 'flex';
+            pagBtn.textContent = 'Load ' + nextCount + ' More Kits (' + (total - toShow.length) + ' remaining)';
+            pagHint.textContent = 'Displaying ' + toShow.length + ' of ' + total + ' STEM kits';
+          } else {
+            pagWrap.style.display = 'none';
+          }
+        }
+      };
 
-  window.setKitCategory = function (cat, btn) {
-    activeCat = cat;
-    visibleLimit = 24;
-    document.querySelectorAll('#kit-category-filters button').forEach(b => {
-      b.className = 'format-btn inactive';
-    });
-    if (btn) btn.className = 'format-btn active';
-    window.renderLiveKits();
-  };
+      window.setKitCategory = function (cat, btn) {
+        activeCat = cat;
+        visibleLimit = 24;
+        document.querySelectorAll('#kit-category-filters button').forEach(b => {
+          b.className = 'format-btn inactive';
+        });
+        if (btn) btn.className = 'format-btn active';
+        window.renderLiveKits();
+      };
 
-  window.onShopFilterChange = function () {
-    visibleLimit = 24;
-    window.renderLiveKits();
-  };
+      window.onShopFilterChange = function () {
+        visibleLimit = 24;
+        window.renderLiveKits();
+      };
 
-  window.loadMoreKits = function () {
-    visibleLimit += 24;
-    window.renderLiveKits();
-  };
+      window.loadMoreKits = function () {
+        visibleLimit += 24;
+        window.renderLiveKits();
+      };
 
-  window.resetShopFilters = function () {
-    activeCat = 'all';
-    visibleLimit = 24;
-    const s = document.getElementById('kit-search-input');
-    const v = document.getElementById('kit-vendor-select');
-    const a = document.getElementById('kit-age-select');
-    const so = document.getElementById('kit-sort-select');
-    if (s) s.value = '';
-    if (v) v.value = 'all';
-    if (a) a.value = 'all';
-    if (so) so.value = 'curated';
-    document.querySelectorAll('#kit-category-filters button').forEach((b, idx) => {
-      b.className = idx === 0 ? 'format-btn active' : 'format-btn inactive';
-    });
-    window.renderLiveKits();
-  };
+      window.resetShopFilters = function () {
+        activeCat = 'all';
+        visibleLimit = 24;
+        const s = document.getElementById('kit-search-input');
+        const v = document.getElementById('kit-vendor-select');
+        const a = document.getElementById('kit-age-select');
+        const so = document.getElementById('kit-sort-select');
+        if (s) s.value = '';
+        if (v) v.value = 'all';
+        if (a) a.value = 'all';
+        if (so) so.value = 'curated';
+        document.querySelectorAll('#kit-category-filters button').forEach((b, idx) => {
+          b.className = idx === 0 ? 'format-btn active' : 'format-btn inactive';
+        });
+        window.renderLiveKits();
+      };
 
-  window.openKitDetailModal = function (kitId) {
-    const kits = window.GOOD_SOIL_KITS || [];
-    const kit = kits.find(k => k.id === kitId);
-    if (!kit) return;
-    const modal = document.getElementById('kit-detail-modal');
-    const body = document.getElementById('kit-detail-body');
-    if (!modal || !body) return;
+      window.openKitDetailModal = function (kitId) {
+        const kits = window.GOOD_SOIL_KITS || [];
+        const kit = kits.find(k => k.id === kitId);
+        if (!kit) return;
+        const modal = document.getElementById('kit-detail-modal');
+        const body = document.getElementById('kit-detail-body');
+        if (!modal || !body) return;
 
-    // Ensure modal is mounted on document.body so parent transforms never trap position:fixed below screen
-    if (modal.parentElement !== document.body) {
-      document.body.appendChild(modal);
-    }
+        // Ensure modal is mounted on document.body so parent transforms never trap position:fixed below screen
+        if (modal.parentElement !== document.body) {
+          document.body.appendChild(modal);
+        }
 
-    body.innerHTML = `
+        body.innerHTML = `
       <div style="background: #F8FAF7; border-radius: 18px; padding: 14px; display: flex; justify-content: center; align-items: center; max-height: 220px;">
         <img src="${escHtml(kit.img)}" alt="${escHtml(kit.title)}" onerror="this.onerror=null;this.src='images/stem-kits.jpg';" style="max-height: 190px; width: auto; max-width: 100%; object-fit: contain;">
       </div>
@@ -569,30 +757,31 @@
         </a>
       </div>
     `;
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  };
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      };
 
-  window.closeKitDetailModal = function () {
-    const modal = document.getElementById('kit-detail-modal');
-    if (modal) modal.style.display = 'none';
-    document.body.style.overflow = '';
-  };
+      window.closeKitDetailModal = function () {
+        const modal = document.getElementById('kit-detail-modal');
+        if (modal) modal.style.display = 'none';
+        document.body.style.overflow = '';
+      };
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      const modal = document.getElementById('kit-detail-modal');
-      if (modal && modal.style.display !== 'none') closeKitDetailModal();
-    }
-  });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          const modal = document.getElementById('kit-detail-modal');
+          if (modal && modal.style.display !== 'none') closeKitDetailModal();
+        }
+      });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    if (window.GOOD_SOIL_KITS) {
-      window.renderLiveKits();
-    }
-  });
-})();
-</script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.GOOD_SOIL_KITS) {
+          window.renderLiveKits();
+        }
+      });
+    })();
+  </script>
 
 </body>
+
 </html>

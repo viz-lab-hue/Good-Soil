@@ -1,4 +1,4 @@
-# Good Soil — Workshop Video & Reel Directory
+# Good Soil Makers — Workshop Video & Reel Directory
 
 Drop your edited phone videos and workshop recordings into this directory (`website/videos/`).
 
