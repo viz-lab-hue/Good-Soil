@@ -433,7 +433,7 @@
         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
           <div>
             <div style="display: inline-flex; align-items: center; gap: 6px; background: #FFF4D6; color: #8A4B2A; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px; margin-bottom: 8px;">
-              Good Soil Account
+              Good Soil Makers Account
             </div>
             <h2 id="auth-modal-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: #1C1B18;">
               Sign in to save your cart
@@ -877,7 +877,7 @@
     const discountAmount = Math.round(subtotal * (discountPercent / 100));
     const total = subtotal - discountAmount;
 
-    let text = "Hello Good Soil! 🌱 I would like to order the following kits from your catalogue:\n\n";
+    let text = "Hello Good Soil Makers! 🌱 I would like to order the following kits from your catalogue:\n\n";
     if (user) {
       text += `*Customer:* ${user.name} (${user.phone || user.email})\n\n`;
     }
@@ -912,7 +912,7 @@
 
     GoodSoilCart.clearCart();
     closeCartDrawer();
-    showToast('🎉 Order initiated via WhatsApp! Saved to your Good Soil account.');
+    showToast('🎉 Order initiated via WhatsApp! Saved to your Good Soil Makers account.');
 
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     if (isMobile) {
@@ -984,8 +984,8 @@
       };
     }
 
-    const t = title || 'Good Soil Hands-On Workshop Reel';
-    const c = caption || 'Filmed live on location at Good Soil Maker Centre, New Delhi';
+    const t = title || 'Good Soil Makers Hands-On Workshop Reel';
+    const c = caption || 'Filmed live on location at Good Soil Makers Centre, New Delhi';
     const vertical = isVertical || (videoSrc && (videoSrc.includes('reel') || videoSrc.includes('vertical')));
     const poster = posterSrc || 'images/hero-workshop.jpg';
 
@@ -1101,10 +1101,10 @@
 
           <!-- Direct Contact Badges -->
           <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-            <a href="mailto:info@goodsoilmakers.com?subject=Good%20Soil%20Curriculum%20Request%3A%20${encodeURIComponent(title)}" style="display: inline-flex; align-items: center; gap: 8px; background: #2A2925; color: #FFFFFF; border: 1px solid #44413A; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
+            <a href="mailto:info@goodsoilmakers.com?subject=Good%20Soil%20Makers%20Curriculum%20Request%3A%20${encodeURIComponent(title)}" style="display: inline-flex; align-items: center; gap: 8px; background: #2A2925; color: #FFFFFF; border: 1px solid #44413A; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
               <span>✉ info@goodsoilmakers.com</span>
             </a>
-            <a href="https://wa.me/918050312758?text=${encodeURIComponent('Hi Good Soil Team, I would like to request the curriculum guide for ' + title)}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #128C7E; color: #FFFFFF; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
+            <a href="https://wa.me/918050312758?text=${encodeURIComponent('Hi Good Soil Makers Team, I would like to request the curriculum guide for ' + title)}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #128C7E; color: #FFFFFF; padding: 8px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none;">
               <span>💬 WhatsApp +91 80503 12758</span>
             </a>
           </div>
@@ -1182,7 +1182,7 @@
       details: `Inquiring As: ${roleText}`
     });
 
-    const msg = `Hi Good Soil Team! I would like to request the curriculum guide for ${title}.\n\nName: ${name}\nContact: ${contact}\nAge: ${ageText}\nRole: ${roleText}`;
+    const msg = `Hi Good Soil Makers Team! I would like to request the curriculum guide for ${title}.\n\nName: ${name}\nContact: ${contact}\nAge: ${ageText}\nRole: ${roleText}`;
     const waUrl = `https://wa.me/918050312758?text=${encodeURIComponent(msg)}`;
     const waBtn = document.getElementById('modal-curr-wa-btn');
     if (waBtn) waBtn.href = waUrl;
