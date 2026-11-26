@@ -305,17 +305,16 @@
 
 
     <!-- HEADER SECTION -->
-    <section
-      style="max-width: 1280px; margin: 0 auto; padding: 56px 24px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end; justify-content: space-between">
-      <div style="flex: 1 1 560px; display: flex; flex-direction: column; gap: 14px">
+    <section class="mobile-tight-section"
+      style="max-width: 1280px; margin: 0 auto; padding: 40px 24px 16px; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between">
+      <div style="flex: 1 1 560px; display: flex; flex-direction: column; gap: 10px">
         <div
-          style="font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">
+          style="font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A4B2A">
           Curriculum</div>
         <h1
-          style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(40px, 5vw, 70px); line-height: 1; letter-spacing: -0.035em">
-          A path from first glider to their own invention.</h1>
-        <p style="margin: 0; font-size: 17px; color: #4A4740; line-height: 1.55; max-width: 58ch">Every module = visual
-          slides + a build guide + the exact kit list. Download, buy the kits, and teach it anywhere.</p>
+          style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(26px, 4.8vw, 64px); line-height: 1.06; letter-spacing: -0.03em">
+          From first glider to their own invention.</h1>
+        <p style="margin: 0; font-size: clamp(14.5px, 1.8vw, 17px); color: #4A4740; line-height: 1.5; max-width: 56ch">25-class modular curriculum.<span class="desktop-only-inline"> Visual slides, build guides &amp; exact kit lists — request the PDF below.</span></p>
         <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 4px; width: 100%;">
           <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
             <button type="button" id="curriculum-toggle-btn" onclick="toggleCurriculumDropdown()"
@@ -398,23 +397,23 @@
       </div>
     </section>
 
-    <!-- PATH -->
-    <section style="max-width: 1280px; margin: 0 auto; padding: 24px 24px 48px">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+    <!-- PATH (Compact 2-col chips on mobile instead of giant stacked banners) -->
+    <section style="max-width: 1280px; margin: 0 auto; padding: 8px 24px 28px">
+      <div class="curriculum-path-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 8px">
         <div
-          style="background: #F5B82E; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          style="background: #F5B82E; border-radius: 14px; padding: 12px 14px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px">
           1 · Fly</div>
         <div
-          style="background: #F2F5EF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          style="background: #F2F5EF; border-radius: 14px; padding: 12px 14px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px">
           2 · Build</div>
         <div
-          style="background: #F2F5EF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          style="background: #F2F5EF; border-radius: 14px; padding: 12px 14px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px">
           3 · Wire &amp; code</div>
         <div
-          style="background: #F2F5EF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          style="background: #F2F5EF; border-radius: 14px; padding: 12px 14px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px">
           4 · Craft &amp; tools</div>
         <div
-          style="background: #1F6B44; color: #FFFFFF; border-radius: 18px; padding: 20px 18px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px">
+          style="background: #1F6B44; color: #FFFFFF; border-radius: 14px; padding: 12px 14px; font-weight: 800; font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px">
           5 · Invent your own</div>
       </div>
     </section>
@@ -755,7 +754,7 @@ Inquiring As: ${roleText}`;
     renderModules();
   </script>
 
-  <script src="goodsoil.js"></script>
+  <script src="goodsoil.js?v=6"></script>
 </body>
 
 </html>

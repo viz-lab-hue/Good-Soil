@@ -1231,48 +1231,135 @@
       style.id = 'goodsoil-mobile-styles';
       style.textContent = `
         /* Global tap & touch optimizations */
-        @view-transition {
-          navigation: auto;
-        }
         header {
-          view-transition-name: goodsoil-header;
+          position: sticky;
+          top: 0;
+          z-index: 100;
         }
-        #goodsoil-bottom-bar {
-          view-transition-name: goodsoil-bottom-bar;
-        }
-        #goodsoil-mobile-menu, #auth-dialog, #auth-backdrop, #cart-drawer, #cart-backdrop {
-          view-transition-name: none !important;
+        #gs-nav-progress {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 3px;
+          width: 0%;
+          background: linear-gradient(90deg, #1F6B44, #F5B82E);
+          z-index: 10050;
+          opacity: 0;
+          pointer-events: none;
+          transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
         }
         #page-content {
-          view-transition-name: goodsoil-page;
           display: block;
           min-height: calc(100vh - 68px);
+          transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1), transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
           will-change: opacity, transform;
-        }
-        ::view-transition-old(goodsoil-page) {
-          animation: 100ms cubic-bezier(0.4, 0, 1, 1) both gsPageFadeOut;
-        }
-        ::view-transition-new(goodsoil-page) {
-          animation: 170ms cubic-bezier(0.16, 1, 0.3, 1) both gsPageFadeIn;
-        }
-        @keyframes gsPageFadeOut {
-          from { opacity: 1; transform: translateY(0); }
-          to { opacity: 0; transform: translateY(-4px); }
-        }
-        @keyframes gsPageFadeIn {
-          from { opacity: 0; transform: translateY(4px); }
-          to { opacity: 1; transform: translateY(0); }
         }
         .gs-page-leaving {
           opacity: 0 !important;
-          transform: translateY(-4px) !important;
-          transition: opacity 0.1s cubic-bezier(0.4, 0, 1, 1), transform 0.1s cubic-bezier(0.4, 0, 1, 1) !important;
+          transform: translateY(6px) !important;
+          transition: opacity 0.13s cubic-bezier(0.4, 0, 1, 1), transform 0.13s cubic-bezier(0.4, 0, 1, 1) !important;
+        }
+        .gs-page-prep-enter {
+          opacity: 0 !important;
+          transform: translateY(10px) !important;
+          transition: none !important;
         }
         .gs-page-entering {
           opacity: 1 !important;
           transform: translateY(0) !important;
-          transition: opacity 0.16s cubic-bezier(0.16, 1, 0.3, 1), transform 0.16s cubic-bezier(0.16, 1, 0.3, 1) !important;
+          transition: opacity 0.24s cubic-bezier(0.22, 1, 0.36, 1), transform 0.24s cubic-bezier(0.22, 1, 0.36, 1) !important;
         }
+
+        /* Shared Component Styles (Guaranteed across all SPA tab switches!) */
+        .age-tab, .format-btn {
+          min-height: 42px;
+          padding: 0 20px;
+          border-radius: 999px;
+          border: 1px solid #E2E0D8;
+          font: 700 14px 'DM Sans', sans-serif;
+          cursor: pointer;
+          white-space: nowrap;
+          transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                      color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                      border-color 0.2s ease,
+                      transform 0.15s ease,
+                      box-shadow 0.2s ease;
+        }
+        .age-tab:active, .format-btn:active { transform: scale(0.96); }
+        .age-tab.active, .format-btn.active {
+          background: #1C1B18 !important;
+          color: #FFFFFF !important;
+          border-color: #1C1B18 !important;
+          box-shadow: 0 4px 12px rgba(28,27,24,0.16);
+        }
+        .age-tab.inactive, .format-btn.inactive {
+          background: #FFFFFF !important;
+          color: #1C1B18 !important;
+        }
+        .age-tab.inactive:hover, .format-btn.inactive:hover {
+          background: #F2F5EF !important;
+          border-color: #1F6B44 !important;
+        }
+        .shop-input, .shop-select {
+          min-height: 42px;
+          border-radius: 999px;
+          border: 1.5px solid #DAD7CE;
+          background: #FFFFFF;
+          color: #1C1B18;
+          font: 500 14px 'DM Sans', sans-serif;
+          padding: 0 16px;
+          outline: none;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .shop-input:focus, .shop-select:focus {
+          border-color: #1F6B44;
+          box-shadow: 0 0 0 3px rgba(31,107,68,0.12);
+        }
+        .kit-ext-btn {
+          min-height: 40px;
+          padding: 0 16px;
+          border-radius: 999px;
+          background: #1C1B18;
+          color: #FFFFFF !important;
+          font: 700 13px 'DM Sans', sans-serif;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          white-space: nowrap;
+          transition: background 0.2s ease, transform 0.15s ease;
+        }
+        .kit-ext-btn:hover { background: #1F6B44; color: #FFFFFF !important; transform: translateY(-1px); }
+        #live-kit-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+          gap: 20px;
+        }
+        #home-kits-preview {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+          gap: 16px;
+        }
+        .gs-cat-scroll {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          align-items: center;
+        }
+        .slider-container { position: relative; width: 100%; }
+        .slider-arrow {
+          position: absolute; top: 50%; transform: translateY(-50%); z-index: 8;
+          width: 44px; height: 44px; border-radius: 50%;
+          background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+          border: 1px solid #ECEAE3; color: #1C1B18; cursor: pointer;
+          display: flex; align-items: center; justify-content: center;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.14); padding: 0;
+        }
+        .slider-arrow svg { width: 22px; height: 22px; pointer-events: none; }
+        .slider-arrow-left { left: -18px; }
+        .slider-arrow-right { right: -18px; }
+        .mobile-only-block { display: none; }
+        .desktop-only-inline { display: inline; }
         button, a, input, select {
           touch-action: manipulation;
         }
@@ -1287,11 +1374,22 @@
         }
         @media (max-width: 768px) {
           html, body {
-            overflow-x: hidden !important;
+            overflow-x: clip !important;
             max-width: 100vw !important;
             width: 100% !important;
             position: relative !important;
           }
+          body > div, #page-content, section, section > div {
+            min-width: 0 !important;
+            max-width: 100vw !important;
+          }
+          #page-content, body > div:first-of-type {
+            width: 100% !important;
+            overflow-x: clip !important;
+          }
+          .mobile-only-block { display: block !important; }
+          .desktop-only-block { display: none !important; }
+          .desktop-only-inline { display: none !important; }
           header {
             position: sticky !important;
             top: 0 !important;
@@ -1300,8 +1398,8 @@
             max-width: 100vw !important;
           }
           header nav {
-            padding: 10px 14px !important;
-            gap: 8px !important;
+            padding: 10px 12px !important;
+            gap: 6px !important;
             justify-content: space-between !important;
             align-items: center !important;
             flex-wrap: nowrap !important;
@@ -1309,17 +1407,41 @@
             max-width: 100vw !important;
             box-sizing: border-box !important;
           }
+          header nav > a {
+            gap: 6px !important;
+            min-width: 0 !important;
+            flex-shrink: 1 !important;
+          }
+          header nav > a svg {
+            width: 26px !important;
+            height: 26px !important;
+            flex-shrink: 0 !important;
+          }
+          header nav > a span {
+            font-size: clamp(14.5px, 4vw, 18px) !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+          }
           /* Hide desktop links from header bar on mobile */
           header nav > div:first-of-type {
             display: none !important;
+          }
+          header nav > div:last-of-type {
+            gap: 6px !important;
+            flex-shrink: 0 !important;
           }
           /* Hide desktop 'Book a class' button in top bar on small screens */
           header nav > div:last-of-type > a[href*="classes.html#book"] {
             display: none !important;
           }
+          header nav button[aria-label="Open cart"] {
+            width: 38px !important;
+            height: 38px !important;
+          }
           .nav-auth-btn {
-            height: 40px !important;
-            padding: 0 10px !important;
+            height: 38px !important;
+            padding: 0 9px !important;
             font-size: 13px !important;
           }
           .nav-auth-btn .auth-btn-label {
@@ -1328,17 +1450,64 @@
           .goodsoil-mobile-toggle {
             display: inline-flex !important;
             flex-shrink: 0 !important;
+            width: 38px !important;
+            height: 38px !important;
           }
           section {
-            padding-left: 16px !important;
-            padding-right: 16px !important;
+            padding-left: 14px !important;
+            padding-right: 14px !important;
             max-width: 100vw !important;
             box-sizing: border-box !important;
+          }
+          .mobile-tight-section {
+            padding-top: 20px !important;
+            padding-bottom: 18px !important;
+          }
+          .age-tab, .format-btn {
+            min-height: 36px !important;
+            padding: 0 13px !important;
+            font-size: 12.5px !important;
+          }
+          .gs-cat-scroll {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+            padding-bottom: 2px;
+          }
+          .gs-cat-scroll::-webkit-scrollbar { display: none; }
+          div[role="tablist"] {
+            display: inline-flex !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            max-width: 100% !important;
+            min-width: 0 !important;
+          }
+          div[role="tablist"]::-webkit-scrollbar { display: none; }
+          .curriculum-path-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+          .curriculum-path-grid > div:last-child {
+            grid-column: 1 / -1 !important;
           }
           .slider-container {
             width: 100% !important;
             max-width: 100% !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
           }
+          .slider-track {
+            min-width: 0 !important;
+            max-width: 100% !important;
+          }
+          .slider-arrow { width: 36px !important; height: 36px !important; }
+          .slider-arrow svg { width: 17px !important; height: 17px !important; }
           .slider-arrow-left {
             left: 6px !important;
           }
@@ -1348,6 +1517,101 @@
           .slider-card {
             flex: 0 0 calc(100vw - 44px) !important;
             max-width: calc(100vw - 44px) !important;
+          }
+          /* Mobile 2-Column Compact Kit Shop & Preview Grids */
+          #live-kit-grid, #home-kits-preview {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 10px !important;
+            width: 100% !important;
+            min-width: 0 !important;
+          }
+          #live-kit-grid > *, #home-kits-preview > * {
+            min-width: 0 !important;
+            max-width: 100% !important;
+          }
+          .gs-kit-card {
+            padding: 10px !important;
+            border-radius: 16px !important;
+            gap: 7px !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
+          }
+          .gs-kit-card .gs-kit-thumb {
+            aspect-ratio: 1 / 1 !important;
+            border-radius: 12px !important;
+            padding: 6px !important;
+          }
+          .gs-kit-card .gs-kit-age-pill {
+            display: none !important;
+          }
+          .gs-kit-card .gs-kit-vendor-pill {
+            font-size: 9.5px !important;
+            padding: 2px 7px !important;
+            top: 6px !important;
+            left: 6px !important;
+          }
+          .gs-kit-card .gs-kit-desc {
+            display: none !important;
+          }
+          .gs-kit-card .gs-kit-title {
+            font-size: 13px !important;
+            line-height: 1.25 !important;
+          }
+          .gs-kit-card .gs-kit-price {
+            font-size: 15px !important;
+          }
+          .gs-kit-card .gs-kit-price-lbl,
+          .gs-kit-card .gs-kit-was {
+            display: none !important;
+          }
+          .gs-kit-card .gs-kit-footer {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 6px !important;
+            padding-top: 8px !important;
+          }
+          .gs-kit-card .kit-ext-btn {
+            width: 100% !important;
+            min-height: 34px !important;
+            padding: 0 8px !important;
+            font-size: 11px !important;
+          }
+          .gs-kit-card .gs-kit-redirect-meta {
+            font-size: 10px !important;
+          }
+          /* Compact kit filters row on mobile */
+          .shop-controls-card {
+            padding: 12px !important;
+            border-radius: 18px !important;
+            gap: 10px !important;
+            width: 100% !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
+          }
+          .shop-controls-row {
+            display: grid !important;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+            gap: 8px !important;
+            width: 100% !important;
+            min-width: 0 !important;
+          }
+          .shop-controls-row .shop-search-wrap {
+            grid-column: 1 / -1 !important;
+            min-width: 0 !important;
+          }
+          .shop-controls-row .shop-select-vendor {
+            grid-column: 1 / -1 !important;
+            min-width: 0 !important;
+          }
+          .shop-input, .shop-select {
+            min-height: 38px !important;
+            padding: 0 12px !important;
+            font-size: 14px !important;
+            width: 100% !important;
+            min-width: 0 !important;
+          }
+          #kit-search-input {
+            padding-left: 38px !important;
           }
           /* Prevent iOS Safari auto-zoom on input tap */
           input, select, textarea {
@@ -2093,10 +2357,55 @@
   const PRECACHE_PAGES = ['index.html', 'classes.html', 'curriculum.html', 'shop.html'];
   let isTransitioningPage = false;
 
+  function setNavProgress(pct, show) {
+    let bar = document.getElementById('gs-nav-progress');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.id = 'gs-nav-progress';
+      document.body.appendChild(bar);
+    }
+    if (show) {
+      bar.style.opacity = '1';
+      bar.style.width = pct + '%';
+    } else {
+      bar.style.width = '100%';
+      setTimeout(() => {
+        bar.style.opacity = '0';
+        setTimeout(() => { bar.style.width = '0%'; }, 220);
+      }, 160);
+    }
+  }
+
+  function storePageCache(key, title, rawHtml) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(rawHtml, 'text/html');
+    const main = doc.getElementById('page-content');
+    if (!main) return null;
+    const entry = { title: doc.title, html: main.innerHTML, doc: doc };
+    pageCache.set(key, entry);
+    try {
+      sessionStorage.setItem('gs_pg_v2_' + key, JSON.stringify({ title: doc.title, rawHtml: rawHtml }));
+    } catch (e) {}
+    return entry;
+  }
+
+  function getCachedOrStoredPage(key) {
+    if (pageCache.has(key)) return pageCache.get(key);
+    try {
+      const saved = sessionStorage.getItem('gs_pg_v2_' + key);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && parsed.rawHtml) {
+          return storePageCache(key, parsed.title, parsed.rawHtml);
+        }
+      }
+    } catch (e) {}
+    return null;
+  }
+
   function prefetchPages() {
     if (!window.fetch) return;
     const run = () => {
-      // Store current page in cache
       const currPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
       const currMain = document.getElementById('page-content');
       if (currMain) {
@@ -2108,33 +2417,22 @@
       }
 
       PRECACHE_PAGES.forEach(page => {
-        if (currPath.includes(page.replace('.html', '')) && currPath !== 'index.html' && page !== 'index.html') return;
-        fetch(page, { priority: 'low' })
+        const key = page.toLowerCase();
+        if (currPath === key || (currPath === '' && key === 'index.html')) return;
+        if (pageCache.has(key)) return;
+        fetch(page)
           .then(res => {
             if (!res.ok) throw new Error('Status ' + res.status);
             return res.text();
           })
           .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const main = doc.getElementById('page-content');
-            if (main) {
-              pageCache.set(page.toLowerCase(), {
-                title: doc.title,
-                html: main.innerHTML,
-                doc: doc
-              });
-            }
+            storePageCache(key, null, html);
           })
           .catch(() => {});
       });
     };
 
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(run);
-    } else {
-      setTimeout(run, 350);
-    }
+    setTimeout(run, 120);
   }
 
   function updateActiveNavState(targetPath) {
@@ -2301,73 +2599,85 @@
     }
 
     try {
-      let cached = pageCache.get(targetPath);
+      const main = document.getElementById('page-content');
+      let cached = getCachedOrStoredPage(targetPath);
+
+      // Start smooth leave glide right away
+      const leavePromise = main
+        ? new Promise(r => {
+            main.classList.remove('gs-page-entering', 'gs-page-prep-enter');
+            main.classList.add('gs-page-leaving');
+            setTimeout(r, 125);
+          })
+        : Promise.resolve();
+
       if (!cached) {
-        const res = await fetch(targetUrlObj.pathname);
+        setNavProgress(45, true);
+        const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        const timeoutId = controller ? setTimeout(() => controller.abort(), 12000) : null;
+        const res = await fetch(targetUrlObj.pathname, controller ? { signal: controller.signal } : undefined);
+        if (timeoutId) clearTimeout(timeoutId);
         if (!res.ok) throw new Error('Fetch status ' + res.status);
+        setNavProgress(85, true);
         const html = await res.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const main = doc.getElementById('page-content');
-        if (!main) throw new Error('No #page-content container in target document');
-        cached = {
-          title: doc.title,
-          html: main.innerHTML,
-          doc: doc
-        };
-        pageCache.set(targetPath, cached);
+        cached = storePageCache(targetPath, null, html);
+        if (!cached) throw new Error('No #page-content container in target document');
       }
 
-      const applySwap = () => {
-        document.title = cached.title;
-        const main = document.getElementById('page-content');
-        if (main) {
-          main.innerHTML = cached.html;
-        }
+      await leavePromise;
 
-        if (!isPopState) {
-          window.history.pushState(null, '', targetUrlObj.pathname + (hash || ''));
-        }
+      if (main) {
+        main.classList.remove('gs-page-leaving');
+        main.classList.add('gs-page-prep-enter');
+      }
 
-        // Scroll gracefully
-        if (hash) {
-          setTimeout(() => {
-            if (window.scrollToCard) window.scrollToCard(hash, 14);
-          }, 50);
-        } else {
-          window.scrollTo(0, 0);
-        }
+      document.title = cached.title;
+      if (main) {
+        main.innerHTML = cached.html;
+      }
 
-        // Execute scripts from cached doc & re-initialize page
-        if (cached.doc) {
-          executePageScripts(cached.doc);
-        }
-        reinitCurrentPage(targetPath, hash);
-      };
+      if (!isPopState) {
+        window.history.pushState(null, '', targetUrlObj.pathname + (hash || ''));
+      }
 
-      if (typeof document.startViewTransition === 'function') {
-        const transition = document.startViewTransition(() => {
-          applySwap();
+      if (!hash) {
+        window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+      }
+
+      if (cached.doc) {
+        executePageScripts(cached.doc);
+      }
+      reinitCurrentPage(targetPath, hash);
+
+      if (hash) {
+        setTimeout(() => {
+          if (window.scrollToCard) window.scrollToCard(hash, 14);
+        }, 60);
+      }
+
+      if (main) {
+        // Trigger clean glide-in on next frame after DOM + scroll settle
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            main.classList.remove('gs-page-prep-enter');
+            main.classList.add('gs-page-entering');
+            setTimeout(() => {
+              main.classList.remove('gs-page-entering');
+            }, 250);
+          });
         });
-        await transition.finished;
-      } else {
-        const main = document.getElementById('page-content');
-        if (main) {
-          main.classList.add('gs-page-leaving');
-          await new Promise(r => setTimeout(r, 90));
-          applySwap();
-          main.classList.remove('gs-page-leaving');
-          main.classList.add('gs-page-entering');
-          setTimeout(() => {
-            main.classList.remove('gs-page-entering');
-          }, 160);
-        } else {
-          applySwap();
-        }
       }
+      setNavProgress(100, false);
     } catch (err) {
+      setNavProgress(100, false);
+      const main = document.getElementById('page-content');
+      if (main) main.classList.remove('gs-page-leaving', 'gs-page-prep-enter', 'gs-page-entering');
       console.warn('Seamless navigation fallback:', err);
-      window.location.href = targetUrl;
+      if (navigator.onLine === false && typeof showToast === 'function') {
+        showToast('📶 Connection offline — reload once connected to view this page.');
+      } else {
+        window.location.href = targetUrl;
+      }
     } finally {
       isTransitioningPage = false;
     }

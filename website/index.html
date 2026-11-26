@@ -170,8 +170,9 @@
       .hero-badge-right { right: 8px !important; font-size: 14px !important; padding: 6px 12px !important; }
       .nav-auth-btn .auth-btn-label { display: none !important; }
       .hide-mobile { display: none !important; }
-      .mobile-compact { padding: 44px 18px !important; }
-      .mobile-title { font-size: clamp(26px, 6vw, 36px) !important; }
+      .hero-section { padding: 20px 14px 22px !important; gap: 24px !important; }
+      .mobile-compact { padding: 32px 14px !important; }
+      .mobile-title { font-size: clamp(24px, 6vw, 34px) !important; }
       .hero-cta-group {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
@@ -890,35 +891,35 @@
 </section>
 
 <!-- SHOP SHOWCASE -->
-<section id="kits" style="background: #F2F5EF">
-<div style="max-width: 1280px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 28px">
-  <div style="background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 32px; padding: clamp(24px, 4vw, 44px); display: flex; flex-direction: column; gap: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.03)">
-    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; justify-content: space-between">
-      <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
-        <div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; background: #FFF4D6; color: #8A4B2A; font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px">
+<section id="kits" class="mobile-tight-section" style="background: #F2F5EF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 22px">
+  <div style="background: #FFFFFF; border: 1px solid #ECEAE3; border-radius: 28px; padding: clamp(18px, 3.5vw, 40px); display: flex; flex-direction: column; gap: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.03)">
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between">
+      <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+        <div class="desktop-only-block" style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; background: #FFF4D6; color: #8A4B2A; font-weight: 800; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px">
           Good Soil Makers Kits &middot; Curated All-Brand Directory
         </div>
-        <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(28px, 3.6vw, 42px); letter-spacing: -0.03em; line-height: 1.06">
-          Vetted STEM &amp; Robotics Kits from Top Makers.
+        <h2 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(24px, 3.5vw, 40px); letter-spacing: -0.03em; line-height: 1.08">
+          Vetted STEM &amp; Robotics Kits.
         </h2>
-        <p style="margin: 0; font-size: 15.5px; color: #4A4740; line-height: 1.6; max-width: 60ch">
-          We curated <strong>389 hands-on robotics, drone, electronics, and maker kits</strong> across 14 verified Indian STEM brands. For now, clicking any kit explicitly redirects you to the main vendor website to buy directly while we set up Good Soil Makers direct checkout.
+        <p style="margin: 0; font-size: clamp(13.5px, 1.8vw, 15.5px); color: #4A4740; line-height: 1.5; max-width: 58ch">
+          <strong>389 STEM, robotics &amp; drone kits</strong> across 14 Indian brands.<span class="desktop-only-inline"> For now, clicking any kit explicitly redirects you to the main vendor website while we set up Good Soil Makers direct checkout.</span>
         </p>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 10px">
-        <a href="shop.html" style="background: #1F6B44; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 13px 24px; border-radius: 999px; font-size: 14px; box-shadow: 0 4px 14px rgba(31,107,68,0.25); white-space: nowrap">Browse All 389 Kits &rarr;</a>
-        <a href="classes.html#book" style="background: #FFFFFF; color: #1C1B18; text-decoration: none; font-weight: 700; padding: 13px 20px; border-radius: 999px; font-size: 14px; border: 1.5px solid #1C1B18; white-space: nowrap">Book a class &rarr;</a>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <a href="shop.html" style="background: #1F6B44; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 11px 20px; border-radius: 999px; font-size: 13.5px; box-shadow: 0 4px 14px rgba(31,107,68,0.25); white-space: nowrap">Browse All 389 Kits &rarr;</a>
+        <a class="desktop-only-block" href="classes.html#book" style="background: #FFFFFF; color: #1C1B18; text-decoration: none; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 13.5px; border: 1.5px solid #1C1B18; white-space: nowrap">Book a class &rarr;</a>
       </div>
     </div>
 
     <!-- EXPLICIT REDIRECT STRIP -->
-    <div style="background: #FFFBEB; border: 1px solid #F5D061; border-radius: 16px; padding: 12px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 13px; color: #55524A">
-      <span style="background: #F5B82E; color: #1C1B18; font-weight: 800; padding: 2px 10px; border-radius: 999px; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase">↗ Partner Redirect</span>
-      <span>Purchasing links open the <strong>official brand website</strong> in a new tab. Direct Good Soil Makers warehouse shipping is coming soon.</span>
+    <div style="background: #FFFBEB; border: 1px solid #F5D061; border-radius: 14px; padding: 9px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12.5px; color: #55524A">
+      <span style="background: #F5B82E; color: #1C1B18; font-weight: 800; padding: 2px 9px; border-radius: 999px; font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase">↗ Partner Redirect</span>
+      <span>Buys open the <strong>official brand website</strong>.<span class="desktop-only-inline"> Direct Good Soil Makers warehouse shipping is coming soon.</span></span>
     </div>
 
-    <!-- FEATURED KIT PREVIEW GRID (4 KITS) -->
-    <div id="home-kits-preview" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px">
+    <!-- FEATURED KIT PREVIEW GRID (4 KITS, 2-col on mobile) -->
+    <div id="home-kits-preview">
       <!-- Populated cleanly from kits_data.js -->
     </div>
   </div>
@@ -933,7 +934,7 @@
 <h2 class="mobile-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 46px); letter-spacing: -0.03em; line-height: 1.05">Questions? Let's connect.</h2>
 <p style="margin: 0; font-size: 16px; color: #4A4740; line-height: 1.6">Drop your details below or chat directly on WhatsApp. We reply within 24 hours.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px">
-<a href="https://wa.me/918050312758?text=Hi%20Good%20Soil%2C%20I%27d%20like%20to%20know%20more%20about%20your%20workshops" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.584-1.212A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.684-6.05-1.854l-.422-.3-2.956.782.814-2.888-.328-.468A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>WhatsApp us</a>
+<a href="https://wa.me/918050312758?text=Hi%20Good%20Soil%20Makers%2C%20I%27d%20like%20to%20know%20more%20about%20your%20workshops" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #FFFFFF; text-decoration: none; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.584-1.212A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.684-6.05-1.854l-.422-.3-2.956.782.814-2.888-.328-.468A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>WhatsApp us</a>
 <a href="mailto:info@goodsoilmakers.com" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #1C1B18; color: #1C1B18; text-decoration: none; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 14px">✉ info@goodsoilmakers.com</a>
 </div>
 </div>
@@ -1043,7 +1044,7 @@
 </div>
 
 <script src="kits_data.js?v=1"></script>
-<script src="goodsoil.js?v=5"></script>
+<script src="goodsoil.js?v=6"></script>
 <script>
 (function () {
   function esc(str) {
@@ -1061,18 +1062,18 @@
     if (!grid || !kits.length) return;
     const picks = kits.slice(0, 4);
     grid.innerHTML = picks.map(kit => `
-      <div style="background: #F8FAF7; border: 1px solid #E4E8DF; border-radius: 20px; padding: 14px; display: flex; flex-direction: column; gap: 10px;">
-        <div style="aspect-ratio: 4 / 3; border-radius: 14px; background: #FFFFFF; border: 1px solid #ECEAE3; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 8px; position: relative;">
+      <div class="gs-kit-card" style="background: #F8FAF7; border: 1px solid #E4E8DF; border-radius: 20px; padding: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="gs-kit-thumb" style="aspect-ratio: 4 / 3; border-radius: 14px; background: #FFFFFF; border: 1px solid #ECEAE3; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 8px; position: relative;">
           <img src="${esc(kit.img)}" alt="${esc(kit.title)}" loading="lazy" onerror="this.onerror=null;this.src='images/stem-kits.jpg';" style="width: 100%; height: 100%; object-fit: contain;">
-          <span style="position: absolute; top: 8px; left: 8px; background: rgba(255,255,255,0.95); color: #1F6B44; font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 999px; border: 1px solid #E2E0D8;">${esc(kit.vendor)}</span>
+          <span class="gs-kit-vendor-pill" style="position: absolute; top: 8px; left: 8px; background: rgba(255,255,255,0.95); color: #1F6B44; font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 999px; border: 1px solid #E2E0D8;">${esc(shortVendor(kit.vendor))}</span>
         </div>
-        <div style="font-size: 10.5px; font-weight: 800; color: #8A4B2A; text-transform: uppercase; letter-spacing: 0.04em;">${esc(kit.cat)} &middot; ${esc(kit.age)}</div>
-        <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 16px; color: #1C1B18; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${esc(kit.title)}</div>
-        <div style="margin-top: auto; padding-top: 8px; border-top: 1px solid #E4E8DF; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-          <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px; color: #1F6B44;">${esc(kit.priceText)}</span>
-          <a href="${esc(kit.link)}" target="_blank" rel="noopener noreferrer" style="background: #1C1B18; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 12px; padding: 8px 12px; border-radius: 999px; white-space: nowrap;">Buy on ${esc(shortVendor(kit.vendor))} &nearr;</a>
+        <div class="gs-kit-age-pill" style="font-size: 10.5px; font-weight: 800; color: #8A4B2A; text-transform: uppercase; letter-spacing: 0.04em;">${esc(kit.cat)} &middot; ${esc(kit.age)}</div>
+        <div class="gs-kit-title" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 16px; color: #1C1B18; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${esc(kit.title)}</div>
+        <div class="gs-kit-footer" style="margin-top: auto; padding-top: 8px; border-top: 1px solid #E4E8DF; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+          <span class="gs-kit-price" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px; color: #1F6B44;">${esc(kit.priceText)}</span>
+          <a class="kit-ext-btn" href="${esc(kit.link)}" target="_blank" rel="noopener noreferrer">Buy on ${esc(shortVendor(kit.vendor))} &nearr;</a>
         </div>
-        <div style="font-size: 10.5px; color: #6B675E;">Redirects to ${esc(kit.domain)}</div>
+        <div class="gs-kit-redirect-meta" style="font-size: 10.5px; color: #6B675E; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">&rarr; ${esc(kit.domain)}</div>
       </div>
     `).join('');
   };
